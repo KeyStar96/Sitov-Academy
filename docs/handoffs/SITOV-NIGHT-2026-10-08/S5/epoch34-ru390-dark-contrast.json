@@ -1,0 +1,44 @@
+{
+  "at": "2026-10-10T04:41:47.888Z",
+  "observed": {
+    "focus": "Повторить медленно",
+    "germanPassage": true,
+    "htmlAttributes": [
+      {
+        "name": "lang",
+        "value": "ru"
+      },
+      {
+        "name": "translate",
+        "value": "no"
+      },
+      {
+        "name": "data-scroll-behavior",
+        "value": "smooth"
+      },
+      {
+        "name": "class",
+        "value": "dark high-contrast"
+      },
+      {
+        "name": "data-theme",
+        "value": "dark"
+      },
+      {
+        "name": "data-contrast",
+        "value": "high"
+      },
+      {
+        "name": "data-consent",
+        "value": "set"
+      },
+      {
+        "name": "style",
+        "value": "color-scheme: dark;"
+      }
+    ],
+    "htmlLang": "ru",
+    "scrollWidth": 390,
+    "width": 390
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "attempts": 1,
+  "statuses": [
+    "passed"
+  ],
+  "passes": 1,
+  "score": [
+    {
+      "correct": 12,
+      "total": 12
+    }
+  ],
+  "exactAttemptAndPassHashesUnchanged": true,
+  "initialOwnStateHashes": {
+    "public.path_node_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.sitov_verb_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_unit_grants": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.student_level_access": "1cdabbf5f97627f0e5c28e49ae91c820",
+    "public.learning_first_visits": "b54c258e43e00cbcca4733d3bb784966",
+    "public.learning_activity_days": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_seen_receipts": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_trainer_grants": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.vocabulary_direction_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "sitov_pronunciation_private.pretest_passes": "37aaa4e3caddfbf365396d81ff083ac7",
+    "sitov_pronunciation_private.pretest_attempts": "a7854c6a51cf9e69e5fd0cb4a5a52ebd",
+    "sitov_pronunciation_private.pretest_receipts": "b4cd6da9898414657182606551aff4e4"
+  },
+  "finalOwnStateHashes": {
+    "public.path_node_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.sitov_verb_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_unit_grants": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.student_level_access": "1cdabbf5f97627f0e5c28e49ae91c820",
+    "public.learning_first_visits": "b54c258e43e00cbcca4733d3bb784966",
+    "public.learning_activity_days": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_seen_receipts": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.learning_trainer_grants": "d41d8cd98f00b204e9800998ecf8427e",
+    "public.vocabulary_direction_progress": "d41d8cd98f00b204e9800998ecf8427e",
+    "sitov_pronunciation_private.pretest_passes": "37aaa4e3caddfbf365396d81ff083ac7",
+    "sitov_pronunciation_private.pretest_attempts": "a7854c6a51cf9e69e5fd0cb4a5a52ebd",
+    "sitov_pronunciation_private.pretest_receipts": "b4cd6da9898414657182606551aff4e4"
+  },
+  "ownFixtureRetained": true,
+  "checkpointAfterNormalLogout": true,
+  "ownUILanguage": "ru"
+}

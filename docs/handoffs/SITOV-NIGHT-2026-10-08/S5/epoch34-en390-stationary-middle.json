@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-10T04:39:09.311Z",
+  "action": "native PageUp",
+  "settleMs": 900,
+  "observed": {
+    "activeLabel": "Repeat slowly",
+    "recording": [
+      {
+        "label": "Start recording",
+        "overlapWords": [
+          "komme",
+          "aus",
+          "Polen",
+          "und",
+          "wohne",
+          "in",
+          "Hannover.",
+          "Ich",
+          "bin",
+          "dreißig"
+        ],
+        "rect": {
+          "height": 68,
+          "width": 225.421875,
+          "x": 82.2890625,
+          "y": 676
+        }
+      }
+    ],
+    "scrollTop": 1649.5
+  },
+  "afterScreenshot": {
+    "scrollTop": 1649.5
+  }
+}

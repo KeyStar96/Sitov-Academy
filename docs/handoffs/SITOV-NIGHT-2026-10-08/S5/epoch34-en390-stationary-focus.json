@@ -1,0 +1,437 @@
+{
+  "at": "2026-10-10T04:38:33.395Z",
+  "settleMs": 900,
+  "observed": {
+    "active": {
+      "label": "Repeat slowly",
+      "rect": {
+        "height": 48,
+        "width": 139,
+        "x": 50.796875,
+        "y": 446.0546875
+      },
+      "text": "Repeat slowly",
+      "visibleInViewport": true
+    },
+    "recordingRect": {
+      "height": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "reduced": false,
+    "scrollTop": 2377.5,
+    "theme": "dark",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "words": [
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 59.5859375,
+          "x": 35,
+          "y": -104.4296875
+        },
+        "word": "Guten"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 43.9140625,
+          "x": 96.015625,
+          "y": -104.4296875
+        },
+        "word": "Tag,"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 31.5078125,
+          "x": 141.359375,
+          "y": -104.4296875
+        },
+        "word": "ich"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 55.328125,
+          "x": 174.296875,
+          "y": -104.4296875
+        },
+        "word": "hei\u00dfe"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 55.5546875,
+          "x": 231.0546875,
+          "y": -104.4296875
+        },
+        "word": "Leon."
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 32.03125,
+          "x": 288.0390625,
+          "y": -104.4296875
+        },
+        "word": "Ich"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 72.234375,
+          "x": 35,
+          "y": -62.0390625
+        },
+        "word": "komme"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 37.0234375,
+          "x": 108.6640625,
+          "y": -62.0390625
+        },
+        "word": "aus"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 55.9921875,
+          "x": 147.1171875,
+          "y": -62.0390625
+        },
+        "word": "Polen"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 39.296875,
+          "x": 204.5390625,
+          "y": -62.0390625
+        },
+        "word": "und"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 66.3125,
+          "x": 245.265625,
+          "y": -62.0390625
+        },
+        "word": "wohne"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 43.6484375,
+          "x": 35,
+          "y": -19.6484375
+        },
+        "word": "jetzt"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 20.265625,
+          "x": 80.078125,
+          "y": -19.6484375
+        },
+        "word": "in"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 98.1015625,
+          "x": 101.7734375,
+          "y": -19.6484375
+        },
+        "word": "Hannover."
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 32.03125,
+          "x": 201.3046875,
+          "y": -19.6484375
+        },
+        "word": "Ich"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 32.3125,
+          "x": 234.765625,
+          "y": -19.6484375
+        },
+        "word": "bin"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 68,
+          "x": 268.5078125,
+          "y": -19.6484375
+        },
+        "word": "drei\u00dfig"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 56.34375,
+          "x": 35,
+          "y": 22.7421875
+        },
+        "word": "Jahre"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 31.8828125,
+          "x": 92.7734375,
+          "y": 22.7421875
+        },
+        "word": "alt."
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 61.0625,
+          "x": 126.0859375,
+          "y": 22.7421875
+        },
+        "word": "Meine"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 68.875,
+          "x": 188.578125,
+          "y": 22.7421875
+        },
+        "word": "Familie"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 25.3515625,
+          "x": 258.8828125,
+          "y": 22.7421875
+        },
+        "word": "ist"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 52.71875,
+          "x": 285.6640625,
+          "y": 22.7421875
+        },
+        "word": "klein."
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 49.6015625,
+          "x": 35,
+          "y": 65.1328125
+        },
+        "word": "Mein"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 56.140625,
+          "x": 86.03125,
+          "y": 65.1328125
+        },
+        "word": "Mann"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 50.2109375,
+          "x": 143.6015625,
+          "y": 65.1328125
+        },
+        "word": "hei\u00dft"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 49.453125,
+          "x": 195.2421875,
+          "y": 65.1328125
+        },
+        "word": "Paul."
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 35.4921875,
+          "x": 246.125,
+          "y": 65.1328125
+        },
+        "word": "Wir"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 62.453125,
+          "x": 283.046875,
+          "y": 65.1328125
+        },
+        "word": "lernen"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 105.59375,
+          "x": 35,
+          "y": 107.5234375
+        },
+        "word": "zusammen"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 86.2578125,
+          "x": 142.0234375,
+          "y": 107.5234375
+        },
+        "word": "Deutsch."
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 34.9296875,
+          "x": 229.7109375,
+          "y": 107.5234375
+        },
+        "word": "Am"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 64.78125,
+          "x": 266.0703125,
+          "y": 107.5234375
+        },
+        "word": "Abend"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 67.546875,
+          "x": 35,
+          "y": 149.9140625
+        },
+        "word": "trinken"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 32.1484375,
+          "x": 103.9765625,
+          "y": 149.9140625
+        },
+        "word": "wir"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 38.078125,
+          "x": 137.5546875,
+          "y": 149.9140625
+        },
+        "word": "Tee"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 39.296875,
+          "x": 177.0625,
+          "y": 149.9140625
+        },
+        "word": "und"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 53.5546875,
+          "x": 217.7890625,
+          "y": 149.9140625
+        },
+        "word": "lesen"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 31.7265625,
+          "x": 272.7734375,
+          "y": 149.9140625
+        },
+        "word": "ein"
+      },
+      {
+        "intersectsRecording": false,
+        "rect": {
+          "height": 42.390625,
+          "width": 56.9375,
+          "x": 35,
+          "y": 192.3046875
+        },
+        "word": "Buch."
+      }
+    ]
+  },
+  "afterScreenshot": {
+    "activeY": 446.0546875,
+    "scrollTop": 2377.5
+  },
+  "recordingMeasurementCaveat": "First matched recording button was hidden duplicate (zero rectangle); do not infer no-overlap from this field. Middle-position evidence selects visible rectangles and confirms overlap."
+}
