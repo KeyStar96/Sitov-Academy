@@ -1,0 +1,945 @@
+{
+  "epoch": 76,
+  "outputDir": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1",
+  "inputSHA256": "5f53ee5a637b40fa8a7b908e5220bdd8c34703957d92e48daf6e35c05cf79eca",
+  "humanEvidenceSHA256": "8987dbefa45d2129d98a6c8813e13b2d9357f19b7ec6e01323273977ac3760b3",
+  "newNativeTakes": 3,
+  "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+  "results": [
+    {
+      "id": "sitov.s3epoch76.full.0",
+      "displayText": "„Praxis Dr. Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ist Oleh Marchenko.“",
+      "spokenText": "„Praxis Doktor Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ist Oleh Marchenko.“",
+      "alias": "4d943c1c-d012-5500-aafd-e2f02a26de37:1",
+      "rendering": "Dr. -> Doktor one display token to one spoken token; preserve all other words",
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/355fc66a4b2848df7a95c13b2222fe5c815930f52c9faf16c129f45be2424e94.mp3",
+      "audioSHA256": "da7674370acaaa194ce27332cebdb9d689b5c76ba120ae35341b45204b595b73",
+      "metadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/355fc66a4b2848df7a95c13b2222fe5c815930f52c9faf16c129f45be2424e94.diagnostic-final.json",
+      "metadataSHA256": "eb3e1d48db1fa92bccfe84dbea695785ec90c6c30ffd812b74028c10f86d090e",
+      "frozenNativeMetadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/355fc66a4b2848df7a95c13b2222fe5c815930f52c9faf16c129f45be2424e94.json",
+      "frozenNativeMetadataSHA256": "feeb4978e6691e4463500f214aa4265a615e32a0eca31dbbc55d1507b05a95a2",
+      "rawWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/raw/ab304b3327231244c06ffb96e8447865464cd875f8d110ff68f197a99feda227.wav",
+      "rawWavSHA256": "f697d03b512e219e3b7f17dfc271c351c1adc66b4cbcde07376e746f00a79bce",
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/355fc66a4b2848df7a95c13b2222fe5c815930f52c9faf16c129f45be2424e94.full-decode.wav",
+      "fullDecodedWavSHA256": "bc249815be802ff54c7b2dd1a44de7ed0cf62ae9d1bca46e1386d668ca89ac24",
+      "actualDecodedDuration": 5.15,
+      "rawReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/raw-classifier-receipts/f88a6d66563062fbb449ec81e36eab708e39606b87268712a8b7d0ca6a3cccc7.json",
+      "rawReceiptSHA256": "4d48a3892fb0fba79e887c2a1719c9681ce0d16016066f8c6e4736386faa7357",
+      "rawArraysSHA256": "c8c7665264b595c3dea35e97a11f9bf9aab1eddde658d41d44385550823348fa",
+      "rawDecisionRecomputed": true,
+      "rawAccepted": true,
+      "wordTimings": [
+        {
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "start": 1.28,
+          "end": 1.76
+        },
+        {
+          "start": 1.76,
+          "end": 2.24
+        },
+        {
+          "start": 2.24,
+          "end": 2.48
+        },
+        {
+          "start": 2.48,
+          "end": 2.8
+        },
+        {
+          "start": 2.8,
+          "end": 2.8
+        },
+        {
+          "start": 3.52,
+          "end": 3.68
+        },
+        {
+          "start": 3.68,
+          "end": 4.0
+        },
+        {
+          "start": 4.0,
+          "end": 4.16
+        },
+        {
+          "start": 4.16,
+          "end": 4.24
+        },
+        {
+          "start": 4.24,
+          "end": 4.48
+        },
+        {
+          "start": 4.48,
+          "end": 5.12
+        }
+      ],
+      "zeroPunctuationIntervals": [
+        {
+          "tokenIndex": 6,
+          "token": "–",
+          "interval": {
+            "start": 2.8,
+            "end": 2.8
+          }
+        }
+      ],
+      "oneToOneWhitespaceTokenRendering": [
+        {
+          "index": 1,
+          "display": "Dr.",
+          "spoken": "Doktor",
+          "measuredSpokenInterval": {
+            "start": 0.96,
+            "end": 1.28
+          }
+        }
+      ],
+      "ASR": {
+        "small": {
+          "id": "sitov.s3epoch76.full.0",
+          "textExpected": "„Praxis Doktor Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ist Oleh Marchenko.“",
+          "textObserved": "Praxis Dr. Lindner empfangen Guten Tag. Guten Tag, hier ist Ole Mochenko.",
+          "audioSha256": "da7674370acaaa194ce27332cebdb9d689b5c76ba120ae35341b45204b595b73"
+        },
+        "large": {
+          "id": "sitov.s3epoch76.full.0",
+          "textExpected": "„Praxis Doktor Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ist Oleh Marchenko.“",
+          "textObserved": "Praxis Dr. Lindner, Empfang. Guten Tag. Guten Tag, hier ist Ole Machenko.",
+          "audioSha256": "da7674370acaaa194ce27332cebdb9d689b5c76ba120ae35341b45204b595b73"
+        },
+        "whisper": {
+          "id": "sitov.s3epoch76.full.0",
+          "textExpected": "„Praxis Doktor Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ist Oleh Marchenko.“",
+          "textObserved": " Praxis Dr. Lindner empfangen guten Tag. Guten Tag, hier ist Ole Matschenko.",
+          "audioSha256": "da7674370acaaa194ce27332cebdb9d689b5c76ba120ae35341b45204b595b73"
+        }
+      },
+      "allObservedWordDifferences": {
+        "small": [
+          {
+            "op": "replace",
+            "expected": [
+              "doktor"
+            ],
+            "observed": [
+              "dr"
+            ]
+          },
+          {
+            "op": "replace",
+            "expected": [
+              "empfang"
+            ],
+            "observed": [
+              "empfangen"
+            ]
+          },
+          {
+            "op": "replace",
+            "expected": [
+              "oleh",
+              "marchenko"
+            ],
+            "observed": [
+              "ole",
+              "mochenko"
+            ]
+          }
+        ],
+        "large": [
+          {
+            "op": "replace",
+            "expected": [
+              "doktor"
+            ],
+            "observed": [
+              "dr"
+            ]
+          },
+          {
+            "op": "replace",
+            "expected": [
+              "oleh",
+              "marchenko"
+            ],
+            "observed": [
+              "ole",
+              "machenko"
+            ]
+          }
+        ],
+        "whisper": [
+          {
+            "op": "replace",
+            "expected": [
+              "doktor"
+            ],
+            "observed": [
+              "dr"
+            ]
+          },
+          {
+            "op": "replace",
+            "expected": [
+              "empfang"
+            ],
+            "observed": [
+              "empfangen"
+            ]
+          },
+          {
+            "op": "replace",
+            "expected": [
+              "oleh",
+              "marchenko"
+            ],
+            "observed": [
+              "ole",
+              "matschenko"
+            ]
+          }
+        ]
+      },
+      "status": "CANDIDATE_FOR_M_INDEPENDENT_QC",
+      "humanListening": false,
+      "humanPASS": false,
+      "noFurtherUserAudioTests": true,
+      "publicationApproved": false,
+      "ASRProvenance": {
+        "small": {
+          "file": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/asr-small-private.json",
+          "fileSHA256": "5f2a6b9d4f464fb8681807bfa70fde4b8b905b934dfe699f34f27e78bee11eda",
+          "model": {
+            "modelPath": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/models/asr-qa",
+            "configSHA256": "5d104a945fed08728ab010f12bf3ce5ab4d0794bba276d81bff5bd83ae9d2be0",
+            "modelWeightSHA256": "b5bfe4abc1b4c6e58b633096682ec2b6297298add1527119936107d211adf0e8",
+            "language": "German",
+            "targetTextPrompt": null,
+            "offline": true,
+            "diagnosticOnly": true
+          }
+        },
+        "large": {
+          "file": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/asr-large-private.json",
+          "fileSHA256": "cc1c2df53bd8f56af4b521892d94e2a6196f725b25f525eea573ec63d9f9e537",
+          "model": {
+            "modelPath": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/models/asr-large-qa",
+            "configSHA256": "1b76b3b6c655fc54595da025f7a96474ad9fa86363303fbdd61a7d8483ccfaf7",
+            "modelWeightSHA256": "bf304b009cc7eca79283056f787b44c952d24ac22cec787b39732bba3c23c13c",
+            "language": "German",
+            "targetTextPrompt": null,
+            "offline": true,
+            "diagnosticOnly": true
+          }
+        },
+        "whisper": {
+          "file": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/asr-whisper-private.json",
+          "fileSHA256": "fa95840ebf41bbe92f3c503ebe7377eab7bb99810c817c27afd0bfe972f0c14f",
+          "model": {
+            "modelPath": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/models/asr-whisper-qa",
+            "configSHA256": "b34fc29e4e11e0a25e812775dd67f4dd16fc2c8eb43d28ae25ff7d660ecb6379",
+            "modelWeightSHA256": "951ed3fc1203e6a62467abb2144a96ce7eafca8fa77e3704fdb8635ff3e7f8a6",
+            "language": "de",
+            "targetTextPrompt": null,
+            "offline": true,
+            "diagnosticOnly": true
+          }
+        }
+      }
+    },
+    {
+      "id": "sitov.s3epoch76.full.1",
+      "displayText": "Oleh braucht Milch: 1 Liter. Einkaufszettel: 1 l Milch",
+      "spokenText": "Oleh braucht Milch: ein Liter. Einkaufszettel: ein Liter Milch",
+      "alias": "09106034-ce64-5c70-a0a1-de6abba806e0:1",
+      "rendering": "both number1 -> ein; lowercase l -> Liter, exact one-token-to-one-token binding; preserve whole meaning/IDs/answer",
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/eba50ad1cd9eda2992f9596a2981ca4e0f593dd5666786babfe8cfee90750d72.mp3",
+      "audioSHA256": "26aae4110944d0501b6a2b6d2d7b67a19b94c3f8578094febcd3e131ad441b0b",
+      "metadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/eba50ad1cd9eda2992f9596a2981ca4e0f593dd5666786babfe8cfee90750d72.diagnostic-final.json",
+      "metadataSHA256": "04598571d8676daa0e3bf34d584748238575386bc53ed5a0c304f7696a463369",
+      "frozenNativeMetadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/eba50ad1cd9eda2992f9596a2981ca4e0f593dd5666786babfe8cfee90750d72.json",
+      "frozenNativeMetadataSHA256": "f1406ba78624055a661b81812f3549c8d353f296536222a68662c318465a1afa",
+      "rawWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/raw/93d2d9a9ec9cc1feb3853b525d6ab08b929701929f104cc23a086a9c7aae8da8.wav",
+      "rawWavSHA256": "55a02f5c57a287dcade5f45e3b26292734fdf1a76f8f00242d7a4ad456d4a99c",
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/eba50ad1cd9eda2992f9596a2981ca4e0f593dd5666786babfe8cfee90750d72.full-decode.wav",
+      "fullDecodedWavSHA256": "6cb49f912cebc1fb9505c1f70afa305913f611910723467dd64e2d67ec9c188b",
+      "actualDecodedDuration": 4.67,
+      "rawReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/raw-classifier-receipts/83735b427211c88cf7adfdc6e902bfd5ad6813200eaecab59d097741290f4989.json",
+      "rawReceiptSHA256": "c803b586dc4e6dc3e0b3500554abcde1b4c99fae874b701676997ff0b450d2c3",
+      "rawArraysSHA256": "30f520e0f665a45bf0e7087b193ef442c408adb51070b51ce1370858d4491f11",
+      "rawDecisionRecomputed": true,
+      "rawAccepted": true,
+      "wordTimings": [
+        {
+          "start": 0.4,
+          "end": 0.64
+        },
+        {
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "start": 1.04,
+          "end": 1.44
+        },
+        {
+          "start": 1.6,
+          "end": 1.84
+        },
+        {
+          "start": 1.84,
+          "end": 2.32
+        },
+        {
+          "start": 2.64,
+          "end": 3.52
+        },
+        {
+          "start": 3.68,
+          "end": 3.92
+        },
+        {
+          "start": 3.92,
+          "end": 4.24
+        },
+        {
+          "start": 4.24,
+          "end": 4.64
+        }
+      ],
+      "zeroPunctuationIntervals": [],
+      "oneToOneWhitespaceTokenRendering": [
+        {
+          "index": 3,
+          "display": "1",
+          "spoken": "ein",
+          "measuredSpokenInterval": {
+            "start": 1.6,
+            "end": 1.84
+          }
+        },
+        {
+          "index": 6,
+          "display": "1",
+          "spoken": "ein",
+          "measuredSpokenInterval": {
+            "start": 3.68,
+            "end": 3.92
+          }
+        },
+        {
+          "index": 7,
+          "display": "l",
+          "spoken": "Liter",
+          "measuredSpokenInterval": {
+            "start": 3.92,
+            "end": 4.24
+          }
+        }
+      ],
+      "ASR": {
+        "small": {
+          "id": "sitov.s3epoch76.full.1",
+          "textExpected": "Oleh braucht Milch: ein Liter. Einkaufszettel: ein Liter Milch",
+          "textObserved": "Ole braucht Milch, ein Liter. Einkaufszettel, ein Liter Milch.",
+          "audioSha256": "26aae4110944d0501b6a2b6d2d7b67a19b94c3f8578094febcd3e131ad441b0b"
+        },
+        "large": {
+          "id": "sitov.s3epoch76.full.1",
+          "textExpected": "Oleh braucht Milch: ein Liter. Einkaufszettel: ein Liter Milch",
+          "textObserved": "Ole braucht Milch, ein Liter. Einkaufszettel: ein Liter Milch.",
+          "audioSha256": "26aae4110944d0501b6a2b6d2d7b67a19b94c3f8578094febcd3e131ad441b0b"
+        },
+        "whisper": {
+          "id": "sitov.s3epoch76.full.1",
+          "textExpected": "Oleh braucht Milch: ein Liter. Einkaufszettel: ein Liter Milch",
+          "textObserved": " Ulle braucht Milch, 1 Liter. Einkaufszettel, 1 Liter Milch.",
+          "audioSha256": "26aae4110944d0501b6a2b6d2d7b67a19b94c3f8578094febcd3e131ad441b0b"
+        }
+      },
+      "allObservedWordDifferences": {
+        "small": [
+          {
+            "op": "replace",
+            "expected": [
+              "oleh"
+            ],
+            "observed": [
+              "ole"
+            ]
+          }
+        ],
+        "large": [
+          {
+            "op": "replace",
+            "expected": [
+              "oleh"
+            ],
+            "observed": [
+              "ole"
+            ]
+          }
+        ],
+        "whisper": [
+          {
+            "op": "replace",
+            "expected": [
+              "oleh"
+            ],
+            "observed": [
+              "ulle"
+            ]
+          },
+          {
+            "op": "replace",
+            "expected": [
+              "ein"
+            ],
+            "observed": [
+              "1"
+            ]
+          },
+          {
+            "op": "replace",
+            "expected": [
+              "ein"
+            ],
+            "observed": [
+              "1"
+            ]
+          }
+        ]
+      },
+      "status": "CANDIDATE_FOR_M_INDEPENDENT_QC",
+      "humanListening": false,
+      "humanPASS": false,
+      "noFurtherUserAudioTests": true,
+      "publicationApproved": false,
+      "ASRProvenance": {
+        "small": {
+          "file": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/asr-small-private.json",
+          "fileSHA256": "5f2a6b9d4f464fb8681807bfa70fde4b8b905b934dfe699f34f27e78bee11eda",
+          "model": {
+            "modelPath": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/models/asr-qa",
+            "configSHA256": "5d104a945fed08728ab010f12bf3ce5ab4d0794bba276d81bff5bd83ae9d2be0",
+            "modelWeightSHA256": "b5bfe4abc1b4c6e58b633096682ec2b6297298add1527119936107d211adf0e8",
+            "language": "German",
+            "targetTextPrompt": null,
+            "offline": true,
+            "diagnosticOnly": true
+          }
+        },
+        "large": {
+          "file": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/asr-large-private.json",
+          "fileSHA256": "cc1c2df53bd8f56af4b521892d94e2a6196f725b25f525eea573ec63d9f9e537",
+          "model": {
+            "modelPath": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/models/asr-large-qa",
+            "configSHA256": "1b76b3b6c655fc54595da025f7a96474ad9fa86363303fbdd61a7d8483ccfaf7",
+            "modelWeightSHA256": "bf304b009cc7eca79283056f787b44c952d24ac22cec787b39732bba3c23c13c",
+            "language": "German",
+            "targetTextPrompt": null,
+            "offline": true,
+            "diagnosticOnly": true
+          }
+        },
+        "whisper": {
+          "file": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2/asr-whisper-private.json",
+          "fileSHA256": "fa95840ebf41bbe92f3c503ebe7377eab7bb99810c817c27afd0bfe972f0c14f",
+          "model": {
+            "modelPath": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/models/asr-whisper-qa",
+            "configSHA256": "b34fc29e4e11e0a25e812775dd67f4dd16fc2c8eb43d28ae25ff7d660ecb6379",
+            "modelWeightSHA256": "951ed3fc1203e6a62467abb2144a96ce7eafca8fa77e3704fdb8635ff3e7f8a6",
+            "language": "de",
+            "targetTextPrompt": null,
+            "offline": true,
+            "diagnosticOnly": true
+          }
+        }
+      }
+    },
+    {
+      "id": "sitov.s3epoch76.full.2",
+      "displayText": "„Praxis Dr. Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ist Oleh Marchenko.“",
+      "spokenText": "„Praxis Doktor Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ist Oleh Mar-tschen-ko.“",
+      "alias": "4d943c1c-d012-5500-aafd-e2f02a26de37:1",
+      "rendering": "Dr. -> Doktor one display token to one spoken token; preserve all other words; explicit one-token Mar-tschen-ko pronunciation aid",
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/name-guide1/1ffb86bc4ce61264c86240901884dc6707f08afac6997a738eab224d85d272af.mp3",
+      "audioSHA256": "bb422bb5e2ff09e28c553f4372e51bbc2341af61ecd938e8479b757b5f013461",
+      "metadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/name-guide1/1ffb86bc4ce61264c86240901884dc6707f08afac6997a738eab224d85d272af.diagnostic-final.json",
+      "metadataSHA256": "c9dc536365754833804ab027c5b47b71944c06d370af399063351eec50bc531a",
+      "frozenNativeMetadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/name-guide1/1ffb86bc4ce61264c86240901884dc6707f08afac6997a738eab224d85d272af.json",
+      "frozenNativeMetadataSHA256": "e38d8c3ad98d8631889baa50fe00268930f7053b929b32e30fc5e4b5f43648b6",
+      "rawWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/name-guide1/raw/fe4089dd8d81955b1d683bed3cea1499b26ca41f3a861f3a1c075ddc07074264.wav",
+      "rawWavSHA256": "542a8cb97d2357507a2c15dbad8755d0eacb14b53cb498040b5704c76c8b1a15",
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/name-guide1/1ffb86bc4ce61264c86240901884dc6707f08afac6997a738eab224d85d272af.full-decode.wav",
+      "fullDecodedWavSHA256": "9a801afe1b223139c579754494815e6401c9863e0d9c5d310b0db30c03b0d1e3",
+      "actualDecodedDuration": 5.87,
+      "rawReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/name-guide1/raw-classifier-receipts/01d8d75c5d8d8d94a419c01b300ca05b172d3a51ae4050486ab2eba27f560fe6.json",
+      "rawReceiptSHA256": "03dd24e79f64e62348e1acba0c43696639f3c1e077ccb6c25bb5df22a031e244",
+      "rawArraysSHA256": "16cb81ea269e6932c50739e61f4b88045aa47640807fbb6e0b83964c0dcaa00e",
+      "rawDecisionRecomputed": true,
+      "rawAccepted": true,
+      "wordTimings": [
+        {
+          "start": 0.48,
+          "end": 1.04
+        },
+        {
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "start": 1.36,
+          "end": 1.84
+        },
+        {
+          "start": 1.92,
+          "end": 2.56
+        },
+        {
+          "start": 2.64,
+          "end": 2.88
+        },
+        {
+          "start": 2.88,
+          "end": 3.28
+        },
+        {
+          "start": 3.28,
+          "end": 3.28
+        },
+        {
+          "start": 3.6,
+          "end": 3.84
+        },
+        {
+          "start": 3.84,
+          "end": 4.16
+        },
+        {
+          "start": 4.4,
+          "end": 4.64
+        },
+        {
+          "start": 4.64,
+          "end": 4.8
+        },
+        {
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "start": 5.04,
+          "end": 5.76
+        }
+      ],
+      "zeroPunctuationIntervals": [
+        {
+          "tokenIndex": 6,
+          "token": "–",
+          "interval": {
+            "start": 3.28,
+            "end": 3.28
+          }
+        }
+      ],
+      "oneToOneWhitespaceTokenRendering": [
+        {
+          "index": 1,
+          "display": "Dr.",
+          "spoken": "Doktor",
+          "measuredSpokenInterval": {
+            "start": 1.04,
+            "end": 1.36
+          }
+        },
+        {
+          "index": 12,
+          "display": "Marchenko.“",
+          "spoken": "Mar-tschen-ko.“",
+          "measuredSpokenInterval": {
+            "start": 5.04,
+            "end": 5.76
+          }
+        }
+      ],
+      "ASR": {
+        "small": {
+          "id": "sitov.s3epoch76.full.2",
+          "textExpected": "„Praxis Doktor Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ist Oleh Mar-tschen-ko.“",
+          "textObserved": "Praxis Dr. Lindner Empfang Guten Tag Guten Tag hier ist Oleg Marchenko",
+          "audioSha256": "bb422bb5e2ff09e28c553f4372e51bbc2341af61ecd938e8479b757b5f013461"
+        },
+        "large": {
+          "id": "sitov.s3epoch76.full.2",
+          "textExpected": "„Praxis Doktor Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ist Oleh Mar-tschen-ko.“",
+          "textObserved": "Praxis Dr. Lindner, Empfang. Guten Tag. Guten Tag. Hier ist Ole Machenko.",
+          "audioSha256": "bb422bb5e2ff09e28c553f4372e51bbc2341af61ecd938e8479b757b5f013461"
+        },
+        "whisper": {
+          "id": "sitov.s3epoch76.full.2",
+          "textExpected": "„Praxis Doktor Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ist Oleh Mar-tschen-ko.“",
+          "textObserved": " Praxis Dr. Lindner, Empfang, guten Tag. Guten Tag, hier ist Olli Marchenko.",
+          "audioSha256": "bb422bb5e2ff09e28c553f4372e51bbc2341af61ecd938e8479b757b5f013461"
+        }
+      },
+      "allObservedWordDifferences": {
+        "small": [
+          {
+            "op": "replace",
+            "expected": [
+              "doktor"
+            ],
+            "observed": [
+              "dr"
+            ]
+          },
+          {
+            "op": "replace",
+            "expected": [
+              "oleh",
+              "mar",
+              "tschen",
+              "ko"
+            ],
+            "observed": [
+              "oleg",
+              "marchenko"
+            ]
+          }
+        ],
+        "large": [
+          {
+            "op": "replace",
+            "expected": [
+              "doktor"
+            ],
+            "observed": [
+              "dr"
+            ]
+          },
+          {
+            "op": "replace",
+            "expected": [
+              "oleh",
+              "mar",
+              "tschen",
+              "ko"
+            ],
+            "observed": [
+              "ole",
+              "machenko"
+            ]
+          }
+        ],
+        "whisper": [
+          {
+            "op": "replace",
+            "expected": [
+              "doktor"
+            ],
+            "observed": [
+              "dr"
+            ]
+          },
+          {
+            "op": "replace",
+            "expected": [
+              "oleh",
+              "mar",
+              "tschen",
+              "ko"
+            ],
+            "observed": [
+              "olli",
+              "marchenko"
+            ]
+          }
+        ]
+      },
+      "status": "CANDIDATE_FOR_M_INDEPENDENT_QC",
+      "humanListening": false,
+      "humanPASS": false,
+      "noFurtherUserAudioTests": true,
+      "publicationApproved": false,
+      "ASRProvenance": {
+        "small": {
+          "file": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/name-guide1/asr-small-private.json",
+          "fileSHA256": "c98d4412d372f1371a972d85fcc5fbb468ebee31c30c810abc05a129c7aa55aa",
+          "model": {
+            "modelPath": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/models/asr-qa",
+            "configSHA256": "5d104a945fed08728ab010f12bf3ce5ab4d0794bba276d81bff5bd83ae9d2be0",
+            "modelWeightSHA256": "b5bfe4abc1b4c6e58b633096682ec2b6297298add1527119936107d211adf0e8",
+            "language": "German",
+            "targetTextPrompt": null,
+            "offline": true,
+            "diagnosticOnly": true
+          }
+        },
+        "large": {
+          "file": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/name-guide1/asr-large-private.json",
+          "fileSHA256": "d1cd7b2d244de0230408045b0c812b0d8dd0eb2920f213c0a21af8d8170e4f9d",
+          "model": {
+            "modelPath": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/models/asr-large-qa",
+            "configSHA256": "1b76b3b6c655fc54595da025f7a96474ad9fa86363303fbdd61a7d8483ccfaf7",
+            "modelWeightSHA256": "bf304b009cc7eca79283056f787b44c952d24ac22cec787b39732bba3c23c13c",
+            "language": "German",
+            "targetTextPrompt": null,
+            "offline": true,
+            "diagnosticOnly": true
+          }
+        },
+        "whisper": {
+          "file": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/name-guide1/asr-whisper-private.json",
+          "fileSHA256": "eddaab29caf4b3e14fc8f3f07be2aeb17715f595f682a23548edd43744eca8fa",
+          "model": {
+            "modelPath": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/models/asr-whisper-qa",
+            "configSHA256": "b34fc29e4e11e0a25e812775dd67f4dd16fc2c8eb43d28ae25ff7d660ecb6379",
+            "modelWeightSHA256": "951ed3fc1203e6a62467abb2144a96ce7eafca8fa77e3704fdb8635ff3e7f8a6",
+            "language": "de",
+            "targetTextPrompt": null,
+            "offline": true,
+            "diagnosticOnly": true
+          }
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "sitov.s3epoch76.full.1",
+      "receiptFileSHA256": "c803b586dc4e6dc3e0b3500554abcde1b4c99fae874b701676997ff0b450d2c3",
+      "arraysSHA256": "30f520e0f665a45bf0e7087b193ef442c408adb51070b51ce1370858d4491f11",
+      "actualInputIdTimestampPositionsReplayed": true,
+      "timestampPositions": [
+        65,
+        66,
+        69,
+        70,
+        73,
+        74,
+        76,
+        77,
+        79,
+        80,
+        86,
+        87,
+        89,
+        90,
+        92,
+        93,
+        96,
+        97
+      ],
+      "actualRawArgmaxReplayed": true,
+      "monotoneDPDecisionReplayed": true,
+      "accepted": true,
+      "lexicalIntervalsPositive": true,
+      "zeroPunctuationIntervals": [],
+      "fullFinalMP3Decoded": true,
+      "nativeRawWavHashVerified": true,
+      "ASRModelsActuallyRun": 3
+    },
+    {
+      "id": "sitov.s3epoch76.full.0",
+      "receiptFileSHA256": "4d48a3892fb0fba79e887c2a1719c9681ce0d16016066f8c6e4736386faa7357",
+      "arraysSHA256": "c8c7665264b595c3dea35e97a11f9bf9aab1eddde658d41d44385550823348fa",
+      "actualInputIdTimestampPositionsReplayed": true,
+      "timestampPositions": [
+        71,
+        72,
+        76,
+        77,
+        81,
+        82,
+        85,
+        86,
+        89,
+        90,
+        92,
+        93,
+        96,
+        97,
+        99,
+        100,
+        103,
+        104,
+        106,
+        107,
+        110,
+        111,
+        114,
+        115
+      ],
+      "actualRawArgmaxReplayed": true,
+      "monotoneDPDecisionReplayed": true,
+      "accepted": true,
+      "lexicalIntervalsPositive": true,
+      "zeroPunctuationIntervals": [
+        {
+          "tokenIndex": 6,
+          "token": "–",
+          "interval": {
+            "start": 2.8,
+            "end": 2.8
+          }
+        }
+      ],
+      "fullFinalMP3Decoded": true,
+      "nativeRawWavHashVerified": true,
+      "ASRModelsActuallyRun": 3
+    },
+    {
+      "id": "sitov.s3epoch76.full.2",
+      "receiptFileSHA256": "03dd24e79f64e62348e1acba0c43696639f3c1e077ccb6c25bb5df22a031e244",
+      "arraysSHA256": "16cb81ea269e6932c50739e61f4b88045aa47640807fbb6e0b83964c0dcaa00e",
+      "actualInputIdTimestampPositionsReplayed": true,
+      "timestampPositions": [
+        80,
+        81,
+        85,
+        86,
+        90,
+        91,
+        94,
+        95,
+        98,
+        99,
+        101,
+        102,
+        105,
+        106,
+        108,
+        109,
+        112,
+        113,
+        115,
+        116,
+        119,
+        120,
+        125,
+        126
+      ],
+      "actualRawArgmaxReplayed": true,
+      "monotoneDPDecisionReplayed": true,
+      "accepted": true,
+      "lexicalIntervalsPositive": true,
+      "zeroPunctuationIntervals": [
+        {
+          "tokenIndex": 6,
+          "token": "–",
+          "interval": {
+            "start": 3.28,
+            "end": 3.28
+          }
+        }
+      ],
+      "fullFinalMP3Decoded": true,
+      "nativeRawWavHashVerified": true,
+      "ASRModelsActuallyRun": 3
+    }
+  ],
+  "holds": [],
+  "humanListening": false,
+  "humanPASS": false,
+  "noFurtherUserAudioTests": true,
+  "MIndependentQCRequired": true,
+  "publicationApproved": false,
+  "noImport": true,
+  "sourceIdsAndAnswersUnchanged": true,
+  "status": "CANDIDATE_FOR_M_INDEPENDENT_QC",
+  "technicalVerification": {
+    "actualNativeTakes": 3,
+    "nativeFullFinalDecodes": 3,
+    "rawReceiptArrayPositionArgmaxDPReplays": 3,
+    "actualQwenSmallObservations": 3,
+    "actualQwenLargeObservations": 3,
+    "actualWhisperObservations": 3,
+    "sourceAliasesVerified": 2,
+    "fixedProfileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+    "rate": 1,
+    "noCroppingSplicingStretchingInteriorSilence": true,
+    "allOwnedPIDsAbsent": [
+      "52353",
+      "52368",
+      "52379",
+      "52382",
+      "52386",
+      "52399",
+      "52406",
+      "52408",
+      "52422",
+      "52424",
+      "52425",
+      "52426",
+      "52427",
+      "52631",
+      "52634"
+    ],
+    "thresholdsEmpiricallyCalibrated": false
+  },
+  "sourceBindings": [
+    {
+      "alias": "4d943c1c-d012-5500-aafd-e2f02a26de37:1",
+      "displayText": "„Praxis Dr. Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ist Oleh Marchenko.“",
+      "sourceFile": "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-a1.1.json",
+      "sourceFileSHA256": "19e0c14637f69ad1bb738cb88595fea2eec5455c932461f84b710b866a543efa",
+      "exactActualSourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c"
+    },
+    {
+      "alias": "09106034-ce64-5c70-a0a1-de6abba806e0:1",
+      "displayText": "Oleh braucht Milch: 1 Liter. Einkaufszettel: 1 l Milch",
+      "sourceFile": "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-a1.1.json",
+      "sourceFileSHA256": "19e0c14637f69ad1bb738cb88595fea2eec5455c932461f84b710b866a543efa",
+      "exactActualSourceCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c"
+    }
+  ],
+  "oldRejectedAudioBindings": [
+    {
+      "text": "„Praxis Dr. Lindner, Empfang, guten Tag.“ – „Guten Tag, hier ist Oleh Marchenko.“",
+      "audio": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-source-frozen-retakes-v1/8cb14a774e90a35bb3b729261013e1f5c757e7aeee9cc4f185bf19d66287de17.mp3",
+      "audioSHA256": "016f960aa4de29cece9a1f04fc020ba60e67cbb295f9f1994cd12796c61e7a37",
+      "metadataSHA256": "0967530a0a637a74fce2c57440dd79acad85c25630c5d00fc6d6644e22696dbf"
+    },
+    {
+      "text": "Oleh braucht Milch: 1 Liter. Einkaufszettel: 1 l Milch",
+      "audio": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261009-current-male-contexts128/7b8ad3583b1f145aed9c4708b4cf742969a6879877ce05a91b15b58ce4c80071.mp3",
+      "audioSHA256": "84cb1ecc5f1a622b2e6622d58b9f8cee0f90ec6c4bc4829d835899e33527d4ef",
+      "metadataSHA256": "1cf3faf163302867f2a36e8463e50a267472f776d9b1c1928aaba626a1df5137"
+    }
+  ],
+  "priorDiagnosticSetupErrors": [
+    {
+      "scope": "optionalWhisper",
+      "folder": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/initial2",
+      "reason": "AssertionError('asr-whisper-initial2 failed')"
+    },
+    {
+      "scope": "optionalWhisper",
+      "folder": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch76-last-two-native-v1/name-guide1",
+      "reason": "AssertionError('asr-whisper-name-guide1 failed')"
+    }
+  ],
+  "userFurtherHearingUnavailable": true,
+  "ownedJobsRemaining": 0,
+  "limits": [
+    "All actual proper-name and other transcript differences retained, including Ole/Oleg and Machenko/Mochenko/Marchenko. ASR is not naturalness proof.",
+    "No further user audio tests or hearing page; M autonomously reviews/adopts under explicit latest human direction.",
+    "Guided Mar-tschen-ko full native take is explicit pronunciation rendering, pending M lexical review.",
+    "No worker humanPASS/publication/import/product metadata approval; no DB/SSH/QA/VPS/cache/registry/source changes."
+  ],
+  "artifactManifest": {
+    "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch76-artifact-sha256.json",
+    "SHA256": "b965d0a2aa65f7f8dd4a6c36540e18e29061fadf7f1e234ed24f2fbfe5314764",
+    "selfExcluded": true
+  }
+}
