@@ -1,0 +1,145 @@
+{
+  "epoch": 65,
+  "baseSha": "0ca33ef741af24d319739da186d4c645f62a6e17",
+  "branch": "codex/sitov-night-s3-locks65",
+  "probe": {
+    "lockObservations": [
+      {
+        "phase": "CATALOG_WAIT",
+        "pid": 141195,
+        "observed": {
+          "type": null,
+          "event": null,
+          "blockedByA": false
+        }
+      },
+      {
+        "phase": "CATALOG_WAIT",
+        "pid": 141195,
+        "observed": {
+          "type": "Lock",
+          "event": "advisory",
+          "blockedByA": true
+        }
+      },
+      {
+        "phase": "ROW_WAIT",
+        "pid": 141209,
+        "observed": {
+          "type": "Lock",
+          "event": "transactionid",
+          "blockedByA": true
+        }
+      }
+    ],
+    "aRole": {
+      "role": "supabase_admin",
+      "session": "supabase_admin"
+    },
+    "importerRole": {
+      "role": "service_role",
+      "session": "supabase_admin"
+    },
+    "actualInstalledServiceImporterBlocked": {
+      "type": "Lock",
+      "event": "advisory",
+      "blockedByA": true,
+      "sqlstate": "55P03"
+    },
+    "nativeResult": {
+      "allPassed": true,
+      "nativeAssertions": 54
+    },
+    "rollbackResult": {
+      "fixtureRows": 0,
+      "archiveAbsent": true
+    },
+    "rowRole": {
+      "role": "supabase_admin",
+      "session": "supabase_admin"
+    },
+    "actualExistingExerciseRowLockBlocked": {
+      "type": "Lock",
+      "event": "transactionid",
+      "blockedByA": true,
+      "timeoutConfirmed": true
+    },
+    "rowTransactionRolledBack": true,
+    "passed": true,
+    "DDLCommitted": false,
+    "crossSession114CASOrReplayProven": false,
+    "openChildProcesses": 0
+  },
+  "metadata": {
+    "rows": 5222,
+    "beforeRawSha256": "bbb05e1d2a09ff924ba4b01c1767cd7210602a884c5121930d4ab0661f3330b4",
+    "afterRawSha256": "6f087d0407cbe0e067f0c1ee74b2c9ee12c157fed43f7a3658b3fa33d2ff0b1c",
+    "rawExact": false,
+    "logicalMetadataExact": true,
+    "rawDelta": [
+      {
+        "kind": "relation",
+        "identity": "mail_outbox",
+        "changedKeys": [
+          "relminmxid",
+          "relfrozenxid",
+          "relallvisible"
+        ]
+      },
+      {
+        "kind": "relation",
+        "identity": "mail_outbox_pkey",
+        "changedKeys": [
+          "relpages"
+        ]
+      },
+      {
+        "kind": "relation",
+        "identity": "mail_outbox_due_idx",
+        "changedKeys": [
+          "relpages"
+        ]
+      }
+    ]
+  },
+  "runtime": {
+    "beforeMemoryMiB": 2734,
+    "afterMemoryMiB": 2722,
+    "healthBefore": [
+      200,
+      200,
+      200
+    ],
+    "healthAfter": [
+      200,
+      200,
+      200
+    ],
+    "beforeScopedQueries": 0,
+    "afterScopedQueries": 0,
+    "noOOM": true
+  },
+  "byteSha256": {
+    "supabase/tests/sitov-path-content-revisions-two-session.py": "af908d5afba57db90abae510fedc0b26e5cc836761a92cd6602e9652cb3b2346",
+    "supabase/tests/sitov-path-content-revisions-native.sql": "c51249a3ea23025dd8b99414b4c604d7ce6bfb200bad098bdad9bf2847b99a5d",
+    "supabase/migrations/20261009200400_sitov_path_content_revisions.sql": "45c03b30a075920e53d15e4e311e229262f63a19d7016f9c4b21d98efd0d379a",
+    "supabase/vps/114_sitov_path_content_revisions.sql": "45c03b30a075920e53d15e4e311e229262f63a19d7016f9c4b21d98efd0d379a"
+  },
+  "diagnosticRuns": 3,
+  "checks": [
+    "native final54 PASS",
+    "exact advisory Lock + blockedByA + service_role + importer SQLSTATE55P03 PASS",
+    "exact transactionid Lock + blockedByA + row timeout PASS",
+    "rollback fixture0/archiveAbsent PASS",
+    "opt-in refuses before SSH PASS",
+    "Python compile/syntax PASS",
+    "git diff --check PASS"
+  ],
+  "productionWrite": false,
+  "sharedQAWrite": false,
+  "sourceSQLChanged": false,
+  "contentApplied": false,
+  "full185QA188StreamsRun": false,
+  "releaseReady": false,
+  "openJobs": []
+}
