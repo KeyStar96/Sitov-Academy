@@ -1,0 +1,1918 @@
+{
+  "title": "Sitov Academy – S7 Epoch33 vollständige aktuelle Kontextprüfung Block01",
+  "epoch": 33,
+  "unit": "FINAL_CURRENT_FULL_GOALSET_BINDING_REAPPROVAL_BLOCK01_30TASKS",
+  "baseCommit": "25384b18ab94b2fce7796c4329409dd130e2dcd2",
+  "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+  "input": {
+    "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-after48-final-binding-review-block-01-private.json",
+    "sha256": "330990daaeb6ece08cb952ca2520bf7c0c78f80da138ae34eaca0d6f42a337ec",
+    "bytes": 272727,
+    "declaredInventorySHA256": "08694f652cfb3d42ba045675b789551bda8c6c8f7160eb7137b796cfd2c598fb"
+  },
+  "reviewCompletedAtUTC": "2026-10-10T07:00:17.828872+00:00",
+  "saveOnlyFromUTC": "2026-10-10T07:02:56.952197+00:00",
+  "hardDeadlineUTC": "2026-10-10T07:04:56.952197+00:00",
+  "readMethod": "Alle 30 vollständigen aktuellen Aufgaben in de/en/ru/uk/tr, alle sieben ganzen Elternobjekte ohne untergeordnete Aufgaben und sämtliche 34 deutschen Ziele aller drei aktuellen Pfadsets tatsächlich gelesen. Nur wörtlich identische wiederholte Strings sind im privaten Read-View durch 53 vollständig gelesene Dictionary-Strings ersetzt. Kein semantisches Zusammenfassen anstelle der vollständigen Texte, keine Übernahme früherer ACCEPT-Vermerke.",
+  "verification": {
+    "immutableGitShowSource": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+    "seedLevels": [
+      "A1.2",
+      "A2.1"
+    ],
+    "allActualObjectsComparedToImmutableSource": true,
+    "all90RowSHA256BindingsVerified": true,
+    "all3UniqueCurrentGoalsetSHA256BindingsVerified": true,
+    "canonicalSHA256": "UTF-8 JSON, ensure_ascii=False, sort_keys=True, separators=(comma,colon)",
+    "readViewDecodedRoundTripEqualsEveryInputObject": true,
+    "allReadOutputsUntruncated": true,
+    "dictionaryStringsFullyRead": 53,
+    "staticAnswerListsOptionsAndGoalReferencesChecked": true,
+    "independentFreshSemanticWholeContextReview": true,
+    "approvalFromLineageOrIndividualScalars": false
+  },
+  "counts": {
+    "assignedTasks": 30,
+    "tasksFullyRead": 30,
+    "taskACCEPT": 30,
+    "taskHOLD": 0,
+    "parentsFullyRead": 7,
+    "parentACCEPT": 7,
+    "parentHOLD": 0,
+    "completeObjectiveSetsFullyRead": 3,
+    "completeObjectivesACCEPT": 3,
+    "completeObjectivesHOLD": 0,
+    "individualObjectivesFullyRead": 34,
+    "objectiveACCEPT": 34,
+    "objectiveHOLD": 0,
+    "overallACCEPT": 30,
+    "overallHOLD": 0,
+    "PARTIAL": 0,
+    "unread": 0,
+    "findings": 0,
+    "scalarProposals": 0,
+    "answerWordRevisions": 0,
+    "answerCardinalityChanges": 0
+  },
+  "rows": [
+    {
+      "row": 0,
+      "id": "0d6870b5-9763-5eb5-a526-b69d4aec65c3",
+      "ref": "P1-N1-E07",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N1",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "21334052a1774c20ed3542fdca148649ee28890519050c96b555333b53ee6351",
+      "wholeParentMinusChildrenSHA256": "9240d11630342780f0c22cae497016ee1bac3b5cdec5c945e8e332b300de135d",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Hausmann hat die weibliche Sonderform Hausfrau; Hausmannin/Hausmännin sind falsche Distraktoren. Alle fünf Aufgaben-, Hinweis- und Erklärungstexte sind stimmig. Das weibliche Wort ist der ausdrücklich geprüfte Formkontrast, keine fiktive Lernfigur.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null sowie G1/W1 gelesen. Verkäufer/Verkäuferin, Arzt/Ärztin und Köchinnen zeigen ausdrücklich erforderliche feminine Berufs- und Pluralbildung; die Frauenformen sind fachlicher Lerninhalt.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Hausfrau",
+        "acceptedAnswers": [
+          "Hausfrau"
+        ],
+        "options": [
+          "Hausfrau",
+          "Hausmannin",
+          "Hausmännin"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 1,
+      "id": "e61ffd86-5971-50c6-a2ba-a9ce739673ed",
+      "ref": "P1-N1-E08",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N1",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "c49a208bd1f4833e80bee43816d608607407eb3cc3140e1fec85e5ac74667b30",
+      "wholeParentMinusChildrenSHA256": "9240d11630342780f0c22cae497016ee1bac3b5cdec5c945e8e332b300de135d",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die allgemeine Berufsdefinition einer Frau, die Haare schneidet, verlangt Friseurin; die akzeptierte Schreibvariante Frisörin ist ebenfalls richtig. Die fünf Sprachfassungen und das weibliche Berufsbildungsparadigma passen zusammen; der Frauenbezug ist für die geforderte Form nötig.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null sowie G1/W1 gelesen. Verkäufer/Verkäuferin, Arzt/Ärztin und Köchinnen zeigen ausdrücklich erforderliche feminine Berufs- und Pluralbildung; die Frauenformen sind fachlicher Lerninhalt.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Friseurin",
+        "acceptedAnswers": [
+          "Friseurin",
+          "Frisörin"
+        ],
+        "options": [
+          "Polizistin",
+          "Friseurin",
+          "Bäckerin"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 2,
+      "id": "38f0bf79-03fc-53fb-a3a3-8fd6236caf8d",
+      "ref": "P1-N5-E01",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N5",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "112755073193e8ccf12ec0d42d0485f9a54f1092edafd881649b14fb39a815b1",
+      "wholeParentMinusChildrenSHA256": "982be55e4d4b33fb53a288a18b970c298a3e1ec7a3aab88fbff26375d75408bf",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die Frage nach dem früheren Job verlangt eine Bewertung in der Vergangenheit. Er war gut, die Kollegen waren sehr nett beantwortet sie korrekt; Er bezieht sich grammatisch auf Job. Alle fünf Fassungen bewahren den Vergangenheits- und Bewertungsbezug.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5/K3 gelesen. Verkäufer, Taxifahrer und Chef sind männlich; war/hatte/waren sowie Berufserfahrung und Arbeitsbewertung werden korrekt eingesetzt.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Er war gut, die Kollegen waren sehr nett.",
+        "acceptedAnswers": [
+          "Er war gut, die Kollegen waren sehr nett."
+        ],
+        "options": [
+          "Er war gut, die Kollegen waren sehr nett.",
+          "Ich bin im Hotel.",
+          "Das Hotel ist groß."
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 3,
+      "id": "b19c26ba-95e9-57d1-aeb6-56b014d795a4",
+      "ref": "P1-N5-E02",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N5",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "677c5c358154ec52203d7e4a55d804279c3f7afe8b32efeff503452289e0102b",
+      "wholeParentMinusChildrenSHA256": "982be55e4d4b33fb53a288a18b970c298a3e1ec7a3aab88fbff26375d75408bf",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Leon sucht seine erste Stelle; noch keine Berufserfahrung ist unter den drei Antworten die passende Aussage. Die fünf Sprachfassungen erhalten die männliche Person und denselben Sinn. Die vollständigen Präteritumhinweise und Berufserklärungen enthalten keinen Widerspruch.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5/K3 gelesen. Verkäufer, Taxifahrer und Chef sind männlich; war/hatte/waren sowie Berufserfahrung und Arbeitsbewertung werden korrekt eingesetzt.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Ich habe noch keine Berufserfahrung.",
+        "acceptedAnswers": [
+          "Ich habe noch keine Berufserfahrung."
+        ],
+        "options": [
+          "Ich habe noch keine Berufserfahrung.",
+          "Ich hatte viele Jahre Arbeit.",
+          "Ich war zehn Jahre Chef."
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 4,
+      "id": "5103d86a-1d75-5eb0-a327-3dd25e312dad",
+      "ref": "P1-N5-E03",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N5",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "7eebb2bc0f79c44b01b0754b22abe59532519f1201704c366f3db70b358bbb88",
+      "wholeParentMinusChildrenSHA256": "982be55e4d4b33fb53a288a18b970c298a3e1ec7a3aab88fbff26375d75408bf",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Der vollständig gelesene deutsche Text unterscheidet Tareks früheren Lehrerberuf vom heutigen Busfahrer. Lehrer ist der richtige Schlüssel, die vier übersetzten Rückfragen bewahren früher; Tarek bleibt männlich.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5/K3 gelesen. Verkäufer, Taxifahrer und Chef sind männlich; war/hatte/waren sowie Berufserfahrung und Arbeitsbewertung werden korrekt eingesetzt.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Lehrer",
+        "acceptedAnswers": [
+          "Lehrer"
+        ],
+        "options": [
+          "Lehrer",
+          "Busfahrer",
+          "Schüler"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 5,
+      "id": "b8ed7cf8-cbb3-5b4d-a635-e16fe176f7bd",
+      "ref": "P1-N5-E04",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N5",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "783d9ed01316c6073da9185b5239cfa53c64c5f02eda6bd85d1f1fec5e8d74a5",
+      "wholeParentMinusChildrenSHA256": "982be55e4d4b33fb53a288a18b970c298a3e1ec7a3aab88fbff26375d75408bf",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "viel Spaß passt grammatisch und semantisch zur tollen Caféarbeit; viel Beruf/Chef sind in diesem Satz falsch. Alle fünf Fassungen vermitteln Spaß beziehungsweise Freude, ohne weibliche Lernfigur; beide Antwortlisten stimmen.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5/K3 gelesen. Verkäufer, Taxifahrer und Chef sind männlich; war/hatte/waren sowie Berufserfahrung und Arbeitsbewertung werden korrekt eingesetzt.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Spaß",
+        "acceptedAnswers": [
+          "Spaß"
+        ],
+        "options": [
+          "Spaß",
+          "Beruf",
+          "Chef"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 6,
+      "id": "b224006c-a0bd-5534-af96-0a3a71e7a049",
+      "ref": "P1-N5-E05",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N5",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "523cda08c42603e16ad7acedbea0730f8b44b4815ed3d594e5af8a3114a9d8ba",
+      "wholeParentMinusChildrenSHA256": "982be55e4d4b33fb53a288a18b970c298a3e1ec7a3aab88fbff26375d75408bf",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Chef ist dritte Person Singular, freundlich ein Prädikativ; die Präteritumform war ist korrekt, waren/hatte passen nicht. Die fünf Übersetzungen bewahren den männlichen Chef und die frühere freundliche Eigenschaft.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5/K3 gelesen. Verkäufer, Taxifahrer und Chef sind männlich; war/hatte/waren sowie Berufserfahrung und Arbeitsbewertung werden korrekt eingesetzt.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "war",
+        "acceptedAnswers": [
+          "war"
+        ],
+        "options": [
+          "war",
+          "waren",
+          "hatte"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 7,
+      "id": "894a9472-a4e7-5d41-a62a-de07dcf56cc0",
+      "ref": "P1-N5-E06",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N5",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "b25af9492a19a4f1a515fe8e5c62d6774a9936c4e813fbb4a9021ade5aab009d",
+      "wholeParentMinusChildrenSHA256": "982be55e4d4b33fb53a288a18b970c298a3e1ec7a3aab88fbff26375d75408bf",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Früher war ich Verkäufer kontrastiert mit Heute bin ich Koch. Heute ist unter den Optionen der passende Zeitbezug; Verkäufer/Koch sowie RU был und UK був bleiben männlich. Die fünf Aufgaben und Zeit-Hinweise stimmen.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5/K3 gelesen. Verkäufer, Taxifahrer und Chef sind männlich; war/hatte/waren sowie Berufserfahrung und Arbeitsbewertung werden korrekt eingesetzt.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Heute",
+        "acceptedAnswers": [
+          "Heute"
+        ],
+        "options": [
+          "Gestern",
+          "Heute",
+          "Früher"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 8,
+      "id": "fdec6923-6b1d-5b33-a595-5890d6a7d4e4",
+      "ref": "P1-N5-E07",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N5",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "df473b38ca71609573732e7488db3c4d78c32a761d49f61e70f3b88ed91ab14a",
+      "wholeParentMinusChildrenSHA256": "982be55e4d4b33fb53a288a18b970c298a3e1ec7a3aab88fbff26375d75408bf",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die Teile ergeben den korrekten Satz Die Kollegen waren sehr nett mit Verbzweitstellung und Pluralkongruenz. Alle fünf Übersetzungen, Hinweise und Erklärungen entsprechen der Bewertung vergangener Kollegen. Weitere Satzstellungen und Runtime-Normalisierung werden nicht behauptet.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5/K3 gelesen. Verkäufer, Taxifahrer und Chef sind männlich; war/hatte/waren sowie Berufserfahrung und Arbeitsbewertung werden korrekt eingesetzt.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "sentence_building",
+        "correctAnswer": "Die Kollegen waren sehr nett.",
+        "acceptedAnswers": [
+          "Die Kollegen waren sehr nett."
+        ],
+        "options": null,
+        "parts": [
+          "sehr",
+          "waren",
+          "nett",
+          "Die Kollegen"
+        ],
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 9,
+      "id": "e988a711-2784-5757-a7c9-7232d790f3f8",
+      "ref": "P1-N11-E04",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N11",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "57720e93161d2ca8f52d62c447afe36f5ec035ecf30d9a9d95cfe539835e3678",
+      "wholeParentMinusChildrenSHA256": "e6ba2470bc5e0a85543272bc79ba4195c60f26a6f01e27b53398615640a3c1e4",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Wie waren deine Kollegen fragt nach einer früheren Bewertung; Sie waren sehr freundlich ist die passende Reaktion. Sie ist hier Plural und keine weibliche Einzelfigur. Alle fünf Fassungen und der Präteritumkontext sind schlüssig.",
+      "parentReason": "Vollständiges Wiederholungs-Elternobjekt mit kind, sort_order, topic, allen fünf Titeln und sämtlichen elf Zielverweisen gelesen. Alle Verweise gehören zum unabhängig vollständig geprüften aktuellen Pfadset; keine zusätzlichen Regeltexte sind im Objekt enthalten.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Sie waren sehr freundlich.",
+        "acceptedAnswers": [
+          "Sie waren sehr freundlich."
+        ],
+        "options": [
+          "Sie waren sehr freundlich.",
+          "Sie sind Verkäufer.",
+          "Ich hatte keine Zeit."
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 10,
+      "id": "531b2b91-5f5d-54f7-ae22-0b2e8ea24ecf",
+      "ref": "P1-N11-E08",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N11",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "44882526885807a7282f0ed6400ed4b0ad0527544f64b26b247e4b85dd6a1a9c",
+      "wholeParentMinusChildrenSHA256": "e6ba2470bc5e0a85543272bc79ba4195c60f26a6f01e27b53398615640a3c1e4",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Oleh arbeitet als Friseur; als führt den artikellosen Beruf ein, bei würde eine Firma oder einen Bezugspunkt bezeichnen. Alle fünf Aufgaben, Hinweise und vollständigen Erklärungen stimmen; Oleh und Friseur sind männlich.",
+      "parentReason": "Vollständiges Wiederholungs-Elternobjekt mit kind, sort_order, topic, allen fünf Titeln und sämtlichen elf Zielverweisen gelesen. Alle Verweise gehören zum unabhängig vollständig geprüften aktuellen Pfadset; keine zusätzlichen Regeltexte sind im Objekt enthalten.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "als",
+        "acceptedAnswers": [
+          "als"
+        ],
+        "options": [
+          "von",
+          "bei",
+          "als"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 11,
+      "id": "86cc2103-15f2-51c9-a983-1dbc76ed99ef",
+      "ref": "P1-N12-E02",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N12",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "a04256f7ddbd2ff4c3265d47e2ebf829352179b8465761ce8646c08205ebc04f",
+      "wholeParentMinusChildrenSHA256": "17b69f1a30789ee4a994f66be90c251f3c3c82fd9671cac2073daf3c52d7dc5c",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die weibliche Berufsform von Koch lautet Köchin mit Umlaut und -in. Alle fünf Fassungen fragen ausdrücklich nach diesem Formkontrast; Kochin/Koch sind falsche Antworten. Die feminine Form ist der notwendige Lerninhalt.",
+      "parentReason": "Vollständiges Test-Elternobjekt mit kind, sort_order, topic, fünf Titeln, sämtlichen elf Zielverweisen und test_size 13 gelesen. Die Verweise passen zum aktuellen Zielset. test_size ist als Quellmetadatum geprüft, nicht als tatsächliche Runtime-Zufallsauswahl.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Köchin",
+        "acceptedAnswers": [
+          "Köchin"
+        ],
+        "options": [
+          "Köchin",
+          "Kochin",
+          "Koch"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 12,
+      "id": "e10aae2a-0854-5947-a931-fc0770177a32",
+      "ref": "P1-N12-E03",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N12",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "26aeee454df19fd4116a314e262ac40efde1d03ee3ee15617dd52ef6f075d573",
+      "wholeParentMinusChildrenSHA256": "17b69f1a30789ee4a994f66be90c251f3c3c82fd9671cac2073daf3c52d7dc5c",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Ich arbeite als Elektriker bei Elektro Brandt ordnet als dem Beruf und bei der Firma korrekt zu. Beide Distraktoren vertauschen oder verfälschen die Präpositionen. Emre und Elektriker sind männlich; alle fünf Fassungen entsprechen demselben Inhalt.",
+      "parentReason": "Vollständiges Test-Elternobjekt mit kind, sort_order, topic, fünf Titeln, sämtlichen elf Zielverweisen und test_size 13 gelesen. Die Verweise passen zum aktuellen Zielset. test_size ist als Quellmetadatum geprüft, nicht als tatsächliche Runtime-Zufallsauswahl.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Ich arbeite als Elektriker bei Elektro Brandt.",
+        "acceptedAnswers": [
+          "Ich arbeite als Elektriker bei Elektro Brandt."
+        ],
+        "options": [
+          "Ich arbeite bei Elektriker als Elektro Brandt.",
+          "Ich arbeite als ein Elektriker von Elektro Brandt.",
+          "Ich arbeite als Elektriker bei Elektro Brandt."
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 13,
+      "id": "8ce93b6d-6112-53eb-ac77-63f59b6bf21c",
+      "ref": "P1-N12-E17",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N12",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "facba8e59a88e9eab667bdd01db4ce8f51828feffd63eb817a3da7e3a06f03ca",
+      "wholeParentMinusChildrenSHA256": "17b69f1a30789ee4a994f66be90c251f3c3c82fd9671cac2073daf3c52d7dc5c",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "bei der Spedition Nordweg bezeichnet den Arbeitgeber mit Dativ; als/seit passen hier nicht. Die fünf Fassungen nennen übereinstimmend den männlichen Ehemann und die Transportfirma. Mein Mann setzt das Geschlecht des Ich-Sprechers nicht auf weiblich fest.",
+      "parentReason": "Vollständiges Test-Elternobjekt mit kind, sort_order, topic, fünf Titeln, sämtlichen elf Zielverweisen und test_size 13 gelesen. Die Verweise passen zum aktuellen Zielset. test_size ist als Quellmetadatum geprüft, nicht als tatsächliche Runtime-Zufallsauswahl.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "bei",
+        "acceptedAnswers": [
+          "bei"
+        ],
+        "options": [
+          "bei",
+          "als",
+          "seit"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 14,
+      "id": "10ab7bd1-445d-595b-ad60-d5ebc2f9497f",
+      "ref": "P1-N12-E24",
+      "level": "A1.2",
+      "contextKey": "A1.2/P1/P1-N12",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "bce14a9edcc4f52e16a3e6a9eafb8722f0417f37adbac5ce0a3622b632643b41",
+      "wholeParentMinusChildrenSHA256": "17b69f1a30789ee4a994f66be90c251f3c3c82fd9671cac2073daf3c52d7dc5c",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die Suche nach der ersten Stelle und die fünf Übersetzungen bezeichnen fehlende Berufserfahrung. Berufserfahrung ist der beabsichtigte und passende Schlüssel; Anzeigen oder Arbeitszeiten sind kein Ersatz für den bezeichneten Erfahrungsbegriff.",
+      "parentReason": "Vollständiges Test-Elternobjekt mit kind, sort_order, topic, fünf Titeln, sämtlichen elf Zielverweisen und test_size 13 gelesen. Die Verweise passen zum aktuellen Zielset. test_size ist als Quellmetadatum geprüft, nicht als tatsächliche Runtime-Zufallsauswahl.",
+      "completeObjectivesContextKey": "A1.2/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A1.2/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Berufserfahrung",
+        "acceptedAnswers": [
+          "Berufserfahrung"
+        ],
+        "options": [
+          "Berufserfahrung",
+          "Anzeige",
+          "Arbeitszeit"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 15,
+      "id": "39f45a3e-86ed-5c2f-a655-c748db8fa40b",
+      "ref": "P3-N4-E01",
+      "level": "A1.2",
+      "contextKey": "A1.2/P3/P3-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "0b7a7f3d5778a97a4bd6e3966ea3d7bf95f60f3f3e8d7bf1adf2f007aca2fab4",
+      "wholeParentMinusChildrenSHA256": "940525ea6d97503c3ba06770760cffad44958a65b35d3ba72fd2043c6c1b04f1",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Jonas ist männlicher Besitzer, Hals maskuliner Nominativ: Sein ohne -e ist richtig. Die fünf Fassungen erhalten den männlichen Patienten; allgemeine sie/ihr-Paradigmen bleiben für den Lernkontrast nötig.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, article-Hervorhebung sowie G2 gelesen. er/es zu sein und sie Singular/Plural zu ihr sind korrekt. Emre ist männlich; abstraktes sie und die Familie im Pluralbeispiel bleiben grammatisch notwendige Kontraste.",
+      "completeObjectivesContextKey": "A1.2/P3",
+      "completeObjectivesReason": "Alle 12 aktuellen Ziele des ganzen Sets A1.2/P3 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Sein",
+        "acceptedAnswers": [
+          "Sein"
+        ],
+        "options": [
+          "Seine",
+          "Sein",
+          "Ihr"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 16,
+      "id": "120c216e-95aa-5bc7-a810-52273851b03d",
+      "ref": "P3-N4-E02",
+      "level": "A1.2",
+      "contextKey": "A1.2/P3/P3-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "1e127248662e9d4aecc1935c519a37415809e467aa9d31e40ed49d3d8f5c8a36",
+      "wholeParentMinusChildrenSHA256": "940525ea6d97503c3ba06770760cffad44958a65b35d3ba72fd2043c6c1b04f1",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Das ausdrücklich abstrakte Pronomen sie Singular verlangt ihr; Hand ist feminin, daher satzinitial Ihre. Alle fünf Aufgaben erhalten genau diesen Formkontrast. Weder benannte weibliche Figur noch fehlerhafte Antwortform ist enthalten.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, article-Hervorhebung sowie G2 gelesen. er/es zu sein und sie Singular/Plural zu ihr sind korrekt. Emre ist männlich; abstraktes sie und die Familie im Pluralbeispiel bleiben grammatisch notwendige Kontraste.",
+      "completeObjectivesContextKey": "A1.2/P3",
+      "completeObjectivesReason": "Alle 12 aktuellen Ziele des ganzen Sets A1.2/P3 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Ihre",
+        "acceptedAnswers": [
+          "Ihre"
+        ],
+        "options": [
+          "Seine",
+          "Ihre",
+          "Ihr"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 17,
+      "id": "e3ae00c3-d68e-538d-a54b-d774b5ba3f11",
+      "ref": "P3-N4-E04",
+      "level": "A1.2",
+      "contextKey": "A1.2/P3/P3-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "6aed91be77640c8eb3b1fb665cf0d163e5ea6cf82c6663a2ac8eee9d1fa11b54",
+      "wholeParentMinusChildrenSHA256": "940525ea6d97503c3ba06770760cffad44958a65b35d3ba72fd2043c6c1b04f1",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Herr Petrov ist männlich und Rücken maskuliner Nominativ; Sein ist korrekt. Alle fünf Aufgaben, allgemeinen Possessiv-Anweisungen, Hinweise und Erklärungen passen; Ihre würde den Besitzerbezug verfälschen.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, article-Hervorhebung sowie G2 gelesen. er/es zu sein und sie Singular/Plural zu ihr sind korrekt. Emre ist männlich; abstraktes sie und die Familie im Pluralbeispiel bleiben grammatisch notwendige Kontraste.",
+      "completeObjectivesContextKey": "A1.2/P3",
+      "completeObjectivesReason": "Alle 12 aktuellen Ziele des ganzen Sets A1.2/P3 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Sein",
+        "acceptedAnswers": [
+          "Sein"
+        ],
+        "options": [
+          "Sein",
+          "Seine",
+          "Ihr"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 18,
+      "id": "0c91a906-804e-5c15-af92-dc19da646509",
+      "ref": "P3-N4-E05",
+      "level": "A1.2",
+      "contextKey": "A1.2/P3/P3-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "0282e746f13efeb7974c5be5e358b95b84765628d5c6845b8f93bf7f8f65764f",
+      "wholeParentMinusChildrenSHA256": "940525ea6d97503c3ba06770760cffad44958a65b35d3ba72fd2043c6c1b04f1",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Abstraktes sie Singular verlangt ihr, die pluralischen Ohren die Endung -e: Ihre ist richtig. Alle fünf Fassungen benennen das Pronomen explizit; diese feminine Grammatikreferenz ist sachlich notwendig und kein weiblicher Lerncharakter.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, article-Hervorhebung sowie G2 gelesen. er/es zu sein und sie Singular/Plural zu ihr sind korrekt. Emre ist männlich; abstraktes sie und die Familie im Pluralbeispiel bleiben grammatisch notwendige Kontraste.",
+      "completeObjectivesContextKey": "A1.2/P3",
+      "completeObjectivesReason": "Alle 12 aktuellen Ziele des ganzen Sets A1.2/P3 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Ihre",
+        "acceptedAnswers": [
+          "Ihre"
+        ],
+        "options": [
+          "Ihre",
+          "Seine",
+          "Ihr"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 19,
+      "id": "79f09968-5d73-5057-a89d-9de0a97ff6bf",
+      "ref": "P3-N4-E06",
+      "level": "A1.2",
+      "contextKey": "A1.2/P3/P3-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "e536e17935679cb33515e82de7943bc0d5c5580b59dd2b5a1ead5d894f954b81",
+      "wholeParentMinusChildrenSHA256": "940525ea6d97503c3ba06770760cffad44958a65b35d3ba72fd2043c6c1b04f1",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Der männliche Bruder ist Besitzer, Freundin das feminine Bezugsnomen: Seine bildet den zentralen Kontrast Besitzerpronomen versus Nomenendung korrekt ab. Freundin bleibt als fachlich nötiger femininer Kontrast erhalten; alle fünf Übersetzungen erklären dieselbe Relation.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, article-Hervorhebung sowie G2 gelesen. er/es zu sein und sie Singular/Plural zu ihr sind korrekt. Emre ist männlich; abstraktes sie und die Familie im Pluralbeispiel bleiben grammatisch notwendige Kontraste.",
+      "completeObjectivesContextKey": "A1.2/P3",
+      "completeObjectivesReason": "Alle 12 aktuellen Ziele des ganzen Sets A1.2/P3 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Seine",
+        "acceptedAnswers": [
+          "Seine"
+        ],
+        "options": [
+          "Sein",
+          "Seine",
+          "Ihre"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 20,
+      "id": "9aac08e1-c6c2-5aba-a88d-70ff20e021e7",
+      "ref": "P3-N4-E07",
+      "level": "A1.2",
+      "contextKey": "A1.2/P3/P3-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "6747d694b148ee1aee2c7090ef4634254e428b1293c2bb12e0d8211664e9f187",
+      "wholeParentMinusChildrenSHA256": "940525ea6d97503c3ba06770760cffad44958a65b35d3ba72fd2043c6c1b04f1",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die Schwester als grammatisch weibliche Besitzerreferenz verlangt ihr, Praxis feminin verlangt -e: Ihre ist korrekt. Alle fünf Fassungen bewahren die Possessivrelation und den Praxisort Bonn. Der weibliche Bezug dient unmittelbar dem Lernziel sein oder ihr.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, article-Hervorhebung sowie G2 gelesen. er/es zu sein und sie Singular/Plural zu ihr sind korrekt. Emre ist männlich; abstraktes sie und die Familie im Pluralbeispiel bleiben grammatisch notwendige Kontraste.",
+      "completeObjectivesContextKey": "A1.2/P3",
+      "completeObjectivesReason": "Alle 12 aktuellen Ziele des ganzen Sets A1.2/P3 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Ihre",
+        "acceptedAnswers": [
+          "Ihre"
+        ],
+        "options": [
+          "Ihr",
+          "Seine",
+          "Ihre"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 21,
+      "id": "087451b6-071d-5d45-a85a-a870d64cf813",
+      "ref": "P3-N4-E08",
+      "level": "A1.2",
+      "contextKey": "A1.2/P3/P3-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "476425683c2069851b760e39bf44e6669409a8b0e25bb49e76d3ed49c8b54e94",
+      "wholeParentMinusChildrenSHA256": "940525ea6d97503c3ba06770760cffad44958a65b35d3ba72fd2043c6c1b04f1",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Das neutrale Kind wird grammatisch mit es und sein aufgenommen; Bauch ist maskulin, also Sein. UK дитина/у неї folgt korrekt dem ukrainischen grammatischen Femininum und legt keinen weiblichen deutschen Lerncharakter fest. Alle fünf Fassungen sind semantisch passend.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, article-Hervorhebung sowie G2 gelesen. er/es zu sein und sie Singular/Plural zu ihr sind korrekt. Emre ist männlich; abstraktes sie und die Familie im Pluralbeispiel bleiben grammatisch notwendige Kontraste.",
+      "completeObjectivesContextKey": "A1.2/P3",
+      "completeObjectivesReason": "Alle 12 aktuellen Ziele des ganzen Sets A1.2/P3 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Sein",
+        "acceptedAnswers": [
+          "Sein"
+        ],
+        "options": [
+          "Seine",
+          "Sein",
+          "Ihr"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 22,
+      "id": "5b5154cf-586e-558c-a7c9-e41eddb68c3d",
+      "ref": "P3-N4-E09",
+      "level": "A1.2",
+      "contextKey": "A1.2/P3/P3-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "e8c54add0cd0a9d7c22a001ec2dac494a637152b617c6b3b9f3b5634939d7c1a",
+      "wholeParentMinusChildrenSHA256": "940525ea6d97503c3ba06770760cffad44958a65b35d3ba72fd2043c6c1b04f1",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Seine Augen sind Plural; tun heute weh ist korrekt. Beide akzeptierten Sätze sind grammatisch richtige Stellungen derselben Wörter. Seine bezeichnet den männlichen Besitzer; alle fünf Übersetzungen passen. Großschreibungs- und Satzzeichen-Normalisierung der Runtime ist nicht geprüft.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, article-Hervorhebung sowie G2 gelesen. er/es zu sein und sie Singular/Plural zu ihr sind korrekt. Emre ist männlich; abstraktes sie und die Familie im Pluralbeispiel bleiben grammatisch notwendige Kontraste.",
+      "completeObjectivesContextKey": "A1.2/P3",
+      "completeObjectivesReason": "Alle 12 aktuellen Ziele des ganzen Sets A1.2/P3 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "sentence_building",
+        "correctAnswer": "Seine Augen tun heute weh.",
+        "acceptedAnswers": [
+          "Seine Augen tun heute weh.",
+          "Heute tun seine Augen weh."
+        ],
+        "options": null,
+        "parts": [
+          "Seine Augen",
+          "heute",
+          "tun",
+          "weh"
+        ],
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 23,
+      "id": "f30c3772-6c1e-5b19-aead-0d76a0fb3941",
+      "ref": "P1-N1-E07",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N1",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "de202d2b462ed213b03f0c4ac8f43737a23690c0f945a0d8f65259c1612a0886",
+      "wholeParentMinusChildrenSHA256": "9725118ba9f81e88e94138713a60df375961de6ee89fc00b5d3f4d162a523eb0",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die Tochter eines Sohnes oder einer Tochter ist die Enkelin der Großeltern. Alle fünf Definitionen und gap_hints stimmen mit diesem weiblichen Verwandtschaftswort überein; die Form ist der notwendige lexikalische Geschlechtskontrast.",
+      "parentReason": "Alle fünf Titel und vollständigen Familienregeln, drei Beispiele, article-Hervorhebung und W1 gelesen. Onkel/Tante, Cousin/Cousine, Neffe/Nichte, Schwager/Schwägerin und Enkel/Enkelin sind notwendige Verwandtschaftsdefinitionen. Nichte/Mutter/Schwester dienen diesen fachlichen Beziehungen.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Enkelin",
+        "acceptedAnswers": [
+          "Enkelin"
+        ],
+        "options": [
+          "Nichte",
+          "Enkelin",
+          "Schwägerin"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 24,
+      "id": "14033800-7cea-5d20-ac4b-af9f5ef2afab",
+      "ref": "P1-N2-E01",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N2",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "17982bbec1fa98a0d81f8155c85b26e1584bb2ca36299cbecaf5726db8d7bec7",
+      "wholeParentMinusChildrenSHA256": "23d4d9b388ca29b3b556e835be1c29504392a5a9a2315cc9e14be7862134d375",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Der Vater von Anton und Antons Vater sind bedeutungsgleich; Name plus s ist korrekt, die beiden Distraktoren sind falsch. Alle fünf Fassungen behalten den männlichen Vater, alle Hinweise und vollständigen Regeln sind gelesen.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5 gelesen. Antons Vater und Leons Cousin sind männlich; Herrn Kayas Büro ist ein korrekter Genitiv mit dekliniertem Herr. Tante bleibt als feminines Dativbeispiel sachlich nötig.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Antons Vater",
+        "acceptedAnswers": [
+          "Antons Vater"
+        ],
+        "options": [
+          "Anton Vater",
+          "Antons Vater",
+          "Vaters Anton"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 25,
+      "id": "d7eccff9-d37d-5e37-a42c-6c7bb870b7f3",
+      "ref": "P1-N2-E02",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N2",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "5d7eedae6fc6e9110d61c7379df21961e1c5c6059a8fa099f7a0ca0284f5a0b7",
+      "wholeParentMinusChildrenSHA256": "23d4d9b388ca29b3b556e835be1c29504392a5a9a2315cc9e14be7862134d375",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Das Paul gehörende Auto heißt Pauls Auto; Paul Auto/Autos Paul sind falsch. Die fünf Aufgabenübersetzungen bewahren die Zugehörigkeit. Die femininen Dativbeispiele in den Erklärungen bleiben notwendige grammatische Kontraste.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5 gelesen. Antons Vater und Leons Cousin sind männlich; Herrn Kayas Büro ist ein korrekter Genitiv mit dekliniertem Herr. Tante bleibt als feminines Dativbeispiel sachlich nötig.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Pauls Auto",
+        "acceptedAnswers": [
+          "Pauls Auto"
+        ],
+        "options": [
+          "Paul Auto",
+          "Pauls Auto",
+          "Autos Paul"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 26,
+      "id": "4194ca15-37e3-5042-a40d-89aa020b8764",
+      "ref": "P1-N2-E03",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N2",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "f0deb1a955b213f4269b8eddd33e452205228969de838388962ae39f1e0b7077",
+      "wholeParentMinusChildrenSHA256": "23d4d9b388ca29b3b556e835be1c29504392a5a9a2315cc9e14be7862134d375",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Für das dem Bruder gehörende Fahrrad ist von meinem Bruder die passende Zugehörigkeitsform; von regiert Dativ. Die fünf Aufgabenübersetzungen klären den Besitzbezug. Bruder/Kind/Tante/Eltern zeigen korrekt die nötigen Dativformen.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5 gelesen. Antons Vater und Leons Cousin sind männlich; Herrn Kayas Büro ist ein korrekter Genitiv mit dekliniertem Herr. Tante bleibt als feminines Dativbeispiel sachlich nötig.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "von",
+        "acceptedAnswers": [
+          "von"
+        ],
+        "options": [
+          "von",
+          "bei",
+          "aus"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 27,
+      "id": "4f4896ac-70ce-5b30-a924-1db0cc362611",
+      "ref": "P1-N2-E04",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N2",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "a7303312b7e1f036cdedf935a4f539a2a30c66223c3cb312eee4723129f5a654",
+      "wholeParentMinusChildrenSHA256": "23d4d9b388ca29b3b556e835be1c29504392a5a9a2315cc9e14be7862134d375",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Das ist Leons Onkel verwendet den Eigennamen-Genitiv korrekt; die beiden übrigen Sätze verletzen die hier gelehrte Standardform. Milan, Leon und Onkel sind männlich; alle fünf Fassungen und vollständigen Genitivregeln passen.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5 gelesen. Antons Vater und Leons Cousin sind männlich; Herrn Kayas Büro ist ein korrekter Genitiv mit dekliniertem Herr. Tante bleibt als feminines Dativbeispiel sachlich nötig.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Das ist Leons Onkel.",
+        "acceptedAnswers": [
+          "Das ist Leons Onkel."
+        ],
+        "options": [
+          "Das ist Leons Onkel.",
+          "Das ist Leon Onkel.",
+          "Das ist der Leons Onkel."
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 28,
+      "id": "a54e227d-f4b2-593c-ab78-1ecc355ee5a1",
+      "ref": "P1-N2-E05",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N2",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "c67386c310b7800ffba8e7e83dc34d78774c5c015f62547911f071e7114cc732",
+      "wholeParentMinusChildrenSHA256": "23d4d9b388ca29b3b556e835be1c29504392a5a9a2315cc9e14be7862134d375",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Aus der Bruder von Emre wird Emres Bruder; Emres ist die korrekte Genitivform ohne Apostroph. Alle fünf Fassungen bewahren dieselbe Relation, RU/UK/TR erläutern die Umformulierung ausdrücklich. Optionen und beide Antwortlisten stimmen.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5 gelesen. Antons Vater und Leons Cousin sind männlich; Herrn Kayas Büro ist ein korrekter Genitiv mit dekliniertem Herr. Tante bleibt als feminines Dativbeispiel sachlich nötig.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Emres",
+        "acceptedAnswers": [
+          "Emres"
+        ],
+        "options": [
+          "Emres",
+          "Emre",
+          "Emren"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    },
+    {
+      "row": 29,
+      "id": "4e624c26-42a9-50bd-acd0-c1d30325cb8b",
+      "ref": "P1-N2-E06",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N2",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "ab048b9c9f056ca39e2ae88cd9630b3e82b086768763ac180b3fa325d16b740b",
+      "wholeParentMinusChildrenSHA256": "23d4d9b388ca29b3b556e835be1c29504392a5a9a2315cc9e14be7862134d375",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Der Sohn von Oleg heißt Milan und Olegs Sohn heißt Milan sind bedeutungsgleich. Olegs ist die korrekte Form; Olegn/Oleg sind falsch. Alle fünf Fassungen behalten Oleg, Sohn und Milan ohne weibliche Lernfigur.",
+      "parentReason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5 gelesen. Antons Vater und Leons Cousin sind männlich; Herrn Kayas Büro ist ein korrekter Genitiv mit dekliniertem Herr. Tante bleibt als feminines Dativbeispiel sachlich nötig.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 aktuellen Ziele des ganzen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; vollständige Beschreibungen, Einzelbegründungen und Quellenhashes stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Olegs",
+        "acceptedAnswers": [
+          "Olegs"
+        ],
+        "options": [
+          "Olegs",
+          "Olegn",
+          "Oleg"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true
+      },
+      "sourceObjectEqualityVerified": true
+    }
+  ],
+  "parents": [
+    {
+      "contextKey": "A1.2/P1/P1-N1",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "9240d11630342780f0c22cae497016ee1bac3b5cdec5c945e8e332b300de135d",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null sowie G1/W1 gelesen. Verkäufer/Verkäuferin, Arzt/Ärztin und Köchinnen zeigen ausdrücklich erforderliche feminine Berufs- und Pluralbildung; die Frauenformen sind fachlicher Lerninhalt."
+    },
+    {
+      "contextKey": "A1.2/P1/P1-N5",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "982be55e4d4b33fb53a288a18b970c298a3e1ec7a3aab88fbff26375d75408bf",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5/K3 gelesen. Verkäufer, Taxifahrer und Chef sind männlich; war/hatte/waren sowie Berufserfahrung und Arbeitsbewertung werden korrekt eingesetzt."
+    },
+    {
+      "contextKey": "A1.2/P1/P1-N11",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "e6ba2470bc5e0a85543272bc79ba4195c60f26a6f01e27b53398615640a3c1e4",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Vollständiges Wiederholungs-Elternobjekt mit kind, sort_order, topic, allen fünf Titeln und sämtlichen elf Zielverweisen gelesen. Alle Verweise gehören zum unabhängig vollständig geprüften aktuellen Pfadset; keine zusätzlichen Regeltexte sind im Objekt enthalten."
+    },
+    {
+      "contextKey": "A1.2/P1/P1-N12",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "17b69f1a30789ee4a994f66be90c251f3c3c82fd9671cac2073daf3c52d7dc5c",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Vollständiges Test-Elternobjekt mit kind, sort_order, topic, fünf Titeln, sämtlichen elf Zielverweisen und test_size 13 gelesen. Die Verweise passen zum aktuellen Zielset. test_size ist als Quellmetadatum geprüft, nicht als tatsächliche Runtime-Zufallsauswahl."
+    },
+    {
+      "contextKey": "A1.2/P3/P3-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "940525ea6d97503c3ba06770760cffad44958a65b35d3ba72fd2043c6c1b04f1",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, article-Hervorhebung sowie G2 gelesen. er/es zu sein und sie Singular/Plural zu ihr sind korrekt. Emre ist männlich; abstraktes sie und die Familie im Pluralbeispiel bleiben grammatisch notwendige Kontraste."
+    },
+    {
+      "contextKey": "A2.1/P1/P1-N1",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "9725118ba9f81e88e94138713a60df375961de6ee89fc00b5d3f4d162a523eb0",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen Familienregeln, drei Beispiele, article-Hervorhebung und W1 gelesen. Onkel/Tante, Cousin/Cousine, Neffe/Nichte, Schwager/Schwägerin und Enkel/Enkelin sind notwendige Verwandtschaftsdefinitionen. Nichte/Mutter/Schwester dienen diesen fachlichen Beziehungen."
+    },
+    {
+      "contextKey": "A2.1/P1/P1-N2",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "23d4d9b388ca29b3b556e835be1c29504392a5a9a2315cc9e14be7862134d375",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen Regeln, drei Beispiele, highlight null und G5 gelesen. Antons Vater und Leons Cousin sind männlich; Herrn Kayas Büro ist ein korrekter Genitiv mit dekliniertem Herr. Tante bleibt als feminines Dativbeispiel sachlich nötig."
+    }
+  ],
+  "objectiveSets": [
+    {
+      "contextKey": "A1.2/P1",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "allPathObjectivesSHA256": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+      "wholeSetFullyRead": true,
+      "objectiveCount": 11,
+      "reason": "Das gesamte aktuelle Set wurde erneut tatsächlich gelesen; Grammatik, Bedeutung, fachlicher Textzweck und Charakterregel wurden für jedes einzelne Ziel beurteilt. Kein offener Befund. Keine Freigabe aus alten Hashbindungen.",
+      "objectives": [
+        {
+          "id": "P1-G1",
+          "area": "grammar",
+          "description": "Berufsbezeichnungen: weibliche Form mit -in (Arzt – Ärztin), Plural auf -innen, Sonderformen wie Hausmann – Hausfrau.",
+          "sourceObjectiveSHA256": "df06da42cf8d98b262299ce1ff9d6a0231115e4cd5cd7a04e562d4ad0f04fe54",
+          "descriptionSHA256": "44fc3a5ee6fe9494bb03e9df90356f9fcd79c679fd2b13fea13327ab9960edde",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Arzt/Ärztin, -innen und Hausmann/Hausfrau bezeichnen korrekt die explizit zu lernende feminine Berufsbildung; sie muss fachlich erhalten bleiben."
+        },
+        {
+          "id": "P1-G2",
+          "area": "grammar",
+          "description": "„als“ + Beruf und „bei“ + Firma: Ich arbeite als Koch bei einer Firma.",
+          "sourceObjectiveSHA256": "99e47a4cce8488e3b45bf8aa6b17a29c483c9d2fbe0030fa75197baff627efc0",
+          "descriptionSHA256": "97fbf37e44e827efa8a1a66bab6762ce219aff6c328bcc9cb8888b48a6457d44",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Ich arbeite als Koch bei einer Firma trennt Beruf mit als und Arbeitgeber mit bei korrekt; Koch ist männlich."
+        },
+        {
+          "id": "P1-G3",
+          "area": "grammar",
+          "description": "Zeitangaben mit „vor“ und „seit“ + Dativ: Wann? Vor einem Jahr. Seit wann? Seit zwei Monaten.",
+          "sourceObjectiveSHA256": "e96e5a2e5949e5eb203ea7725d21a04a4e7b138b62cee5c2f3e67442062b2d00",
+          "descriptionSHA256": "316592470ebaeb27b00b482200fda465392d92bc9407cd2a216779297ba914b5",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "vor einem Jahr und seit zwei Monaten sind korrekte Dativ-Zeitangaben und beantworten Wann beziehungsweise Seit wann."
+        },
+        {
+          "id": "P1-G4",
+          "area": "grammar",
+          "description": "Zeitdauer mit „für“ + Akkusativ: Für wie lange? Für einen Monat, für ein Jahr, für eine Woche.",
+          "sourceObjectiveSHA256": "064f0f759f6d75ba6db69b0224a5f71221602944f8d4278b5ca4fbc125b5ce35",
+          "descriptionSHA256": "e7b7246b0067fce6b769171b4d7fee14656bc587af87aeceae4b06298e87d1b5",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "für einen Monat/ein Jahr/eine Woche sind korrekte Akkusativ-Dauerangaben über alle drei Genera."
+        },
+        {
+          "id": "P1-G5",
+          "area": "grammar",
+          "description": "Präteritum von sein und haben: war, warst, waren, wart; hatte, hattest, hatten, hattet.",
+          "sourceObjectiveSHA256": "5d90f4bea3d88ea6269c2f1ce76d79577d79842b8be188bf68317b8baba2c6dc",
+          "descriptionSHA256": "9bca31b6638f926618cf9dcb75d1ffac6afacc0876d37b1d7ff8cecd67e802e4",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "war/warst/waren/wart und hatte/hattest/hatten/hattet sind die richtigen Präteritumformen von sein und haben."
+        },
+        {
+          "id": "P1-K1",
+          "area": "communication",
+          "description": "Über den Beruf sprechen: nach dem Beruf fragen, Beruf, Ausbildung, Studium und Arbeitssituation nennen.",
+          "sourceObjectiveSHA256": "3fa32bb5479c2c8b41217395f4f2d3afa859ed406561e6822b28c76edb4bacf0",
+          "descriptionSHA256": "08382215bf29de693f3fed7987645cf22836e07f3441500e4e823cd235f17609",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Beruf, Ausbildung, Studium und Arbeitssituation bilden ein kohärentes Kommunikationsziel ohne unnötige Charaktervorgabe."
+        },
+        {
+          "id": "P1-K2",
+          "area": "communication",
+          "description": "Über das eigene Leben sprechen: Geburtsjahr und Geburtsort, frühere Wohnorte, Ankunft in Deutschland, Deutschlernen.",
+          "sourceObjectiveSHA256": "e24c7350fd9a779e171a25b0f08323914a743a145b6b5fdb9de6ebdc7b5ef762",
+          "descriptionSHA256": "e95be28897a8f616bb7f5142d7fbd9639c1ef399ee946e245fc18ca80818afb0",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Geburtsdaten, frühere Wohnorte, Ankunft und Deutschlernen sind passende Inhalte zum eigenen Lebenslauf."
+        },
+        {
+          "id": "P1-K3",
+          "area": "communication",
+          "description": "Über Berufserfahrungen sprechen: frühere Berufe nennen, Arbeit, Chef und Kollegen bewerten.",
+          "sourceObjectiveSHA256": "0c4fe22a59a3a5cff40170ad230f9974ac45eccf3705fe5f543b6f6e909abda4",
+          "descriptionSHA256": "52924fce6e978d9f05cba3ed82b12c626d772e796a34a272dec1e93cf9f2ae52",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Frühere Berufe sowie Bewertungen von Arbeit, Chef und Kollegen entsprechen dem gelesenen Berufserfahrungskontext."
+        },
+        {
+          "id": "P1-K4",
+          "area": "communication",
+          "description": "Am Telefon nach einer Stelle fragen: Anzeige, freie Stelle, Arbeitszeit, Verdienst und Termin.",
+          "sourceObjectiveSHA256": "6785044f67483b4aa26877db93b775dfbca31cb5d209196e8b08e3f7998d0578",
+          "descriptionSHA256": "e080062bcc8fe112bc7af24223d7950e7f8bf18a2d9dacf7479a24d3ab3cae60",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Anzeige, Stelle, Arbeitszeit, Verdienst und Termin sind passende Themen einer telefonischen Stellenanfrage."
+        },
+        {
+          "id": "P1-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: Stellenanzeigen und kurze Texte zum Thema Beruf verstehen, ein Stellengesuch formulieren.",
+          "sourceObjectiveSHA256": "ed775aa06929af20a166a82aaeab90997c7a48928a68e7e46546b5d8fe978546",
+          "descriptionSHA256": "9e06be2dfd46a10cd37e4fa4a65848d484771dd895333629ec67ff296b8f7f5f",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Stellenanzeigen und Berufstexte verstehen sowie ein Stellengesuch formulieren sind klar abgegrenzte Kann-Ziele."
+        },
+        {
+          "id": "P1-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Berufe und Wörter rund um Arbeit und Beruf.",
+          "sourceObjectiveSHA256": "72d5e109e99e45abc60557d0316063406970e63c07d5520f5a1aa8e2e68e02bc",
+          "descriptionSHA256": "0599b391826e4614bf7d7c0a8074077764f1b541139f0826f24741bad74da06a",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Berufe und Arbeit bilden ein zum gesamten Pfad passendes Wortschatzfeld."
+        }
+      ]
+    },
+    {
+      "contextKey": "A1.2/P3",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "allPathObjectivesSHA256": "bab5d2865bf9ef9a7acba2a53d18ee65173f672538991e4653d4f1ccfe81e7c8",
+      "wholeSetFullyRead": true,
+      "objectiveCount": 12,
+      "reason": "Das gesamte aktuelle Set wurde erneut tatsächlich gelesen; Grammatik, Bedeutung, fachlicher Textzweck und Charakterregel wurden für jedes einzelne Ziel beurteilt. Kein offener Befund. Keine Freigabe aus alten Hashbindungen.",
+      "objectives": [
+        {
+          "id": "P3-G1",
+          "area": "grammar",
+          "description": "Possessivartikel für alle Personen im Nominativ: mein, dein, sein, ihr, unser, euer, ihr, Ihr – mit -e bei „die“ und im Plural (eure).",
+          "sourceObjectiveSHA256": "fdf29e3cdab19fae6dc8b71d3080913fced12fe1b688b9c43d9141468ced6ebe",
+          "descriptionSHA256": "c778dd8e0d9e3de6fe2f256547bc27768464558aeea13ad61168a6ce7a039dd0",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Das Personenparadigma einschließlich ihr und höflichem Ihr sowie Endungen -e/eure ist korrekt und fachlich erforderlich."
+        },
+        {
+          "id": "P3-G2",
+          "area": "grammar",
+          "description": "sein oder ihr: Der Possessivartikel richtet sich nach dem Pronomen des Besitzers (Simon – seine Hand; „sie (Singular)“ – ihre Hand).",
+          "sourceObjectiveSHA256": "1ee0ff39bb3dafd2059b52185f88fa4960c8cb11b090577705d4671d61b4d3ab",
+          "descriptionSHA256": "a4e8e6ede69aaaaf9825b27e05fdf50ecbda3b7f4c6eaf3f7fd595f9f6661d0c",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Simon/seine Hand und das abstrakte sie Singular/ihre Hand unterscheiden Besitzerbezug korrekt von der Nomenendung; der feminine Kontrast ist notwendig."
+        },
+        {
+          "id": "P3-G3",
+          "area": "grammar",
+          "description": "Possessivartikel im Akkusativ: bei maskulinen Nomen mit -en (meinen, deinen, seinen, ihren, unseren, euren, Ihren).",
+          "sourceObjectiveSHA256": "cb6a6b4676ea6575e4de6c8e4ef9e4ab07bd8c08089e088dd5657fb2e51a9622",
+          "descriptionSHA256": "cb111204f563f9b1c91a496fa7aaa364adc59e559e75cdb00dbdf22257f9c285",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die aufgeführten maskulinen Akkusativformen auf -en einschließlich höflichem Ihren sind korrekt."
+        },
+        {
+          "id": "P3-G4",
+          "area": "grammar",
+          "description": "Modalverb sollen: soll, sollst, sollen, sollt; der Infinitiv steht am Satzende.",
+          "sourceObjectiveSHA256": "ced0b71ea84d98764dfb4bd813c05d0f6086305605ed4095609f2c48851ac21b",
+          "descriptionSHA256": "1f322bfb412a2e3b9088e71cbe2622c0b4e7c383e728ba4f5d0f195b959cc37d",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "soll/sollst/sollen/sollt und finaler Infinitiv beschreiben sollen mit Satzklammer richtig."
+        },
+        {
+          "id": "P3-K1",
+          "area": "communication",
+          "description": "Über das Befinden sprechen: sagen, was wehtut, und Krankheiten nennen (Fieber, Husten, Schnupfen, Schmerzen).",
+          "sourceObjectiveSHA256": "296295b91a105e4173bdc51fa33707a62d446d61e32ecb2d0014654e622b6792",
+          "descriptionSHA256": "480e5c8e0c8924300230dc9cffd75011f82fe7c28aa2f2f181c557a41e74aa42",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Befinden, wehtun sowie Fieber/Husten/Schnupfen/Schmerzen sind passende Inhalte des sprachlichen Gesundheitslernziels."
+        },
+        {
+          "id": "P3-K2",
+          "area": "communication",
+          "description": "Anweisungen und Ratschläge für die Gesundheit verstehen, geben und weitersagen: Der Arzt sagt, ich soll viel trinken.",
+          "sourceObjectiveSHA256": "9387eeb81410393bb4da79cef1022eabcc7a8d9b723c0bfaa6e7f61010c60d5d",
+          "descriptionSHA256": "7932048bd77e9daae15eb2553ab4616197f70d571ab03b0d1e161c228d47823e",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Der Arzt sagt ich soll viel trinken ist ein korrektes Sprachmuster zum Weitergeben von Anweisungen mit männlichem Arzt."
+        },
+        {
+          "id": "P3-K3",
+          "area": "communication",
+          "description": "Sich krankmelden: Leider kann ich heute nicht kommen.",
+          "sourceObjectiveSHA256": "643a59ee4fd3ae895921af850bc3c39896431b47e76889161fccc49c8b8b1555",
+          "descriptionSHA256": "3e31ecf52cc1fe583eac778e8030382ef89a32dbaa9582fbe811226cd357abd4",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Leider kann ich heute nicht kommen ist eine idiomatische Krankmeldungsformel."
+        },
+        {
+          "id": "P3-K4",
+          "area": "communication",
+          "description": "Einen Termin beim Arzt vereinbaren: Könnte ich bitte einen Termin haben? Es ist dringend.",
+          "sourceObjectiveSHA256": "265212f11462c323708128f66e5ac82c86a1bdf574b74e8b83085933bce963b1",
+          "descriptionSHA256": "a2c04eb017b175017b267b340ad4396586d7a6c33683e2692efb3796dbbbd38d",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Könnte ich bitte einen Termin haben und Es ist dringend sind passende Formeln einer Terminvereinbarung."
+        },
+        {
+          "id": "P3-K5",
+          "area": "communication",
+          "description": "Einen Notfall melden: Wo sind Sie? Was ist passiert? Was ist mit der Person?",
+          "sourceObjectiveSHA256": "41541ef6244a62a1fad876e84737abb1fe42e36b8d255bc109286c403644e645",
+          "descriptionSHA256": "5c3dcd86a071f6cded54583695139575d03636a8cd34fd09c7b9a9066bc7244d",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die drei Notfallfragen sind sprachlich passend; Wo sind Sie enthält die korrekte höfliche Anrede."
+        },
+        {
+          "id": "P3-K6",
+          "area": "communication",
+          "description": "Im Gespräch reagieren: Oh nein! Oje! Ach so. Hoffentlich! Bis gleich. Bis später.",
+          "sourceObjectiveSHA256": "b635cf10f2f08b17f457edadb7fb41176a65b47604ffc4483097830605dd668f",
+          "descriptionSHA256": "427da5b3ee7d97e9c4d8985395f0ab32b6a0aaa162f95de5a3a18773548cd28f",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Oh nein, Oje, Ach so, Hoffentlich und die Abschiedsformeln sind idiomatische Reaktionen."
+        },
+        {
+          "id": "P3-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: eine Krankmeldung schreiben und verstehen, Gesundheitstipps und Informationen zu Praxis, Notdienst und Apotheke verstehen.",
+          "sourceObjectiveSHA256": "0d2a6cd86d545f7d50b3bcbf12e8e48aabd8868a61da7ca6295b52e48dd48b76",
+          "descriptionSHA256": "bb3bd4db5d8e6ef58d9e7ad851ca19dc83a7cf6b87f7e6bd92ecc02670de85d9",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Krankmeldung, Gesundheitstipps und Informationen zu Praxis, Notdienst und Apotheke sind kohärente rezeptive und produktive Sprachlernziele."
+        },
+        {
+          "id": "P3-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Körperteile, Krankheiten und Wörter rund um Arzt und Apotheke.",
+          "sourceObjectiveSHA256": "056bed11e2f311cbcb6a5306267812e8abb2153eccb5dd43cbe2c5782963ef78",
+          "descriptionSHA256": "33a91f3dd23c8222fed61be0e0a34aecafc83e2a980f616d1a05f083899530d8",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Körperteile, Krankheiten sowie Arzt und Apotheke sind ein passendes Wortschatzfeld."
+        }
+      ]
+    },
+    {
+      "contextKey": "A2.1/P1",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "wholeSetFullyRead": true,
+      "objectiveCount": 11,
+      "reason": "Das gesamte aktuelle Set wurde erneut tatsächlich gelesen; Grammatik, Bedeutung, fachlicher Textzweck und Charakterregel wurden für jedes einzelne Ziel beurteilt. Kein offener Befund. Keine Freigabe aus alten Hashbindungen.",
+      "objectives": [
+        {
+          "id": "P1-G1",
+          "area": "grammar",
+          "description": "Gründe nennen mit weil: Nebensatz mit dem Verb am Ende – auch mit Modalverb, im Perfekt und mit trennbaren Verben.",
+          "sourceObjectiveSHA256": "5f28bd5ec1ee26e65b1256a429188aed7e1dca029b7291389296705ef0a9210f",
+          "descriptionSHA256": "aaf869bedea31f1227ad176aeb9cc4bf487f43af379f378cdd37403905eb6764",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "weil mit finalem Verb ist einschließlich Modalverb, Perfekt und trennbaren Verben korrekt beschrieben."
+        },
+        {
+          "id": "P1-G2",
+          "area": "grammar",
+          "description": "Perfekt der trennbaren Verben: eingekauft, angerufen, aufgestanden, kennengelernt.",
+          "sourceObjectiveSHA256": "94af2329d1db25846065d14866130bfe77dbfc59bb3ba043103a230951bc5fc2",
+          "descriptionSHA256": "26dcdfbefd364577c44d546aeaeeab7275385cbeab9265d8b0cfaaf6dd8010e2",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "eingekauft/angerufen/aufgestanden/kennengelernt sind korrekte Partizipien der genannten trennbaren Verben."
+        },
+        {
+          "id": "P1-G3",
+          "area": "grammar",
+          "description": "Perfekt der Verben auf -ieren ohne ge-: telefoniert, studiert, passiert.",
+          "sourceObjectiveSHA256": "c575c07a6eac95381425565f2847e0617356d48e60450d67ef7f866bdc87cf53",
+          "descriptionSHA256": "4b8eec9b82e3aff832554aa1861a989d0b4442bfe37bcb324c9f7ed1ef379fb0",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "telefoniert/studiert/passiert zeigen korrekt -ieren-Partizipien ohne ge-."
+        },
+        {
+          "id": "P1-G4",
+          "area": "grammar",
+          "description": "Perfekt der nicht trennbaren Verben ohne ge-: erlebt, bemerkt, verpasst, verstanden.",
+          "sourceObjectiveSHA256": "83749cdf799c94dbe019ce30ab86717b0d66456d5492b63b0ace88efe474ed1e",
+          "descriptionSHA256": "b08c44c6b9a4385474a11314208dfaee3af0cd7173fd25acf46bf2c80e68d70c",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "erlebt/bemerkt/verpasst/verstanden zeigen korrekt Partizipien nicht trennbarer Verben ohne ge-."
+        },
+        {
+          "id": "P1-G5",
+          "area": "grammar",
+          "description": "Zugehörigkeit bei Namen: Pauls Vater – und mit von + Dativ: der Vater von Paul.",
+          "sourceObjectiveSHA256": "52473e9b57a40e249b5e6f8c4ce87be66ce771caebded8b348b0fb373aab908a",
+          "descriptionSHA256": "635edd60f66cf3d076596b517aea387963b894add26a0edbd70c25cf11bf4608",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Pauls Vater und der Vater von Paul sind korrekte Zugehörigkeitsformen; Vater ist männlich und beide Konstruktionen sind erhalten."
+        },
+        {
+          "id": "P1-K1",
+          "area": "communication",
+          "description": "Von Pannen im Alltag erzählen und darauf reagieren: Stell dir vor … So ein Pech! Und was ist dann passiert?",
+          "sourceObjectiveSHA256": "dac471b927aa139295769b912723a776a1a5af559d17a8bb85deffb50cbc0a31",
+          "descriptionSHA256": "801fc038c9ff9feb774e56c2f20cce31c0a5afcb2263ebbf98b5ccf8bb6544cd",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Stell dir vor, So ein Pech und Was ist dann passiert sind passende Formeln zu Alltagspannen."
+        },
+        {
+          "id": "P1-K2",
+          "area": "communication",
+          "description": "Von Wohn- und Lebensformen erzählen: allein, als Paar, in einer WG; ledig, verheiratet, geschieden; berufstätig, in Rente.",
+          "sourceObjectiveSHA256": "127c9049cd9df4768932ebe081804921116d3c2e25343bdff08fb0caeb51f10e",
+          "descriptionSHA256": "234fbbfd7bf5a243ae8512cb260869b8628bada75f93929e83a9e43953381e2b",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Wohn- und Lebensformen sowie Familienstand und Berufstätigkeit bilden ein stimmiges Kommunikationsthema."
+        },
+        {
+          "id": "P1-K3",
+          "area": "communication",
+          "description": "Sagen, wie jemand etwas findet: Das findet er toll. Das gefällt ihm nicht.",
+          "sourceObjectiveSHA256": "3cb953d84535eb855b54d3d38591ea163821432969678b110e0d76ed414cbd1a",
+          "descriptionSHA256": "daab4a2847999952d84c7781e3a596681980a0888b824fe0bcce74c1655c916c",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Das findet er toll und Das gefällt ihm nicht sind korrekte Bewertungsformulierungen mit männlichen Pronomen."
+        },
+        {
+          "id": "P1-K4",
+          "area": "communication",
+          "description": "Eine Erzählung gliedern: zuerst, dann, später, schließlich.",
+          "sourceObjectiveSHA256": "df9914ae1a5058702a3a937142b6ec6af4bfec6b77a19615d91267bcd950b52d",
+          "descriptionSHA256": "48a98e387b8bdd3b154ee0fd1c8b012d7f127e14fc3beb38dab7718a910e14c8",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "zuerst/dann/später/schließlich ordnen eine Erzählung zeitlich nachvollziehbar."
+        },
+        {
+          "id": "P1-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: kurze Erzählungen und Nachrichten über den Alltag verstehen.",
+          "sourceObjectiveSHA256": "eeffddb32dd2360c39c7237443c8b3ab86090ddddcf332e65cd593c464f8b0be",
+          "descriptionSHA256": "23dd34f3db6751baf24eee7165d7fbbee02ef182c31d00265e3c1fda96f158cb",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Kurze Alltagserzählungen und Nachrichten verstehen ist ein passendes rezeptives Kann-Ziel."
+        },
+        {
+          "id": "P1-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Familienmitglieder und Lebensformen.",
+          "sourceObjectiveSHA256": "11179493dd28ede361918756a0f3e84f2fa6616bb7c7b3e162ecc34832f3cee2",
+          "descriptionSHA256": "6b94bd15b357af6c0cd604cf058fb4f9e746f9b66d21c1c3404d97dad74d71be",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Familienmitglieder und Lebensformen bilden den thematischen Wortschatz des Pfads sachlich passend ab."
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "proposals": [],
+  "preservedNecessaryLanguageContrasts": [
+    "Weibliche Berufsbezeichnungen einschließlich Hausfrau, Ärztin, Köchin/Köchinnen und Friseurin/Frisörin sind ausdrückliche Form- oder Wortschatzlernziele.",
+    "Abstraktes sie Singular, ihr/Ihre sowie Besitzerbezug versus feminine Nomenendung sind im Possessivlernziel fachlich nötig; Freundin und Schwester/Praxis gehören zu diesen Grammatikbeispielen.",
+    "Kind ist im Deutschen neutral, дитина im Ukrainischen grammatisch feminin; у неї ist daher korrekt und keine Festlegung eines weiblichen deutschen Lerncharakters.",
+    "Tante und andere weibliche Verwandtschaftswörter bleiben für Familienbeziehungen, Genus- und Dativkontraste sachlich erhalten; Enkelin ist ausdrücklich der definierte Wortschatzbegriff.",
+    "Sie als Kollegen-Plural, Satzanfangsgroßschreibung von Ihre und höfliches Ihr/Ihren/Sie bleiben korrekt.",
+    "Mein Mann bezeichnet einen männlichen Ehemann und definiert das Geschlecht des Ich-Sprechers nicht als weiblich."
+  ],
+  "limitations": [
+    "Statische redaktionelle und sprachliche Quellprüfung; keine Runtime-, UI-, Test-, Build-, CAS-, Datenbank-, Audio-, Alignment-, Import- oder Produktionsprüfung.",
+    "Die Runtime-Akzeptanz von Satzbauvarianten, Großschreibung und Satzzeichen wurde nicht ausgeführt.",
+    "Keine Aussage zum tatsächlichen UI-Rendering oder zur Sprachumschaltung; hier sind nur die vollständigen aktuellen Quelltexte beurteilt.",
+    "Keine Audio- oder Veröffentlichungsfreigabe. Keine Änderungen an IDs, Antworten, Optionen, Quellen oder Lernfortschritt durch S7."
+  ],
+  "sourceEditsApplied": false,
+  "publicationApproved": false,
+  "audioApproved": false,
+  "runtimeVerified": false,
+  "newAgentsCreated": 0,
+  "activeJobs": [],
+  "finalStatus": "WAIT"
+}

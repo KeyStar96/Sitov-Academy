@@ -1,0 +1,2117 @@
+{
+  "title": "Sitov Academy – S7 Epoch34 vollständige aktuelle Kontextprüfung Block03",
+  "epoch": 34,
+  "unit": "FINAL_CURRENT_FULL_GOALSET_BINDING_REAPPROVAL_BLOCK03_30TASKS",
+  "baseCommit": "be5633ef98a3fe28c6de7f2354a3bc9aefe5bd16",
+  "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+  "input": {
+    "path": "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/master/M-after48-final-binding-review-block-03-private.json",
+    "sha256": "48265f547e0cef9ed8d9eca73b11ccd0b3b59c40f49aa1ab2bb1e6ef89de2cf0",
+    "bytes": 306246,
+    "declaredInventorySHA256": "08694f652cfb3d42ba045675b789551bda8c6c8f7160eb7137b796cfd2c598fb"
+  },
+  "reviewCompletedAtUTC": "2026-10-10T07:08:25.148101+00:00",
+  "saveOnlyFromUTC": "2026-10-10T07:10:05.360953+00:00",
+  "hardDeadlineUTC": "2026-10-10T07:12:05.360953+00:00",
+  "readMethod": "Alle 30 vollständigen aktuellen Aufgaben in de/en/ru/uk/tr, alle 13 ganzen Elternobjekte ohne untergeordnete Aufgaben und alle 23 deutschen Ziele beider vollständigen aktuellen Pfadsets tatsächlich frisch gelesen. Nur wörtlich identische wiederholte Strings wurden im privaten Read-View durch 62 vollständig gelesene Dictionary-Strings ersetzt. Keine Übernahme früherer ACCEPT-Vermerke und keine Freigabe aus Einzelkorrekturen.",
+  "verification": {
+    "immutableGitShowSource": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+    "seedLevels": [
+      "A2.1",
+      "A2.2"
+    ],
+    "allActualObjectsComparedToImmutableSource": true,
+    "all90RowSHA256BindingsVerified": true,
+    "all2UniqueCurrentGoalsetSHA256BindingsVerified": true,
+    "canonicalSHA256": "UTF-8 JSON, ensure_ascii=False, sort_keys=True, separators=(comma,colon)",
+    "readViewDecodedRoundTripEqualsEveryInputObject": true,
+    "allReadOutputsUntruncated": true,
+    "dictionaryStringsFullyRead": 62,
+    "staticAnswerListsOptionsAndGoalReferencesChecked": true,
+    "independentFreshSemanticWholeContextReview": true,
+    "approvalFromLineageOrIndividualScalars": false
+  },
+  "counts": {
+    "assignedTasks": 30,
+    "tasksFullyRead": 30,
+    "taskACCEPT": 29,
+    "taskHOLD": 1,
+    "parentsFullyRead": 13,
+    "parentACCEPT": 13,
+    "parentHOLD": 0,
+    "completeObjectiveSetsFullyRead": 2,
+    "completeObjectivesACCEPT": 2,
+    "completeObjectivesHOLD": 0,
+    "individualObjectivesFullyRead": 23,
+    "objectiveACCEPT": 23,
+    "objectiveHOLD": 0,
+    "overallACCEPT": 29,
+    "overallHOLD": 1,
+    "PARTIAL": 0,
+    "unread": 0,
+    "findings": 1,
+    "taskScalarProposals": 6,
+    "parentScalarProposals": 0,
+    "objectiveScalarProposals": 0,
+    "scalarProposals": 6,
+    "answerWordRevisions": 0,
+    "answerCardinalityChanges": 0
+  },
+  "rows": [
+    {
+      "row": 0,
+      "id": "2949b2f4-0fb9-506b-afe3-d2e89e6601c2",
+      "ref": "P1-N10-E08",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N10",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "8ab76f929e8a460c119b89a4f44f524292955d073e6c815a715bce5cb545d9c4",
+      "wholeParentMinusChildrenSHA256": "7339a828c42d5f4c950dd4ab6f9e0b613c6c97b7a3fc911b5e638bf6783cf5ef",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Dann führt den zweiten Erzählschritt nach dem Kaffeekochen korrekt ein. Die zusätzlich akzeptierten Danach und Später sind sprachlich ebenfalls passend. Alle fünf Fassungen und Hinweise stimmen; RU сварил/почитал und UK зварив/почитав sind männlich.",
+      "parentReason": "Alle fünf Titel und vollständigen Zeitfolgeregeln, drei Beispiele, Verb-Hervorhebung und K4 gelesen. Die Abfolge verschlafen/Bus verpasst/Taxi ist nachvollziehbar; Vorfeldadverbien und Verbzweitstellung sind korrekt.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 Ziele des vollständigen aktuellen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Dann",
+        "acceptedAnswers": [
+          "Dann",
+          "Danach",
+          "Später"
+        ],
+        "options": [
+          "Zuerst",
+          "Weil",
+          "Dann"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 1,
+      "id": "0b9ebc42-6d55-5408-a19b-2dd4eee806f2",
+      "ref": "P1-N10-E09",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N10",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "e6ad719754572f95ffb6846b520443e120e8d5eef4a7949a6a8a81aff081c96a",
+      "wholeParentMinusChildrenSHA256": "7339a828c42d5f4c950dd4ab6f9e0b613c6c97b7a3fc911b5e638bf6783cf5ef",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Schließlich sind wir nach Hause gefahren und Wir sind schließlich nach Hause gefahren sind korrekte Stellungen mit sein-Perfekt. Alle Teile und fünf Übersetzungen sind gelesen; die Großschreibungs- und Satzzeichenbehandlung der Runtime bleibt ungeprüft.",
+      "parentReason": "Alle fünf Titel und vollständigen Zeitfolgeregeln, drei Beispiele, Verb-Hervorhebung und K4 gelesen. Die Abfolge verschlafen/Bus verpasst/Taxi ist nachvollziehbar; Vorfeldadverbien und Verbzweitstellung sind korrekt.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 Ziele des vollständigen aktuellen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "sentence_building",
+        "correctAnswer": "Schließlich sind wir nach Hause gefahren.",
+        "acceptedAnswers": [
+          "Schließlich sind wir nach Hause gefahren.",
+          "Wir sind schließlich nach Hause gefahren."
+        ],
+        "options": null,
+        "parts": [
+          "gefahren",
+          "sind",
+          "wir",
+          "Schließlich",
+          "nach Hause"
+        ],
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 2,
+      "id": "f62f9599-037c-59f7-adcf-8571aae75ce8",
+      "ref": "P1-N11-E02",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N11",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "99efc9a275bf902d2d3d66282f5ed16fa24db014b9abcdc07a16a2c23b89e4fa",
+      "wholeParentMinusChildrenSHA256": "b3e048db09a89ddeb3cc91fff5d3da65b3989de0ef12fee1ab04e98a26f2db8f",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die Frage legt ausdrücklich das abstrakte Pronomen sie Singular und eine negative Bewertung fest. Das gefällt ihr nicht ist die passende Antwort; die beiden anderen Optionen sind positiv. Alle fünf Fassungen bewahren diesen fachlich nötigen Pronomen- und Bewertungskontrast.",
+      "parentReason": "Alle fünf Titel und Regeln, drei Beispiele, highlight null und K3 gelesen. finden mit Akkusativ und gefallen mit Dativ werden korrekt unterschieden. er/sie und ihm/ihr/ihnen sind notwendige abstrakte Genus-/Numeruskontraste; Leon und Paul sind männlich.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 Ziele des vollständigen aktuellen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Das gefällt ihr nicht.",
+        "acceptedAnswers": [
+          "Das gefällt ihr nicht."
+        ],
+        "options": [
+          "Das gefällt ihr nicht.",
+          "Das gefällt ihr sehr.",
+          "Das findet sie super."
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 3,
+      "id": "69264990-2b72-5e04-a37f-2a68234d75b1",
+      "ref": "P1-N11-E07",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N11",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "9b85c9ff01865470604204dc52d470420fe6cb15450a655a3716a759c9b558a1",
+      "wholeParentMinusChildrenSHA256": "b3e048db09a89ddeb3cc91fff5d3da65b3989de0ef12fee1ab04e98a26f2db8f",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Milan ist männlich; Das findet er super verlangt findet in dritter Person Singular und finden mit Akkusativ. gefällt bräuchte einen Dativbezug, finden ist nicht kongruent. Alle fünf Fassungen, Hinweise und Erklärungen passen.",
+      "parentReason": "Alle fünf Titel und Regeln, drei Beispiele, highlight null und K3 gelesen. finden mit Akkusativ und gefallen mit Dativ werden korrekt unterschieden. er/sie und ihm/ihr/ihnen sind notwendige abstrakte Genus-/Numeruskontraste; Leon und Paul sind männlich.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 Ziele des vollständigen aktuellen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "findet",
+        "acceptedAnswers": [
+          "findet"
+        ],
+        "options": [
+          "findet",
+          "finden",
+          "gefällt"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 4,
+      "id": "70128753-0df1-5e58-a71c-fb4cadd2c491",
+      "ref": "P1-N13-E05",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N13",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "ca54eb9bc0142757738ea3aec29e4c08e47921c3dde2d60d91b5412149800754",
+      "wholeParentMinusChildrenSHA256": "013f488b4ee845ada6861c2cbc223e8de4e9f33a4ec931523c1069f2e1ff5ba5",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Dann folgt dem Frühstück als nächster Erzählschritt zur Arbeit. Unter den drei Optionen ist es die passende zeitliche Verknüpfung; Weil würde hier keine richtige Satzstellung ergeben. Die fünf Fassungen bewahren denselben Ablauf und männliche RU/UK-Sprecher.",
+      "parentReason": "Ganzes Wiederholungs-Elternobjekt einschließlich fünf Titeln, topic, kind, sort_order und allen elf Zielverweisen gelesen. Alle Ziele sind im frisch vollständig geprüften aktuellen Set vorhanden; keine zusätzliche Merkkarte liegt im Objekt vor.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 Ziele des vollständigen aktuellen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Dann",
+        "acceptedAnswers": [
+          "Dann"
+        ],
+        "options": [
+          "Dann",
+          "Zuerst",
+          "Weil"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 5,
+      "id": "6cd866de-f49e-52dc-a647-4c376165a243",
+      "ref": "P1-N14-E03",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N14",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "f4c82aedacc947f9ec7627cff36c6e2dd23017645bbe6f7730ef27816420b13a",
+      "wholeParentMinusChildrenSHA256": "32f5dc54670967a0eaf733e0e73fc17623d653dbf62646fd42dbddf3f3e7a7f9",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist hat im weil-Nebensatz korrekt das finite Verb am Ende. Die übrigen Optionen verletzen die gelehrte Standardstellung. Herr Nowak und sein Auto bleiben in allen fünf Fassungen korrekt zugeordnet.",
+      "parentReason": "Ganzes Test-Elternobjekt mit fünf Titeln, topic, kind, sort_order, elf Zielverweisen und test_size 13 gelesen. Alle referenzierten Ziele passen zum aktuellen Pfadset; die tatsächliche Runtime-Auswahl wurde nicht geprüft.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 Ziele des vollständigen aktuellen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist.",
+        "acceptedAnswers": [
+          "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist."
+        ],
+        "options": [
+          "Er fährt mit dem Bus, weil sein Auto ist in der Werkstatt.",
+          "Er fährt mit dem Bus, weil sein Auto in der Werkstatt ist.",
+          "Er fährt mit dem Bus, weil ist sein Auto in der Werkstatt."
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 6,
+      "id": "a0550519-2d69-5b97-acc6-5f6ece56d41f",
+      "ref": "P1-N14-E11",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N14",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "029c85ea06dd11d2351e8d32a3bdca4f33a26119783990f93e5ecfcb674ffeb0",
+      "wholeParentMinusChildrenSHA256": "32f5dc54670967a0eaf733e0e73fc17623d653dbf62646fd42dbddf3f3e7a7f9",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Leon und Tom sind ausdrücklich kein Paar mehr, noch nicht geschieden und wohnen jeweils allein in eigenen Wohnungen. getrennt ist damit eindeutig; zusammen/Großfamilie widersprechen dem Text. Alle fünf vollständigen Aufgaben und Lebensform-Erklärungen sind stimmig; Mutter/Vater ist eine allgemeine Begriffsdefinition.",
+      "parentReason": "Ganzes Test-Elternobjekt mit fünf Titeln, topic, kind, sort_order, elf Zielverweisen und test_size 13 gelesen. Alle referenzierten Ziele passen zum aktuellen Pfadset; die tatsächliche Runtime-Auswahl wurde nicht geprüft.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 Ziele des vollständigen aktuellen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "getrennt",
+        "acceptedAnswers": [
+          "getrennt"
+        ],
+        "options": [
+          "getrennt",
+          "in einer Großfamilie",
+          "zusammen"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 7,
+      "id": "12c15b2c-5294-58e3-aab5-6c71feb050b6",
+      "ref": "P1-N14-E13",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N14",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "ff01b295c5b1b49c57416aec793ee6af6508ae546a5f81a7262ec68271016ee2",
+      "wholeParentMinusChildrenSHA256": "32f5dc54670967a0eaf733e0e73fc17623d653dbf62646fd42dbddf3f3e7a7f9",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Zuerst bezeichnet das Warten vor der anschließenden Ankunft des Busses. Alle fünf Fassungen nennen diesen ersten Schritt ausdrücklich. Zuerst ist der passende Schlüssel; RU ждал und UK чекав sind männlich, die vollständigen Zeitfolgeregeln sind korrekt.",
+      "parentReason": "Ganzes Test-Elternobjekt mit fünf Titeln, topic, kind, sort_order, elf Zielverweisen und test_size 13 gelesen. Alle referenzierten Ziele passen zum aktuellen Pfadset; die tatsächliche Runtime-Auswahl wurde nicht geprüft.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 Ziele des vollständigen aktuellen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Zuerst",
+        "acceptedAnswers": [
+          "Zuerst"
+        ],
+        "options": [
+          "Schließlich",
+          "Danach",
+          "Zuerst"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 8,
+      "id": "56a0858a-50df-5d13-a0b7-97111223973a",
+      "ref": "P1-N14-E18",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N14",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "f83747ba4360de3adcf042e6916eb3348b3879b98644eb225d85c031c15c790f",
+      "wholeParentMinusChildrenSHA256": "32f5dc54670967a0eaf733e0e73fc17623d653dbf62646fd42dbddf3f3e7a7f9",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "finden bildet das Perfekt mit haben; bei er lautet die finale Hilfsverbform hat. Milan und die gefundene Wohnung sind in fünf Sprachen korrekt wiedergegeben. Hinweise und vollständige weil-Erklärungen passen zur Partizip-plus-Hilfsverb-Stellung.",
+      "parentReason": "Ganzes Test-Elternobjekt mit fünf Titeln, topic, kind, sort_order, elf Zielverweisen und test_size 13 gelesen. Alle referenzierten Ziele passen zum aktuellen Pfadset; die tatsächliche Runtime-Auswahl wurde nicht geprüft.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 Ziele des vollständigen aktuellen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "hat",
+        "acceptedAnswers": [
+          "hat"
+        ],
+        "options": [
+          "haben",
+          "hat",
+          "ist"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 9,
+      "id": "cfa82f0a-08bd-542a-ad13-40a91a663d75",
+      "ref": "P1-N14-E28",
+      "level": "A2.1",
+      "contextKey": "A2.1/P1/P1-N14",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "7e033347c3eb6a237344d056fc601f276b8b53eee1c8fb9ffc9325bdf02c859f",
+      "wholeParentMinusChildrenSHA256": "32f5dc54670967a0eaf733e0e73fc17623d653dbf62646fd42dbddf3f3e7a7f9",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "schließlich schließt die geordnete Folge Einkaufen, Kochen, Essen korrekt ab. Weil wäre hier syntaktisch falsch; zuerst widerspricht dem Schluss der bezeichneten Folge. Alle fünf Fassungen und gap_hints drücken schließlich/finally aus.",
+      "parentReason": "Ganzes Test-Elternobjekt mit fünf Titeln, topic, kind, sort_order, elf Zielverweisen und test_size 13 gelesen. Alle referenzierten Ziele passen zum aktuellen Pfadset; die tatsächliche Runtime-Auswahl wurde nicht geprüft.",
+      "completeObjectivesContextKey": "A2.1/P1",
+      "completeObjectivesReason": "Alle 11 Ziele des vollständigen aktuellen Sets A2.1/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "schließlich",
+        "acceptedAnswers": [
+          "schließlich"
+        ],
+        "options": [
+          "schließlich",
+          "zuerst",
+          "weil"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 10,
+      "id": "a0c18961-85d2-5d26-a6f3-da43f136a72b",
+      "ref": "P1-N2-E09",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N2",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "d37626f34e2288e4aaa73bda20b6727df28b126c338b2592798375976482976e",
+      "wholeParentMinusChildrenSHA256": "48329c81f951fc7d803263b6750509ae044931203140d04a2144ddc0ee5e6a75",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Höfliches Sie verlangt wären auch bei einem einzelnen Herrn Weber. Alle fünf Fassungen erhalten die höfliche Anrede und männliche Person; die vollständigen sein/haben-Konjugationen einschließlich Umlaut stimmen.",
+      "parentReason": "Alle fünf Titel und vollständigen Konjunktiv-II-Paradigmen, drei Beispiele, Verb-Hervorhebung und G1 gelesen. wäre/hätte einschließlich höflichem Sie sind richtig; RU/UK-Ich-Erklärungen sind männlich.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "wären",
+        "acceptedAnswers": [
+          "wären"
+        ],
+        "options": [
+          "wären",
+          "wäre",
+          "wärt"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 11,
+      "id": "deff0ba9-9c0d-503c-ac49-6875aeb3d5d6",
+      "ref": "P1-N3-E03",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N3",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "999c86f7b90a16b7ab9b51f83234bd768b5377464ae389c8b1e34dacc714e428",
+      "wholeParentMinusChildrenSHA256": "7979edc83829f8ab501862ba87f2f0ae1e3d57208e1bb50b439311597e089748",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Er würde gern schwimmen gehen ist der korrekte Satz mit finitem würde auf Position 2 und finaler Infinitivgruppe schwimmen gehen. Leon bleibt männlich; alle fünf Aufgaben, Hinweise und vollständigen würde-Regeln stimmen.",
+      "parentReason": "Alle fünf Titel und vollständigen würde-Regeln, drei Beispiele, Verb-Hervorhebung und G2 gelesen. Konjugation, Position 2 und finale Infinitive sind richtig; die Ja/Nein-Frage Würdest du gern mitkommen ist korrekt.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Er würde gern schwimmen gehen.",
+        "acceptedAnswers": [
+          "Er würde gern schwimmen gehen."
+        ],
+        "options": [
+          "Er würde gern schwimmen gehen.",
+          "Er gern würde schwimmen gehen.",
+          "Er würde gern gehen schwimmen."
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 12,
+      "id": "ad30b6bb-4fee-5e1e-a490-b350b64a80b4",
+      "ref": "P1-N4-E01",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "20b7cc7c274be3c3798abbd90f31670143a92dd8787e9e7412512d37877f358f",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Der gewünschte Ort am See verlangt wäre gern. hätte und würde ergeben ohne weitere Ergänzung nicht den bezeichneten Zustand. Alle fünf Fassungen erhalten Büro-versus-See; RU хотел und UK хотів sind männlich.",
+      "parentReason": "Alle fünf Titel und vollständigen Wunschregeln, drei Beispiele, Verb-Hervorhebung und G3 gelesen. wäre mit Ort/Adjektiv, hätte mit Akkusativ-Nomen, würde mit Infinitiv und am liebsten sind korrekt dargestellt; Milan ist männlich, Katze ist ein Tiernomen.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "wäre",
+        "acceptedAnswers": [
+          "wäre"
+        ],
+        "options": [
+          "würde",
+          "hätte",
+          "wäre"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 13,
+      "id": "85ebfcd1-eb40-5b15-a494-9287e9114af3",
+      "ref": "P1-N4-E02",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "31e0167733ba415e40874e8eba2669b7df88237c270f36aac4dcf1a2e1e9da6f",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Emre wünscht sich den Besitz eines Fahrrads; hätte gern ein Fahrrad ist korrekt. wäre/würde passen hier nicht ohne zusätzliche Verb- oder Prädikatsergänzung. Alle fünf Fassungen bewahren den männlichen Emre und denselben Wunsch.",
+      "parentReason": "Alle fünf Titel und vollständigen Wunschregeln, drei Beispiele, Verb-Hervorhebung und G3 gelesen. wäre mit Ort/Adjektiv, hätte mit Akkusativ-Nomen, würde mit Infinitiv und am liebsten sind korrekt dargestellt; Milan ist männlich, Katze ist ein Tiernomen.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "hätte",
+        "acceptedAnswers": [
+          "hätte"
+        ],
+        "options": [
+          "wäre",
+          "würde",
+          "hätte"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 14,
+      "id": "e348e6f4-c369-58b5-a8f5-df34f935fcaa",
+      "ref": "P1-N4-E03",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "2c33d155b307f0d5bda018b2a6480806f4e6cd6c386d94d9bb9c1299659e507e",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "tanzen lernen ist eine Infinitivgruppe und verlangt würde gern. Dilaver und er/он/він bleiben männlich; die fünf Aufgaben, Hinweise und vollständigen Wunschregeln sind passend. Beide Antwortlisten enthalten unverändert würde.",
+      "parentReason": "Alle fünf Titel und vollständigen Wunschregeln, drei Beispiele, Verb-Hervorhebung und G3 gelesen. wäre mit Ort/Adjektiv, hätte mit Akkusativ-Nomen, würde mit Infinitiv und am liebsten sind korrekt dargestellt; Milan ist männlich, Katze ist ein Tiernomen.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "würde",
+        "acceptedAnswers": [
+          "würde"
+        ],
+        "options": [
+          "wäre",
+          "hätte",
+          "würde"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 15,
+      "id": "86347c43-c0b7-54a8-ac7f-16c0c7f1f1d9",
+      "ref": "P1-N4-E04",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "a3ad47721e2aca4fb3238618a41904286f83112218a0e36b2ed2ecdd6d797b64",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Tom hat wenig Freizeit und wünscht sich mehr: Er hätte gern mehr Freizeit ist der korrekte Konjunktiv-II-Wunsch. Die Präsens- oder wäre-Alternativen drücken den verlangten Wunsch nicht passend aus. Alle fünf Fassungen entsprechen dieser Bedeutung.",
+      "parentReason": "Alle fünf Titel und vollständigen Wunschregeln, drei Beispiele, Verb-Hervorhebung und G3 gelesen. wäre mit Ort/Adjektiv, hätte mit Akkusativ-Nomen, würde mit Infinitiv und am liebsten sind korrekt dargestellt; Milan ist männlich, Katze ist ein Tiernomen.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Er hätte gern mehr Freizeit.",
+        "acceptedAnswers": [
+          "Er hätte gern mehr Freizeit."
+        ],
+        "options": [
+          "Er hat gern mehr Freizeit.",
+          "Er wäre gern mehr Freizeit.",
+          "Er hätte gern mehr Freizeit."
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 16,
+      "id": "2483746a-e091-56e5-a27d-35558bee05b8",
+      "ref": "P1-N4-E05",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "c6b40e3b5987bc3881ba8c39a9ecd1efa363468cf6d6e0473cf4b61a73af2268",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Am liebsten würde ich jetzt ins Bett gehen verlangt würde plus finalen Infinitiv. Die fünf Fassungen bewahren Müdigkeit und stärksten Wunsch; RU устал sowie UK утомлений sind männlich. Hinweise, Erklärungen und Schlüssel stimmen.",
+      "parentReason": "Alle fünf Titel und vollständigen Wunschregeln, drei Beispiele, Verb-Hervorhebung und G3 gelesen. wäre mit Ort/Adjektiv, hätte mit Akkusativ-Nomen, würde mit Infinitiv und am liebsten sind korrekt dargestellt; Milan ist männlich, Katze ist ein Tiernomen.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "würde",
+        "acceptedAnswers": [
+          "würde"
+        ],
+        "options": [
+          "wäre",
+          "hätte",
+          "würde"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 17,
+      "id": "1452fb0a-8acd-53b5-a098-af551e1a4f46",
+      "ref": "P1-N4-E06",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "ec72dd5a6ed61969a87b931ae11d3bcc84c507c5555ff6eb852f44ea6b9ba21a",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Wir hätten gern einen Balkon ist der korrekte Besitzwunsch im Plural. Deutsch vierten Stock entspricht bei deutscher Erdgeschosszählung dem fünften этаж/поверх in RU/UK; dies ist eine sachlich passende lokale Zählung. Alle fünf Fassungen und die unveränderte Form hätten sind akzeptiert.",
+      "parentReason": "Alle fünf Titel und vollständigen Wunschregeln, drei Beispiele, Verb-Hervorhebung und G3 gelesen. wäre mit Ort/Adjektiv, hätte mit Akkusativ-Nomen, würde mit Infinitiv und am liebsten sind korrekt dargestellt; Milan ist männlich, Katze ist ein Tiernomen.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "hätten",
+        "acceptedAnswers": [
+          "hätten"
+        ],
+        "options": [
+          "hätten",
+          "wären",
+          "würden"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 18,
+      "id": "fbad217c-add4-52e1-aa35-3d6427cddbf3",
+      "ref": "P1-N4-E07",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "d572c529585765292d9edfa9f1b9a13139f3c25717281b4bd1dac0a1e8c3b396",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "HOLD",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "HOLD",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "HOLD: wäre ist für den gewünschten Zustand korrekt, aber der offene Verbauftrag und der Lückenhinweis sein/haben/werden lassen zusätzlich würde als Konjunktiv II des Vollverbs werden zu: Er würde gern wieder gesund. Diese Lesart bezeichnet den gewünschten Übergang zur Gesundheit. Der Schlüssel ist nicht falsch; die Aufgabe sollte ausdrücklich die Konjunktiv-II-Form von sein verlangen. Alle fünf Aufgaben, Optionen, Hinweise und Erklärungen sind vollständig gelesen. Sechs präzise Anweisungs-/Lückenhinweisvorschläge beheben die Mehrdeutigkeit ohne Antwort- oder Optionsänderung.",
+      "parentReason": "Alle fünf Titel und vollständigen Wunschregeln, drei Beispiele, Verb-Hervorhebung und G3 gelesen. wäre mit Ort/Adjektiv, hätte mit Akkusativ-Nomen, würde mit Infinitiv und am liebsten sind korrekt dargestellt; Milan ist männlich, Katze ist ein Tiernomen.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "wäre",
+        "acceptedAnswers": [
+          "wäre"
+        ],
+        "options": [
+          "hätte",
+          "wäre",
+          "würde"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": false
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": [
+        "F1"
+      ]
+    },
+    {
+      "row": 19,
+      "id": "e03ba671-5dfe-519a-a41d-7595bdaef790",
+      "ref": "P1-N4-E08",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "56408c3e31f545971a0c11af998a812cef88af7dcf976a6d576a933ee73e9ef4",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Ich würde lieber mit euch feiern drückt die gewünschte Handlung als Alternative zur Arbeit korrekt aus. Alle fünf Fassungen erhalten den Kontrast; RU праздновал und UK святкував sind männlich. würde ist unter den Optionen passend.",
+      "parentReason": "Alle fünf Titel und vollständigen Wunschregeln, drei Beispiele, Verb-Hervorhebung und G3 gelesen. wäre mit Ort/Adjektiv, hätte mit Akkusativ-Nomen, würde mit Infinitiv und am liebsten sind korrekt dargestellt; Milan ist männlich, Katze ist ein Tiernomen.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "würde",
+        "acceptedAnswers": [
+          "würde"
+        ],
+        "options": [
+          "hätte",
+          "wäre",
+          "würde"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 20,
+      "id": "4ef78d3c-71c2-509b-a8a1-2115f7510c46",
+      "ref": "P1-N4-E09",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "a719a0b296a47c04da9146a9076b04856a333ebc09a29075b6093f54aaf02d70",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "hätte gern ein neues Handy ist ein idiomatischer Besitzwunsch; sehr/viel passen nicht in diese Lücke. Samir bleibt männlich in allen fünf Fassungen; die gap_hints erklären gern im Kontext von would like korrekt.",
+      "parentReason": "Alle fünf Titel und vollständigen Wunschregeln, drei Beispiele, Verb-Hervorhebung und G3 gelesen. wäre mit Ort/Adjektiv, hätte mit Akkusativ-Nomen, würde mit Infinitiv und am liebsten sind korrekt dargestellt; Milan ist männlich, Katze ist ein Tiernomen.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "gern",
+        "acceptedAnswers": [
+          "gern"
+        ],
+        "options": [
+          "gern",
+          "sehr",
+          "viel"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 21,
+      "id": "6defeb5d-1012-5355-a79f-12f7bda72117",
+      "ref": "P1-N4-E10",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "99ecfca086ed497f14b2a2d3f12dd13226717773420a0ead641fc19e8db6b1d6",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Wir wären gern im Urlaub sowie die beiden akzeptierten Vorfeldvarianten sind grammatisch korrekte Wunschformulierungen. Alle vier Teile und fünf Übersetzungen passen. Runtime-Normalisierung von Wir/wir und im/Im wurde nicht geprüft.",
+      "parentReason": "Alle fünf Titel und vollständigen Wunschregeln, drei Beispiele, Verb-Hervorhebung und G3 gelesen. wäre mit Ort/Adjektiv, hätte mit Akkusativ-Nomen, würde mit Infinitiv und am liebsten sind korrekt dargestellt; Milan ist männlich, Katze ist ein Tiernomen.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "sentence_building",
+        "correctAnswer": "Wir wären gern im Urlaub.",
+        "acceptedAnswers": [
+          "Wir wären gern im Urlaub.",
+          "Im Urlaub wären wir gern.",
+          "Gern wären wir im Urlaub."
+        ],
+        "options": null,
+        "parts": [
+          "gern",
+          "wären",
+          "im Urlaub",
+          "Wir"
+        ],
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 22,
+      "id": "95531a50-2eec-52c8-ab16-8e229333270e",
+      "ref": "P1-N6-E03",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N6",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "df997c93b8617510f606ad09b3bf9fbccf8430aadf5267cd77e340e15de9ecee",
+      "wholeParentMinusChildrenSHA256": "409062f360140ce4170fbd702ac6c618ed6611d15edcf674a521bf4b11a862c2",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Wir könnten zusammen einen Film sehen hat korrekt könnten auf Position 2 und sehen am Ende. Beide Distraktoren verletzen die Satzklammer. Milan ist männlicher Vorschlagender; alle fünf Texte stimmen.",
+      "parentReason": "Alle fünf Titel und vollständigen könnte-Paradigmen, drei Beispiele, Verb-Hervorhebung und G1/G4 gelesen. Konjugation und Satzklammer sind korrekt; die Vorschläge sind freundlich als Möglichkeit formuliert.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Wir könnten zusammen einen Film sehen.",
+        "acceptedAnswers": [
+          "Wir könnten zusammen einen Film sehen."
+        ],
+        "options": [
+          "Wir zusammen könnten einen Film sehen.",
+          "Wir könnten zusammen einen Film sehen.",
+          "Wir könnten zusammen sehen einen Film."
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 23,
+      "id": "2ca07843-9514-548c-a9ab-5039e54f2b2c",
+      "ref": "P1-N7-E01",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N7",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "832b85f2276fc184215defefb2aa0f278188dd361f4d196709b76b7e64a10c07",
+      "wholeParentMinusChildrenSHA256": "4686fc8ce43658723c95c83c2bebf9e7f8d97c3dd08e43e73a80e2afad263f66",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Wir könnten am Samstag ins Museum gehen. Hast du Lust macht den verlangten Vorschlag an einen Freund. Schließungsinformation und vergangener Museumsbesuch sind keine passenden Vorschläge. Alle fünf Fassungen und mit-Dativ-Hinweise sind korrekt; der Freund bleibt männlich.",
+      "parentReason": "Alle fünf Titel und vollständigen Vorschlags-/Planungsregeln, drei Beispiele, highlight null und K2 gelesen. Wie wäre es mit regiert Dativ; Hast du Lust und die Fragen zu Plänen sind idiomatisch.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "Wir könnten am Samstag ins Museum gehen. Hast du Lust?",
+        "acceptedAnswers": [
+          "Wir könnten am Samstag ins Museum gehen. Hast du Lust?"
+        ],
+        "options": [
+          "Das Museum ist am Samstag geschlossen.",
+          "Wir könnten am Samstag ins Museum gehen. Hast du Lust?",
+          "Ich war am Samstag im Museum."
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 24,
+      "id": "a4c644eb-7397-572d-a8b7-16f2b394d1d2",
+      "ref": "P1-N10-E07",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N10",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "1426d461cae0342e18647e51f7ecfee702bdff24b60a0175bce43226947c8c08",
+      "wholeParentMinusChildrenSHA256": "09351cbb9d96477c8d7a2e7235903d8fc9a905adb9b747a8a5e58edb868429d1",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Die Aufgabe fragt abstrakt nach dem Personalpronomen für eine Frau im Nominativ; sie passt zu geht und der Subjektposition nach trotzdem. ihr/ihn sind falsche Kasus. Alle fünf Fassungen sind explizite Grammatikaufträge; der feminine Pronomenkontrast ist fachlich nötig.",
+      "parentReason": "Alle fünf Titel und vollständigen trotzdem-Regeln, drei Beispiele, highlight null und G5 gelesen. Die Stellung im Vorfeld und nach dem Verb wird richtig erklärt; Emil ist männlich und der Gegensatz bleibt nachvollziehbar.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "sie",
+        "acceptedAnswers": [
+          "sie"
+        ],
+        "options": [
+          "ihr",
+          "sie",
+          "ihn"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 25,
+      "id": "328a976e-0f94-5718-a49c-0cd89401eaa2",
+      "ref": "P1-N11-E07",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N11",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "b23bc3608e74737c1e4d97322da8292268d498654ba93118c2c811ae6821a695",
+      "wholeParentMinusChildrenSHA256": "cd4255b15fd21c9b95f8d493766b70e9e0261df832efa0292b0b023a1947c93b",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "einen Vortrag halten ist die passende Kollokation; Kurs/Eintritt passen nicht zum Satz. Herr Dr. Albers ist männlich. Alle fünf Fassungen, Wortschatzhinweise und vollständigen Veranstaltungsdefinitionen sind passend; gesunde Ernährung ist hier nur das Vortragsthema.",
+      "parentReason": "Alle fünf Titel und vollständigen Veranstaltungsdefinitionen, drei Beispiele, article-Hervorhebung und W2 gelesen. Eintritt frei, Teilnahmegebühr und Anmeldefrist sind sinnvolle Sprachbeispiele; keine tatsächlichen Preise oder Termine werden behauptet.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "Vortrag",
+        "acceptedAnswers": [
+          "Vortrag"
+        ],
+        "options": [
+          "Vortrag",
+          "Kurs",
+          "Eintritt"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 26,
+      "id": "df5cf5a3-22d2-54d3-a655-43c14f4a862f",
+      "ref": "P1-N13-E03",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N13",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "f260b8139d02a8ca07d1c94deb66b6dbbf89e179dda6208d6bb139d66c297327",
+      "wholeParentMinusChildrenSHA256": "6d048221ab5acf6d5c6a75823e83ecfd3d60c482e8257bce0d223a1344ce88c6",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Samir hat keinen Garten und wünscht sich einen; hätte gern einen Garten ist korrekt. Alle fünf Fassungen behalten männliche Pronomen und den Besitzwunsch; beide Antwortlisten stimmen.",
+      "parentReason": "Ganzes Wiederholungs-Elternobjekt mit fünf Titeln, topic, kind, sort_order und zwölf Zielverweisen gelesen. Sämtliche Verweise gehören zum frisch vollständig geprüften aktuellen Set; kein zusätzlicher Regeltext liegt vor.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "hätte",
+        "acceptedAnswers": [
+          "hätte"
+        ],
+        "options": [
+          "würde",
+          "wäre",
+          "hätte"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 27,
+      "id": "c4db08c2-1942-5aaa-a7a1-5c8adee3420b",
+      "ref": "P1-N14-E05",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N14",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "f395e769408c80a0c9e6d443c2de14e4ebf35d3a6c972cbb3ee0dcf666c26be2",
+      "wholeParentMinusChildrenSHA256": "174cba9ec4d63d1f311b880e5b674dde5374acdeb0710ecb6ea857748b8f682d",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Leon wünscht sich bei Hitze den Aufenthalt im Schwimmbad; wäre gern im Schwimmbad ist korrekt. Alle fünf Fassungen bewahren Ort und männliche Person, die übrigen Optionen ergeben nicht diesen Zustand.",
+      "parentReason": "Ganzes Test-Elternobjekt einschließlich fünf Titeln, topic, kind, sort_order, aller zwölf Zielverweise und test_size 13 gelesen. Zielverweise sind vollständig gültig; die Laufzeitauswahl ist außerhalb der Textprüfung.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "wäre",
+        "acceptedAnswers": [
+          "wäre"
+        ],
+        "options": [
+          "würde",
+          "hätte",
+          "wäre"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 28,
+      "id": "c1f7c49b-537f-50b1-a37f-da27983aa4c2",
+      "ref": "P1-N14-E06",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N14",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "e0906aac0434ea8d7389d76f2020aea6ecc4470f892732b16d09e5a635816ce3",
+      "wholeParentMinusChildrenSHA256": "174cba9ec4d63d1f311b880e5b674dde5374acdeb0710ecb6ea857748b8f682d",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "einen Kochkurs machen ist die gewünschte Handlung, daher würde gern plus Infinitiv. Alle fünf Fassungen bewahren fehlende Kochfähigkeit und Kurswunsch; RU хотел/UK хотів sind männlich.",
+      "parentReason": "Ganzes Test-Elternobjekt einschließlich fünf Titeln, topic, kind, sort_order, aller zwölf Zielverweise und test_size 13 gelesen. Zielverweise sind vollständig gültig; die Laufzeitauswahl ist außerhalb der Textprüfung.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "multiple_choice",
+        "correctAnswer": "würde",
+        "acceptedAnswers": [
+          "würde"
+        ],
+        "options": [
+          "würde",
+          "wäre",
+          "hätte"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    },
+    {
+      "row": 29,
+      "id": "e970a08f-0557-5f4c-a5e4-aae2c36b745f",
+      "ref": "P1-N14-E24",
+      "level": "A2.2",
+      "contextKey": "A2.2/P1/P1-N14",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "95117f6673412534a4fc08151bc15e96e68b30e9729da6d78bf299359cc86404",
+      "wholeParentMinusChildrenSHA256": "174cba9ec4d63d1f311b880e5b674dde5374acdeb0710ecb6ea857748b8f682d",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "taskVerdict": "ACCEPT",
+      "parentVerdict": "ACCEPT",
+      "completeObjectivesVerdict": "ACCEPT",
+      "overallVerdict": "ACCEPT",
+      "wholeTaskFullyRead": true,
+      "wholeParentFullyRead": true,
+      "allPathObjectivesFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "taskReason": "Wir hätten gern ein Zimmer mehr bezeichnet den gewünschten zusätzlichen Besitz beziehungsweise Wohnraum korrekt. Alle fünf Fassungen bewahren kleine Wohnung und ein weiteres Zimmer; hätten ist die passende Pluralform.",
+      "parentReason": "Ganzes Test-Elternobjekt einschließlich fünf Titeln, topic, kind, sort_order, aller zwölf Zielverweise und test_size 13 gelesen. Zielverweise sind vollständig gültig; die Laufzeitauswahl ist außerhalb der Textprüfung.",
+      "completeObjectivesContextKey": "A2.2/P1",
+      "completeObjectivesReason": "Alle 12 Ziele des vollständigen aktuellen Sets A2.2/P1 wurden frisch gelesen und einzeln akzeptiert; Quellenhashes, tatsächliche Beschreibungen und Einzelbegründungen stehen in objectiveSets.",
+      "answerEvidence": {
+        "exerciseType": "fill_in_blank",
+        "correctAnswer": "hätten",
+        "acceptedAnswers": [
+          "hätten"
+        ],
+        "options": [
+          "hätten",
+          "würden",
+          "wären"
+        ],
+        "parts": null,
+        "correctAnswerInBothAnswerLists": true,
+        "correctAnswerInOptionsWhenPresent": true,
+        "uniqueIntendedSolutionConfirmed": true
+      },
+      "sourceObjectEqualityVerified": true,
+      "findingIds": []
+    }
+  ],
+  "parents": [
+    {
+      "contextKey": "A2.1/P1/P1-N10",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "7339a828c42d5f4c950dd4ab6f9e0b613c6c97b7a3fc911b5e638bf6783cf5ef",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen Zeitfolgeregeln, drei Beispiele, Verb-Hervorhebung und K4 gelesen. Die Abfolge verschlafen/Bus verpasst/Taxi ist nachvollziehbar; Vorfeldadverbien und Verbzweitstellung sind korrekt."
+    },
+    {
+      "contextKey": "A2.1/P1/P1-N11",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "b3e048db09a89ddeb3cc91fff5d3da65b3989de0ef12fee1ab04e98a26f2db8f",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und Regeln, drei Beispiele, highlight null und K3 gelesen. finden mit Akkusativ und gefallen mit Dativ werden korrekt unterschieden. er/sie und ihm/ihr/ihnen sind notwendige abstrakte Genus-/Numeruskontraste; Leon und Paul sind männlich."
+    },
+    {
+      "contextKey": "A2.1/P1/P1-N13",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "013f488b4ee845ada6861c2cbc223e8de4e9f33a4ec931523c1069f2e1ff5ba5",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Ganzes Wiederholungs-Elternobjekt einschließlich fünf Titeln, topic, kind, sort_order und allen elf Zielverweisen gelesen. Alle Ziele sind im frisch vollständig geprüften aktuellen Set vorhanden; keine zusätzliche Merkkarte liegt im Objekt vor."
+    },
+    {
+      "contextKey": "A2.1/P1/P1-N14",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "32f5dc54670967a0eaf733e0e73fc17623d653dbf62646fd42dbddf3f3e7a7f9",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Ganzes Test-Elternobjekt mit fünf Titeln, topic, kind, sort_order, elf Zielverweisen und test_size 13 gelesen. Alle referenzierten Ziele passen zum aktuellen Pfadset; die tatsächliche Runtime-Auswahl wurde nicht geprüft."
+    },
+    {
+      "contextKey": "A2.2/P1/P1-N2",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "48329c81f951fc7d803263b6750509ae044931203140d04a2144ddc0ee5e6a75",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen Konjunktiv-II-Paradigmen, drei Beispiele, Verb-Hervorhebung und G1 gelesen. wäre/hätte einschließlich höflichem Sie sind richtig; RU/UK-Ich-Erklärungen sind männlich."
+    },
+    {
+      "contextKey": "A2.2/P1/P1-N3",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "7979edc83829f8ab501862ba87f2f0ae1e3d57208e1bb50b439311597e089748",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen würde-Regeln, drei Beispiele, Verb-Hervorhebung und G2 gelesen. Konjugation, Position 2 und finale Infinitive sind richtig; die Ja/Nein-Frage Würdest du gern mitkommen ist korrekt."
+    },
+    {
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "5a29ffff5a0ca73f7fe76e5546b3211b314e0d8e16c54d146db0f5cba18b21ed",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen Wunschregeln, drei Beispiele, Verb-Hervorhebung und G3 gelesen. wäre mit Ort/Adjektiv, hätte mit Akkusativ-Nomen, würde mit Infinitiv und am liebsten sind korrekt dargestellt; Milan ist männlich, Katze ist ein Tiernomen."
+    },
+    {
+      "contextKey": "A2.2/P1/P1-N6",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "409062f360140ce4170fbd702ac6c618ed6611d15edcf674a521bf4b11a862c2",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen könnte-Paradigmen, drei Beispiele, Verb-Hervorhebung und G1/G4 gelesen. Konjugation und Satzklammer sind korrekt; die Vorschläge sind freundlich als Möglichkeit formuliert."
+    },
+    {
+      "contextKey": "A2.2/P1/P1-N7",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "4686fc8ce43658723c95c83c2bebf9e7f8d97c3dd08e43e73a80e2afad263f66",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen Vorschlags-/Planungsregeln, drei Beispiele, highlight null und K2 gelesen. Wie wäre es mit regiert Dativ; Hast du Lust und die Fragen zu Plänen sind idiomatisch."
+    },
+    {
+      "contextKey": "A2.2/P1/P1-N10",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "09351cbb9d96477c8d7a2e7235903d8fc9a905adb9b747a8a5e58edb868429d1",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen trotzdem-Regeln, drei Beispiele, highlight null und G5 gelesen. Die Stellung im Vorfeld und nach dem Verb wird richtig erklärt; Emil ist männlich und der Gegensatz bleibt nachvollziehbar."
+    },
+    {
+      "contextKey": "A2.2/P1/P1-N11",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "cd4255b15fd21c9b95f8d493766b70e9e0261df832efa0292b0b023a1947c93b",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Alle fünf Titel und vollständigen Veranstaltungsdefinitionen, drei Beispiele, article-Hervorhebung und W2 gelesen. Eintritt frei, Teilnahmegebühr und Anmeldefrist sind sinnvolle Sprachbeispiele; keine tatsächlichen Preise oder Termine werden behauptet."
+    },
+    {
+      "contextKey": "A2.2/P1/P1-N13",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "6d048221ab5acf6d5c6a75823e83ecfd3d60c482e8257bce0d223a1344ce88c6",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Ganzes Wiederholungs-Elternobjekt mit fünf Titeln, topic, kind, sort_order und zwölf Zielverweisen gelesen. Sämtliche Verweise gehören zum frisch vollständig geprüften aktuellen Set; kein zusätzlicher Regeltext liegt vor."
+    },
+    {
+      "contextKey": "A2.2/P1/P1-N14",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "wholeParentMinusChildrenSHA256": "174cba9ec4d63d1f311b880e5b674dde5374acdeb0710ecb6ea857748b8f682d",
+      "wholeParentFullyRead": true,
+      "languagesFullyRead": [
+        "de",
+        "en",
+        "ru",
+        "uk",
+        "tr"
+      ],
+      "reason": "Ganzes Test-Elternobjekt einschließlich fünf Titeln, topic, kind, sort_order, aller zwölf Zielverweise und test_size 13 gelesen. Zielverweise sind vollständig gültig; die Laufzeitauswahl ist außerhalb der Textprüfung."
+    }
+  ],
+  "objectiveSets": [
+    {
+      "contextKey": "A2.1/P1",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "allPathObjectivesSHA256": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+      "wholeSetFullyRead": true,
+      "objectiveCount": 11,
+      "reason": "Das gesamte aktuelle Set wurde frisch vollständig gelesen; jedes Ziel wurde unabhängig nach Grammatik, Bedeutung, Textrolle und Charakterregel beurteilt. Kein Zielbefund. Eine einzelne mehrdeutige Aufgabe ändert nicht die sachliche Richtigkeit der allgemeinen Zielbeschreibungen.",
+      "objectives": [
+        {
+          "id": "P1-G1",
+          "area": "grammar",
+          "description": "Gründe nennen mit weil: Nebensatz mit dem Verb am Ende – auch mit Modalverb, im Perfekt und mit trennbaren Verben.",
+          "sourceObjectiveSHA256": "5f28bd5ec1ee26e65b1256a429188aed7e1dca029b7291389296705ef0a9210f",
+          "descriptionSHA256": "aaf869bedea31f1227ad176aeb9cc4bf487f43af379f378cdd37403905eb6764",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "weil mit finalem Verb ist auch für die genannten Modal-, Perfekt- und trennbaren Verbkonstruktionen korrekt."
+        },
+        {
+          "id": "P1-G2",
+          "area": "grammar",
+          "description": "Perfekt der trennbaren Verben: eingekauft, angerufen, aufgestanden, kennengelernt.",
+          "sourceObjectiveSHA256": "94af2329d1db25846065d14866130bfe77dbfc59bb3ba043103a230951bc5fc2",
+          "descriptionSHA256": "26dcdfbefd364577c44d546aeaeeab7275385cbeab9265d8b0cfaaf6dd8010e2",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "eingekauft, angerufen, aufgestanden und kennengelernt sind die richtigen Partizipien trennbarer Verben."
+        },
+        {
+          "id": "P1-G3",
+          "area": "grammar",
+          "description": "Perfekt der Verben auf -ieren ohne ge-: telefoniert, studiert, passiert.",
+          "sourceObjectiveSHA256": "c575c07a6eac95381425565f2847e0617356d48e60450d67ef7f866bdc87cf53",
+          "descriptionSHA256": "4b8eec9b82e3aff832554aa1861a989d0b4442bfe37bcb324c9f7ed1ef379fb0",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "telefoniert, studiert und passiert sind korrekte -ieren-Partizipien ohne ge-."
+        },
+        {
+          "id": "P1-G4",
+          "area": "grammar",
+          "description": "Perfekt der nicht trennbaren Verben ohne ge-: erlebt, bemerkt, verpasst, verstanden.",
+          "sourceObjectiveSHA256": "83749cdf799c94dbe019ce30ab86717b0d66456d5492b63b0ace88efe474ed1e",
+          "descriptionSHA256": "b08c44c6b9a4385474a11314208dfaee3af0cd7173fd25acf46bf2c80e68d70c",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "erlebt, bemerkt, verpasst und verstanden sind korrekte Partizipien untrennbarer Verben ohne ge-."
+        },
+        {
+          "id": "P1-G5",
+          "area": "grammar",
+          "description": "Zugehörigkeit bei Namen: Pauls Vater – und mit von + Dativ: der Vater von Paul.",
+          "sourceObjectiveSHA256": "52473e9b57a40e249b5e6f8c4ce87be66ce771caebded8b348b0fb373aab908a",
+          "descriptionSHA256": "635edd60f66cf3d076596b517aea387963b894add26a0edbd70c25cf11bf4608",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Pauls Vater und der Vater von Paul bilden Zugehörigkeit korrekt mit männlichem Familienmitglied ab."
+        },
+        {
+          "id": "P1-K1",
+          "area": "communication",
+          "description": "Von Pannen im Alltag erzählen und darauf reagieren: Stell dir vor … So ein Pech! Und was ist dann passiert?",
+          "sourceObjectiveSHA256": "dac471b927aa139295769b912723a776a1a5af559d17a8bb85deffb50cbc0a31",
+          "descriptionSHA256": "801fc038c9ff9feb774e56c2f20cce31c0a5afcb2263ebbf98b5ccf8bb6544cd",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die drei Reaktionsformeln passen zum Erzählen von Alltagspannen und Nachfragen nach dem weiteren Ablauf."
+        },
+        {
+          "id": "P1-K2",
+          "area": "communication",
+          "description": "Von Wohn- und Lebensformen erzählen: allein, als Paar, in einer WG; ledig, verheiratet, geschieden; berufstätig, in Rente.",
+          "sourceObjectiveSHA256": "127c9049cd9df4768932ebe081804921116d3c2e25343bdff08fb0caeb51f10e",
+          "descriptionSHA256": "234fbbfd7bf5a243ae8512cb260869b8628bada75f93929e83a9e43953381e2b",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Wohnformen, Familienstand und Berufstätigkeit bilden das beschriebene Kommunikationsthema sachlich passend ab."
+        },
+        {
+          "id": "P1-K3",
+          "area": "communication",
+          "description": "Sagen, wie jemand etwas findet: Das findet er toll. Das gefällt ihm nicht.",
+          "sourceObjectiveSHA256": "3cb953d84535eb855b54d3d38591ea163821432969678b110e0d76ed414cbd1a",
+          "descriptionSHA256": "daab4a2847999952d84c7781e3a596681980a0888b824fe0bcce74c1655c916c",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Das findet er toll und Das gefällt ihm nicht sind korrekte Bewertungsmuster mit männlichen Pronomen und passenden Kasus."
+        },
+        {
+          "id": "P1-K4",
+          "area": "communication",
+          "description": "Eine Erzählung gliedern: zuerst, dann, später, schließlich.",
+          "sourceObjectiveSHA256": "df9914ae1a5058702a3a937142b6ec6af4bfec6b77a19615d91267bcd950b52d",
+          "descriptionSHA256": "48a98e387b8bdd3b154ee0fd1c8b012d7f127e14fc3beb38dab7718a910e14c8",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "zuerst, dann, später und schließlich bilden eine nachvollziehbare zeitliche Erzählgliederung."
+        },
+        {
+          "id": "P1-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: kurze Erzählungen und Nachrichten über den Alltag verstehen.",
+          "sourceObjectiveSHA256": "eeffddb32dd2360c39c7237443c8b3ab86090ddddcf332e65cd593c464f8b0be",
+          "descriptionSHA256": "23dd34f3db6751baf24eee7165d7fbbee02ef182c31d00265e3c1fda96f158cb",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Kurze Erzählungen und Nachrichten über den Alltag verstehen ist ein klar formuliertes rezeptives Kann-Ziel."
+        },
+        {
+          "id": "P1-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Familienmitglieder und Lebensformen.",
+          "sourceObjectiveSHA256": "11179493dd28ede361918756a0f3e84f2fa6616bb7c7b3e162ecc34832f3cee2",
+          "descriptionSHA256": "6b94bd15b357af6c0cd604cf058fb4f9e746f9b66d21c1c3404d97dad74d71be",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Familienmitglieder und Lebensformen sind das kohärente Wortschatzfeld des Pfads."
+        }
+      ]
+    },
+    {
+      "contextKey": "A2.2/P1",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "verdict": "ACCEPT",
+      "allPathObjectivesSHA256": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+      "wholeSetFullyRead": true,
+      "objectiveCount": 12,
+      "reason": "Das gesamte aktuelle Set wurde frisch vollständig gelesen; jedes Ziel wurde unabhängig nach Grammatik, Bedeutung, Textrolle und Charakterregel beurteilt. Kein Zielbefund. Eine einzelne mehrdeutige Aufgabe ändert nicht die sachliche Richtigkeit der allgemeinen Zielbeschreibungen.",
+      "objectives": [
+        {
+          "id": "P1-G1",
+          "area": "grammar",
+          "description": "Konjunktiv II von sein, haben und können: ich wäre, du wärst, wir wären – ich hätte, du hättest – ich könnte, du könntest.",
+          "sourceObjectiveSHA256": "da979040c6673dd680b48d592e738713ea9a5d42cf3077331aaefda257ab5750",
+          "descriptionSHA256": "5dc4294e031da768e7e71da34b2779af4c172a9f8cc3c81b647eefc0b30f9ad3",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Die angegebenen Konjunktiv-II-Formen von sein/haben/können sind richtig; das Ziel behauptet keine Exklusivität einzelner Aufgabenoptionen."
+        },
+        {
+          "id": "P1-G2",
+          "area": "grammar",
+          "description": "Konjunktiv II mit würde + Infinitiv: Ich würde gern Gitarre spielen. Der Infinitiv steht am Satzende.",
+          "sourceObjectiveSHA256": "ff8c68c2817e17799c1b7e33db1806abf5af0775756d4b17f4a42c5b9b9a576a",
+          "descriptionSHA256": "a5dfcc230a902433bbcbbd6409f6b2bbb1c5d92db44e14d7ac0a88d2004f5f76",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Ich würde gern Gitarre spielen demonstriert würde und den finalen Infinitiv korrekt."
+        },
+        {
+          "id": "P1-G3",
+          "area": "grammar",
+          "description": "Wünsche ausdrücken: Ich wäre gern am Meer. Er hätte gern mehr Freizeit. Wir würden gern tanzen.",
+          "sourceObjectiveSHA256": "0fdaae4ca4a5cb029b987436e41015cb0e1bac4a41eaf12b6d7d2e89c5d87944",
+          "descriptionSHA256": "372076dfeb28dfa45fabc1cdc9bf7237f0b06fae38aa82c51cb1673f75fa6005",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Ich wäre gern am Meer, Er hätte gern mehr Freizeit und Wir würden gern tanzen sind korrekte Wunschbeispiele; Er bleibt männlich."
+        },
+        {
+          "id": "P1-G4",
+          "area": "grammar",
+          "description": "Vorschläge mit könnte: Du könntest ins Kino gehen. Wir könnten eine Radtour machen.",
+          "sourceObjectiveSHA256": "06053d4b65713afe46933ebe5862e9e7f372eea8180ecbf5b5fbfc1f20b9d346",
+          "descriptionSHA256": "9f2e2fc4efc33d7b11d76ce657efddc1b7e7077ccca46dd77b7cec6e989c75a4",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Du könntest ins Kino gehen und Wir könnten eine Radtour machen sind korrekte Vorschläge mit könnte."
+        },
+        {
+          "id": "P1-G5",
+          "area": "grammar",
+          "description": "Gegensätze ausdrücken mit trotzdem: Es regnet. Trotzdem gehe ich spazieren. Das Verb steht auf Position 2.",
+          "sourceObjectiveSHA256": "4a872daac66fb702fce110912a2bf6611bbf3f66abcff3a16079407610ace122",
+          "descriptionSHA256": "555ff5fe7c932edf839f07f04f1bff13fda5d19529a31ec6cd99ea8aef9aeaec",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Trotzdem gehe ich spazieren drückt den Gegensatz zum Regen mit Verbzweitstellung richtig aus."
+        },
+        {
+          "id": "P1-K1",
+          "area": "communication",
+          "description": "Über Wünsche sprechen und danach fragen: Wo wären Sie jetzt gern? Was hätten Sie gern? Was würden Sie gern machen?",
+          "sourceObjectiveSHA256": "9238056aba67bb716ad2ceb645f8c9bcdb75a9fa5c106ab4aaafc0dd4fbc8709",
+          "descriptionSHA256": "d07c997aa569f82defc5fc7a2855197e72080b7f565c967da8713687eb010a75",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Wo wären Sie, Was hätten Sie und Was würden Sie sind höfliche Wunschfragen; die Großschreibung Sie ist fachlich nötig."
+        },
+        {
+          "id": "P1-K2",
+          "area": "communication",
+          "description": "Vorschläge machen und über Pläne sprechen: Wie wäre es mit …? Hast du Lust? Was machst du am Samstag?",
+          "sourceObjectiveSHA256": "a0bbc0cf7a53d8f2c0d1cde0520e4f09b62fdbb931d8c2b2e4b2727b7cd173bc",
+          "descriptionSHA256": "9c210fb0755c79d6217de605c2105bd1d671108480fe8823ccb3e894b1e375a9",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Wie wäre es mit, Hast du Lust und die Samstagsfrage sind passende Planungs- und Vorschlagsformulierungen."
+        },
+        {
+          "id": "P1-K3",
+          "area": "communication",
+          "description": "Einen Vorschlag annehmen: Gute Idee. Einverstanden. Warum nicht? Ich komme gern mit.",
+          "sourceObjectiveSHA256": "2a913c3e818b41a8a8e69ca6682a7a870797b3ec5c57ec47b2e55a554cab3eaa",
+          "descriptionSHA256": "a74e93b290770831b48d27d30b299f79ba15e0bd0249f70ebcd032716d1a73d0",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Gute Idee, Einverstanden, Warum nicht und Ich komme gern mit sind idiomatische Annahmen eines Vorschlags."
+        },
+        {
+          "id": "P1-K4",
+          "area": "communication",
+          "description": "Einen Vorschlag ablehnen und Bedauern ausdrücken: Schade, das geht leider nicht. Ich würde gern kommen, aber …",
+          "sourceObjectiveSHA256": "d900cc69d73bd0f24e54d53b70d76c5ca7f4e112012bb9a851c648fdb24c5417",
+          "descriptionSHA256": "c9a7b43a876b87253efb90898086716df84cec9478673c5e78556589de938428",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Schade das geht leider nicht und Ich würde gern kommen aber drücken Ablehnung beziehungsweise Bedauern korrekt aus."
+        },
+        {
+          "id": "P1-Z1",
+          "area": "can_do",
+          "description": "Kann-Ziele: Veranstaltungstipps und Programmhinweise verstehen.",
+          "sourceObjectiveSHA256": "b4570e0c75f72218116e33753c52d818d004497ae4f7e8f0be76d15ef3ffd668",
+          "descriptionSHA256": "825570e1cf0cadb774f1037c6cb964c5cd73ae0327defa0f682a9d27d485d566",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Veranstaltungstipps und Programmhinweise verstehen ist ein zum Pfad passendes rezeptives Ziel."
+        },
+        {
+          "id": "P1-W1",
+          "area": "vocabulary",
+          "description": "Wortschatz: Freizeitaktivitäten am Wochenende.",
+          "sourceObjectiveSHA256": "6c329c54ec2a79815ed145b3067dbfe056e83a2659b25768e0693f30609e4f84",
+          "descriptionSHA256": "bf275994a4e13d8446c0d458dc42e30833b8d708837ce90037b11a1034ceaa0f",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Freizeitaktivitäten am Wochenende bilden das thematische Wortschatzfeld für Wünsche und Pläne."
+        },
+        {
+          "id": "P1-W2",
+          "area": "vocabulary",
+          "description": "Wortschatz: Veranstaltungen und Kurse.",
+          "sourceObjectiveSHA256": "4a967d54e542994f8e59e47843aa842f57693f35f8ce64386090a71e8a696689",
+          "descriptionSHA256": "b19a8c2aff658fd1c8348996ae7039faec2cc0c7d58be284e830b1af87dcfd5c",
+          "verdict": "ACCEPT",
+          "fullyRead": true,
+          "reason": "Veranstaltungen und Kurse ergänzen das Wortschatzfeld und entsprechen den gelesenen vollständigen Definitionen."
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "scope": "task",
+      "severity": "HOLD",
+      "level": "A2.2",
+      "ref": "P1-N4-E07",
+      "idBound": "fbad217c-add4-52e1-aa35-3d6427cddbf3",
+      "row": 18,
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "d572c529585765292d9edfa9f1b9a13139f3c25717281b4bd1dac0a1e8c3b396",
+      "title": "Offener sein/haben/werden-Auftrag lässt eine weitere Vollverb-Lesart zu",
+      "evidence": {
+        "textBefore": "Oleg ist krank. Er ",
+        "textAfter": " gern wieder gesund.",
+        "instruction": "Ergänze die richtige Verbform.",
+        "gapHint": "sein / haben / werden (Konjunktiv II)",
+        "options": [
+          "hätte",
+          "wäre",
+          "würde"
+        ],
+        "correctAnswer": "wäre"
+      },
+      "reason": "HOLD: wäre ist für den gewünschten Zustand korrekt, aber der offene Verbauftrag und der Lückenhinweis sein/haben/werden lassen zusätzlich würde als Konjunktiv II des Vollverbs werden zu: Er würde gern wieder gesund. Diese Lesart bezeichnet den gewünschten Übergang zur Gesundheit. Der Schlüssel ist nicht falsch; die Aufgabe sollte ausdrücklich die Konjunktiv-II-Form von sein verlangen. Alle fünf Aufgaben, Optionen, Hinweise und Erklärungen sind vollständig gelesen. Sechs präzise Anweisungs-/Lückenhinweisvorschläge beheben die Mehrdeutigkeit ohne Antwort- oder Optionsänderung.",
+      "linguisticDistinction": "wäre = gewünschter Zustand; würde als Konjunktiv II des Vollverbs werden = gewünschter Übergang in den Zustand gesund. Der aktuelle Lückenhinweis nennt werden ausdrücklich.",
+      "recommendedResolution": "Fünf Anweisungen und den deutschen Lückenhinweis auf Konjunktiv II von sein festlegen; Lösung wäre, akzeptierte Antworten und Optionen bleiben gleich.",
+      "proposalCount": 6,
+      "sourceEditsApplied": false,
+      "globalNoveltyChecked": false,
+      "externalDictionaryVerificationPerformed": false
+    }
+  ],
+  "proposals": [
+    {
+      "findingId": "F1",
+      "scope": "task",
+      "level": "A2.2",
+      "ref": "P1-N4-E07",
+      "id": "fbad217c-add4-52e1-aa35-3d6427cddbf3",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceFile": "supabase/seeds/path-a2.2.json",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "d572c529585765292d9edfa9f1b9a13139f3c25717281b4bd1dac0a1e8c3b396",
+      "pointer": "/content/instruction",
+      "old": "Ergänze die richtige Verbform.",
+      "new": "Ergänze die Konjunktiv-II-Form von sein.",
+      "oldScalarSHA256": "b8266be00f49cef785f0bfcd49039e508afdce5a0fe00f2debf139cc8b7e633c",
+      "reason": "Den Verbauftrag ausdrücklich auf sein begrenzen, damit die beabsichtigte Lösung wäre eindeutig bleibt und die mögliche Vollverb-Lesart von würde nicht durch den offenen Auftrag zugelassen wird.",
+      "answerWordRevision": false,
+      "answerCardinalityChange": false,
+      "optionsChange": false,
+      "deduplicationKey": "A2.2/P1/P1-N4/P1-N4-E07:/content/instruction:b8266be00f49cef785f0bfcd49039e508afdce5a0fe00f2debf139cc8b7e633c",
+      "applied": false
+    },
+    {
+      "findingId": "F1",
+      "scope": "task",
+      "level": "A2.2",
+      "ref": "P1-N4-E07",
+      "id": "fbad217c-add4-52e1-aa35-3d6427cddbf3",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceFile": "supabase/seeds/path-a2.2.json",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "d572c529585765292d9edfa9f1b9a13139f3c25717281b4bd1dac0a1e8c3b396",
+      "pointer": "/content/gap_hint",
+      "old": "sein / haben / werden (Konjunktiv II)",
+      "new": "sein (Konjunktiv II)",
+      "oldScalarSHA256": "b83097e4ca9dbd7e3e54461594992319c4a703f19173701b76e15662f8d399f2",
+      "reason": "Den Verbauftrag ausdrücklich auf sein begrenzen, damit die beabsichtigte Lösung wäre eindeutig bleibt und die mögliche Vollverb-Lesart von würde nicht durch den offenen Auftrag zugelassen wird.",
+      "answerWordRevision": false,
+      "answerCardinalityChange": false,
+      "optionsChange": false,
+      "deduplicationKey": "A2.2/P1/P1-N4/P1-N4-E07:/content/gap_hint:b83097e4ca9dbd7e3e54461594992319c4a703f19173701b76e15662f8d399f2",
+      "applied": false
+    },
+    {
+      "findingId": "F1",
+      "scope": "task",
+      "level": "A2.2",
+      "ref": "P1-N4-E07",
+      "id": "fbad217c-add4-52e1-aa35-3d6427cddbf3",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceFile": "supabase/seeds/path-a2.2.json",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "d572c529585765292d9edfa9f1b9a13139f3c25717281b4bd1dac0a1e8c3b396",
+      "pointer": "/translations/en/instruction",
+      "old": "Fill in the correct verb form.",
+      "new": "Fill in the Konjunktiv II form of sein.",
+      "oldScalarSHA256": "71e28984a39b14468a6ce9752ed69a0f4e743426b6ced8d46c91f99fbf4b9784",
+      "reason": "Den Verbauftrag ausdrücklich auf sein begrenzen, damit die beabsichtigte Lösung wäre eindeutig bleibt und die mögliche Vollverb-Lesart von würde nicht durch den offenen Auftrag zugelassen wird.",
+      "answerWordRevision": false,
+      "answerCardinalityChange": false,
+      "optionsChange": false,
+      "deduplicationKey": "A2.2/P1/P1-N4/P1-N4-E07:/translations/en/instruction:71e28984a39b14468a6ce9752ed69a0f4e743426b6ced8d46c91f99fbf4b9784",
+      "applied": false
+    },
+    {
+      "findingId": "F1",
+      "scope": "task",
+      "level": "A2.2",
+      "ref": "P1-N4-E07",
+      "id": "fbad217c-add4-52e1-aa35-3d6427cddbf3",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceFile": "supabase/seeds/path-a2.2.json",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "d572c529585765292d9edfa9f1b9a13139f3c25717281b4bd1dac0a1e8c3b396",
+      "pointer": "/translations/ru/instruction",
+      "old": "Вставьте правильную форму глагола.",
+      "new": "Вставьте форму глагола sein в Konjunktiv II.",
+      "oldScalarSHA256": "6bebb6eef5b9d4a9fbbdcbfa6ebdb067f56667d4c4f8db327029f79d91827a77",
+      "reason": "Den Verbauftrag ausdrücklich auf sein begrenzen, damit die beabsichtigte Lösung wäre eindeutig bleibt und die mögliche Vollverb-Lesart von würde nicht durch den offenen Auftrag zugelassen wird.",
+      "answerWordRevision": false,
+      "answerCardinalityChange": false,
+      "optionsChange": false,
+      "deduplicationKey": "A2.2/P1/P1-N4/P1-N4-E07:/translations/ru/instruction:6bebb6eef5b9d4a9fbbdcbfa6ebdb067f56667d4c4f8db327029f79d91827a77",
+      "applied": false
+    },
+    {
+      "findingId": "F1",
+      "scope": "task",
+      "level": "A2.2",
+      "ref": "P1-N4-E07",
+      "id": "fbad217c-add4-52e1-aa35-3d6427cddbf3",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceFile": "supabase/seeds/path-a2.2.json",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "d572c529585765292d9edfa9f1b9a13139f3c25717281b4bd1dac0a1e8c3b396",
+      "pointer": "/translations/uk/instruction",
+      "old": "Вставте правильну форму дієслова.",
+      "new": "Вставте форму дієслова sein у Konjunktiv II.",
+      "oldScalarSHA256": "a8a2a629d1c85c8c0b2410793976c3f2ace26be657f4769b773581838bd111d0",
+      "reason": "Den Verbauftrag ausdrücklich auf sein begrenzen, damit die beabsichtigte Lösung wäre eindeutig bleibt und die mögliche Vollverb-Lesart von würde nicht durch den offenen Auftrag zugelassen wird.",
+      "answerWordRevision": false,
+      "answerCardinalityChange": false,
+      "optionsChange": false,
+      "deduplicationKey": "A2.2/P1/P1-N4/P1-N4-E07:/translations/uk/instruction:a8a2a629d1c85c8c0b2410793976c3f2ace26be657f4769b773581838bd111d0",
+      "applied": false
+    },
+    {
+      "findingId": "F1",
+      "scope": "task",
+      "level": "A2.2",
+      "ref": "P1-N4-E07",
+      "id": "fbad217c-add4-52e1-aa35-3d6427cddbf3",
+      "contextKey": "A2.2/P1/P1-N4",
+      "sourceFile": "supabase/seeds/path-a2.2.json",
+      "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+      "wholeTaskSHA256": "d572c529585765292d9edfa9f1b9a13139f3c25717281b4bd1dac0a1e8c3b396",
+      "pointer": "/translations/tr/instruction",
+      "old": "Fiilin doğru biçimini yazın.",
+      "new": "sein fiilinin Konjunktiv II biçimini yazın.",
+      "oldScalarSHA256": "7b34e763fbd57ec4e7fffafa5789c8c681c20f583cd5216c6101dbd6b9f07abf",
+      "reason": "Den Verbauftrag ausdrücklich auf sein begrenzen, damit die beabsichtigte Lösung wäre eindeutig bleibt und die mögliche Vollverb-Lesart von würde nicht durch den offenen Auftrag zugelassen wird.",
+      "answerWordRevision": false,
+      "answerCardinalityChange": false,
+      "optionsChange": false,
+      "deduplicationKey": "A2.2/P1/P1-N4/P1-N4-E07:/translations/tr/instruction:7b34e763fbd57ec4e7fffafa5789c8c681c20f583cd5216c6101dbd6b9f07abf",
+      "applied": false
+    }
+  ],
+  "preservedNecessaryLanguageContrasts": [
+    "er/sie und ihm/ihr/ihnen in den Bewertungsparadigmen sind notwendige Genus-, Numerus- und Kasuskontraste; abstraktes sie Singular in den Aufgaben bleibt erhalten.",
+    "Die Personalpronomenaufgabe für eine Frau fragt ausdrücklich nach dem grammatischen Subjekt sie; der feminine Kontrast ist hier der Lerninhalt.",
+    "Höfliches Sie verlangt wären auch bei Herrn Weber; Großschreibung und vollständige Konjugationsparadigmen bleiben korrekt.",
+    "Mutter/Vater in der Definition alleinerziehend ist ein allgemeiner Begriffskontrast; Leon/Tom sind männlich.",
+    "Katze ist ein Tiernomen in Milans Besitzwunsch, keine weibliche menschliche Lernfigur.",
+    "Deutsch vierter Stock und RU/UK fünfter этаж/поверх entsprechen unterschiedlichen lokalen Erdgeschosszählungen."
+  ],
+  "limitations": [
+    "Statische redaktionelle und sprachliche Quellprüfung; keine Runtime-, UI-, Test-, Build-, CAS-, Datenbank-, Audio-, Alignment-, Import- oder Produktionsprüfung.",
+    "Satzbauvarianten wurden sprachlich beurteilt; Runtime-Normalisierung von Großschreibung und Satzzeichen wurde nicht ausgeführt.",
+    "Für F1 wurde kein externes Wörterbuch konsultiert; M beurteilt die begrenzte redaktionelle Lösung anhand der offengelegten Vollverb-Lesart. Globale Neuheit oder frühere Queue-Deduplizierung wurde nicht behauptet.",
+    "Keine Aussage zum tatsächlichen UI-Rendering oder zur Sprachumschaltung; keine Audio- oder Veröffentlichungsfreigabe.",
+    "Keine Änderungen an IDs, Antworten, Optionen, Quellen oder Lernfortschritt durch S7."
+  ],
+  "sourceEditsApplied": false,
+  "publicationApproved": false,
+  "audioApproved": false,
+  "runtimeVerified": false,
+  "newAgentsCreated": 0,
+  "activeJobs": [],
+  "finalStatus": "WAIT"
+}
