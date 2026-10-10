@@ -1,6 +1,17 @@
+
+
+## Aktueller bestätigter Stand — 10.10.2026, 15:15 UTC
+
+**OPEN / AUTO_DEPLOY nur nach bestandenen Gates / NOT_RELEASE_READY.** Integrationsbranch `codex/sitov-night-integration`, aktueller Dokumentationscommit `4486ef9fca2763be5cfe9a0e4e411c5d40a80e92`; Produktionsrevision unverändert `966a380f7a6118654f19750a9d62200795feb8c2`. Kein Push, produktiver Datenbank-/Storage-Schreibzugriff oder Deployment. Das App-Quellcode-/Build-Ergebnis bleibt aus den vorherigen dokumentierten Prüfungen; dieser Commit enthält nur bestätigte QA-/Statusdokumentation.
+
+**Aktuelle Audio-QA:** Die beiden vom Nutzer abgelehnten Sätze („Praxis Dr. Lindner … Oleh Marchenko“ und „Oleh braucht Milch … 1 l Milch“) haben sourcegebundene Qwen-Kandidaten im männlichen Profil `sitov-qwen-male-de-v1`. Native Alignment-/Klassifikatorentscheidungen, positive Wortintervalle, vollständige MP3-Decodes, drei ASR-Diagnosen sowie exakte isolierte QA-GETs sind verifiziert. Das vollständige Paket umfasst 5.398/5.398 Audiobodies im QA-Clone. M hat die Kandidaten für diesen QA-Bundle-Stand autonom ausgewählt; es gab keine weitere Nutzer-Hörprüfung und M behauptet kein menschliches Hören. Bei „Marchenko“ weicht Qwen-large diagnostisch von Qwen-small und Whisper ab; diese Unsicherheit steht im privaten QC-Beleg. Keine der QA-Prüfungen ist ein Produktionsimport.
+
+**Abnahme und offene Gates:** 60 individuelle Aussprachetests sind im isolierten QA-Clone veröffentlicht; der echte authentifizierte Flow mit einem Schüler ohne frühere Lernfortschritte bestand den individuellen Texttest und den geschützten Audio-/Submission-/Widerrufsflow. Das ist QA, keine Human-Hörbestätigung und keine Produktionsfreigabe. Für den Release bleiben kompatibler Vollrestore einer frischen Sicherung, vollständige Migrationen 93–118, realer Bestandsschutzvergleich der 75 Konten und 189 geschützten Tabellen, direkter Payment-OFF-Nachweis, produktiver Audio-CAS für den vollständigen Bestand sowie fünfsprachige/mobile/Accessibility/Motion-Abnahme und exakte Produktions-Smokes offen.
+
+**VPS und Kontingent:** Read-only geprüft um 15:13 UTC: VPS `MemAvailable` 2.122 MiB; Auth, REST und Storage lieferten jeweils HTTP 200. Der Builder benötigt 3.584 MiB für `--prepare-only`; damit bleibt die Vorbereitung gesperrt. Keine Produktionsänderung. Frische Usage-Antwort: 51 % verbraucht / 49 % verbleibend im 12-Stunden-Fenster, keine Reset-Guthaben; Wochenfenster in der letzten Antwort nicht enthalten, letzter bestätigter Wochenstand 77 % verbraucht / 23 % verbleibend (13:29 UTC).
 # Sitov Academy – offene Arbeiten und Abnahme
 
-## Aktueller bestätigter Stand 09.10.2026 22:24 CEST
+## Historischer Stand 09.10.2026 22:24 CEST
 
 **OPEN / AUTO_DEPLOY nach Pflichtprüfungen / NOT_RELEASE_READY.** Verifizierter Integrationsstand `65a118c2`; frisches Restbudget89 Prozent, einmaliger Reset eingelöst, null weitere Reset-Guthaben. Payment aus. Produktion weiter `966a380f7a6118654f19750a9d62200795feb8c2`; noch kein produktiver Import, Push oder Deployment.
 
