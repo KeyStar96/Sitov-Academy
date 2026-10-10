@@ -1,0 +1,139 @@
+{
+  "epoch": 44,
+  "brand": "Sitov Academy",
+  "base": "6aae253d678bd825db68d02d05fe226f8354234c",
+  "scope": "EXACT_CURRICULUM_WORD_AND_ONE_OBJECTIVE_CONSISTENCY_FIX",
+  "comparedExercises": 9569,
+  "comparedNodes": 856,
+  "comparedPaths": 66,
+  "changedTasks": 1,
+  "changedTaskScalars": 1,
+  "changedObjectives": 1,
+  "changedObjectiveScalars": 1,
+  "totalSeedScalarChanges": 2,
+  "changedParents": 0,
+  "changedCanonicalKeys": 0,
+  "changedAcceptedVariants": 0,
+  "allOtherFieldsIdsRefsTypesGoalsHintsExplanationsTranslationsOptionsAcceptedRanksCardReferencesAndOrdersExact": true,
+  "eightOtherSeedsByteExact": true,
+  "A11NativeCanonicalSource": "JSON seed; path-src/a1.1/p7.mjs does not exist; no builder added",
+  "nativeLevels": [
+    {
+      "level": "a1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "a2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b1.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "b2.2",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.1",
+      "parity": "PASS"
+    },
+    {
+      "level": "c1.2",
+      "parity": "PASS"
+    }
+  ],
+  "jest": {
+    "suite": "__tests__/path-level-seeds.test.ts",
+    "suitesPass": 1,
+    "testsPass": 99,
+    "testsFail": 0,
+    "testsSkipped": 0,
+    "success": true
+  },
+  "schemaValidatedExercises": 9569,
+  "eslint": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "diffCheck": "PASS",
+  "bothActualAudioExtractorsComparedTasks": 9569,
+  "finalCanonicalAudioAliases": 1,
+  "changedCanonicalAudioAliases": 1,
+  "humanHearing": false,
+  "archive114KeyRevisionRequiredByThisUnit": false,
+  "historicalAnswersAndProgressUntouched": true,
+  "noNewOrModifiedTests": true,
+  "noDbSshRuntimeAudioAssetsImportPublicationPushDeployChanges": true,
+  "independentFinalEditorialApprovalPending": true,
+  "publicationApproved": false,
+  "privateEvidence": {
+    "epoch44-bound-master-assignment.json": {
+      "path": "S2/epoch44-bound-master-assignment.json",
+      "bytes": 781,
+      "sha256": "48f5a11bf70f61e84043138475f35dacd0f6914ae5976b9624448cbfa3d4d7fd"
+    },
+    "epoch44-source-byte-proof.json": {
+      "path": "S2/epoch44-source-byte-proof.json",
+      "bytes": 1712,
+      "sha256": "16b2b984cc3c9e63c8abebf8abe77be94410284c3d259915539a77c2052a615f"
+    },
+    "epoch44-old-new-full.json": {
+      "path": "S2/epoch44-old-new-full.json",
+      "bytes": 139094,
+      "sha256": "527d6128f5454189d6ad8f1b1398fabb3ce8b81bc56e2f2aef580b7fffc4ecb0"
+    },
+    "epoch44-final-canonical-audio.json": {
+      "path": "S2/epoch44-final-canonical-audio.json",
+      "bytes": 2520,
+      "sha256": "7f2cc0b6fed9cc9469470681c7c056bebbf408ec2d9d0633203c0879bd580310"
+    },
+    "epoch44-native-parity.json": {
+      "path": "S2/epoch44-native-parity.json",
+      "bytes": 632,
+      "sha256": "61da85d0082330100d2b784b8b8c1cfb53239d4e57da032a27c7e29632df757d"
+    },
+    "epoch44-jest-result.json": {
+      "path": "S2/epoch44-jest-result.json",
+      "bytes": 36924,
+      "sha256": "de0e6c5fac74883cb7203c88de8f2ee07e51cadc634e0f6a51b5cffe79b47d02"
+    },
+    "epoch44-jest.log": {
+      "path": "S2/epoch44-jest.log",
+      "bytes": 8301,
+      "sha256": "404ca08b00f3346b91c7129a462268a7f15d5a63b74ad8ed33ec55c5c8bfadf7"
+    },
+    "epoch44-eslint.log": {
+      "path": "S2/epoch44-eslint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "epoch44-diff-check.json": {
+      "path": "S2/epoch44-diff-check.json",
+      "bytes": 199,
+      "sha256": "6986dc4e2de2c9b1ff24f92d05ec243052b9afb2180ecb6efeb7e46afa878273"
+    },
+    "epoch44-validate-audio.ts": {
+      "path": "S2/epoch44-validate-audio.ts",
+      "bytes": 3567,
+      "sha256": "8c95b127e65e9b8e946e6124932b1242229a4ae596ebaa67989071f04f1db6b9"
+    }
+  },
+  "MFollowup": [
+    "Integrate and independently review the exact two scalars.",
+    "Locally prepare the single changed canonical German Qwen payload with word timings and import before publication.",
+    "Continue M-owned adoption/archive114 workflow; this unit changes no answer keys."
+  ]
+}
