@@ -1,0 +1,178 @@
+{
+  "epoch": 34,
+  "base": "58fa57c76e6a30feca1a2729d21fa661483c2b96",
+  "reviewIndices": [
+    1,
+    4,
+    5,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "assignedContexts": 8,
+  "completeBeforeAfterChildContextCount": 62,
+  "changedExercises": 35,
+  "changedNodeContexts": 8,
+  "changedParentCards": 4,
+  "scalarPatchEntries": 178,
+  "allExerciseIdentityOutsideScopeCompared": 9569,
+  "schemaValidatedChangedLevelsExercises": 2752,
+  "nativeParity": [
+    "A1.2",
+    "A2.1"
+  ],
+  "answerChange": [
+    {
+      "id": "934dd6d1-6a25-59ca-aebe-a00e058c0eee",
+      "ref": "P5-N6-E10",
+      "old": "Am Abend ruft Emre seine Mutter an.",
+      "new": "Am Abend ruft Emre seinen Vater an.",
+      "oldAccepted": [
+        "Am Abend ruft Emre seine Mutter an.",
+        "Emre ruft am Abend seine Mutter an."
+      ],
+      "newAccepted": [
+        "Am Abend ruft Emre seinen Vater an.",
+        "Emre ruft am Abend seinen Vater an."
+      ]
+    }
+  ],
+  "allOtherKeysAcceptedAndOptionOrderUnchanged": true,
+  "fiveLanguageRulesAndWholeChildContextsRead": true,
+  "feminineGrammarAndFrontedWeilVariantPreserved": true,
+  "audioAliases": 55,
+  "changedAudioAliases": 6,
+  "audioChangedExercises": 6,
+  "eslint": "PASS zero errors/warnings",
+  "independentReReviewRequired": true,
+  "ordinaryImportAllowed": false,
+  "databaseAudioModelImportPublishActions": false,
+  "validationCompletedAt": "2026-10-10T00:29:30.061239+00:00",
+  "allTenSeedHashes": [
+    {
+      "file": "supabase/seeds/path-a1.1.json",
+      "beforeSha256": "23121caa03412160460ba5c72685c1baaccbe5b5fbf6d14654d6125c2110a2b3",
+      "afterSha256": "f56c49a16c86f97d24bd8c06c8bf1ea1fd4e9d5b0c90d483a537948cbc08da40"
+    },
+    {
+      "file": "supabase/seeds/path-a1.2.json",
+      "beforeSha256": "337f4afb8c3f973de5b92d8584ab890c06d49d8537db34df149ce7d30429caff",
+      "afterSha256": "791a93fe36606c940352523dad5bfc9d8fc7e1d54762995d8fa451c91c888ea3"
+    },
+    {
+      "file": "supabase/seeds/path-a2.1.json",
+      "beforeSha256": "ea89868220b895ef9d73a8e511968c79b997a906d762946eda0942eb59e14feb",
+      "afterSha256": "2a43127c275ec25692e82d2d5b4a221344ff0ee03d34a000c41c98e89a09642b"
+    },
+    {
+      "file": "supabase/seeds/path-a2.2.json",
+      "beforeSha256": "a072cb88fcec4b29862ad52c121657a310dd97975496971e7c1acff664b0086f",
+      "afterSha256": "a072cb88fcec4b29862ad52c121657a310dd97975496971e7c1acff664b0086f"
+    },
+    {
+      "file": "supabase/seeds/path-b1.1.json",
+      "beforeSha256": "580f2687b29489e78fef3738eac07a704da9d4f9e6991aff3b5242a1b267bda9",
+      "afterSha256": "580f2687b29489e78fef3738eac07a704da9d4f9e6991aff3b5242a1b267bda9"
+    },
+    {
+      "file": "supabase/seeds/path-b1.2.json",
+      "beforeSha256": "793e7a322d320229ac71adcf96da33a87a5f51222ae4ec90c7328dc423932cb5",
+      "afterSha256": "793e7a322d320229ac71adcf96da33a87a5f51222ae4ec90c7328dc423932cb5"
+    },
+    {
+      "file": "supabase/seeds/path-b2.1.json",
+      "beforeSha256": "bd5e4494053b53f6b63ed485ec40bc1cd0fa520a45da87a05fd9c18b44337665",
+      "afterSha256": "bd5e4494053b53f6b63ed485ec40bc1cd0fa520a45da87a05fd9c18b44337665"
+    },
+    {
+      "file": "supabase/seeds/path-b2.2.json",
+      "beforeSha256": "87d0c8b3eb012e0c76be18370cb4325ed5c70fb01c89fa6058ba7af86be0126a",
+      "afterSha256": "87d0c8b3eb012e0c76be18370cb4325ed5c70fb01c89fa6058ba7af86be0126a"
+    },
+    {
+      "file": "supabase/seeds/path-c1.1.json",
+      "beforeSha256": "b86031af3af56c11967480e2d3b8648f79d5cdf1a5082b4b2cec81f124ee965c",
+      "afterSha256": "b86031af3af56c11967480e2d3b8648f79d5cdf1a5082b4b2cec81f124ee965c"
+    },
+    {
+      "file": "supabase/seeds/path-c1.2.json",
+      "beforeSha256": "d6509817ad181b8e634739711a73c8e7671eda13aac1bb5002d366b0ec50f0b5",
+      "afterSha256": "d6509817ad181b8e634739711a73c8e7671eda13aac1bb5002d366b0ec50f0b5"
+    }
+  ],
+  "privateArtifacts": {
+    "epoch34-author-edits.json": {
+      "path": "S2/epoch34-author-edits.json",
+      "bytes": 207,
+      "sha256": "87c38f9fdeb9fdd966618d567789cd84c54e36d7ab264849576a0782f8ffe4f0"
+    },
+    "epoch34-before-contexts.json": {
+      "path": "S2/epoch34-before-contexts.json",
+      "bytes": 292413,
+      "sha256": "292ab0b2b40166c1ea34a78ce0ac69bfb24655ec53863c455d52b785fb8becb0"
+    },
+    "epoch34-content-patch.json": {
+      "path": "S2/epoch34-content-patch.json",
+      "bytes": 113316,
+      "sha256": "2b2b35f347b486fe06982533303ce1849077126501e873ef0bff34afbb41d07e"
+    },
+    "epoch34-eslint.log": {
+      "path": "S2/epoch34-eslint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "epoch34-final-canonical-audio.json": {
+      "path": "S2/epoch34-final-canonical-audio.json",
+      "bytes": 23961,
+      "sha256": "5e6f18ab6a14444237cfac11cf3cb9253b518d3fba8c0a632592c7dc016dcdbc"
+    },
+    "epoch34-full-source-before-after.json": {
+      "path": "S2/epoch34-full-source-before-after.json",
+      "bytes": 28488231,
+      "sha256": "b44b9aa7b83017c935752802828a8a8c210129b740a42c43e39bc8f385b07f5d"
+    },
+    "epoch34-minimize-orders.mjs": {
+      "path": "S2/epoch34-minimize-orders.mjs",
+      "bytes": 3090,
+      "sha256": "5cc2490e0537163182c24ced1e60721bd244f105a17256f72d6e36799a47002b"
+    },
+    "epoch34-new-full-seeds.json": {
+      "path": "S2/epoch34-new-full-seeds.json",
+      "bytes": 60675060,
+      "sha256": "7efcc8bfeab8825e4c14c3105c9f18e300ad873bc314553aa464f8d9e839941c"
+    },
+    "epoch34-old-full-seeds.json": {
+      "path": "S2/epoch34-old-full-seeds.json",
+      "bytes": 60672113,
+      "sha256": "0ee5f177f094d8272c7a1bb72aae5f16b9d10f929359eeae9696676363306601"
+    },
+    "epoch34-old-new-full.json": {
+      "path": "S2/epoch34-old-new-full.json",
+      "bytes": 844558,
+      "sha256": "0671ff6ef122272bf4ba68fa32aee144790450099301a488e2f24ba83bda7cd8"
+    },
+    "epoch34-repair.py": {
+      "path": "S2/epoch34-repair.py",
+      "bytes": 10156,
+      "sha256": "48c82adea52be3af153792c6fc36889be0cbe55c0de169965a257d4e8581c7b6"
+    },
+    "epoch34-sync.mjs": {
+      "path": "S2/epoch34-sync.mjs",
+      "bytes": 6699,
+      "sha256": "9ec144de2ce7ea17d7b0d0ac571b803e3de2eeaa44226e077b678c548871e29c"
+    },
+    "epoch34-validate-audio.ts": {
+      "path": "S2/epoch34-validate-audio.ts",
+      "bytes": 2158,
+      "sha256": "70f0af24d7eb11daaceeeeeaa19617dd54e1d2cf9e6a3fdd616c3c86293b05b8"
+    },
+    "epoch34-validation.json": {
+      "path": "S2/epoch34-validation.json",
+      "bytes": 1428,
+      "sha256": "b9eca8f4a3ed61eb5abe518f22b1f0f29629f0cd911769cd91c8a61806cf59df"
+    }
+  },
+  "reviewFileSha256": "91e399bde379a2482cec6fafb9419e5073de901f764772fb9f5f7777223b87f1"
+}

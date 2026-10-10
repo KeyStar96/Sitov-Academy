@@ -108,7 +108,7 @@ const path = {
   "id": "p1_alsbei",
   "rule": "als + Beruf, bei + Firma: Ich arbeite als Verkäufer. Ich arbeite bei der Bäckerei Sonnenkorn. Zusammen: Ich arbeite als Verkäufer bei Sonnenkorn. Nach als steht kein Artikel.",
   "examples": [
-    "Dilara arbeitet als Köchin.",
+    "Amir arbeitet als Koch.",
     "Mateo arbeitet bei Elektro Brandt.",
     "Ich arbeite als Fahrer bei einer Spedition."
   ],
@@ -132,12 +132,10 @@ const path = {
           ['Pawel is a driver. His company is called Nordweg. What does he say?', 'Pawel – водитель. Его фирма называется Nordweg. Что он говорит?', 'Pawel – водій. Його фірма називається Nordweg. Що він каже?', 'Pawel şoför. Firmasının adı Nordweg. Ne diyor?']),
         mc('G2', 'bei + Firma', I.react, '„Wo arbeiten Sie?“', ['Bei der Reinigung Blitzblank.', 'Als Reinigung Blitzblank.', 'Seit der Reinigung Blitzblank.'],
           ['“Where do you work?”', '«Где вы работаете?»', '«Де ви працюєте?»', '“Nerede çalışıyorsunuz?”']),
-        gap('G2', 'als + Beruf', I.prep, 'Amira arbeitet ', ' Kellnerin.', 'als', ['bei', 'von'],
-          ['Amira works as a waitress.', 'Amira работает официанткой.', 'Amira працює офіціанткою.', 'Amira garson olarak çalışıyor.'], 'als / bei'),
+        gap("G2", "als + Beruf", I.prep, "Amir arbeitet ", " Kellner.", "als", ["bei","von"], ["Amir works as a waiter.","Amir работает официантом.","Amir працює офіціантом.","Amir garson olarak çalışıyor."], "als / bei", {"c":"p1_alsbei"}),
         gap('G2', 'bei + Firma', I.prep, 'Mein Bruder arbeitet ', ' Elektro Brandt.', 'bei', ['als', 'aus'],
           ['My brother works at Elektro Brandt.', 'Мой брат работает в фирме Elektro Brandt.', 'Мій брат працює у фірмі Elektro Brandt.', 'Erkek kardeşim Elektro Brandt’ta çalışıyor.'], 'als / bei'),
-        gap('G2', 'als + Beruf', I.prep, 'Hanna hat eine Stelle ', ' Erzieherin.', 'als', ['bei', 'in'],
-          ['Hanna has a job as a nursery teacher.', 'У Hanna есть место воспитательницы.', 'Hanna має посаду виховательки.', 'Hanna’nın anaokulu öğretmeni olarak bir işi var.'], 'als / bei'),
+        gap("G2", "als + Beruf", I.prep, "Hannes hat eine Stelle ", " Erzieher.", "als", ["bei","in"], ["Hannes has a job as a nursery teacher.","У Hannes есть место воспитателя.","Hannes має посаду вихователя.","Hannes’in anaokulu öğretmeni olarak bir işi var."], "als / bei", {"c":"p1_alsbei"}),
         gap('G2', 'bei + Firma', I.prep, 'Ich arbeite als Mechaniker ', ' einer Firma in Köln.', 'bei', ['als', 'aus'],
           ['I work as a mechanic for a company in Cologne.', 'Я работаю механиком в одной фирме в Кёльне.', 'Я працюю механіком в одній фірмі в Кельні.', 'Köln’de bir firmada tamirci olarak çalışıyorum.'], 'als / bei'),
         sb('G2', 'als und bei', I.order, 'Ich / arbeite / als Verkäufer / bei Sonnenkorn.',

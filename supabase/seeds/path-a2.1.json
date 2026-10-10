@@ -1871,7 +1871,7 @@
         ],
         "merkkarte": {
           "card": "p1_weil",
-          "rule": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+          "rule": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Zwischen Hauptsatz und weil-Satz steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
           "examples": [
             "Leon lernt Deutsch, weil er in Berlin arbeitet.",
             "Ich nehme den Bus, weil mein Auto kaputt ist.",
@@ -1880,16 +1880,16 @@
           "highlight": "verb",
           "translations": {
             "en": {
-              "rule": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe."
+              "rule": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. A comma separates the main clause from the weil clause. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe."
             },
             "ru": {
-              "rule": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe."
+              "rule": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Главное предложение и придаточное с weil разделяются запятой. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe."
             },
             "uk": {
-              "rule": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe."
+              "rule": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Головне речення та підрядне з weil відокремлюються комою. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe."
             },
             "tr": {
-              "rule": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe."
+              "rule": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. Ana cümle ile weil yan cümlesi arasına virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe."
             }
           }
         },
@@ -1919,31 +1919,31 @@
               "Ich esse nichts, weil ich keinen Hunger habe."
             ],
             "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
-            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Zwischen Hauptsatz und weil-Satz steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
             "explanation_card": "p1_weil",
             "translations": {
               "en": {
                 "instruction": "Which sentence is correct?",
                 "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
-                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. A comma separates the main clause from the weil clause. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Paul explains why he is not eating anything."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
-                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Главное предложение и придаточное с weil разделяются запятой. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Paul объясняет, почему он ничего не ест."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
-                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Головне речення та підрядне з weil відокремлюються комою. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Paul пояснює, чому він нічого не їсть."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
-                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. Ana cümle ile weil yan cümlesi arasına virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Paul neden hiçbir şey yemediğini açıklıyor."
               }
             }
@@ -1973,31 +1973,31 @@
               "Weil ich in Deutschland arbeite."
             ],
             "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
-            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Zwischen Hauptsatz und weil-Satz steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
             "explanation_card": "p1_weil",
             "translations": {
               "en": {
                 "instruction": "What fits? Choose the right response.",
                 "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
-                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. A comma separates the main clause from the weil clause. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "“Why are you learning German?”"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
                 "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
-                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Главное предложение и придаточное с weil разделяются запятой. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "«Почему ты учишь немецкий?»"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
                 "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
-                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Головне речення та підрядне з weil відокремлюються комою. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "«Чому ти вчиш німецьку?»"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
                 "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
-                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. Ana cümle ile weil yan cümlesi arasına virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "“Neden Almanca öğreniyorsun?”"
               }
             }
@@ -2027,31 +2027,31 @@
               "weil er müde ist."
             ],
             "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
-            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Zwischen Hauptsatz und weil-Satz steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
             "explanation_card": "p1_weil",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
-                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. A comma separates the main clause from the weil clause. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Milan is not going to the party. He is tired. → Milan is not going to the party because he is tired."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
-                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Главное предложение и придаточное с weil разделяются запятой. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Milan не идёт на вечеринку. Он устал. → Milan не идёт на вечеринку, потому что устал."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
-                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Головне речення та підрядне з weil відокремлюються комою. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Milan не йде на вечірку. Він втомився. → Milan не йде на вечірку, тому що втомився."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
-                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. Ana cümle ile weil yan cümlesi arasına virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Milan partiye gitmiyor. Yorgun. → Milan partiye gitmiyor, çünkü yorgun."
               }
             }
@@ -2081,31 +2081,31 @@
               "weil"
             ],
             "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
-            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Zwischen Hauptsatz und weil-Satz steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
             "explanation_card": "p1_weil",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
-                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. A comma separates the main clause from the weil clause. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "I am taking the bus because my bike is broken."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
-                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Главное предложение и придаточное с weil разделяются запятой. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Я еду на автобусе, потому что мой велосипед сломан."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
-                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Головне речення та підрядне з weil відокремлюються комою. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Я їду автобусом, тому що мій велосипед зламаний."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
-                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. Ana cümle ile weil yan cümlesi arasına virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Otobüse biniyorum, çünkü bisikletim bozuk."
               }
             }
@@ -2137,31 +2137,31 @@
               "weil"
             ],
             "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
-            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Zwischen Hauptsatz und weil-Satz steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
             "explanation_card": "p1_weil",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct conjunction.",
                 "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
-                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. A comma separates the main clause from the weil clause. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "We are staying at home today because it is raining."
               },
               "ru": {
                 "instruction": "Вставьте подходящий союз.",
                 "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
-                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Главное предложение и придаточное с weil разделяются запятой. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Сегодня мы остаёмся дома, потому что идёт дождь."
               },
               "uk": {
                 "instruction": "Вставте відповідний сполучник.",
                 "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
-                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Головне речення та підрядне з weil відокремлюються комою. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Сьогодні ми залишаємося вдома, тому що йде дощ."
               },
               "tr": {
                 "instruction": "Uygun bağlacı yazın.",
                 "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
-                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. Ana cümle ile weil yan cümlesi arasına virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Bugün evde kalıyoruz, çünkü yağmur yağıyor."
               }
             }
@@ -2193,31 +2193,31 @@
               "hat"
             ],
             "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
-            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Zwischen Hauptsatz und weil-Satz steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
             "explanation_card": "p1_weil",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
-                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. A comma separates the main clause from the weil clause. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Paul is not buying a car because he has no money."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
-                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Главное предложение и придаточное с weil разделяются запятой. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Paul не покупает машину, потому что у него нет денег."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
-                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Головне речення та підрядне з weil відокремлюються комою. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Paul не купує машину, тому що в нього немає грошей."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
-                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. Ana cümle ile weil yan cümlesi arasına virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Paul araba almıyor, çünkü parası yok."
               }
             }
@@ -2249,31 +2249,31 @@
               "bin"
             ],
             "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
-            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Zwischen Hauptsatz und weil-Satz steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
             "explanation_card": "p1_weil",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
-                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. A comma separates the main clause from the weil clause. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "I will call you later because I am in class now."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
-                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Главное предложение и придаточное с weil разделяются запятой. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Я позвоню тебе позже, потому что сейчас я на курсе."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
-                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Головне речення та підрядне з weil відокремлюються комою. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Я зателефоную тобі пізніше, тому що зараз я на курсі."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
-                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. Ana cümle ile weil yan cümlesi arasına virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Seni sonra arayacağım, çünkü şimdi kurstayım."
               }
             }
@@ -2288,7 +2288,7 @@
                 "Verb am Ende"
               ],
               "instruction": "Ergänze die richtige Verbform.",
-              "text_before": "Olga ist glücklich, weil ihre Familie sie ",
+              "text_before": "Oleg ist glücklich, weil seine Familie ihn ",
               "text_after": ".",
               "gap_hint": "besuchen",
               "correct_answer": "besucht",
@@ -2305,32 +2305,32 @@
               "besucht"
             ],
             "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
-            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Zwischen Hauptsatz und weil-Satz steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
             "explanation_card": "p1_weil",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
-                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
-                "task": "Olga is happy because her family is visiting her."
+                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. A comma separates the main clause from the weil clause. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "task": "Oleg is happy because his family is visiting him."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
-                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
-                "task": "Olga счастлива, потому что её навещает семья."
+                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Главное предложение и придаточное с weil разделяются запятой. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "task": "Oleg счастлив, потому что его навещает семья."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
-                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
-                "task": "Olga щаслива, тому що її відвідує родина."
+                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Головне речення та підрядне з weil відокремлюються комою. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "task": "Oleg щасливий, тому що його відвідує родина."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
-                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
-                "task": "Olga mutlu, çünkü ailesi onu ziyaret ediyor."
+                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. Ana cümle ile weil yan cümlesi arasına virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "task": "Oleg mutlu, çünkü ailesi onu ziyaret ediyor."
               }
             }
           },
@@ -2364,31 +2364,31 @@
               "Weil ich krank bin, bleibe ich im Bett."
             ],
             "hint": "Nach weil steht das Verb am Ende: …, weil ich krank bin.",
-            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Vor weil steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+            "explanation": "weil nennt den Grund. Die Frage heißt: Warum? Der weil-Satz ist ein Nebensatz: Das Verb steht am Ende. Zwischen Hauptsatz und weil-Satz steht ein Komma. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Im Gespräch reicht oft der Nebensatz: Warum kommst du nicht? – Weil ich keine Zeit habe.",
             "explanation_card": "p1_weil",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "After weil the verb goes to the end: …, weil ich krank bin.",
-                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. There is a comma before weil. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (because) gives the reason. The question is: Warum? (why?) The weil clause is a subordinate clause: the verb goes to the end. A comma separates the main clause from the weil clause. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. In conversation the weil clause alone is often enough: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "I am staying in bed because I am ill."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "После weil глагол стоит в конце: …, weil ich krank bin.",
-                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Перед weil ставится запятая. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (потому что) называет причину. Вопрос: Warum? (почему?) Предложение с weil – придаточное: глагол стоит в конце. Главное предложение и придаточное с weil разделяются запятой. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. В разговоре часто достаточно одного придаточного: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Я остаюсь в постели, потому что я болен."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Після weil дієслово стоїть у кінці: …, weil ich krank bin.",
-                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Перед weil ставиться кома. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (тому що) називає причину. Запитання: Warum? (чому?) Речення з weil – підрядне: дієслово стоїть у кінці. Головне речення та підрядне з weil відокремлюються комою. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. У розмові часто достатньо самого підрядного речення: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Я залишаюся в ліжку, тому що я хворий."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "weil’den sonra fiil sonda durur: …, weil ich krank bin.",
-                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. weil’den önce virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
+                "explanation": "weil (çünkü) nedeni söyler. Soru: Warum? (neden?) weil cümlesi bir yan cümledir: Fiil sonda durur. Ana cümle ile weil yan cümlesi arasına virgül konur. Ich bleibe zu Hause. Ich bin krank. → Ich bleibe zu Hause, weil ich krank bin. Konuşmada çoğu zaman yalnızca yan cümle yeter: Warum kommst du nicht? – Weil ich keine Zeit habe.",
                 "task": "Yatakta kalıyorum, çünkü hastayım."
               }
             }
@@ -48084,7 +48084,7 @@
                 "streng"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Die Lehrerin hatte viele Regeln. Die Schüler mussten immer still sein. Die Lehrerin war …",
+              "question": "Der Lehrer hatte viele Regeln. Die Schüler mussten immer still sein. Der Lehrer war …",
               "options": [
                 "langweilig",
                 "faul",
@@ -48112,13 +48112,13 @@
                 "instruction": "Выберите правильный ответ.",
                 "hint": "geliebt (любил) ↔ gehasst (ненавидел). streng = много правил. Mit sechs Jahren in die Schule kommen = пойти в школу в шесть лет.",
                 "explanation": "Как рассказать о школьных годах: Ich bin mit sechs Jahren in die Schule gekommen. (Я пошёл в школу в шесть лет.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моим любимым учителем был …) Mathe habe ich gehasst (ненавидел), Sport habe ich geliebt (обожал). Schön war immer die Pause. (Приятной всегда была перемена.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам приходилось сидеть тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (строгие), aber auch nett.",
-                "task": "У учительницы было много правил. Ученики всегда должны были сидеть тихо. Учительница была …"
+                "task": "У учителя было много правил. Ученики всегда должны были сидеть тихо. Учитель был …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "geliebt (любив) ↔ gehasst (ненавидів). streng = багато правил. Mit sechs Jahren in die Schule kommen = піти до школи в шість років.",
                 "explanation": "Як розповісти про шкільні роки: Ich bin mit sechs Jahren in die Schule gekommen. (Я пішов до школи в шість років.) Mein Lieblingsfach war Kunst. Mein Lieblingslehrer war Herr Lindner. (Моїм улюбленим учителем був …) Mathe habe ich gehasst (ненавидів), Sport habe ich geliebt (обожнював). Schön war immer die Pause. (Приємною завжди була перерва.) Langweilig war oft der Unterricht am Nachmittag. Im Unterricht mussten wir still sitzen. (Нам доводилося сидіти тихо.) Wir durften nicht sprechen. Die Lehrer waren streng (суворі), aber auch nett.",
-                "task": "В учительки було багато правил. Учні завжди мали сидіти тихо. Учителька була …"
+                "task": "В учителя було багато правил. Учні завжди мали сидіти тихо. Учитель був …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
@@ -48434,31 +48434,31 @@
               "mussten"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Fill in the modal verb in the past tense (Präteritum).",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "In class we always had to sit still."
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в прошедшем времени (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "На уроке нам всегда приходилось сидеть тихо."
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в минулому часі (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "На уроці нам завжди доводилося сидіти тихо."
               },
               "tr": {
                 "instruction": "Kip fiilini geçmiş zamanda (Präteritum) yazın.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Derste hep sessizce oturmak zorundaydık."
               }
             }

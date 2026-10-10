@@ -1103,7 +1103,7 @@
           "card": "p1_alsbei",
           "rule": "als + Beruf, bei + Firma: Ich arbeite als Verkäufer. Ich arbeite bei der Bäckerei Sonnenkorn. Zusammen: Ich arbeite als Verkäufer bei Sonnenkorn. Nach als steht kein Artikel.",
           "examples": [
-            "Dilara arbeitet als Köchin.",
+            "Amir arbeitet als Koch.",
             "Mateo arbeitet bei Elektro Brandt.",
             "Ich arbeite als Fahrer bei einer Spedition."
           ],
@@ -1242,8 +1242,8 @@
                 "als + Beruf"
               ],
               "instruction": "Ergänze die passende Präposition.",
-              "text_before": "Amira arbeitet ",
-              "text_after": " Kellnerin.",
+              "text_before": "Amir arbeitet ",
+              "text_after": " Kellner.",
               "gap_hint": "als / bei",
               "correct_answer": "als",
               "options": [
@@ -1266,25 +1266,25 @@
                 "instruction": "Fill in the correct preposition.",
                 "hint": "Job → als. Company → bei.",
                 "explanation": "als + job, bei + company: Ich arbeite als Verkäufer (as a salesman). Ich arbeite bei der Bäckerei Sonnenkorn (at/for the bakery). Together: Ich arbeite als Verkäufer bei Sonnenkorn. There is no article after als.",
-                "task": "Amira works as a waitress."
+                "task": "Amir works as a waiter."
               },
               "ru": {
                 "instruction": "Вставьте подходящий предлог.",
                 "hint": "Профессия → als. Фирма → bei.",
                 "explanation": "als + профессия, bei + фирма: Ich arbeite als Verkäufer (продавцом). Ich arbeite bei der Bäckerei Sonnenkorn (в пекарне). Вместе: Ich arbeite als Verkäufer bei Sonnenkorn. После als артикль не ставится.",
-                "task": "Amira работает официанткой."
+                "task": "Amir работает официантом."
               },
               "uk": {
                 "instruction": "Вставте відповідний прийменник.",
                 "hint": "Професія → als. Фірма → bei.",
                 "explanation": "als + професія, bei + фірма: Ich arbeite als Verkäufer (продавцем). Ich arbeite bei der Bäckerei Sonnenkorn (у пекарні). Разом: Ich arbeite als Verkäufer bei Sonnenkorn. Після als артикль не ставиться.",
-                "task": "Amira працює офіціанткою."
+                "task": "Amir працює офіціантом."
               },
               "tr": {
                 "instruction": "Uygun edatı yazın.",
                 "hint": "Meslek → als. Firma → bei.",
                 "explanation": "als + meslek, bei + firma: Ich arbeite als Verkäufer (satış elemanı olarak). Ich arbeite bei der Bäckerei Sonnenkorn (fırında). Birlikte: Ich arbeite als Verkäufer bei Sonnenkorn. als’tan sonra artikel gelmez.",
-                "task": "Amira garson olarak çalışıyor."
+                "task": "Amir garson olarak çalışıyor."
               }
             }
           },
@@ -1354,8 +1354,8 @@
                 "als + Beruf"
               ],
               "instruction": "Ergänze die passende Präposition.",
-              "text_before": "Hanna hat eine Stelle ",
-              "text_after": " Erzieherin.",
+              "text_before": "Hannes hat eine Stelle ",
+              "text_after": " Erzieher.",
               "gap_hint": "als / bei",
               "correct_answer": "als",
               "options": [
@@ -1378,25 +1378,25 @@
                 "instruction": "Fill in the correct preposition.",
                 "hint": "Job → als. Company → bei.",
                 "explanation": "als + job, bei + company: Ich arbeite als Verkäufer (as a salesman). Ich arbeite bei der Bäckerei Sonnenkorn (at/for the bakery). Together: Ich arbeite als Verkäufer bei Sonnenkorn. There is no article after als.",
-                "task": "Hanna has a job as a nursery teacher."
+                "task": "Hannes has a job as a nursery teacher."
               },
               "ru": {
                 "instruction": "Вставьте подходящий предлог.",
                 "hint": "Профессия → als. Фирма → bei.",
                 "explanation": "als + профессия, bei + фирма: Ich arbeite als Verkäufer (продавцом). Ich arbeite bei der Bäckerei Sonnenkorn (в пекарне). Вместе: Ich arbeite als Verkäufer bei Sonnenkorn. После als артикль не ставится.",
-                "task": "У Hanna есть место воспитательницы."
+                "task": "У Hannes есть место воспитателя."
               },
               "uk": {
                 "instruction": "Вставте відповідний прийменник.",
                 "hint": "Професія → als. Фірма → bei.",
                 "explanation": "als + професія, bei + фірма: Ich arbeite als Verkäufer (продавцем). Ich arbeite bei der Bäckerei Sonnenkorn (у пекарні). Разом: Ich arbeite als Verkäufer bei Sonnenkorn. Після als артикль не ставиться.",
-                "task": "Hanna має посаду виховательки."
+                "task": "Hannes має посаду вихователя."
               },
               "tr": {
                 "instruction": "Uygun edatı yazın.",
                 "hint": "Meslek → als. Firma → bei.",
                 "explanation": "als + meslek, bei + firma: Ich arbeite als Verkäufer (satış elemanı olarak). Ich arbeite bei der Bäckerei Sonnenkorn (fırında). Birlikte: Ich arbeite als Verkäufer bei Sonnenkorn. als’tan sonra artikel gelmez.",
-                "task": "Hanna’nın anaokulu öğretmeni olarak bir işi var."
+                "task": "Hannes’in anaokulu öğretmeni olarak bir işi var."
               }
             }
           },
@@ -40791,7 +40791,7 @@
               "rule": "Особові займенники в Dativ: ich → mir (мені), du → dir (тобі), er/es → ihm (йому), sie → ihr (їй), wir → uns (нам), ihr → euch (вам), sie → ihnen (їм), Sie → Ihnen (Вам). Запитання: Wem? (кому?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr."
             },
             "tr": {
-              "rule": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr."
+              "rule": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr."
             }
           }
         },
@@ -40845,7 +40845,7 @@
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Wem? (kime?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
-                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
                 "task": "Ayakkabıları harika buluyorum. Çok hoşuma gidiyorlar."
               }
             }
@@ -40899,7 +40899,7 @@
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kimden söz ediyorsunuz? Erkek → ihm, kadın → ihr, birden fazla kişi → ihnen.",
-                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
                 "task": "Bu Jonas. Ceket ona iyi oluyor."
               }
             }
@@ -40953,7 +40953,7 @@
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Wem? (kime?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
-                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
                 "task": "Aksoy Hanım, elbise hoşunuza gidiyor mu?"
               }
             }
@@ -41009,7 +41009,7 @@
               "tr": {
                 "instruction": "Uygun zamiri yazın.",
                 "hint": "Wem? (kime?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
-                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
                 "task": "Harika görünüyorsun! Palto sana çok yakışıyor."
               }
             }
@@ -41065,7 +41065,7 @@
               "tr": {
                 "instruction": "Uygun zamiri yazın.",
                 "hint": "Kimden söz ediyorsunuz? Erkek → ihm, kadın → ihr, birden fazla kişi → ihnen.",
-                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
                 "task": "sie (tekil) için datif zamirini tamamlayın: Die Bluse gefällt …"
               }
             }
@@ -41121,7 +41121,7 @@
               "tr": {
                 "instruction": "Uygun zamiri yazın.",
                 "hint": "Wem? (kime?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
-                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
                 "task": "Ayakkabıları alıyoruz. Hoşumuza gidiyorlar."
               }
             }
@@ -41177,7 +41177,7 @@
               "tr": {
                 "instruction": "Uygun zamiri yazın.",
                 "hint": "Wem? (kime?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
-                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
                 "task": "Tim ve Milan, hediye hoşunuza gidiyor mu?"
               }
             }
@@ -41233,7 +41233,7 @@
               "tr": {
                 "instruction": "Uygun zamiri yazın.",
                 "hint": "Kimden söz ediyorsunuz? Erkek → ihm, kadın → ihr, birden fazla kişi → ihnen.",
-                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
                 "task": "Annemle babam balığı sever. Balık onlara lezzetli geliyor."
               }
             }
@@ -41289,7 +41289,7 @@
               "tr": {
                 "instruction": "Uygun zamiri yazın.",
                 "hint": "Kimden söz ediyorsunuz? Erkek → ihm, kadın → ihr, birden fazla kişi → ihnen.",
-                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
                 "task": "Erkek kardeşim uzun boylu. Pantolon ona çok kısa."
               }
             }
@@ -41347,7 +41347,7 @@
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Wem? (kime?) → Dativ: mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen.",
-                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona, erkek), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
+                "explanation": "Dativ’te kişi zamirleri: ich → mir (bana), du → dir (sana), er/es → ihm (ona), sie → ihr (ona, kadın), wir → uns (bize), ihr → euch (size), sie → ihnen (onlara), Sie → Ihnen (size, resmî). Soru: Wem? (kime?) Die Jacke gefällt mir. Der Mantel steht dir. Das Hemd passt ihm. Die Bluse gefällt ihr.",
                 "task": "Ceket çok hoşuma gidiyor."
               }
             }
