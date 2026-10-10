@@ -1,0 +1,49 @@
+{
+  "nativeExitCode": 0,
+  "storageRows": 8,
+  "storageBeforeSha256": "d9fa7d07d1d65a4ac14b03728cdea9a4e56471879b7d64c5b8a13fc2bf9a5471",
+  "storageAfterSha256": "d9fa7d07d1d65a4ac14b03728cdea9a4e56471879b7d64c5b8a13fc2bf9a5471",
+  "storageFullRowsExact": true,
+  "fixtureAssetsAreSyntheticMetadataOnly": true,
+  "originalAffectedPaths": 17,
+  "sqlSourceSha256": "cef2c54f33e552ba4e6aaaa3909a8b599468ce7013ab5451faa9e5bf49c80bad",
+  "frozenBase": "418e794730e1917ad5872bbff2418534a1735e37",
+  "full185ProtectedStreamRun": false,
+  "epoch": 67,
+  "native": [
+    {
+      "role": "supabase_admin",
+      "checks": 58,
+      "allPassed": true,
+      "serverVersion": "15.19",
+      "fixtureMetadataOnly": true
+    },
+    {
+      "archiveAbsent": true,
+      "variantHelperAbsent": true
+    }
+  ],
+  "metadata": {
+    "rows": 5222,
+    "beforeRawSha256": "6f087d0407cbe0e067f0c1ee74b2c9ee12c157fed43f7a3658b3fa33d2ff0b1c",
+    "afterRawSha256": "6f087d0407cbe0e067f0c1ee74b2c9ee12c157fed43f7a3658b3fa33d2ff0b1c",
+    "rawExact": true
+  },
+  "runtime": {
+    "beforeMemoryMiB": 2594,
+    "afterMemoryMiB": 2525,
+    "healthThree200": true,
+    "productionAppHealth": 200,
+    "noOOM": true,
+    "scopedQueries": 0
+  },
+  "actualGermanTSAndPythonAndSQLCases": 17,
+  "foreignTSLegacyGoldenCases": 24,
+  "failedFixtureAttempts": 3,
+  "productionWrite": false,
+  "sharedQAWrite": false,
+  "audioBytesVerified": false,
+  "humanListening": false,
+  "releaseReady": false,
+  "openJobs": []
+}
