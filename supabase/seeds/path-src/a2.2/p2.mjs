@@ -19,7 +19,7 @@ const path = {
     K1: 'Skeptisch reagieren: Tja, ich weiß nicht. Hm, findest du? Na ja, geht so. Bist du sicher?',
     K2: 'Vorlieben und Konsumverhalten ausdrücken: Am meisten gebe ich für … aus. Ich kaufe am liebsten … Da spare ich.',
     K3: 'Wichtigkeit ausdrücken: Mir ist … wichtig. Wie wichtig ist dir …? Das ist mir überhaupt nicht wichtig.',
-    K4: 'Von einem Gegenstand erzählen: Diese Kette habe ich von meiner Oma bekommen. Sie ist mir besonders wichtig, weil …',
+    K4: "Von einem Gegenstand erzählen: Diese Kette habe ich von meinem Opa bekommen. Sie ist mir besonders wichtig, weil …",
     Z1: 'Kann-Ziele: Kleinanzeigen verstehen.',
     W1: 'Wortschatz: Gegenstände und Materialien.',
   },

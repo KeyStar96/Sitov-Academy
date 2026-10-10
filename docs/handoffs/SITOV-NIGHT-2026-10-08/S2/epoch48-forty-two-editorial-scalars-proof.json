@@ -1,0 +1,100 @@
+{
+  "epoch": 48,
+  "brand": "Sitov Academy",
+  "base": "4b1a0f540b4966aadb24f1e76747e13b4c36efd3",
+  "inputSHA256": "e33597ee12db5a8300e34b9bbfcdfecab48001af666b88dbfef3c99cfc68cd0a",
+  "exactScalarChanges": 42,
+  "taskScalars": 37,
+  "changedTasks": 13,
+  "parentScalars": 1,
+  "goalDescriptionScalars": 4,
+  "comparedTasks": 9569,
+  "comparedNodes": 856,
+  "comparedPaths": 66,
+  "allUnassignedWholeObjectsExact": true,
+  "allKeysOptionsAcceptedPartsIdsRefsTypesGoalAssignmentsAndCardinalitiesExact": true,
+  "sixOtherSeedsByteExact": true,
+  "answerRevisions": 0,
+  "nativeParityLevels": 9,
+  "nativeTaskSourcesChanged": 5,
+  "nativeParentsChanged": 1,
+  "nativeObjectivesChanged": 4,
+  "nativeFiles": 5,
+  "jest": {
+    "testsPass": 107,
+    "testsFail": 0,
+    "testsSkipped": 0,
+    "suitesPass": 2
+  },
+  "schemaValidatedTasks": 9569,
+  "eslint": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "diffCheck": "PASS",
+  "bothAudioAdaptersComparedTasks": 9569,
+  "finalCanonicalAudioAliases": 22,
+  "changedCanonicalAudioAliases": 1,
+  "changedAudioTasks": 1,
+  "exactCatalogLevels": 9,
+  "changedCatalogLevels": 1,
+  "actualChangedAliasCacheAndOriginProof": true,
+  "finalWholeTasksParentsAndAll66PathsObjectivesExported": true,
+  "wholeReapprovalPendingM": true,
+  "publicationApproved": false,
+  "humanHearing": false,
+  "noDbSshRuntimeBrowserQAImportsSynthesisPublicationPushDeployActions": true,
+  "changedSourceFiles": [
+    "supabase/seeds/path-a1.1.json",
+    "supabase/seeds/path-a1.2.json",
+    "supabase/seeds/path-a2.1.json",
+    "supabase/seeds/path-a2.2.json",
+    "supabase/seeds/path-src/a1.2/p3.mjs",
+    "supabase/seeds/path-src/a2.1/p1-check.mjs",
+    "supabase/seeds/path-src/a2.1/p1.mjs",
+    "supabase/seeds/path-src/a2.2/p1.mjs",
+    "supabase/seeds/path-src/a2.2/p2.mjs"
+  ],
+  "privateEvidence": {
+    "epoch48-bound-M-input.json": {
+      "path": "S2/epoch48-bound-M-input.json",
+      "bytes": 42783,
+      "SHA256": "e33597ee12db5a8300e34b9bbfcdfecab48001af666b88dbfef3c99cfc68cd0a"
+    },
+    "epoch48-old-new-full.json": {
+      "path": "S2/epoch48-old-new-full.json",
+      "bytes": 215130,
+      "SHA256": "5346daab1dfd69a74d34951e6c3989b1b7a8ae38f8a97aab4ca0287f9aaf0abf"
+    },
+    "epoch48-final-reapproval-input.json": {
+      "path": "S2/epoch48-final-reapproval-input.json",
+      "bytes": 289446,
+      "SHA256": "7a0867da417368ed4fe01ac877a3ef364e08c82c112773e8b71ca8d1b17eb94e"
+    },
+    "epoch48-final-canonical-audio.json": {
+      "path": "S2/epoch48-final-canonical-audio.json",
+      "bytes": 35139,
+      "SHA256": "d457284d30fe9a5f06b64e9d13a4b9914ab1fa70c61b766e4e4eee0143c15eea"
+    },
+    "epoch48-native-source-proof.json": {
+      "path": "S2/epoch48-native-source-proof.json",
+      "bytes": 22533,
+      "SHA256": "480516ea88dfe4a4e038ed9b20d4bf3c48012bd7d6334a50d1c1b7ea4917a38f"
+    },
+    "epoch48-native-parity.json": {
+      "path": "S2/epoch48-native-parity.json",
+      "bytes": 462,
+      "SHA256": "592aab01a166bc49dc402dc0d68cbf4e856103916d42e39373385d299ef39779"
+    },
+    "epoch48-author-review.json": {
+      "path": "S2/epoch48-author-review.json",
+      "bytes": 840,
+      "SHA256": "e524d47571aaa3206e83ad70a7d4770d3682231b451130886b43cc9c161b8c15"
+    },
+    "epoch48-author-edits.json": {
+      "path": "S2/epoch48-author-edits.json",
+      "bytes": 1142,
+      "SHA256": "9d10b7d61b73b88ab8aa486db48e339038aa1e9a28835da0d24e88ac32d02bb4"
+    }
+  }
+}

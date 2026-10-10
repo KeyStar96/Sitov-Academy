@@ -49,7 +49,7 @@
       {
         "id": "P1-G5",
         "area": "grammar",
-        "description": "Zugehörigkeit bei Namen: Pauls Mutter – und mit von + Dativ: die Mutter von Paul."
+        "description": "Zugehörigkeit bei Namen: Pauls Vater – und mit von + Dativ: der Vater von Paul."
       },
       {
         "id": "P1-K1",
@@ -64,7 +64,7 @@
       {
         "id": "P1-K3",
         "area": "communication",
-        "description": "Sagen, wie jemand etwas findet: Das findet sie toll. Das gefällt ihm nicht."
+        "description": "Sagen, wie jemand etwas findet: Das findet er toll. Das gefällt ihm nicht."
       },
       {
         "id": "P1-K4",
@@ -1392,7 +1392,7 @@
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Medeni durum: ledig, verheiratet, getrennt, geschieden. İş: berufstätig, arbeitslos, in Rente.",
                 "explanation": "İnsanlar nasıl yaşar: Ich lebe allein (yalnız). Ich bin Single. Wir leben als Paar zusammen (çift olarak birlikte). Ich wohne in einer Wohngemeinschaft (WG = ortak ev). Bir Großfamilie’de (geniş aile) büyükanne ve büyükbaba, anne baba ve çocuklar birlikte yaşar. Medeni durum: ledig (hiç evlenmemiş), verheiratet (evli), getrennt (ayrı yaşayan), geschieden (boşanmış). Alleinerziehend: Anne ya da baba çocuğuyla yalnız yaşar. İş: berufstätig (çalışan), arbeitslos (işsiz), in Rente (emekli), studieren, als Koch arbeiten (aşçı olarak çalışmak). Zaman: Ich lebe seit drei Jahren allein.",
-                "task": "Rojas Bey iki çocuğuyla, eşi olmadan yaşıyor. O …"
+                "task": "Rojas Bey iki çocuğuyla, partneri olmadan yaşıyor. O …"
               }
             }
           },
@@ -5517,7 +5517,7 @@
               "target_form": [
                 "zuerst"
               ],
-              "instruction": "Ergänze das passende Wort.",
+              "instruction": "Ergänze das Wort für den ersten Schritt der Erzählung.",
               "text_before": "",
               "text_after": " bin ich aufgestanden, dann habe ich geduscht.",
               "correct_answer": "Zuerst",
@@ -5576,7 +5576,7 @@
               "target_form": [
                 "schließlich"
               ],
-              "instruction": "Ergänze das passende Wort.",
+              "instruction": "Ergänze das Wort für den letzten Schritt der Erzählung.",
               "text_before": "Zuerst haben wir gekocht, dann gegessen und ",
               "text_after": " haben wir einen Film gesehen.",
               "correct_answer": "schließlich",
@@ -7970,32 +7970,32 @@
             "accepted_answers": [
               "Emres Hund"
             ],
-            "hint": "Name + s: Pauls Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
-            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Pauls Mutter, Pauls Auto, Emres Büro. Du kannst auch von + Name sagen: die Mutter von Paul. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+            "hint": "Name + s: Pauls Vater. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
+            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Pauls Vater, Pauls Auto, Emres Büro. Du kannst auch von + Name sagen: der Vater von Paul. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
-                "hint": "Name + s: Pauls Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
-                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Pauls Mutter (Paul’s mother), Pauls Auto, Emres Büro. You can also say von + name: die Mutter von Paul. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "hint": "Name + s: Pauls Vater. With an article: von + dative – von meinem Bruder, von meiner Tante.",
+                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Pauls Vater (Paul’s father), Pauls Auto, Emres Büro. You can also say von + name: der Vater von Paul. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "This is Emre’s dog. = This is …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
-                "hint": "Имя + s: Pauls Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Pauls Mutter (мама Пауля), Pauls Auto, Emres Büro. Можно сказать и von + имя: die Mutter von Paul. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "hint": "Имя + s: Pauls Vater. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Pauls Vater (папа Пауля), Pauls Auto, Emres Büro. Можно сказать и von + имя: der Vater von Paul. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Это собака Emre. = Это …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
-                "hint": "Ім’я + s: Pauls Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Pauls Mutter (мама Пауля), Pauls Auto, Emres Büro. Можна сказати й von + ім’я: die Mutter von Paul. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "hint": "Ім’я + s: Pauls Vater. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Pauls Vater (папа Пауля), Pauls Auto, Emres Büro. Можна сказати й von + ім’я: der Vater von Paul. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Це собака Emre. = Це …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
-                "hint": "İsim + s: Pauls Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Pauls Mutter (Paul’ün annesi), Pauls Auto, Emres Büro. von + isim de denir: die Mutter von Paul. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "hint": "İsim + s: Pauls Vater. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
+                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Pauls Vater (Paul’ün babası), Pauls Auto, Emres Büro. von + isim de denir: der Vater von Paul. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
                 "task": "Bu Emre’nin köpeği. = Bu …"
               }
             }

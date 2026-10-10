@@ -13,7 +13,7 @@ const path = {
   objectives: {
     G1: 'Konjunktiv II von sein, haben und können: ich wäre, du wärst, wir wären – ich hätte, du hättest – ich könnte, du könntest.',
     G2: 'Konjunktiv II mit würde + Infinitiv: Ich würde gern Gitarre spielen. Der Infinitiv steht am Satzende.',
-    G3: 'Wünsche ausdrücken: Ich wäre gern am Meer. Sie hätte gern mehr Freizeit. Wir würden gern tanzen.',
+    G3: "Wünsche ausdrücken: Ich wäre gern am Meer. Er hätte gern mehr Freizeit. Wir würden gern tanzen.",
     G4: 'Vorschläge mit könnte: Du könntest ins Kino gehen. Wir könnten eine Radtour machen.',
     G5: 'Gegensätze ausdrücken mit trotzdem: Es regnet. Trotzdem gehe ich spazieren. Das Verb steht auf Position 2.',
     K1: 'Über Wünsche sprechen und danach fragen: Wo wären Sie jetzt gern? Was hätten Sie gern? Was würden Sie gern machen?',

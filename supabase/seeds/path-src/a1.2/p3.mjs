@@ -174,7 +174,7 @@ const path = {
   "examples": [
     "Das ist Emre. Sein Bein tut weh.",
     "Pronomen „sie (Singular)“: Ihr Kopf tut weh.",
-    "Die Kinder sind krank. Ihre Mutter ruft den Arzt an."
+    "Die Kinder sind krank. Ihre Familie ruft den Arzt an."
   ],
   "highlight": "article",
   "t": [
@@ -194,7 +194,7 @@ const path = {
       ex: [
         mc("G2", "sein", I.choose, "Jonas ist beim Arzt. ___ Hals tut weh.", ["Sein","Seine","Ihr"], ["Jonas is at the doctor’s. His throat hurts.","Jonas у врача. У него болит горло.","Jonas у лікаря. У нього болить горло.","Jonas doktorda. Boğazı ağrıyor."], {"c":"p3_seinihr","sitovOptionOrder":["Seine","Sein","Ihr"]}),
         mc("G2", "ihr", I.choose, "Ergänze den Possessivartikel zu „sie (Singular)“: ___ Hand tut weh.", ["Ihre","Seine","Ihr"], ["Complete the possessive for sie (singular): … Hand tut weh.","Дополните притяжательный артикль для sie (ед. число): … Hand tut weh.","Доповніть присвійний артикль для sie (однина): … Hand tut weh.","sie (tekil) için iyelik artikelini tamamlayın: … Hand tut weh."], {"c":"p3_seinihr"}),
-        mc("G2", "ihr (Plural)", I.choose, "Tom und Emil haben Husten. ___ Mutter kauft Tee.", ["Ihre","Eure","Seine"], ["Tom and Emil have a cough. Their mother buys tea.","У Tom и Emil кашель. Их мама покупает чай.","У Tom і Emil кашель. Їхня мама купує чай.","Tom ve Emil öksürüyor. Anneleri çay alıyor."], {"c":"p3_seinihr"}),
+        mc("G2", "ihr (Plural)", I.choose, "Tom und Emil haben Husten. ___ Familie kauft Tee.", ["Ihre","Eure","Seine"], ["Tom and Emil have a cough. Their family buys tea.","У Tom и Emil кашель. Их семья покупает чай.","У Tom і Emil кашель. Їхня родина купує чай.","Tom ve Emil öksürüyor. Aileleri çay alıyor."], {"c":"p3_seinihr"}),
         gap('G2', 'sein', I.possessive, 'Das ist Herr Petrov. ', ' Rücken tut weh.', 'Sein', ['Ihr', 'Seine'],
           ['This is Mr Petrov. His back hurts.', 'Это господин Petrov. У него болит спина.', 'Це пан Petrov. У нього болить спина.', 'Bu Petrov Bey. Sırtı ağrıyor.'], 'sein / ihr'),
         gap("G2", "ihr", I.possessive, "Ergänze den Possessivartikel zu „sie (Singular)“: ", " Ohren tun weh.", "Ihre", ["Seine","Ihr"], ["Complete the possessive for sie (singular): … Ohren tun weh.","Дополните притяжательный артикль для sie (ед. число): … Ohren tun weh.","Доповніть присвійний артикль для sie (однина): … Ohren tun weh.","sie (tekil) için iyelik artikelini tamamlayın: … Ohren tun weh."], "sein / ihr", {"c":"p3_seinihr"}),

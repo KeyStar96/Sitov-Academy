@@ -33416,7 +33416,7 @@
             "accepted_answers": [
               "Ich finde Kartenspielen langweilig."
             ],
-            "hint": "Etwas ist schön? Dann: Das macht Spaß! / Ich finde … toll.",
+            "hint": "Etwas ist schön? Dann: Das macht Spaß! / Ich finde … toll. Negativ: Ich finde … langweilig.",
             "explanation": "Hobbys nennen und bewerten: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ – „Ich finde Wandern toll / super / langweilig.“ Frage: „Was machst du in deiner Freizeit?“",
             "explanation_card": "p6_hobby",
             "translations": {
@@ -34947,10 +34947,10 @@
               "target_form": [
                 "Akkusativ"
               ],
-              "instruction": "Ergänze die Verneinung: nicht oder kein.",
+              "instruction": "Ergänze die richtige Form von kein.",
               "text_before": "Er trinkt ",
               "text_after": " Bier.",
-              "gap_hint": "nicht / kein",
+              "gap_hint": "kein",
               "correct_answer": "kein",
               "options": [
                 "kein",
@@ -34969,25 +34969,25 @@
             "explanation_card": "p6_acc_neg",
             "translations": {
               "en": {
-                "instruction": "Fill in the negation: nicht or kein.",
+                "instruction": "Fill in the correct form of kein.",
                 "hint": "kein works like ein: masculine keinen, neuter kein, feminine and plural keine.",
                 "explanation": "Accusative with kein: masculine keinen, neuter kein, feminine keine, plural keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
                 "task": "He doesn’t drink beer."
               },
               "ru": {
-                "instruction": "Вставьте отрицание: nicht или kein.",
+                "instruction": "Вставьте правильную форму отрицательного артикля kein.",
                 "hint": "kein изменяется как ein: мужской род keinen, средний kein, женский и мн. ч. keine.",
                 "explanation": "Винительный падеж с kein: мужской род keinen, средний kein, женский keine, мн. ч. keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
                 "task": "Он не пьёт пиво."
               },
               "uk": {
-                "instruction": "Вставте заперечення: nicht або kein.",
+                "instruction": "Вставте правильну форму заперечного артикля kein.",
                 "hint": "kein змінюється як ein: чоловічий рід keinen, середній kein, жіночий і множина keine.",
                 "explanation": "Знахідний відмінок з kein: чоловічий рід keinen, середній kein, жіночий keine, множина keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
                 "task": "Він не п’є пива."
               },
               "tr": {
-                "instruction": "Olumsuzluğu yazın: nicht ya da kein.",
+                "instruction": "kein olumsuzluk artikelinin doğru biçimini yazın.",
                 "hint": "kein, ein gibi çekilir: eril keinen, nötr kein, dişil ve çoğul keine.",
                 "explanation": "kein ile Akkusativ: eril keinen, nötr kein, dişil keine, çoğul keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
                 "task": "O bira içmiyor."
@@ -42652,13 +42652,13 @@
                 "instruction": "Вставьте причастие прошедшего времени (Partizip II).",
                 "hint": "Причастия изучаемых здесь сильных глаголов оканчиваются на -en и часто меняют гласную корня: getroffen, getrunken.",
                 "explanation": "Perfekt с haben – изучаемые здесь сильные глаголы: ge + основа + en, часто со сменой гласной: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. Без смены: lesen → gelesen, sehen → gesehen, essen → gegessen.",
-                "task": "Я встретил(а) Kamil в кафе."
+                "task": "Я встретил Камиля в кафе."
               },
               "uk": {
                 "instruction": "Вставте дієприкметник минулого часу (Partizip II).",
                 "hint": "Дієприкметники сильних дієслів, які тут вивчаємо, закінчуються на -en і часто змінюють голосну кореня: getroffen, getrunken.",
                 "explanation": "Perfekt із haben – сильні дієслова, які тут вивчаємо: ge + основа + en, часто зі зміною голосної: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. Без зміни: lesen → gelesen, sehen → gesehen, essen → gegessen.",
-                "task": "Я зустрів (зустріла) Kamil в кафе."
+                "task": "Я зустрів Каміля в кафе."
               },
               "tr": {
                 "instruction": "Geçmiş zaman ortacını (Partizip II) yazın.",
@@ -42820,13 +42820,13 @@
                 "instruction": "Вставьте причастие прошедшего времени (Partizip II).",
                 "hint": "Причастия изучаемых здесь сильных глаголов оканчиваются на -en и часто меняют гласную корня: getroffen, getrunken.",
                 "explanation": "Perfekt с haben – изучаемые здесь сильные глаголы: ge + основа + en, часто со сменой гласной: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. Без смены: lesen → gelesen, sehen → gesehen, essen → gegessen.",
-                "task": "Я написал(а) письмо преподавателю."
+                "task": "Я написал электронное письмо преподавателю."
               },
               "uk": {
                 "instruction": "Вставте дієприкметник минулого часу (Partizip II).",
                 "hint": "Дієприкметники сильних дієслів, які тут вивчаємо, закінчуються на -en і часто змінюють голосну кореня: getroffen, getrunken.",
                 "explanation": "Perfekt із haben – сильні дієслова, які тут вивчаємо: ge + основа + en, часто зі зміною голосної: treffen → getroffen, trinken → getrunken, sprechen → gesprochen, schreiben → geschrieben. Без зміни: lesen → gelesen, sehen → gesehen, essen → gegessen.",
-                "task": "Я написав (написала) листа викладачеві."
+                "task": "Я написав електронного листа викладачеві."
               },
               "tr": {
                 "instruction": "Geçmiş zaman ortacını (Partizip II) yazın.",
@@ -43860,14 +43860,14 @@
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "В этом рассказе о прошлом мы тренируем Perfekt.",
                 "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "Раньше я жил(а) в Харькове, сейчас я живу в Лейпциге.",
+                "task": "Раньше я жил в Харькове, сейчас я живу в Лейпциге.",
                 "gap_hint": "раньше"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "У цій розповіді про минуле ми тренуємо Perfekt.",
                 "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "Раніше я жив (жила) в Харкові, зараз я живу в Ляйпцигу.",
+                "task": "Раніше я жив у Харкові, зараз я живу в Ляйпцигу.",
                 "gap_hint": "раніше"
               },
               "tr": {
@@ -43919,14 +43919,14 @@
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "В этом рассказе о прошлом мы тренируем Perfekt.",
                 "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "Вчера я долго работал(а).",
+                "task": "Вчера я долго работал.",
                 "gap_hint": "вчера"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "У цій розповіді про минуле ми тренуємо Perfekt.",
                 "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "Учора я довго працював (працювала).",
+                "task": "Учора я довго працював.",
                 "gap_hint": "учора"
               },
               "tr": {
@@ -43978,13 +43978,13 @@
                 "instruction": "Вставьте haben или sein в правильной форме.",
                 "hint": "В этом рассказе о прошлом мы тренируем Perfekt.",
                 "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "На выходных я ездил(а) в Гамбург."
+                "task": "На выходных я ездил в Гамбург."
               },
               "uk": {
                 "instruction": "Вставте haben або sein у правильній формі.",
                 "hint": "У цій розповіді про минуле ми тренуємо Perfekt.",
                 "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "На вихідних я їздив (їздила) до Гамбурга."
+                "task": "На вихідних я їздив до Гамбурга."
               },
               "tr": {
                 "instruction": "Haben ya da sein fiilini doğru biçimde yazın.",
@@ -44034,13 +44034,13 @@
                 "instruction": "Вставьте причастие прошедшего времени (Partizip II).",
                 "hint": "Причастия изучаемых здесь сильных глаголов оканчиваются на -en и часто меняют гласную корня: getroffen, getrunken.",
                 "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "В воскресенье я читал(а) книгу."
+                "task": "В воскресенье я читал книгу."
               },
               "uk": {
                 "instruction": "Вставте дієприкметник минулого часу (Partizip II).",
                 "hint": "Дієприкметники сильних дієслів, які тут вивчаємо, закінчуються на -en і часто змінюють голосну кореня: getroffen, getrunken.",
                 "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "У неділю я читав (читала) книжку."
+                "task": "У неділю я читав книжку."
               },
               "tr": {
                 "instruction": "Geçmiş zaman ortacını (Partizip II) yazın.",
