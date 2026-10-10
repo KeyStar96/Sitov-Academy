@@ -141,7 +141,7 @@ it('preserves singular feminine possessives and plural owners in the A1.2 charac
  expect(grammar.content.correct_answer).toBe('Ihre')
  expect(grammar.content.options).toEqual(['Ihre','Seine','Ihr'])
  const couple=exercise('a2.1','P1-N14','a0550519-2d69-5b97-acc6-5f6ece56d41f')
- expect(couple.content.question).toBe('Leon und Tom sind kein Paar mehr, aber sie sind noch nicht geschieden. Jeder hat eine eigene Wohnung und wohnt dort allein. Sie leben …')
+ expect(couple.content.question).toBe('Leon und Tom sind kein Paar mehr, aber sie sind noch nicht geschieden. Jeder hat eine eigene Wohnung und wohnt dort allein. Sie leben ___')
  expect(couple.translations?.uk?.task).toContain('Вони живуть')
 })
 it('agrees in the excuse note and masculine neighbour translations while retaining frozen historical options',()=>{
@@ -171,7 +171,7 @@ it('preserves parcel noun gender, plural wedding actors and the actual feminine 
 })
 it('preserves clothing grammar and history bound to a feminine conjugation target',()=>{
  const dress=exercise('a2.2','P2-N3','ed73de2b-b43c-5aa2-a585-37658f5f2702')
- expect(dress.content.question).toBe('Leon kauft ein … Kleid.')
+ expect(dress.content.question).toBe('Leon kauft ein ___ Kleid.')
  expect(dress.content.correct_answer).toBe('rotes')
  const historical=frozenExercise('33caadca-d684-50f1-a6ac-a21cffb316af')
  expect(historical.content.target_form).toEqual(['sie lässt'])

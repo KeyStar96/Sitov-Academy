@@ -8,6 +8,7 @@ import { bundleSitovAudio, collectSitovAudioCatalog, missingSitovAudioCatalog, s
 import { neuralAudioPath, SITOV_QWEN_PROFILE_FINGERPRINT } from '../lib/audio/neural-identity'
 import { SITOV_QWEN_PROFILE, vocabularyAudioText } from '../lib/audio/neural-config'
 import { preparedLearningAudioTexts } from '../lib/audio/prepared-content'
+import type { Json } from '../supabase/database.types'
 
 const hash = (value: string | Buffer) => createHash('sha256').update(value).digest('hex')
 
@@ -17,7 +18,7 @@ test.each([
   ['c0be9a3b-01ed-5a00-a717-c8dc3c6e188a', 'Ihr', 'Herr Lindner fragt Herrn Demir: „Wie heißt Ihr Sohn?“'],
 ])('keeps the reviewed source sentence filled identically for authoring and publication: %s', (id, answer, spoken) => {
   const paths = JSON.parse(readFileSync(join(__dirname, '../supabase/seeds/path-a1.1.json'), 'utf8')) as {
-    nodes: { exercises: { id: string; exercise_type: string; content: Record<string, unknown> }[] }[]
+    nodes: { exercises: { id: string; exercise_type: string; content: Record<string, Json | undefined> }[] }[]
   }[]
   const exercise = paths.flatMap(path => path.nodes.flatMap(node => node.exercises)).find(row => row.id === id)
   expect(exercise).toBeDefined()
