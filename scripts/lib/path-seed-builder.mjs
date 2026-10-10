@@ -44,6 +44,28 @@ function sitovOptionOrder(problems, ref, values, requested) {
   return [...requested]
 }
 
+/** Exact authored display order, including the multiplicity of repeated sentence parts. */
+function sitovPartsOrder(problems, ref, values, requested) {
+  const fallback = () => {
+    const order = shuffled(values, ref)
+    return order.join(' ') === values.join(' ') ? [...order.slice(1), order[0]] : order
+  }
+  if (requested === undefined) return fallback()
+  const remaining = new Map()
+  for (const value of values) remaining.set(value, (remaining.get(value) ?? 0) + 1)
+  let valid = Array.isArray(requested) && requested.length === values.length
+  if (valid) for (const value of requested) {
+    const count = remaining.get(value) ?? 0
+    if (typeof value !== 'string' || count === 0) { valid = false; break }
+    remaining.set(value, count - 1)
+  }
+  if (!valid) {
+    problems.add('sentence-building', ref, 'explizite Satzteilreihenfolge ist keine exakte Permutation der Satzteile')
+    return fallback()
+  }
+  return [...requested]
+}
+
 /**
  * The key under which grading treats two typed answers as the same word: case, punctuation and
  * the ae/oe/ue/ss spelling of umlauts are ignored (learning_private.grade_answer). A stored
@@ -206,8 +228,7 @@ function buildExercise(problems, ctx, source, ref) {
     const accepted = [correct, ...(source.alt ?? [])]
     for (const answer of accepted) if (words(answer) !== words(correct)) problems.add('sentence-building', where, `„${answer}“ benutzt andere Wörter`)
     if (new Set(accepted.map(normalized)).size !== accepted.length) problems.add('sentence-building', where, 'doppelte Lösungen')
-    let order = shuffled(parts, ref)
-    if (order.join(' ') === parts.join(' ')) order = [...order.slice(1), order[0]]
+    const order = sitovPartsOrder(problems, ref, parts, source.sitovPartsOrder)
     content = { target_form, instruction, parts: order, correct_answer: correct, accepted_answers: accepted }
   }
 

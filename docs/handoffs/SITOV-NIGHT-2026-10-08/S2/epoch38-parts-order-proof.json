@@ -1,0 +1,147 @@
+{
+  "base": "71a46311fd1e9d157d3195a4c3185dceafcaccba",
+  "totalSeedExercises": 9569,
+  "allTenSeedFilesByteExact": true,
+  "allTenSeedSchemasValid": true,
+  "nativeTasksCompared": 8800,
+  "allUnassignedSourceTasksAndParentMetadataExact": true,
+  "changedNativeTasks": [
+    {
+      "level": "a2.1",
+      "ref": "P4-N8-E10",
+      "old": {
+        "type": "sb",
+        "goal": "K3",
+        "target": "durchstellen",
+        "instr": {
+          "de": "Bilde eine Frage aus den Wörtern.",
+          "t": [
+            "Make a question from the words.",
+            "Составьте вопрос из этих слов.",
+            "Складіть запитання з цих слів.",
+            "Bu kelimelerle bir soru oluşturun."
+          ]
+        },
+        "sentence": "Können / Sie / mich / zu Herrn Weber / durchstellen?",
+        "tr": [
+          "Can you put me through to Mr Weber?",
+          "Вы можете переключить меня на господина Weber?",
+          "Ви можете перемкнути мене на пана Weber?",
+          "Beni Weber Bey’e aktarabilir misiniz?"
+        ],
+        "c": "p4_telefon"
+      },
+      "new": {
+        "type": "sb",
+        "goal": "K3",
+        "target": "durchstellen",
+        "instr": {
+          "de": "Bilde eine Frage aus den Wörtern.",
+          "t": [
+            "Make a question from the words.",
+            "Составьте вопрос из этих слов.",
+            "Складіть запитання з цих слів.",
+            "Bu kelimelerle bir soru oluşturun."
+          ]
+        },
+        "sentence": "Können / Sie / mich / zu Herrn Weber / durchstellen?",
+        "tr": [
+          "Can you put me through to Mr Weber?",
+          "Вы можете переключить меня на господина Weber?",
+          "Ви можете перемкнути мене на пана Weber?",
+          "Beni Weber Bey’e aktarabilir misiniz?"
+        ],
+        "c": "p4_telefon",
+        "sitovPartsOrder": [
+          "mich",
+          "durchstellen",
+          "zu Herrn Weber",
+          "Sie",
+          "Können"
+        ]
+      }
+    }
+  ],
+  "native": [
+    {
+      "level": "a1.2",
+      "defaultUnchanged": true,
+      "seedByteParity": true
+    },
+    {
+      "level": "a2.1",
+      "defaultUnchanged": true,
+      "seedByteParity": true
+    },
+    {
+      "level": "a2.2",
+      "defaultUnchanged": true,
+      "seedByteParity": true
+    },
+    {
+      "level": "b1.1",
+      "defaultUnchanged": true,
+      "seedByteParity": true
+    },
+    {
+      "level": "b1.2",
+      "defaultUnchanged": true,
+      "seedByteParity": true
+    },
+    {
+      "level": "b2.1",
+      "defaultUnchanged": true,
+      "seedByteParity": true
+    },
+    {
+      "level": "b2.2",
+      "defaultUnchanged": true,
+      "seedByteParity": true
+    },
+    {
+      "level": "c1.1",
+      "defaultUnchanged": true,
+      "seedByteParity": true
+    },
+    {
+      "level": "c1.2",
+      "defaultUnchanged": true,
+      "seedByteParity": true
+    }
+  ],
+  "tests": {
+    "command": "node --test scripts/lib/path-seed-builder.test.mjs scripts/build-path-seed.test.mjs",
+    "passed": 31,
+    "failed": 0
+  },
+  "eslint": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "diffCheck": "PASS",
+  "seedHashes": {
+    "supabase/seeds/path-a1.1.json": "f5e973ff970477677a58b2831f7a362c4a0dcc476cd264046aa02b9470d47b69",
+    "supabase/seeds/path-a1.2.json": "419eed98c220b5f54d5edc03aa5feffe6e79840a14e718d921bce409cc11e6bf",
+    "supabase/seeds/path-a2.1.json": "e5abdb4745f90ee3b2179ac7e6c2c4c2591bf85a9724a11674db84490432a00d",
+    "supabase/seeds/path-a2.2.json": "6dc89b6da9eff907723638d91eb237feb0a2f5563ab185813483aed895de67ef",
+    "supabase/seeds/path-b1.1.json": "580f2687b29489e78fef3738eac07a704da9d4f9e6991aff3b5242a1b267bda9",
+    "supabase/seeds/path-b1.2.json": "793e7a322d320229ac71adcf96da33a87a5f51222ae4ec90c7328dc423932cb5",
+    "supabase/seeds/path-b2.1.json": "bd5e4494053b53f6b63ed485ec40bc1cd0fa520a45da87a05fd9c18b44337665",
+    "supabase/seeds/path-b2.2.json": "87d0c8b3eb012e0c76be18370cb4325ed5c70fb01c89fa6058ba7af86be0126a",
+    "supabase/seeds/path-c1.1.json": "b86031af3af56c11967480e2d3b8648f79d5cdf1a5082b4b2cec81f124ee965c",
+    "supabase/seeds/path-c1.2.json": "d6509817ad181b8e634739711a73c8e7671eda13aac1bb5002d366b0ec50f0b5"
+  },
+  "explicitOrder": [
+    "mich",
+    "durchstellen",
+    "zu Herrn Weber",
+    "Sie",
+    "Können"
+  ],
+  "canonicalKey": "Können Sie mich zu Herrn Weber durchstellen?",
+  "taskId": "7b824e7d-b6ca-558e-ae23-5fd263931892",
+  "seedDelta": 0,
+  "answerKeyDelta": 0,
+  "audioPayloadDelta": 0,
+  "epoch37Authorized161ScalarRepairsPreserved": true
+}
