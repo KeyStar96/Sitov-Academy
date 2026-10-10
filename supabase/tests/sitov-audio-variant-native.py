@@ -1,6 +1,7 @@
 """Opt-in bounded native115 rollback proof on the single assigned existing clone."""
 import hashlib,importlib.util,json,os,re,subprocess,sys,unicodedata
 from pathlib import Path
+os.umask(0o077)
 if os.environ.get('SITOV_AUDIO_VARIANT_NATIVE')!='1':raise SystemExit('Active M clone lease and SITOV_AUDIO_VARIANT_NATIVE=1 required')
 root=Path(__file__).resolve().parents[2]
 private=Path(os.environ['SITOV_AUDIO_VARIANT_EVIDENCE_DIR']);private.mkdir(parents=True,exist_ok=True)
@@ -51,5 +52,5 @@ fixture=fixture.replace('-- SITOV67_UNKNOWN_BASELINE',"SELECT pg_temp.sitov67_er
 sql="BEGIN;SET LOCAL application_name='sitov_S3_epoch67_native';SET LOCAL statement_timeout='5s';SET LOCAL lock_timeout='1500ms';\n"+(root/'supabase/vps/113_sitov_staff_legacy_verb_scope.sql').read_text()+(root/'supabase/vps/114_sitov_path_content_revisions.sql').read_text()+fixture
 (private/'epoch67-native-private.sql').write_text(sql)
 r=subprocess.run(args,input=sql,text=True,capture_output=True,timeout=25);(private/'epoch67-native.stdout').write_text(r.stdout);(private/'epoch67-native.stderr').write_text(r.stderr)
-after=storage('after');result={'nativeExitCode':r.returncode,'storageRows':len(before.splitlines()),'storageBeforeSha256':sha(before),'storageAfterSha256':sha(after),'storageFullRowsExact':before==after,'fixtureAssetsAreSyntheticMetadataOnly':True,'originalAffectedPaths':len(affected),'sqlSourceSha256':sha(sql115),'frozenBase':'418e794730e1917ad5872bbff2418534a1735e37','full185ProtectedStreamRun':False}
+after=storage('after');result={'nativeExitCode':r.returncode,'storageRows':len(before.splitlines()),'storageBeforeSha256':sha(before),'storageAfterSha256':sha(after),'storageFullRowsExact':before==after,'fixtureAssetsAreSyntheticMetadataOnly':True,'originalAffectedPaths':len(affected),'sqlSourceSha256':sha(sql115),'sourceHead':subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),'sql114Sha256':sha((root/'supabase/vps/114_sitov_path_content_revisions.sql').read_text()),'driverSha256':sha(Path(__file__).read_text()),'full185ProtectedStreamRun':False}
 (private/'epoch67-driver-result.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result));print(r.stdout[-1200:]);print(r.stderr[-2200:]);assert r.returncode==0,r.stderr[-2000:];assert before==after
