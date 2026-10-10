@@ -1,0 +1,144 @@
+{
+  "validation": {
+    "epoch": 35,
+    "base": "d218515530176d483a4503964a73e821af4340fe",
+    "assignedHolds": 11,
+    "changedNodesIncludingModal": 14,
+    "changedExercises": 57,
+    "scalarChanges": 380,
+    "allExerciseIdentitiesCompared": 9569,
+    "schemaValidatedExercises": 3839,
+    "nativeParity": [
+      "A1.2",
+      "A2.1",
+      "A2.2"
+    ],
+    "answerChanges": [
+      {
+        "id": "9c393119-fb8a-5cdb-a4e6-c7d42c5a2dfd",
+        "ref": "P7-N8-E04",
+        "old": "Gestern habe ich meine Freundin getroffen.",
+        "new": "Gestern habe ich meinen Freund getroffen.",
+        "oldVariants": [
+          "Gestern habe ich meine Freundin getroffen."
+        ],
+        "newVariants": [
+          "Gestern habe ich meinen Freund getroffen."
+        ]
+      },
+      {
+        "id": "0f9f8aaf-adba-5818-a028-29cc9204cc68",
+        "ref": "P4-N4-E09",
+        "old": "Die Kinder sind heute bei Oma.",
+        "new": "Die Kinder sind heute bei Opa.",
+        "oldVariants": [
+          "Die Kinder sind heute bei Oma.",
+          "Heute sind die Kinder bei Oma."
+        ],
+        "newVariants": [
+          "Die Kinder sind heute bei Opa.",
+          "Heute sind die Kinder bei Opa."
+        ]
+      },
+      {
+        "id": "14033800-7cea-5d20-ac4b-af9f5ef2afab",
+        "ref": "P1-N2-E01",
+        "old": "Annas Mutter",
+        "new": "Antons Vater",
+        "oldVariants": [
+          "Annas Mutter"
+        ],
+        "newVariants": [
+          "Antons Vater"
+        ]
+      }
+    ],
+    "variantsCountOrderPreserved": true,
+    "eslint": "PASS zero errors/warnings",
+    "requiresIndependentReReview": true,
+    "ordinaryImportAllowed": false,
+    "audioAssetsGeneratedOrImported": false,
+    "completedAt": "2026-10-10T00:40:00.099171+00:00",
+    "audioAliases": 85,
+    "changedAudioAliases": 11,
+    "allOtherKeysVariantsOptionsPartsUnchanged": true,
+    "independentReReviewRequired": true,
+    "priorEightNeedFullS4Rereview": true,
+    "unassignedChildContextsPreserved": true,
+    "fullNodeClearanceClaimed": false
+  },
+  "privateEvidence": {
+    "epoch35-author-edits.json": {
+      "path": "S2/epoch35-author-edits.json",
+      "bytes": 163,
+      "sha256": "6dd57a93a1aaabd14f2ca3958f81a15989ddd6a9138458b4db23cefde55d89bb"
+    },
+    "epoch35-before-contexts.json": {
+      "path": "S2/epoch35-before-contexts.json",
+      "bytes": 500431,
+      "sha256": "8dc4a650b8a0bb6b98d5f8f9dbbdefe458ed174b1426fc1e10fdd64d9e35737b"
+    },
+    "epoch35-eslint.log": {
+      "path": "S2/epoch35-eslint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "epoch35-final-canonical-audio.json": {
+      "path": "S2/epoch35-final-canonical-audio.json",
+      "bytes": 36898,
+      "sha256": "bfed3f53d52605f5aacc5aa5a2c50982e5b89b2bd54f34b89ee37afd3a2452eb"
+    },
+    "epoch35-full-source-before-after.json": {
+      "path": "S2/epoch35-full-source-before-after.json",
+      "bytes": 1035732,
+      "sha256": "1735967fbba97c67a5b97e28e6de7caa4a322f9d6e6fc79957bb7692d8a6e107"
+    },
+    "epoch35-minimize-orders.mjs": {
+      "path": "S2/epoch35-minimize-orders.mjs",
+      "bytes": 3097,
+      "sha256": "457e0883887dfcdcc1a57169add4dcffb0df42b2cc7fd92d954b1a7343160bfe"
+    },
+    "epoch35-old-new-full.json": {
+      "path": "S2/epoch35-old-new-full.json",
+      "bytes": 2057942,
+      "sha256": "f2dfaa2af8ea45790e340a297cabec12ef0fc707fe89ec28df9dd892dabd4819"
+    },
+    "epoch35-proof.py": {
+      "path": "S2/epoch35-proof.py",
+      "bytes": 4281,
+      "sha256": "4ea759aa0ce1f4738d6775b07002a8a9f7b7cb22a3f28a9b88cbe7bf307998ff"
+    },
+    "epoch35-repair.py": {
+      "path": "S2/epoch35-repair.py",
+      "bytes": 11373,
+      "sha256": "5ae6ec9f528387bb0c93922d944e75117cb16ad88e2d16f717f45e0ea354de1a"
+    },
+    "epoch35-scalar-diff.json": {
+      "path": "S2/epoch35-scalar-diff.json",
+      "bytes": 288508,
+      "sha256": "1dc5e2293d5c1635b6601ee693b87c44918bed21761761f7e0125a892b0e92f4"
+    },
+    "epoch35-sync.mjs": {
+      "path": "S2/epoch35-sync.mjs",
+      "bytes": 7859,
+      "sha256": "64df68e2458fe5d4fe405282f79418df6ba35eb38cc391bd3123356b013a09ca"
+    },
+    "epoch35-validate-audio.ts": {
+      "path": "S2/epoch35-validate-audio.ts",
+      "bytes": 2172,
+      "sha256": "49ee38d30f04121a51ab3eca34ac3645ba77ce2d4805a58d09d2631880d2f5d6"
+    },
+    "epoch35-validation.json": {
+      "path": "S2/epoch35-validation.json",
+      "bytes": 1640,
+      "sha256": "49ac0532138e49484cc150e4912689838055b2df592bb35e0663797479547609"
+    }
+  },
+  "reviewInputS7Sha256": "686a9559608ea3166a4020ba701627219d69517160d0103c330d3c0b688cbfa7",
+  "limitations": [
+    "Source candidates only; no immutable database revision/import/publication approval.",
+    "Previously unassigned child characters and their historical keys remain unchanged, including Anna/Schwager in A2.1 P1-N2 E10, Dilara/Olga in A2.2 P1-N4.",
+    "Parent titles/card corrections are not a full-node content approval.",
+    "No full Jest/build/PGlite, TTS, SSH, database, import or deployment."
+  ]
+}

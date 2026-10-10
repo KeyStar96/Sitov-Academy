@@ -16914,7 +16914,7 @@
         ],
         "merkkarte": {
           "card": "p3_seinihr",
-          "rule": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+          "rule": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
           "examples": [
             "Das ist Emre. Sein Bein tut weh.",
             "Pronomen „sie (Singular)“: Ihr Kopf tut weh.",
@@ -16923,16 +16923,16 @@
           "highlight": "article",
           "translations": {
             "en": {
-              "rule": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand."
+              "rule": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand."
             },
             "ru": {
-              "rule": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца."
+              "rule": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца."
             },
             "uk": {
-              "rule": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника."
+              "rule": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника."
             },
             "tr": {
-              "rule": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur."
+              "rule": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand."
             }
           }
         },
@@ -16961,32 +16961,32 @@
             "accepted_answers": [
               "Sein"
             ],
-            "hint": "Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.",
-            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+            "hint": "Erst die Person: er/es → sein, sie (Singular oder Plural) → ihr. Dann das Nomen: die/Plural → -e.",
+            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
             "explanation_card": "p3_seinihr",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
-                "hint": "First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.",
-                "explanation": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "hint": "First the person: er/es → sein, sie (singular or plural) → ihr. Then the noun: die/plural → -e.",
+                "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "Jonas is at the doctor’s. His throat hurts."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
-                "hint": "Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.",
-                "explanation": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+                "hint": "Сначала человек: er/es → sein, sie (единственное или множественное число) → ihr. Потом существительное: die/множественное число → -e.",
+                "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
                 "task": "Jonas у врача. У него болит горло."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
-                "hint": "Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.",
-                "explanation": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+                "hint": "Спочатку людина: er/es → sein, sie (однина або множина) → ihr. Потім іменник: die/множина → -e.",
+                "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
                 "task": "Jonas у лікаря. У нього болить горло."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
-                "hint": "Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e.",
-                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
+                "hint": "Önce kişi: er/es → sein, sie (tekil ya da çoğul) → ihr. Sonra isim: die/çoğul → -e.",
+                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "Jonas doktorda. Boğazı ağrıyor."
               }
             }
@@ -17015,32 +17015,32 @@
             "accepted_answers": [
               "Ihre"
             ],
-            "hint": "Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.",
-            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+            "hint": "Erst die Person: er/es → sein, sie (Singular oder Plural) → ihr. Dann das Nomen: die/Plural → -e.",
+            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
             "explanation_card": "p3_seinihr",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
-                "hint": "First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.",
-                "explanation": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "hint": "First the person: er/es → sein, sie (singular or plural) → ihr. Then the noun: die/plural → -e.",
+                "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "Ms Aksoy is in pain. Her hand hurts."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
-                "hint": "Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.",
-                "explanation": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+                "hint": "Сначала человек: er/es → sein, sie (единственное или множественное число) → ihr. Потом существительное: die/множественное число → -e.",
+                "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
                 "task": "У госпожи Aksoy боли. У неё болит рука."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
-                "hint": "Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.",
-                "explanation": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+                "hint": "Спочатку людина: er/es → sein, sie (однина або множина) → ihr. Потім іменник: die/множина → -e.",
+                "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
                 "task": "У пані Aksoy болі. У неї болить рука."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
-                "hint": "Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e.",
-                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
+                "hint": "Önce kişi: er/es → sein, sie (tekil ya da çoğul) → ihr. Sonra isim: die/çoğul → -e.",
+                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "Aksoy Hanım’ın ağrısı var. Eli ağrıyor."
               }
             }
@@ -17069,32 +17069,32 @@
             "accepted_answers": [
               "Ihre"
             ],
-            "hint": "Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.",
-            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+            "hint": "Erst die Person: er/es → sein, sie (Singular oder Plural) → ihr. Dann das Nomen: die/Plural → -e.",
+            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
             "explanation_card": "p3_seinihr",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
-                "hint": "First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.",
-                "explanation": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "hint": "First the person: er/es → sein, sie (singular or plural) → ihr. Then the noun: die/plural → -e.",
+                "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "Tom and Eva have a cough. Their mother buys tea."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
-                "hint": "Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.",
-                "explanation": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+                "hint": "Сначала человек: er/es → sein, sie (единственное или множественное число) → ihr. Потом существительное: die/множественное число → -e.",
+                "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
                 "task": "У Tom и Eva кашель. Их мама покупает чай."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
-                "hint": "Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.",
-                "explanation": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+                "hint": "Спочатку людина: er/es → sein, sie (однина або множина) → ihr. Потім іменник: die/множина → -e.",
+                "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
                 "task": "У Tom і Eva кашель. Їхня мама купує чай."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
-                "hint": "Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e.",
-                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
+                "hint": "Önce kişi: er/es → sein, sie (tekil ya da çoğul) → ihr. Sonra isim: die/çoğul → -e.",
+                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "Tom ve Eva öksürüyor. Anneleri çay alıyor."
               }
             }
@@ -17125,32 +17125,32 @@
             "accepted_answers": [
               "Sein"
             ],
-            "hint": "Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.",
-            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+            "hint": "Erst die Person: er/es → sein, sie (Singular oder Plural) → ihr. Dann das Nomen: die/Plural → -e.",
+            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
             "explanation_card": "p3_seinihr",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct possessive (my, your …).",
-                "hint": "First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.",
-                "explanation": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "hint": "First the person: er/es → sein, sie (singular or plural) → ihr. Then the noun: die/plural → -e.",
+                "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "This is Mr Petrov. His back hurts."
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
-                "hint": "Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.",
-                "explanation": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+                "hint": "Сначала человек: er/es → sein, sie (единственное или множественное число) → ihr. Потом существительное: die/множественное число → -e.",
+                "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
                 "task": "Это господин Petrov. У него болит спина."
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
-                "hint": "Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.",
-                "explanation": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+                "hint": "Спочатку людина: er/es → sein, sie (однина або множина) → ihr. Потім іменник: die/множина → -e.",
+                "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
                 "task": "Це пан Petrov. У нього болить спина."
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
-                "hint": "Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e.",
-                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
+                "hint": "Önce kişi: er/es → sein, sie (tekil ya da çoğul) → ihr. Sonra isim: die/çoğul → -e.",
+                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "Bu Petrov Bey. Sırtı ağrıyor."
               }
             }
@@ -17181,32 +17181,32 @@
             "accepted_answers": [
               "Ihre"
             ],
-            "hint": "Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.",
-            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+            "hint": "Erst die Person: er/es → sein, sie (Singular oder Plural) → ihr. Dann das Nomen: die/Plural → -e.",
+            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
             "explanation_card": "p3_seinihr",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct possessive (my, your …).",
-                "hint": "First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.",
-                "explanation": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "hint": "First the person: er/es → sein, sie (singular or plural) → ihr. Then the noun: die/plural → -e.",
+                "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "Complete the possessive for sie (singular): … Ohren tun weh."
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
-                "hint": "Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.",
-                "explanation": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+                "hint": "Сначала человек: er/es → sein, sie (единственное или множественное число) → ihr. Потом существительное: die/множественное число → -e.",
+                "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
                 "task": "Дополните притяжательный артикль для sie (ед. число): … Ohren tun weh."
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
-                "hint": "Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.",
-                "explanation": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+                "hint": "Спочатку людина: er/es → sein, sie (однина або множина) → ihr. Потім іменник: die/множина → -e.",
+                "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
                 "task": "Доповніть присвійний артикль для sie (однина): … Ohren tun weh."
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
-                "hint": "Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e.",
-                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
+                "hint": "Önce kişi: er/es → sein, sie (tekil ya da çoğul) → ihr. Sonra isim: die/çoğul → -e.",
+                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "sie (tekil) için iyelik artikelini tamamlayın: … Ohren tun weh."
               }
             }
@@ -17237,32 +17237,32 @@
             "accepted_answers": [
               "Seine"
             ],
-            "hint": "Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.",
-            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+            "hint": "Erst die Person: er/es → sein, sie (Singular oder Plural) → ihr. Dann das Nomen: die/Plural → -e.",
+            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
             "explanation_card": "p3_seinihr",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct possessive (my, your …).",
-                "hint": "First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.",
-                "explanation": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "hint": "First the person: er/es → sein, sie (singular or plural) → ihr. Then the noun: die/plural → -e.",
+                "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "My brother has a temperature. His girlfriend brings medicine."
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
-                "hint": "Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.",
-                "explanation": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+                "hint": "Сначала человек: er/es → sein, sie (единственное или множественное число) → ihr. Потом существительное: die/множественное число → -e.",
+                "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
                 "task": "У моего брата температура. Его девушка приносит лекарства."
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
-                "hint": "Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.",
-                "explanation": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+                "hint": "Спочатку людина: er/es → sein, sie (однина або множина) → ihr. Потім іменник: die/множина → -e.",
+                "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
                 "task": "У мого брата температура. Його дівчина приносить ліки."
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
-                "hint": "Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e.",
-                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
+                "hint": "Önce kişi: er/es → sein, sie (tekil ya da çoğul) → ihr. Sonra isim: die/çoğul → -e.",
+                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "Erkek kardeşimin ateşi var. Kız arkadaşı ilaç getiriyor."
               }
             }
@@ -17293,32 +17293,32 @@
             "accepted_answers": [
               "Ihre"
             ],
-            "hint": "Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.",
-            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+            "hint": "Erst die Person: er/es → sein, sie (Singular oder Plural) → ihr. Dann das Nomen: die/Plural → -e.",
+            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
             "explanation_card": "p3_seinihr",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct possessive (my, your …).",
-                "hint": "First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.",
-                "explanation": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "hint": "First the person: er/es → sein, sie (singular or plural) → ihr. Then the noun: die/plural → -e.",
+                "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "My sister is a doctor. Her practice is in Bonn."
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
-                "hint": "Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.",
-                "explanation": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+                "hint": "Сначала человек: er/es → sein, sie (единственное или множественное число) → ihr. Потом существительное: die/множественное число → -e.",
+                "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
                 "task": "Моя сестра – врач. Её практика находится в Бонне."
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
-                "hint": "Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.",
-                "explanation": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+                "hint": "Спочатку людина: er/es → sein, sie (однина або множина) → ihr. Потім іменник: die/множина → -e.",
+                "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
                 "task": "Моя сестра – лікарка. Її практика розташована в Бонні."
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
-                "hint": "Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e.",
-                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
+                "hint": "Önce kişi: er/es → sein, sie (tekil ya da çoğul) → ihr. Sonra isim: die/çoğul → -e.",
+                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "Kız kardeşim doktor. Muayenehanesi Bonn’da."
               }
             }
@@ -17349,32 +17349,32 @@
             "accepted_answers": [
               "Sein"
             ],
-            "hint": "Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.",
-            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+            "hint": "Erst die Person: er/es → sein, sie (Singular oder Plural) → ihr. Dann das Nomen: die/Plural → -e.",
+            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
             "explanation_card": "p3_seinihr",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct possessive (my, your …).",
-                "hint": "First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.",
-                "explanation": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "hint": "First the person: er/es → sein, sie (singular or plural) → ihr. Then the noun: die/plural → -e.",
+                "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "The child is crying. Its stomach hurts."
               },
               "ru": {
                 "instruction": "Вставьте притяжательное слово (мой, твой, Ваш).",
-                "hint": "Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.",
-                "explanation": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+                "hint": "Сначала человек: er/es → sein, sie (единственное или множественное число) → ihr. Потом существительное: die/множественное число → -e.",
+                "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
                 "task": "Ребёнок плачет. У него болит живот."
               },
               "uk": {
                 "instruction": "Вставте присвійне слово (мій, твій, Ваш).",
-                "hint": "Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.",
-                "explanation": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+                "hint": "Спочатку людина: er/es → sein, sie (однина або множина) → ihr. Потім іменник: die/множина → -e.",
+                "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
                 "task": "Дитина плаче. У неї болить живіт."
               },
               "tr": {
                 "instruction": "Uygun iyelik sözcüğünü yazın (benim, senin, sizin).",
-                "hint": "Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e.",
-                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
+                "hint": "Önce kişi: er/es → sein, sie (tekil ya da çoğul) → ihr. Sonra isim: die/çoğul → -e.",
+                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "Çocuk ağlıyor. Karnı ağrıyor."
               }
             }
@@ -17405,32 +17405,32 @@
               "Seine Augen tun heute weh.",
               "Heute tun seine Augen weh."
             ],
-            "hint": "Erst die Person: er → sein, sie → ihr. Dann das Nomen: die/Plural → -e.",
-            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach der Person: ein Mann oder Junge (er) → sein, eine Frau oder ein Mädchen (sie) → ihr, mehrere Personen (sie) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+            "hint": "Erst die Person: er/es → sein, sie (Singular oder Plural) → ihr. Dann das Nomen: die/Plural → -e.",
+            "explanation": "sein oder ihr? Der Possessivartikel richtet sich nach dem Pronomen des Besitzers: er oder es → sein, sie (Singular oder Plural) → ihr. Die Endung richtet sich nach dem Nomen: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
             "explanation_card": "p3_seinihr",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
-                "hint": "First the person: er → sein, sie → ihr. Then the noun: die/plural → -e.",
-                "explanation": "sein or ihr? The possessive follows the owner: a man or boy (er) → sein (his), a woman or girl (sie) → ihr (her), several people (sie) → ihr (their). The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
+                "hint": "First the person: er/es → sein, sie (singular or plural) → ihr. Then the noun: die/plural → -e.",
+                "explanation": "sein or ihr? The possessive follows the pronoun referring to the owner: er or es → sein, sie (singular or plural) → ihr. The ending follows the noun: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "His eyes hurt today."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
-                "hint": "Сначала человек: er → sein, sie → ihr. Потом существительное: die/множественное число → -e.",
-                "explanation": "sein или ihr? Слово зависит от владельца: мужчина или мальчик (er) → sein (его), женщина или девочка (sie) → ihr (её), несколько человек (sie) → ihr (их). Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
+                "hint": "Сначала человек: er/es → sein, sie (единственное или множественное число) → ihr. Потом существительное: die/множественное число → -e.",
+                "explanation": "sein или ihr? Выбор зависит от местоимения, обозначающего владельца: er или es → sein, sie (единственное или множественное число) → ihr. Окончание зависит от существительного: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. В третьем лице единственного числа выбирают sein или ihr в зависимости от владельца.",
                 "task": "У него сегодня болят глаза."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
-                "hint": "Спочатку людина: er → sein, sie → ihr. Потім іменник: die/множина → -e.",
-                "explanation": "sein чи ihr? Слово залежить від власника: чоловік або хлопчик (er) → sein (його), жінка або дівчинка (sie) → ihr (її), кілька людей (sie) → ihr (їхній). Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
+                "hint": "Спочатку людина: er/es → sein, sie (однина або множина) → ihr. Потім іменник: die/множина → -e.",
+                "explanation": "sein чи ihr? Вибір залежить від займенника, що позначає власника: er або es → sein, sie (однина або множина) → ihr. Закінчення залежить від іменника: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. У третій особі однини обирають sein або ihr залежно від власника.",
                 "task": "У нього сьогодні болять очі."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
-                "hint": "Önce kişi: er → sein, sie → ihr. Sonra isim: die/çoğul → -e.",
-                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibine göre seçilir: erkek ya da oğlan (er) → sein, kadın ya da kız (sie) → ihr, birden fazla kişi (sie) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand. Türkçedeki “onun” Almancada erkek için sein, kadın için ihr olur.",
+                "hint": "Önce kişi: er/es → sein, sie (tekil ya da çoğul) → ihr. Sonra isim: die/çoğul → -e.",
+                "explanation": "sein mi ihr mi? İyelik sözcüğü sahibini belirten zamire göre seçilir: er veya es → sein, sie (tekil ya da çoğul) → ihr. Ek ise isme göre gelir: Simon – sein Arm, seine Hand. „sie (Singular)“ – ihr Arm, ihre Hand.",
                 "task": "Bugün gözleri ağrıyor."
               }
             }
@@ -25043,7 +25043,7 @@
                 "beim"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Sofia ist krank. Sie ist … Arzt.",
+              "question": "Samir ist krank. Er ist … Arzt.",
               "options": [
                 "beim",
                 "im",
@@ -25065,25 +25065,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Person → bei. Place or building → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Where is someone? A person: bei + dative → beim Arzt (at the doctor’s), bei der Freundin, bei Walter. Building, place, shop: in + dative → im Kindergarten, im Kino, in der Apotheke. Country and city: in Österreich, in Wien, but: in der Schweiz, in der Türkei, in den USA. Short forms: an + dem = am, bei + dem = beim, in + dem = im. Careful: Ich bin zu Hause (I am at home).",
-                "task": "Sofia is ill. She is at the doctor’s."
+                "task": "Samir is ill. He is at the doctor’s."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Человек → bei. Место или здание → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Где находится человек? У кого-то: bei + Dativ → beim Arzt (у врача), bei der Freundin, bei Walter. Здание, место, магазин: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Страна и город: in Österreich, in Wien, но: in der Schweiz, in der Türkei, in den USA. Краткие формы: an + dem = am, bei + dem = beim, in + dem = im. Внимание: Ich bin zu Hause (я дома).",
-                "task": "Sofia больна. Она у врача."
+                "task": "Samir болен. Он у врача."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Людина → bei. Місце або будівля → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Де перебуває людина? У когось: bei + Dativ → beim Arzt (у лікаря), bei der Freundin, bei Walter. Будівля, місце, магазин: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Країна й місто: in Österreich, in Wien, але: in der Schweiz, in der Türkei, in den USA. Короткі форми: an + dem = am, bei + dem = beim, in + dem = im. Увага: Ich bin zu Hause (я вдома).",
-                "task": "Sofia хвора. Вона у лікаря."
+                "task": "Samir хворий. Він у лікаря."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Kişi → bei. Yer ya da bina → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Biri nerede? Kişi: bei + Dativ → beim Arzt (doktorda), bei der Freundin, bei Walter. Bina, yer, dükkân: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Ülke ve şehir: in Österreich, in Wien, ama: in der Schweiz, in der Türkei, in den USA. Kısa biçimler: an + dem = am, bei + dem = beim, in + dem = im. Dikkat: Ich bin zu Hause (evdeyim).",
-                "task": "Sofia hasta. Doktorda."
+                "task": "Samir hasta. Doktorda."
               }
             }
           },
@@ -25429,7 +25429,7 @@
                 "beim"
               ],
               "instruction": "Ergänze die passende Präposition.",
-              "text_before": "Dilara ist gerade ",
+              "text_before": "Dilaver ist gerade ",
               "text_after": " Friseur.",
               "gap_hint": "bei + dem",
               "correct_answer": "beim",
@@ -25453,25 +25453,25 @@
                 "instruction": "Fill in the correct preposition.",
                 "hint": "Person → bei. Place or building → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Where is someone? A person: bei + dative → beim Arzt (at the doctor’s), bei der Freundin, bei Walter. Building, place, shop: in + dative → im Kindergarten, im Kino, in der Apotheke. Country and city: in Österreich, in Wien, but: in der Schweiz, in der Türkei, in den USA. Short forms: an + dem = am, bei + dem = beim, in + dem = im. Careful: Ich bin zu Hause (I am at home).",
-                "task": "Dilara is at the hairdresser’s right now."
+                "task": "Dilaver is at the hairdresser’s right now."
               },
               "ru": {
                 "instruction": "Вставьте подходящий предлог.",
                 "hint": "Человек → bei. Место или здание → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Где находится человек? У кого-то: bei + Dativ → beim Arzt (у врача), bei der Freundin, bei Walter. Здание, место, магазин: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Страна и город: in Österreich, in Wien, но: in der Schweiz, in der Türkei, in den USA. Краткие формы: an + dem = am, bei + dem = beim, in + dem = im. Внимание: Ich bin zu Hause (я дома).",
-                "task": "Dilara сейчас у парикмахера."
+                "task": "Dilaver сейчас у парикмахера."
               },
               "uk": {
                 "instruction": "Вставте відповідний прийменник.",
                 "hint": "Людина → bei. Місце або будівля → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Де перебуває людина? У когось: bei + Dativ → beim Arzt (у лікаря), bei der Freundin, bei Walter. Будівля, місце, магазин: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Країна й місто: in Österreich, in Wien, але: in der Schweiz, in der Türkei, in den USA. Короткі форми: an + dem = am, bei + dem = beim, in + dem = im. Увага: Ich bin zu Hause (я вдома).",
-                "task": "Dilara зараз у перукаря."
+                "task": "Dilaver зараз у перукаря."
               },
               "tr": {
                 "instruction": "Uygun edatı yazın.",
                 "hint": "Kişi → bei. Yer ya da bina → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Biri nerede? Kişi: bei + Dativ → beim Arzt (doktorda), bei der Freundin, bei Walter. Bina, yer, dükkân: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Ülke ve şehir: in Österreich, in Wien, ama: in der Schweiz, in der Türkei, in den USA. Kısa biçimler: an + dem = am, bei + dem = beim, in + dem = im. Dikkat: Ich bin zu Hause (evdeyim).",
-                "task": "Dilara şu anda kuaförde."
+                "task": "Dilaver şu anda kuaförde."
               }
             }
           },
@@ -25487,19 +25487,19 @@
               "instruction": "Bring die Wörter in die richtige Reihenfolge.",
               "parts": [
                 "sind",
-                "bei Oma",
+                "bei Opa",
                 "heute",
                 "Die Kinder"
               ],
-              "correct_answer": "Die Kinder sind heute bei Oma.",
+              "correct_answer": "Die Kinder sind heute bei Opa.",
               "accepted_answers": [
-                "Die Kinder sind heute bei Oma.",
-                "Heute sind die Kinder bei Oma."
+                "Die Kinder sind heute bei Opa.",
+                "Heute sind die Kinder bei Opa."
               ]
             },
             "accepted_answers": [
-              "Die Kinder sind heute bei Oma.",
-              "Heute sind die Kinder bei Oma."
+              "Die Kinder sind heute bei Opa.",
+              "Heute sind die Kinder bei Opa."
             ],
             "hint": "Person → bei. Ort oder Haus → in. in + dem = im, bei + dem = beim.",
             "explanation": "Wo ist jemand? Person: bei + Dativ → beim Arzt, bei der Freundin, bei Walter. Haus, Ort, Geschäft: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Land und Stadt: in Österreich, in Wien, aber: in der Schweiz, in der Türkei, in den USA. Kurzformen: an + dem = am, bei + dem = beim, in + dem = im. Achtung: Ich bin zu Hause.",
@@ -25509,25 +25509,25 @@
                 "instruction": "Put the words in the correct order.",
                 "hint": "Person → bei. Place or building → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Where is someone? A person: bei + dative → beim Arzt (at the doctor’s), bei der Freundin, bei Walter. Building, place, shop: in + dative → im Kindergarten, im Kino, in der Apotheke. Country and city: in Österreich, in Wien, but: in der Schweiz, in der Türkei, in den USA. Short forms: an + dem = am, bei + dem = beim, in + dem = im. Careful: Ich bin zu Hause (I am at home).",
-                "task": "The children are at Grandma’s today."
+                "task": "The children are at Grandad’s today."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Человек → bei. Место или здание → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Где находится человек? У кого-то: bei + Dativ → beim Arzt (у врача), bei der Freundin, bei Walter. Здание, место, магазин: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Страна и город: in Österreich, in Wien, но: in der Schweiz, in der Türkei, in den USA. Краткие формы: an + dem = am, bei + dem = beim, in + dem = im. Внимание: Ich bin zu Hause (я дома).",
-                "task": "Дети сегодня у бабушки."
+                "task": "Дети сегодня у дедушки."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Людина → bei. Місце або будівля → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Де перебуває людина? У когось: bei + Dativ → beim Arzt (у лікаря), bei der Freundin, bei Walter. Будівля, місце, магазин: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Країна й місто: in Österreich, in Wien, але: in der Schweiz, in der Türkei, in den USA. Короткі форми: an + dem = am, bei + dem = beim, in + dem = im. Увага: Ich bin zu Hause (я вдома).",
-                "task": "Діти сьогодні в бабусі."
+                "task": "Діти сьогодні в дідуся."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Kişi → bei. Yer ya da bina → in. in + dem = im, bei + dem = beim.",
                 "explanation": "Biri nerede? Kişi: bei + Dativ → beim Arzt (doktorda), bei der Freundin, bei Walter. Bina, yer, dükkân: in + Dativ → im Kindergarten, im Kino, in der Apotheke. Ülke ve şehir: in Österreich, in Wien, ama: in der Schweiz, in der Türkei, in den USA. Kısa biçimler: an + dem = am, bei + dem = beim, in + dem = im. Dikkat: Ich bin zu Hause (evdeyim).",
-                "task": "Çocuklar bugün büyükannede."
+                "task": "Çocuklar bugün büyükbabada."
               }
             }
           }

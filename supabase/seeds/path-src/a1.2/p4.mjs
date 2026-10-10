@@ -172,8 +172,7 @@ const path = {
   ]
 },
       ex: [
-        mc('G3', 'beim', I.choose, 'Sofia ist krank. Sie ist … Arzt.', ['beim', 'im', 'zum'],
-          ['Sofia is ill. She is at the doctor’s.', 'Sofia больна. Она у врача.', 'Sofia хвора. Вона у лікаря.', 'Sofia hasta. Doktorda.']),
+        mc("G3", "beim", I.choose, "Samir ist krank. Er ist … Arzt.", ["beim","im","zum"], ["Samir is ill. He is at the doctor’s.","Samir болен. Он у врача.","Samir хворий. Він у лікаря.","Samir hasta. Doktorda."], {"c":"p4_woist"}),
         mc('G3', 'im', I.choose, 'Wo sind die Kinder? – Sie sind … Kindergarten.', ['im', 'beim', 'in den'],
           ['Where are the children? – They are at kindergarten.', 'Где дети? – Они в детском саду.', 'Де діти? – Вони в дитячому садку.', 'Çocuklar nerede? – Anaokulundalar.']),
         mc('G3', 'zu Hause', I.choose, 'Es ist Abend. Papa ist nicht im Büro. Er ist …', ['zu Hause', 'nach Hause', 'bei Hause'],
@@ -186,11 +185,8 @@ const path = {
           ['My parents live in Turkey.', 'Мои родители живут в Турции.', 'Мої батьки живуть у Туреччині.', 'Annemle babam Türkiye’de yaşıyor.'], 'in / nach / bei'),
         gap('G3', 'im', I.prep, 'Um 12 Uhr esse ich ', ' Büro.', 'im', ['in', 'beim'],
           ['At 12 o’clock I eat at the office.', 'В 12 часов я ем в офисе.', 'О 12 годині я їм в офісі.', 'Saat 12’de ofiste yemek yiyorum.'], 'in + dem'),
-        gap('G3', 'beim', I.prep, 'Dilara ist gerade ', ' Friseur.', 'beim', ['im', 'bei'],
-          ['Dilara is at the hairdresser’s right now.', 'Dilara сейчас у парикмахера.', 'Dilara зараз у перукаря.', 'Dilara şu anda kuaförde.'], 'bei + dem'),
-        sb('G3', 'bei + Person', I.order, 'Die Kinder / sind / heute / bei Oma.',
-          ['The children are at Grandma’s today.', 'Дети сегодня у бабушки.', 'Діти сьогодні в бабусі.', 'Çocuklar bugün büyükannede.'],
-          { alt: ['Heute sind die Kinder bei Oma.'] }),
+        gap("G3", "beim", I.prep, "Dilaver ist gerade ", " Friseur.", "beim", ["bei","im"], ["Dilaver is at the hairdresser’s right now.","Dilaver сейчас у парикмахера.","Dilaver зараз у перукаря.","Dilaver şu anda kuaförde."], "bei + dem", {"c":"p4_woist"}),
+        sb("G3", "bei + Person", I.order, "Die Kinder / sind / heute / bei Opa.", ["The children are at Grandad’s today.","Дети сегодня у дедушки.","Діти сьогодні в дідуся.","Çocuklar bugün büyükbabada."], {"alt":["Heute sind die Kinder bei Opa."],"c":"p4_woist"}),
       ],
     },
     {

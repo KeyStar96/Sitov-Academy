@@ -9895,7 +9895,7 @@
           "examples": [
             "Oleh ist ledig.",
             "Kamil und Piotr sind ein Ehepaar. Kamil ist verheiratet.",
-            "Samir und sein Mann sind nicht mehr zusammen. Er ist geschieden.",
+            "Samir war verheiratet. Jetzt ist er geschieden.",
             "Deniz ist acht Jahre alt."
           ],
           "highlight": null,
@@ -10146,7 +10146,7 @@
                 "Familienstand"
               ],
               "instruction": "Ergänze das passende Wort.",
-              "text_before": "Samir und seine Frau sind nicht mehr zusammen. Er ist ",
+              "text_before": "Samir und sein Mann haben sich scheiden lassen. Er ist ",
               "text_after": ".",
               "correct_answer": "geschieden",
               "options": [
@@ -10169,28 +10169,28 @@
                 "instruction": "Fill in the missing word.",
                 "hint": "ledig = single, verheiratet = married, geschieden = divorced, verwitwet = widowed.",
                 "explanation": "Marital status and age: ledig (single), verheiratet (married), geschieden (divorced), verwitwet (widowed). Children: „Ich habe zwei Kinder.“ Age with sein: „Mein Sohn ist acht Jahre alt.“ Question: „Wie alt ist Ihre Tochter?“",
-                "task": "Samir and his wife are no longer together. He is divorced.",
+                "task": "Samir and his husband have divorced. He is divorced.",
                 "gap_hint": "divorced"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "ledig – холост / не замужем, verheiratet – женат / замужем, geschieden – в разводе, verwitwet – вдовец / вдова.",
                 "explanation": "Семейное положение и возраст: ledig, verheiratet, geschieden, verwitwet. Дети: „Ich habe zwei Kinder.“ Возраст – с sein: „Mein Sohn ist acht Jahre alt.“ Вопрос: „Wie alt ist Ihre Tochter?“",
-                "task": "Samir и его жена больше не вместе. Он разведён.",
+                "task": "Samir и его муж развелись. Он разведён.",
                 "gap_hint": "разведён / разведена"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "ledig – неодружений / незаміжня, verheiratet – одружений / заміжня, geschieden – розлучений, verwitwet – вдівець / вдова.",
                 "explanation": "Сімейний стан і вік: ledig, verheiratet, geschieden, verwitwet. Діти: „Ich habe zwei Kinder.“ Вік – із sein: „Mein Sohn ist acht Jahre alt.“ Запитання: „Wie alt ist Ihre Tochter?“",
-                "task": "Samir і його дружина більше не разом. Він розлучений.",
+                "task": "Samir і його чоловік розлучилися. Він розлучений.",
                 "gap_hint": "розлучений / розлучена"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "ledig = bekâr, verheiratet = evli, geschieden = boşanmış, verwitwet = dul.",
                 "explanation": "Medeni hâl ve yaş: ledig (bekâr), verheiratet (evli), geschieden (boşanmış), verwitwet (dul). Çocuklar: „Ich habe zwei Kinder.“ Yaş sein ile söylenir: „Mein Sohn ist acht Jahre alt.“ Soru: „Wie alt ist Ihre Tochter?“",
-                "task": "Samir ve eşi artık birlikte değil. O boşanmış.",
+                "task": "Samir ve kocası boşandı. Samir boşanmış.",
                 "gap_hint": "boşanmış"
               }
             }
@@ -28008,31 +28008,31 @@
               "Kaufst du heute ein?"
             ],
             "hint": "In der Frage steht das Verb vorn oder nach dem Fragewort – der erste Teil trotzdem am Ende.",
-            "explanation": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Olena an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende.",
+            "explanation": "Trennbare Verben in Fragen: Ja-/Nein-Frage: Rufst du Oleh an? W-Frage: Wann stehst du auf? Der erste Teil des Verbs steht immer am Ende.",
             "explanation_card": "p5_separable_q",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
-                "hint": "In a question the verb comes first or after the question word – the prefix still goes to the end: Rufst du Olena an?",
-                "explanation": "Separable verbs in questions: yes/no question: Rufst du Olena an? Wh-question: Wann stehst du auf? The prefix always stays at the end.",
+                "hint": "In a question the verb comes first or after the question word – the prefix still goes to the end: Rufst du Oleh an?",
+                "explanation": "Separable verbs in questions: yes/no question: Rufst du Oleh an? Wh-question: Wann stehst du auf? The prefix always stays at the end.",
                 "task": "Which sentence is correct?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
-                "hint": "В вопросе глагол стоит в начале или после вопросительного слова, но приставка всё равно в конце: Rufst du Olena an?",
-                "explanation": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Olena an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце.",
+                "hint": "В вопросе глагол стоит в начале или после вопросительного слова, но приставка всё равно в конце: Rufst du Oleh an?",
+                "explanation": "Глаголы с отделяемой приставкой в вопросах: общий вопрос: Rufst du Oleh an? Вопрос с вопросительным словом: Wann stehst du auf? Приставка всегда стоит в конце.",
                 "task": "Какое предложение правильное?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
-                "hint": "У запитанні дієслово стоїть на початку або після питального слова, але префікс однаково в кінці: Rufst du Olena an?",
-                "explanation": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Olena an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці.",
+                "hint": "У запитанні дієслово стоїть на початку або після питального слова, але префікс однаково в кінці: Rufst du Oleh an?",
+                "explanation": "Дієслова з відокремлюваним префіксом у запитаннях: загальне запитання: Rufst du Oleh an? Запитання з питальним словом: Wann stehst du auf? Префікс завжди стоїть у кінці.",
                 "task": "Яке речення правильне?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
-                "hint": "Soruda fiil başta ya da soru kelimesinden sonra gelir; önek yine sonda kalır: Rufst du Olena an?",
-                "explanation": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Olena an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır.",
+                "hint": "Soruda fiil başta ya da soru kelimesinden sonra gelir; önek yine sonda kalır: Rufst du Oleh an?",
+                "explanation": "Sorularda ayrılabilen fiiller: Evet/hayır sorusu: Rufst du Oleh an? Soru kelimeli soru: Wann stehst du auf? Önek her zaman sonda kalır.",
                 "task": "Hangi cümle doğru?"
               }
             }
@@ -33324,16 +33324,16 @@
           "highlight": null,
           "translations": {
             "en": {
-              "rule": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig (boring).“ Question: „Was machst du in deiner Freizeit?“"
+              "rule": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = boring). Question: „Was machst du in deiner Freizeit?“"
             },
             "ru": {
-              "rule": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig (скучно).“ Вопрос: „Was machst du in deiner Freizeit?“"
+              "rule": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = скучно). Вопрос: „Was machst du in deiner Freizeit?“"
             },
             "uk": {
-              "rule": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig (нудно).“ Запитання: „Was machst du in deiner Freizeit?“"
+              "rule": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = нудно). Запитання: „Was machst du in deiner Freizeit?“"
             },
             "tr": {
-              "rule": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig (sıkıcı).“ Soru: „Was machst du in deiner Freizeit?“"
+              "rule": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = sıkıcı). Soru: „Was machst du in deiner Freizeit?“"
             }
           }
         },
@@ -33369,25 +33369,25 @@
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "What do you do? ball → spielen (play), water → schwimmen (swim), book → lesen (read).",
-                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig (boring).“ Question: „Was machst du in deiner Freizeit?“",
+                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = boring). Question: „Was machst du in deiner Freizeit?“",
                 "task": "What is a hobby?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Что делают? мяч → spielen (играть), вода → schwimmen (плавать), книга → lesen (читать).",
-                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig (скучно).“ Вопрос: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = скучно). Вопрос: „Was machst du in deiner Freizeit?“",
                 "task": "Что является хобби?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Що роблять? м’яч → spielen (грати), вода → schwimmen (плавати), книжка → lesen (читати).",
-                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig (нудно).“ Запитання: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = нудно). Запитання: „Was machst du in deiner Freizeit?“",
                 "task": "Що є хобі?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Ne yapılır? top → spielen (oynamak), su → schwimmen (yüzmek), kitap → lesen (okumak).",
-                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig (sıkıcı).“ Soru: „Was machst du in deiner Freizeit?“",
+                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = sıkıcı). Soru: „Was machst du in deiner Freizeit?“",
                 "task": "Hangisi bir hobi?"
               }
             }
@@ -33423,25 +33423,25 @@
               "en": {
                 "instruction": "What do you say in this situation?",
                 "hint": "Positive: Das macht Spaß! (That’s fun!) / Ich finde … toll. Negative: Ich finde … langweilig.",
-                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig (boring).“ Question: „Was machst du in deiner Freizeit?“",
+                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = boring). Question: „Was machst du in deiner Freizeit?“",
                 "task": "You don’t like playing cards."
               },
               "ru": {
                 "instruction": "Что вы скажете в этой ситуации?",
                 "hint": "Положительно: Das macht Spaß! («Это весело!») / Ich finde … toll. Отрицательно: Ich finde … langweilig.",
-                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig (скучно).“ Вопрос: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = скучно). Вопрос: „Was machst du in deiner Freizeit?“",
                 "task": "Вы не любите играть в карты."
               },
               "uk": {
                 "instruction": "Що ви скажете в цій ситуації?",
                 "hint": "Позитивно: Das macht Spaß! («Це весело!») / Ich finde … toll. Негативно: Ich finde … langweilig.",
-                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig (нудно).“ Запитання: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = нудно). Запитання: „Was machst du in deiner Freizeit?“",
                 "task": "Ви не любите грати в карти."
               },
               "tr": {
                 "instruction": "Bu durumda ne dersiniz?",
                 "hint": "Olumlu: Das macht Spaß! (Eğlenceli!) / Ich finde … toll. Olumsuz: Ich finde … langweilig.",
-                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig (sıkıcı).“ Soru: „Was machst du in deiner Freizeit?“",
+                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = sıkıcı). Soru: „Was machst du in deiner Freizeit?“",
                 "task": "Kâğıt oynamayı sevmiyorsunuz."
               }
             }
@@ -33477,25 +33477,25 @@
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Positive: Das macht Spaß! (That’s fun!) / Ich finde … toll. Negative: Ich finde … langweilig.",
-                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig (boring).“ Question: „Was machst du in deiner Freizeit?“",
+                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = boring). Question: „Was machst du in deiner Freizeit?“",
                 "task": "A hobby is nice. What do you say?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Положительно: Das macht Spaß! («Это весело!») / Ich finde … toll. Отрицательно: Ich finde … langweilig.",
-                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig (скучно).“ Вопрос: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = скучно). Вопрос: „Was machst du in deiner Freizeit?“",
                 "task": "Хобби — это здорово. Что говорят?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Позитивно: Das macht Spaß! («Це весело!») / Ich finde … toll. Негативно: Ich finde … langweilig.",
-                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig (нудно).“ Запитання: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = нудно). Запитання: „Was machst du in deiner Freizeit?“",
                 "task": "Хобі — це чудово. Що кажуть?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Olumlu: Das macht Spaß! (Eğlenceli!) / Ich finde … toll. Olumsuz: Ich finde … langweilig.",
-                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig (sıkıcı).“ Soru: „Was machst du in deiner Freizeit?“",
+                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = sıkıcı). Soru: „Was machst du in deiner Freizeit?“",
                 "task": "Hobi güzel bir şey. Ne denir?"
               }
             }
@@ -33533,25 +33533,25 @@
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "What do you do? ball → spielen (play), water → schwimmen (swim), book → lesen (read).",
-                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig (boring).“ Question: „Was machst du in deiner Freizeit?“",
+                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = boring). Question: „Was machst du in deiner Freizeit?“",
                 "task": "Kofi plays football on Saturday."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Что делают? мяч → spielen (играть), вода → schwimmen (плавать), книга → lesen (читать).",
-                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig (скучно).“ Вопрос: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = скучно). Вопрос: „Was machst du in deiner Freizeit?“",
                 "task": "Kofi в субботу играет в футбол."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Що роблять? м’яч → spielen (грати), вода → schwimmen (плавати), книжка → lesen (читати).",
-                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig (нудно).“ Запитання: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = нудно). Запитання: „Was machst du in deiner Freizeit?“",
                 "task": "Kofi в суботу грає у футбол."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Ne yapılır? top → spielen (oynamak), su → schwimmen (yüzmek), kitap → lesen (okumak).",
-                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig (sıkıcı).“ Soru: „Was machst du in deiner Freizeit?“",
+                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = sıkıcı). Soru: „Was machst du in deiner Freizeit?“",
                 "task": "Kofi cumartesi futbol oynuyor."
               }
             }
@@ -33589,25 +33589,25 @@
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "What do you do? ball → spielen (play), water → schwimmen (swim), book → lesen (read).",
-                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig (boring).“ Question: „Was machst du in deiner Freizeit?“",
+                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = boring). Question: „Was machst du in deiner Freizeit?“",
                 "task": "Kamil likes reading. He has lots of books."
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Что делают? мяч → spielen (играть), вода → schwimmen (плавать), книга → lesen (читать).",
-                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig (скучно).“ Вопрос: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = скучно). Вопрос: „Was machst du in deiner Freizeit?“",
                 "task": "Kamil любит читать. У него много книг."
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Що роблять? м’яч → spielen (грати), вода → schwimmen (плавати), книжка → lesen (читати).",
-                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig (нудно).“ Запитання: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = нудно). Запитання: „Was machst du in deiner Freizeit?“",
                 "task": "Kamil любить читати. У нього багато книжок."
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Ne yapılır? top → spielen (oynamak), su → schwimmen (yüzmek), kitap → lesen (okumak).",
-                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig (sıkıcı).“ Soru: „Was machst du in deiner Freizeit?“",
+                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = sıkıcı). Soru: „Was machst du in deiner Freizeit?“",
                 "task": "Kamil okumayı seviyor. Çok kitabı var."
               }
             }
@@ -33644,28 +33644,28 @@
               "en": {
                 "instruction": "Fill in the missing word.",
                 "hint": "Positive: Das macht Spaß! (That’s fun!) / Ich finde … toll. Negative: Ich finde … langweilig.",
-                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig (boring).“ Question: „Was machst du in deiner Freizeit?“",
+                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = boring). Question: „Was machst du in deiner Freizeit?“",
                 "task": "Dancing is fun!",
                 "gap_hint": "fun"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
                 "hint": "Положительно: Das macht Spaß! («Это весело!») / Ich finde … toll. Отрицательно: Ich finde … langweilig.",
-                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig (скучно).“ Вопрос: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = скучно). Вопрос: „Was machst du in deiner Freizeit?“",
                 "task": "Танцевать — это весело!",
                 "gap_hint": "удовольствие (весело)"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
                 "hint": "Позитивно: Das macht Spaß! («Це весело!») / Ich finde … toll. Негативно: Ich finde … langweilig.",
-                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig (нудно).“ Запитання: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = нудно). Запитання: „Was machst du in deiner Freizeit?“",
                 "task": "Танцювати — це весело!",
                 "gap_hint": "задоволення (весело)"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
                 "hint": "Olumlu: Das macht Spaß! (Eğlenceli!) / Ich finde … toll. Olumsuz: Ich finde … langweilig.",
-                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig (sıkıcı).“ Soru: „Was machst du in deiner Freizeit?“",
+                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = sıkıcı). Soru: „Was machst du in deiner Freizeit?“",
                 "task": "Dans etmek eğlenceli!",
                 "gap_hint": "keyif (eğlence)"
               }
@@ -33704,25 +33704,25 @@
               "en": {
                 "instruction": "Fill in the correct verb form.",
                 "hint": "Positive: Das macht Spaß! (That’s fun!) / Ich finde … toll. Negative: Ich finde … langweilig.",
-                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig (boring).“ Question: „Was machst du in deiner Freizeit?“",
+                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = boring). Question: „Was machst du in deiner Freizeit?“",
                 "task": "I think hiking is great."
               },
               "ru": {
                 "instruction": "Вставьте правильную форму глагола.",
                 "hint": "Положительно: Das macht Spaß! («Это весело!») / Ich finde … toll. Отрицательно: Ich finde … langweilig.",
-                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig (скучно).“ Вопрос: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = скучно). Вопрос: „Was machst du in deiner Freizeit?“",
                 "task": "Я считаю, что походы — это здорово."
               },
               "uk": {
                 "instruction": "Вставте правильну форму дієслова.",
                 "hint": "Позитивно: Das macht Spaß! («Це весело!») / Ich finde … toll. Негативно: Ich finde … langweilig.",
-                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig (нудно).“ Запитання: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = нудно). Запитання: „Was machst du in deiner Freizeit?“",
                 "task": "Я вважаю, що походи — це чудово."
               },
               "tr": {
                 "instruction": "Fiilin doğru biçimini yazın.",
                 "hint": "Olumlu: Das macht Spaß! (Eğlenceli!) / Ich finde … toll. Olumsuz: Ich finde … langweilig.",
-                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig (sıkıcı).“ Soru: „Was machst du in deiner Freizeit?“",
+                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = sıkıcı). Soru: „Was machst du in deiner Freizeit?“",
                 "task": "Doğa yürüyüşünü harika buluyorum."
               }
             }
@@ -33760,25 +33760,25 @@
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "Positive: Das macht Spaß! (That’s fun!) / Ich finde … toll. Negative: Ich finde … langweilig.",
-                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig (boring).“ Question: „Was machst du in deiner Freizeit?“",
+                "explanation": "Naming and rating hobbies: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Swimming is fun.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = boring). Question: „Was machst du in deiner Freizeit?“",
                 "task": "I think swimming is great."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Положительно: Das macht Spaß! («Это весело!») / Ich finde … toll. Отрицательно: Ich finde … langweilig.",
-                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig (скучно).“ Вопрос: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобби и их оценка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавать – это весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = скучно). Вопрос: „Was machst du in deiner Freizeit?“",
                 "task": "Я считаю, что плавание — это здорово."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Позитивно: Das macht Spaß! («Це весело!») / Ich finde … toll. Негативно: Ich finde … langweilig.",
-                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig (нудно).“ Запитання: „Was machst du in deiner Freizeit?“",
+                "explanation": "Хобі та їхня оцінка: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ («Плавати – це весело».) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = нудно). Запитання: „Was machst du in deiner Freizeit?“",
                 "task": "Я вважаю, що плавання — це чудово."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Olumlu: Das macht Spaß! (Eğlenceli!) / Ich finde … toll. Olumsuz: Ich finde … langweilig.",
-                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig (sıkıcı).“ Soru: „Was machst du in deiner Freizeit?“",
+                "explanation": "Hobileri söyleme ve değerlendirme: „Ich spiele gern Fußball.“ – „Schwimmen macht Spaß.“ (Yüzmek eğlenceli.) – „Ich finde Wandern toll / super / langweilig.“ (langweilig = sıkıcı). Soru: „Was machst du in deiner Freizeit?“",
                 "task": "Yüzmeyi harika buluyorum."
               }
             }
@@ -34948,7 +34948,7 @@
                 "Akkusativ"
               ],
               "instruction": "Ergänze die Verneinung: nicht oder kein.",
-              "text_before": "Sie trinkt ",
+              "text_before": "Er trinkt ",
               "text_after": " Bier.",
               "gap_hint": "nicht / kein",
               "correct_answer": "kein",
@@ -34972,19 +34972,19 @@
                 "instruction": "Fill in the negation: nicht or kein.",
                 "hint": "kein works like ein: masculine keinen, neuter kein, feminine and plural keine.",
                 "explanation": "Accusative with kein: masculine keinen, neuter kein, feminine keine, plural keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
-                "task": "She doesn’t drink beer."
+                "task": "He doesn’t drink beer."
               },
               "ru": {
                 "instruction": "Вставьте отрицание: nicht или kein.",
                 "hint": "kein изменяется как ein: мужской род keinen, средний kein, женский и мн. ч. keine.",
                 "explanation": "Винительный падеж с kein: мужской род keinen, средний kein, женский keine, мн. ч. keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
-                "task": "Она не пьёт пиво."
+                "task": "Он не пьёт пиво."
               },
               "uk": {
                 "instruction": "Вставте заперечення: nicht або kein.",
                 "hint": "kein змінюється як ein: чоловічий рід keinen, середній kein, жіночий і множина keine.",
                 "explanation": "Знахідний відмінок з kein: чоловічий рід keinen, середній kein, жіночий keine, множина keine: Ich habe keinen Hunger. Ich trinke kein Bier. Wir haben keine Zeit. Ich mag keine Krimis.",
-                "task": "Вона не п’є пива."
+                "task": "Він не п’є пива."
               },
               "tr": {
                 "instruction": "Olumsuzluğu yazın: nicht ya da kein.",
@@ -43724,43 +43724,43 @@
               "instruction": "Wähle die richtige Antwort.",
               "question": "Welcher Satz passt zu „gestern“?",
               "options": [
-                "Gestern treffe ich morgen meine Freundin.",
-                "Gestern habe ich meine Freundin getroffen.",
-                "Gestern will ich meine Freundin treffen."
+                "Gestern treffe ich morgen meinen Freund.",
+                "Gestern habe ich meinen Freund getroffen.",
+                "Gestern will ich meinen Freund treffen."
               ],
-              "correct_answer": "Gestern habe ich meine Freundin getroffen.",
+              "correct_answer": "Gestern habe ich meinen Freund getroffen.",
               "accepted_answers": [
-                "Gestern habe ich meine Freundin getroffen."
+                "Gestern habe ich meinen Freund getroffen."
               ]
             },
             "accepted_answers": [
-              "Gestern habe ich meine Freundin getroffen."
+              "Gestern habe ich meinen Freund getroffen."
             ],
-            "hint": "gestern, früher, am Wochenende → Perfekt.",
+            "hint": "Für diese Erzählung über die Vergangenheit üben wir das Perfekt.",
             "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
             "explanation_card": "p7_past",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
-                "hint": "gestern (yesterday), früher (in the past), am Wochenende (at the weekend) → use the perfect tense.",
+                "hint": "For this story about the past, we practise the perfect tense.",
                 "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Which sentence goes with “gestern” (yesterday)?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
-                "hint": "gestern (вчера), früher (раньше), am Wochenende (на выходных) → используйте Perfekt.",
+                "hint": "В этом рассказе о прошлом мы тренируем Perfekt.",
                 "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Какое предложение подходит к «gestern» (вчера)?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
-                "hint": "gestern (учора), früher (раніше), am Wochenende (на вихідних) → використовуйте Perfekt.",
+                "hint": "У цій розповіді про минуле ми тренуємо Perfekt.",
                 "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Яке речення підходить до «gestern» (учора)?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
-                "hint": "gestern (dün), früher (eskiden), am Wochenende (hafta sonu) → Perfekt kullanın.",
+                "hint": "Geçmişle ilgili bu anlatıda Perfekt çalışıyoruz.",
                 "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Hangi cümle “gestern” (dün) kelimesine uygun?"
               }
@@ -43776,7 +43776,7 @@
                 "über das Wochenende sprechen"
               ],
               "instruction": "Was passt? Wähle die passende Reaktion.",
-              "question": "Deine Kollegin fragt: „Was hast du am Wochenende gemacht?“",
+              "question": "Dein Kollege fragt: „Was hast du am Wochenende gemacht?“",
               "options": [
                 "Ich gehe morgen schwimmen.",
                 "Ich will schwimmen gehen.",
@@ -43790,31 +43790,31 @@
             "accepted_answers": [
               "Ich bin schwimmen gegangen."
             ],
-            "hint": "gestern, früher, am Wochenende → Perfekt.",
+            "hint": "Für diese Erzählung über die Vergangenheit üben wir das Perfekt.",
             "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
             "explanation_card": "p7_past",
             "translations": {
               "en": {
                 "instruction": "What fits? Choose the right response.",
-                "hint": "gestern (yesterday), früher (in the past), am Wochenende (at the weekend) → use the perfect tense.",
+                "hint": "For this story about the past, we practise the perfect tense.",
                 "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Your colleague asks: “What did you do at the weekend?”"
               },
               "ru": {
                 "instruction": "Что подходит? Выберите подходящую реакцию.",
-                "hint": "gestern (вчера), früher (раньше), am Wochenende (на выходных) → используйте Perfekt.",
+                "hint": "В этом рассказе о прошлом мы тренируем Perfekt.",
                 "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "Ваша коллега спрашивает: «Что ты делал(а) на выходных?»"
+                "task": "Ваш коллега спрашивает: «Что ты делал на выходных?»"
               },
               "uk": {
                 "instruction": "Що підходить? Виберіть доречну реакцію.",
-                "hint": "gestern (учора), früher (раніше), am Wochenende (на вихідних) → використовуйте Perfekt.",
+                "hint": "У цій розповіді про минуле ми тренуємо Perfekt.",
                 "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
-                "task": "Ваша колега запитує: «Що ти робив (робила) на вихідних?»"
+                "task": "Ваш колега запитує: «Що ти робив на вихідних?»"
               },
               "tr": {
                 "instruction": "Hangisi uygun? Doğru tepkiyi seçin.",
-                "hint": "gestern (dün), früher (eskiden), am Wochenende (hafta sonu) → Perfekt kullanın.",
+                "hint": "Geçmişle ilgili bu anlatıda Perfekt çalışıyoruz.",
                 "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "İş arkadaşınız soruyor: “Hafta sonu ne yaptın?”"
               }
@@ -43845,34 +43845,34 @@
             "accepted_answers": [
               "Früher"
             ],
-            "hint": "gestern, früher, am Wochenende → Perfekt.",
+            "hint": "Für diese Erzählung über die Vergangenheit üben wir das Perfekt.",
             "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
             "explanation_card": "p7_past",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
-                "hint": "gestern (yesterday), früher (in the past), am Wochenende (at the weekend) → use the perfect tense.",
+                "hint": "For this story about the past, we practise the perfect tense.",
                 "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "I used to live in Kharkiv, now I live in Leipzig.",
                 "gap_hint": "earlier (in the past)"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
-                "hint": "gestern (вчера), früher (раньше), am Wochenende (на выходных) → используйте Perfekt.",
+                "hint": "В этом рассказе о прошлом мы тренируем Perfekt.",
                 "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Раньше я жил(а) в Харькове, сейчас я живу в Лейпциге.",
                 "gap_hint": "раньше"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
-                "hint": "gestern (учора), früher (раніше), am Wochenende (на вихідних) → використовуйте Perfekt.",
+                "hint": "У цій розповіді про минуле ми тренуємо Perfekt.",
                 "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Раніше я жив (жила) в Харкові, зараз я живу в Ляйпцигу.",
                 "gap_hint": "раніше"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
-                "hint": "gestern (dün), früher (eskiden), am Wochenende (hafta sonu) → Perfekt kullanın.",
+                "hint": "Geçmişle ilgili bu anlatıda Perfekt çalışıyoruz.",
                 "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Eskiden Harkov’da oturuyordum, şimdi Leipzig’de oturuyorum.",
                 "gap_hint": "eskiden"
@@ -43904,34 +43904,34 @@
             "accepted_answers": [
               "Gestern"
             ],
-            "hint": "gestern, früher, am Wochenende → Perfekt.",
+            "hint": "Für diese Erzählung über die Vergangenheit üben wir das Perfekt.",
             "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
             "explanation_card": "p7_past",
             "translations": {
               "en": {
                 "instruction": "Fill in the missing word.",
-                "hint": "gestern (yesterday), früher (in the past), am Wochenende (at the weekend) → use the perfect tense.",
+                "hint": "For this story about the past, we practise the perfect tense.",
                 "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Yesterday I worked for a long time.",
                 "gap_hint": "yesterday"
               },
               "ru": {
                 "instruction": "Вставьте подходящее слово.",
-                "hint": "gestern (вчера), früher (раньше), am Wochenende (на выходных) → используйте Perfekt.",
+                "hint": "В этом рассказе о прошлом мы тренируем Perfekt.",
                 "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Вчера я долго работал(а).",
                 "gap_hint": "вчера"
               },
               "uk": {
                 "instruction": "Вставте відповідне слово.",
-                "hint": "gestern (учора), früher (раніше), am Wochenende (на вихідних) → використовуйте Perfekt.",
+                "hint": "У цій розповіді про минуле ми тренуємо Perfekt.",
                 "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Учора я довго працював (працювала).",
                 "gap_hint": "учора"
               },
               "tr": {
                 "instruction": "Uygun kelimeyi yazın.",
-                "hint": "gestern (dün), früher (eskiden), am Wochenende (hafta sonu) → Perfekt kullanın.",
+                "hint": "Geçmişle ilgili bu anlatıda Perfekt çalışıyoruz.",
                 "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Dün uzun süre çalıştım.",
                 "gap_hint": "dün"
@@ -43964,31 +43964,31 @@
             "accepted_answers": [
               "bin"
             ],
-            "hint": "Bewegung von A nach B (gehen, fahren, kommen) → Perfekt mit sein.",
+            "hint": "Für diese Erzählung über die Vergangenheit üben wir das Perfekt.",
             "explanation": "Über die Vergangenheit sprechen: gestern, früher, letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
             "explanation_card": "p7_past",
             "translations": {
               "en": {
                 "instruction": "Fill in the correct form of haben or sein.",
-                "hint": "Movement from A to B (gehen, fahren, kommen) → perfect tense with sein, not haben.",
+                "hint": "For this story about the past, we practise the perfect tense.",
                 "explanation": "Talking about the past: gestern (yesterday), früher (in the past), letzte Woche, am Wochenende + perfect tense: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "At the weekend I went to Hamburg."
               },
               "ru": {
                 "instruction": "Вставьте haben или sein в правильной форме.",
-                "hint": "Движение из пункта А в пункт Б (gehen, fahren, kommen) → Perfekt с sein, а не с haben.",
+                "hint": "В этом рассказе о прошлом мы тренируем Perfekt.",
                 "explanation": "Рассказ о прошлом: gestern (вчера), früher (раньше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "На выходных я ездил(а) в Гамбург."
               },
               "uk": {
                 "instruction": "Вставте haben або sein у правильній формі.",
-                "hint": "Рух із пункту А в пункт Б (gehen, fahren, kommen) → Perfekt із sein, а не з haben.",
+                "hint": "У цій розповіді про минуле ми тренуємо Perfekt.",
                 "explanation": "Розповідь про минуле: gestern (учора), früher (раніше), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "На вихідних я їздив (їздила) до Гамбурга."
               },
               "tr": {
                 "instruction": "Haben ya da sein fiilini doğru biçimde yazın.",
-                "hint": "A’dan B’ye hareket (gehen, fahren, kommen) → Perfekt haben ile değil, sein ile.",
+                "hint": "Geçmişle ilgili bu anlatıda Perfekt çalışıyoruz.",
                 "explanation": "Geçmişten söz etme: gestern (dün), früher (eskiden), letzte Woche, am Wochenende + Perfekt: Gestern habe ich lange gearbeitet. Früher habe ich in Charkiw gewohnt. Am Wochenende bin ich nach Hamburg gefahren.",
                 "task": "Hafta sonu Hamburg’a gittim."
               }

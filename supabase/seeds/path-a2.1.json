@@ -644,20 +644,20 @@
         "id": "P1-N2",
         "kind": "practice",
         "sort_order": 2,
-        "topic": "Ankommen · Annas Mutter",
-        "title": "Annas Mutter",
+        "topic": "Ankommen · Antons Vater",
+        "title": "Antons Vater",
         "translations": {
           "en": {
-            "title": "Anna’s mother"
+            "title": "Anton’s father"
           },
           "ru": {
-            "title": "Мама Анны"
+            "title": "Отец Антона"
           },
           "uk": {
-            "title": "Мама Анни"
+            "title": "Батько Антона"
           },
           "tr": {
-            "title": "Anna’nın annesi"
+            "title": "Anton’un babası"
           }
         },
         "goals": [
@@ -698,47 +698,47 @@
                 "Name + s"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Das ist die Mutter von Anna. = Das ist …",
+              "question": "Das ist der Vater von Anton. = Das ist …",
               "options": [
-                "Anna Mutter",
-                "Annas Mutter",
-                "Mutters Anna"
+                "Anton Vater",
+                "Antons Vater",
+                "Vaters Anton"
               ],
-              "correct_answer": "Annas Mutter",
+              "correct_answer": "Antons Vater",
               "accepted_answers": [
-                "Annas Mutter"
+                "Antons Vater"
               ]
             },
             "accepted_answers": [
-              "Annas Mutter"
+              "Antons Vater"
             ],
             "hint": "Name + s: Annas Mutter. Mit Artikel: von + Dativ – von meinem Bruder, von meiner Tante.",
-            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Annas Mutter, Pauls Auto, Frau Kayas Büro. Du kannst auch von + Name sagen: die Mutter von Anna. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+            "explanation": "Wer gehört zu wem? Bei Namen: Name + s, ohne Apostroph: Antons Vater, Pauls Auto, Herrn Kayas Büro. Du kannst auch von + Name sagen: der Vater von Anton. Bei Nomen mit Artikel sagt man von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
             "explanation_card": "p1_genitiv",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Name + s: Annas Mutter. With an article: von + dative – von meinem Bruder, von meiner Tante.",
-                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Annas Mutter (Anna’s mother), Pauls Auto, Frau Kayas Büro. You can also say von + name: die Mutter von Anna. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "This is the mother of Anna. = This is …"
+                "explanation": "Who belongs to whom? With names: name + s, without an apostrophe: Antons Vater (Anton’s father), Pauls Auto, Herrn Kayas Büro. You can also say von + name: der Vater von Anton. With nouns that have an article you say von + dative: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "This is the father of Anton. = This is …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Имя + s: Annas Mutter. С артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Annas Mutter (мама Анны), Pauls Auto, Frau Kayas Büro. Можно сказать и von + имя: die Mutter von Anna. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Это мама Анны. = Это …"
+                "explanation": "Кто кому принадлежит? С именами: имя + s, без апострофа: Antons Vater (отец Антона), Pauls Auto, Herrn Kayas Büro. Можно сказать и von + имя: der Vater von Anton. С существительными с артиклем говорят von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Это отец Антона. = Это …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Ім’я + s: Annas Mutter. З артиклем: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Annas Mutter (мама Анни), Pauls Auto, Frau Kayas Büro. Можна сказати й von + ім’я: die Mutter von Anna. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Це мама Анни. = Це …"
+                "explanation": "Хто кому належить? З іменами: ім’я + s, без апострофа: Antons Vater (батько Антона), Pauls Auto, Herrn Kayas Büro. Можна сказати й von + ім’я: der Vater von Anton. З іменниками з артиклем кажуть von + Dativ: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Це батько Антона. = Це …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "İsim + s: Annas Mutter. Artikelle: von + Dativ – von meinem Bruder, von meiner Tante.",
-                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Annas Mutter (Anna’nın annesi), Pauls Auto, Frau Kayas Büro. von + isim de denir: die Mutter von Anna. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
-                "task": "Bu Anna’nın annesi. = Bu …"
+                "explanation": "Kim kime ait? İsimlerde: isim + s, kesme işareti olmadan: Antons Vater (Anton’un babası), Pauls Auto, Herrn Kayas Büro. von + isim de denir: der Vater von Anton. Artikelli adlarda von + Dativ kullanılır: das Auto von meinem Bruder, die Wohnung von meiner Tante, das Haus von meinen Eltern.",
+                "task": "Bu Anton’un babası. = Bu …"
               }
             }
           },
@@ -2970,7 +2970,7 @@
         ],
         "merkkarte": {
           "card": "p1_trennbar",
-          "rule": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+          "rule": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
           "examples": [
             "Ich habe gestern meinen Onkel angerufen.",
             "Wir haben im Kurs viele Leute kennengelernt.",
@@ -2979,16 +2979,16 @@
           "highlight": "verb",
           "translations": {
             "en": {
-              "rule": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft."
+              "rule": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here."
             },
             "ru": {
-              "rule": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft."
+              "rule": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben."
             },
             "uk": {
-              "rule": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft."
+              "rule": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben."
             },
             "tr": {
-              "rule": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft."
+              "rule": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır."
             }
           }
         },
@@ -3018,31 +3018,31 @@
               "eingekauft."
             ],
             "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
             "explanation_card": "p1_trennbar",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here.",
                 "task": "I did the shopping at the supermarket."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben.",
                 "task": "Я сделал покупки в супермаркете."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben.",
                 "task": "Я зробив покупки в супермаркеті."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır.",
                 "task": "Süpermarkette alışveriş yaptım."
               }
             }
@@ -3057,7 +3057,7 @@
                 "anrufen"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Hast du deine Mutter schon …?",
+              "question": "Hast du deinen Vater schon …?",
               "options": [
                 "anrufen",
                 "angerufen",
@@ -3072,32 +3072,32 @@
               "angerufen"
             ],
             "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
             "explanation_card": "p1_trennbar",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
-                "task": "Have you called your mother yet?"
+                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here.",
+                "task": "Have you called your father yet?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
-                "task": "Ты уже позвонил маме?"
+                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben.",
+                "task": "Ты уже позвонил отцу?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
-                "task": "Ти вже зателефонував мамі?"
+                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben.",
+                "task": "Ти вже зателефонував батькові?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
-                "task": "Anneni aradın mı?"
+                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır.",
+                "task": "Babanı aradın mı?"
               }
             }
           },
@@ -3126,31 +3126,31 @@
               "bin"
             ],
             "hint": "Bewegung oder Veränderung (aufstehen, ankommen, einschlafen) → sein. Sonst → haben.",
-            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
             "explanation_card": "p1_trennbar",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Movement or change (aufstehen, ankommen, einschlafen) → sein. Otherwise → haben.",
-                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here.",
                 "task": "Today I got up at six o’clock already."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Движение или изменение состояния (aufstehen, ankommen, einschlafen) → sein. Иначе → haben.",
-                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben.",
                 "task": "Сегодня я встал уже в шесть часов."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Рух або зміна стану (aufstehen, ankommen, einschlafen) → sein. Інакше → haben.",
-                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben.",
                 "task": "Сьогодні я встав уже о шостій."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Hareket ya da değişim (aufstehen, ankommen, einschlafen) → sein. Diğerlerinde → haben.",
-                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır.",
                 "task": "Bugün daha saat altıda kalktım."
               }
             }
@@ -3180,31 +3180,31 @@
               "Wir haben Leon in Köln kennengelernt."
             ],
             "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
             "explanation_card": "p1_trennbar",
             "translations": {
               "en": {
                 "instruction": "Which sentence is correct?",
                 "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here.",
                 "task": "Oleg is talking about a new male friend."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben.",
                 "task": "Oleg рассказывает о новом друге."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben.",
                 "task": "Oleg розповідає про нового друга."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır.",
                 "task": "Oleg yeni bir erkek arkadaşından söz ediyor."
               }
             }
@@ -3236,31 +3236,31 @@
               "aufgeräumt"
             ],
             "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
             "explanation_card": "p1_trennbar",
             "translations": {
               "en": {
                 "instruction": "Fill in the past participle.",
                 "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here.",
                 "task": "Paul tidied up his room on Saturday."
               },
               "ru": {
                 "instruction": "Вставьте причастие (Partizip II).",
                 "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben.",
                 "task": "В субботу Paul убрал свою комнату."
               },
               "uk": {
                 "instruction": "Вставте дієприкметник (Partizip II).",
                 "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben.",
                 "task": "У суботу Paul прибрав свою кімнату."
               },
               "tr": {
                 "instruction": "Partizip II biçimini yazın.",
                 "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır.",
                 "task": "Paul cumartesi günü odasını topladı."
               }
             }
@@ -3292,31 +3292,31 @@
               "abgeholt"
             ],
             "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
             "explanation_card": "p1_trennbar",
             "translations": {
               "en": {
                 "instruction": "Fill in the past participle.",
                 "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here.",
                 "task": "I picked the children up from school."
               },
               "ru": {
                 "instruction": "Вставьте причастие (Partizip II).",
                 "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben.",
                 "task": "Я забрал детей из школы."
               },
               "uk": {
                 "instruction": "Вставте дієприкметник (Partizip II).",
                 "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben.",
                 "task": "Я забрав дітей зі школи."
               },
               "tr": {
                 "instruction": "Partizip II biçimini yazın.",
                 "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır.",
                 "task": "Çocukları okuldan aldım."
               }
             }
@@ -3348,31 +3348,31 @@
               "angekommen"
             ],
             "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
             "explanation_card": "p1_trennbar",
             "translations": {
               "en": {
                 "instruction": "Fill in the past participle.",
                 "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here.",
                 "task": "The train arrived in Munich on time."
               },
               "ru": {
                 "instruction": "Вставьте причастие (Partizip II).",
                 "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben.",
                 "task": "Поезд прибыл в Мюнхен вовремя."
               },
               "uk": {
                 "instruction": "Вставте дієприкметник (Partizip II).",
                 "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben.",
                 "task": "Потяг прибув до Мюнхена вчасно."
               },
               "tr": {
                 "instruction": "Partizip II biçimini yazın.",
                 "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır.",
                 "task": "Tren Münih’e zamanında vardı."
               }
             }
@@ -3404,31 +3404,31 @@
               "eingeladen"
             ],
             "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
             "explanation_card": "p1_trennbar",
             "translations": {
               "en": {
                 "instruction": "Fill in the past participle.",
                 "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here.",
                 "task": "We invited our neighbours for a meal."
               },
               "ru": {
                 "instruction": "Вставьте причастие (Partizip II).",
                 "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben.",
                 "task": "Мы пригласили соседей на обед."
               },
               "uk": {
                 "instruction": "Вставте дієприкметник (Partizip II).",
                 "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben.",
                 "task": "Ми запросили сусідів на обід."
               },
               "tr": {
                 "instruction": "Partizip II biçimini yazın.",
                 "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır.",
                 "task": "Komşularımızı yemeğe davet ettik."
               }
             }
@@ -3460,31 +3460,31 @@
               "ist"
             ],
             "hint": "Bewegung oder Veränderung (aufstehen, ankommen, einschlafen) → sein. Sonst → haben.",
-            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
             "explanation_card": "p1_trennbar",
             "translations": {
               "en": {
                 "instruction": "Fill in haben or sein in the correct form.",
                 "hint": "Movement or change (aufstehen, ankommen, einschlafen) → sein. Otherwise → haben.",
-                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here.",
                 "task": "The child fell asleep quickly."
               },
               "ru": {
                 "instruction": "Вставьте haben или sein в правильной форме.",
                 "hint": "Движение или изменение состояния (aufstehen, ankommen, einschlafen) → sein. Иначе → haben.",
-                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben.",
                 "task": "Ребёнок быстро заснул."
               },
               "uk": {
                 "instruction": "Вставте haben або sein у правильній формі.",
                 "hint": "Рух або зміна стану (aufstehen, ankommen, einschlafen) → sein. Інакше → haben.",
-                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben.",
                 "task": "Дитина швидко заснула."
               },
               "tr": {
                 "instruction": "Haben ya da sein fiilini doğru biçimde yazın.",
                 "hint": "Hareket ya da değişim (aufstehen, ankommen, einschlafen) → sein. Diğerlerinde → haben.",
-                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır.",
                 "task": "Çocuk çabucak uykuya daldı."
               }
             }
@@ -3517,31 +3517,31 @@
               "Gestern habe ich lange ferngesehen."
             ],
             "hint": "Trennbar: Präfix + ge + Verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Mit sein bei Bewegung oder Veränderung: Ich bin aufgestanden. Der Zug ist angekommen. Sonst mit haben: Ich habe eingekauft.",
+            "explanation": "Perfekt der trennbaren Verben: Das ge- steht zwischen Präfix und Verb. einkaufen → eingekauft, aufräumen → aufgeräumt, abholen → abgeholt, kennenlernen → kennengelernt. Unregelmäßig mit -en: anrufen → angerufen, aufstehen → aufgestanden, einladen → eingeladen, fernsehen → ferngesehen, ankommen → angekommen, einschlafen → eingeschlafen. Die hier verwendeten intransitiven Verben aufstehen, ankommen und einschlafen bilden das Perfekt mit sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen und fernsehen bilden es hier mit haben.",
             "explanation_card": "p1_trennbar",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "Separable: prefix + ge + verb: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). With sein for movement or change: Ich bin aufgestanden. Der Zug ist angekommen. Otherwise with haben: Ich habe eingekauft.",
+                "explanation": "Perfect tense of separable verbs: ge- goes between the prefix and the verb. einkaufen → eingekauft (shopped), aufräumen → aufgeräumt (tidied up), abholen → abgeholt (picked up), kennenlernen → kennengelernt (got to know). Irregular with -en: anrufen → angerufen (called), aufstehen → aufgestanden (got up), einladen → eingeladen (invited), fernsehen → ferngesehen (watched TV), ankommen → angekommen (arrived), einschlafen → eingeschlafen (fell asleep). The intransitive verbs aufstehen, ankommen and einschlafen used here form the perfect with sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen and fernsehen use haben here.",
                 "task": "I watched TV for a long time yesterday."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Отделяемая приставка: приставка + ge + глагол: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). С sein при движении или изменении состояния: Ich bin aufgestanden. Der Zug ist angekommen. В остальных случаях с haben: Ich habe eingekauft.",
+                "explanation": "Perfekt глаголов с отделяемой приставкой: ge- стоит между приставкой и глаголом. einkaufen → eingekauft (сделал покупки), aufräumen → aufgeräumt (убрал), abholen → abgeholt (забрал), kennenlernen → kennengelernt (познакомился). Неправильные на -en: anrufen → angerufen (позвонил), aufstehen → aufgestanden (встал), einladen → eingeladen (пригласил), fernsehen → ferngesehen (смотрел телевизор), ankommen → angekommen (прибыл), einschlafen → eingeschlafen (заснул). Используемые здесь непереходные глаголы aufstehen, ankommen и einschlafen образуют Perfekt с sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen и fernsehen здесь образуют его с haben.",
                 "task": "Вчера я долго смотрел телевизор."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Відокремлюваний префікс: префікс + ge + дієслово: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Із sein при русі або зміні стану: Ich bin aufgestanden. Der Zug ist angekommen. В інших випадках із haben: Ich habe eingekauft.",
+                "explanation": "Perfekt дієслів із відокремлюваним префіксом: ge- стоїть між префіксом і дієсловом. einkaufen → eingekauft (зробив покупки), aufräumen → aufgeräumt (прибрав), abholen → abgeholt (забрав), kennenlernen → kennengelernt (познайомився). Неправильні на -en: anrufen → angerufen (зателефонував), aufstehen → aufgestanden (встав), einladen → eingeladen (запросив), fernsehen → ferngesehen (дивився телевізор), ankommen → angekommen (прибув), einschlafen → eingeschlafen (заснув). Ужиті тут неперехідні дієслова aufstehen, ankommen та einschlafen утворюють Perfekt із sein. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen та fernsehen тут утворюють його з haben.",
                 "task": "Учора я довго дивився телевізор."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Ayrılabilen fiil: ön ek + ge + fiil: ein-ge-kauft, an-ge-rufen, auf-ge-standen.",
-                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Hareket ya da durum değişikliğinde sein ile: Ich bin aufgestanden. Der Zug ist angekommen. Diğerlerinde haben ile: Ich habe eingekauft.",
+                "explanation": "Ayrılabilen fiillerin Perfekt’i: ge- ön ek ile fiilin arasına girer. einkaufen → eingekauft (alışveriş yaptı), aufräumen → aufgeräumt (topladı), abholen → abgeholt (aldı, karşıladı), kennenlernen → kennengelernt (tanıştı). -en ile düzensiz olanlar: anrufen → angerufen (aradı), aufstehen → aufgestanden (kalktı), einladen → eingeladen (davet etti), fernsehen → ferngesehen (televizyon izledi), ankommen → angekommen (vardı), einschlafen → eingeschlafen (uykuya daldı). Burada kullanılan geçişsiz aufstehen, ankommen ve einschlafen fiilleri Perfekt’i sein ile kurar. einkaufen, aufräumen, abholen, kennenlernen, anrufen, einladen ve fernsehen burada haben kullanır.",
                 "task": "Dün uzun süre televizyon izledim."
               }
             }
@@ -45722,7 +45722,7 @@
                 "Weiterbildung"
               ],
               "instruction": "Wähle die richtige Antwort.",
-              "question": "Frau Rojas arbeitet seit zehn Jahren im Büro. Jetzt lernt sie in einem Kurs ein neues Computerprogramm. Das ist eine …",
+              "question": "Herr Rojas arbeitet seit zehn Jahren im Büro. Jetzt lernt er in einem Kurs ein neues Computerprogramm. Das ist eine …",
               "options": [
                 "Weiterbildung",
                 "Ausbildung",
@@ -45744,25 +45744,25 @@
                 "instruction": "Choose the correct answer.",
                 "hint": "Learning a job → Ausbildung. University → Studium. A short time in a company → Praktikum. Learning more in your job → Weiterbildung.",
                 "explanation": "After school: der Schulabschluss (school-leaving qualification), das Abitur (the highest school qualification; with it you can go to university), die Ausbildung or die Lehre (vocational training, apprenticeship: learning a job in a company and at vocational school), der Auszubildende or der Azubi (trainee, apprentice), das Studium (studying at university), das Praktikum (internship: working and learning in a company for a few weeks), die Weiterbildung (further training in your job), die Prüfung (exam), die Note (mark).",
-                "task": "Ms Rojas has been working in the office for ten years. Now she is learning a new computer program on a course. That is …"
+                "task": "Mr Rojas has been working in the office for ten years. Now he is learning a new computer program on a course. That is …"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Освоить профессию → Ausbildung. Университет → Studium. Недолго на фирме → Praktikum. Учиться дальше, уже работая → Weiterbildung.",
                 "explanation": "После школы: der Schulabschluss (аттестат об окончании школы), das Abitur (высший школьный аттестат; с ним можно учиться в университете), die Ausbildung или die Lehre (профессиональное обучение: профессию осваивают на предприятии и в профессиональной школе), der Auszubildende или der Azubi (ученик на производстве), das Studium (учёба в университете), das Praktikum (практика, стажировка: несколько недель работы и учёбы на фирме), die Weiterbildung (повышение квалификации), die Prüfung (экзамен), die Note (оценка).",
-                "task": "Госпожа Rojas десять лет работает в офисе. Сейчас она на курсах осваивает новую компьютерную программу. Это …"
+                "task": "Господин Rojas десять лет работает в офисе. Сейчас он на курсах осваивает новую компьютерную программу. Это …"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Опанувати професію → Ausbildung. Університет → Studium. Недовго на фірмі → Praktikum. Вчитися далі, уже працюючи → Weiterbildung.",
                 "explanation": "Після школи: der Schulabschluss (атестат про закінчення школи), das Abitur (найвищий шкільний атестат; з ним можна навчатися в університеті), die Ausbildung або die Lehre (професійне навчання: професію опановують на підприємстві та в професійній школі), der Auszubildende або der Azubi (учень на виробництві), das Studium (навчання в університеті), das Praktikum (практика, стажування: кілька тижнів роботи й навчання на фірмі), die Weiterbildung (підвищення кваліфікації), die Prüfung (іспит), die Note (оцінка).",
-                "task": "Пані Rojas десять років працює в офісі. Зараз вона на курсах опановує нову комп’ютерну програму. Це …"
+                "task": "Пан Rojas десять років працює в офісі. Зараз він на курсах опановує нову комп’ютерну програму. Це …"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Meslek öğrenmek → Ausbildung. Üniversite → Studium. Bir şirkette kısa süre → Praktikum. Meslekte öğrenmeye devam → Weiterbildung.",
                 "explanation": "Okuldan sonra: der Schulabschluss (okul diploması), das Abitur (en yüksek okul diploması; onunla üniversitede okunabilir), die Ausbildung ya da die Lehre (meslek eğitimi: meslek, iş yerinde ve meslek okulunda öğrenilir), der Auszubildende ya da der Azubi (çırak, meslek eğitimi öğrencisi), das Studium (üniversite öğrenimi), das Praktikum (staj: birkaç hafta bir şirkette çalışıp öğrenmek), die Weiterbildung (meslekte ileri eğitim), die Prüfung (sınav), die Note (not).",
-                "task": "Rojas Hanım on yıldır ofiste çalışıyor. Şimdi bir kursta yeni bir bilgisayar programı öğreniyor. Bu bir …"
+                "task": "Rojas Bey on yıldır ofiste çalışıyor. Şimdi bir kursta yeni bir bilgisayar programı öğreniyor. Bu bir …"
               }
             }
           },
@@ -46007,7 +46007,7 @@
                 "eine Ausbildung machen"
               ],
               "instruction": "Ergänze das Partizip.",
-              "text_before": "Ich habe eine Ausbildung als Friseurin ",
+              "text_before": "Ich habe eine Ausbildung als Friseur ",
               "text_after": ".",
               "gap_hint": "machen",
               "correct_answer": "gemacht",
@@ -46037,13 +46037,13 @@
                 "instruction": "Вставьте причастие (Partizip II).",
                 "hint": "Освоить профессию → Ausbildung. Университет → Studium. Недолго на фирме → Praktikum. Учиться дальше, уже работая → Weiterbildung.",
                 "explanation": "После школы: der Schulabschluss (аттестат об окончании школы), das Abitur (высший школьный аттестат; с ним можно учиться в университете), die Ausbildung или die Lehre (профессиональное обучение: профессию осваивают на предприятии и в профессиональной школе), der Auszubildende или der Azubi (ученик на производстве), das Studium (учёба в университете), das Praktikum (практика, стажировка: несколько недель работы и учёбы на фирме), die Weiterbildung (повышение квалификации), die Prüfung (экзамен), die Note (оценка).",
-                "task": "Я выучилась на парикмахера."
+                "task": "Я выучился на парикмахера."
               },
               "uk": {
                 "instruction": "Вставте дієприкметник (Partizip II).",
                 "hint": "Опанувати професію → Ausbildung. Університет → Studium. Недовго на фірмі → Praktikum. Вчитися далі, уже працюючи → Weiterbildung.",
                 "explanation": "Після школи: der Schulabschluss (атестат про закінчення школи), das Abitur (найвищий шкільний атестат; з ним можна навчатися в університеті), die Ausbildung або die Lehre (професійне навчання: професію опановують на підприємстві та в професійній школі), der Auszubildende або der Azubi (учень на виробництві), das Studium (навчання в університеті), das Praktikum (практика, стажування: кілька тижнів роботи й навчання на фірмі), die Weiterbildung (підвищення кваліфікації), die Prüfung (іспит), die Note (оцінка).",
-                "task": "Я вивчилася на перукарку."
+                "task": "Я вивчився на перукаря."
               },
               "tr": {
                 "instruction": "Partizip II biçimini yazın.",
@@ -46137,7 +46137,7 @@
         ],
         "merkkarte": {
           "card": "p6_modal_prt",
-          "rule": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+          "rule": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
           "examples": [
             "Als Kind musste ich um acht Uhr ins Bett gehen.",
             "Mit fünf Jahren konnte ich schon lesen.",
@@ -46146,16 +46146,16 @@
           "highlight": "verb",
           "translations": {
             "en": {
-              "rule": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen."
+              "rule": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen."
             },
             "ru": {
-              "rule": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen."
+              "rule": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen."
             },
             "uk": {
-              "rule": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen."
+              "rule": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen."
             },
             "tr": {
-              "rule": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen."
+              "rule": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen."
             }
           }
         },
@@ -46185,31 +46185,31 @@
               "musste"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Yesterday I had to work for a long time."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Вчера мне пришлось долго работать."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Учора мені довелося довго працювати."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Dün uzun süre çalışmak zorundaydım."
               }
             }
@@ -46239,31 +46239,31 @@
               "konnte"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "At the age of six I could not swim yet."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "В шесть лет я ещё не умел плавать."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "У шість років я ще не вмів плавати."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Altı yaşındayken henüz yüzemiyordum."
               }
             }
@@ -46293,31 +46293,31 @@
               "konnten"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Unfortunately we could not come yesterday. Our car had broken down."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "К сожалению, вчера мы не смогли приехать. Наша машина сломалась."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "На жаль, учора ми не змогли приїхати. Наша машина зламалася."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Maalesef dün gelemedik. Arabamız bozuktu."
               }
             }
@@ -46347,31 +46347,31 @@
               "Wir mussten jeden Tag zu Fuß gehen."
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Which sentence is correct?",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Grandad is talking about his school days."
               },
               "ru": {
                 "instruction": "Какое предложение правильное?",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Дедушка рассказывает о своих школьных годах."
               },
               "uk": {
                 "instruction": "Яке речення правильне?",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Дідусь розповідає про свої шкільні роки."
               },
               "tr": {
                 "instruction": "Hangi cümle doğru?",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Dedem okul yıllarını anlatıyor."
               }
             }
@@ -46401,31 +46401,31 @@
               "Konntest"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Could you play the piano as a child?"
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Ты умел в детстве играть на пианино?"
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Ти вмів у дитинстві грати на піаніно?"
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Çocukken piyano çalabiliyor muydun?"
               }
             }
@@ -46457,31 +46457,31 @@
               "musste"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Fill in the modal verb in the past tense (Präteritum).",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "My mother used to have to work every Saturday."
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в прошедшем времени (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Раньше моей маме приходилось работать каждую субботу."
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в минулому часі (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Раніше моїй мамі доводилося працювати щосуботи."
               },
               "tr": {
                 "instruction": "Kip fiilini geçmiş zamanda (Präteritum) yazın.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Eskiden annem her cumartesi çalışmak zorundaydı."
               }
             }
@@ -46513,31 +46513,31 @@
               "konnten"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Fill in the modal verb in the past tense (Präteritum).",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "As children we could play outside for hours."
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в прошедшем времени (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "В детстве мы могли часами играть на улице."
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в минулому часі (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "У дитинстві ми могли годинами гратися надворі."
               },
               "tr": {
                 "instruction": "Kip fiilini geçmiş zamanda (Präteritum) yazın.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Çocukken saatlerce dışarıda oynayabiliyorduk."
               }
             }
@@ -46569,31 +46569,31 @@
               "konntest"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Fill in the modal verb in the past tense (Präteritum).",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Why could you not come to the course yesterday?"
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в прошедшем времени (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Почему ты вчера не смог прийти на курс?"
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в минулому часі (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Чому ти вчора не зміг прийти на курс?"
               },
               "tr": {
                 "instruction": "Kip fiilini geçmiş zamanda (Präteritum) yazın.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Dün kursa neden gelemedin?"
               }
             }
@@ -46625,31 +46625,31 @@
               "musstet"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Fill in the modal verb in the past tense (Präteritum).",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "You surely had to study a lot at school, didn’t you?"
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в прошедшем времени (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Вам в школе наверняка приходилось много учиться, да?"
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в минулому часі (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Вам у школі напевно доводилося багато вчитися, так?"
               },
               "tr": {
                 "instruction": "Kip fiilini geçmiş zamanda (Präteritum) yazın.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Okulda mutlaka çok çalışmak zorundaydınız, değil mi?"
               }
             }
@@ -46682,31 +46682,31 @@
               "Gestern musste ich zum Arzt gehen."
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "I had to go to the doctor yesterday."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Вчера мне пришлось пойти к врачу."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Учора мені довелося піти до лікаря."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Dün doktora gitmek zorundaydım."
               }
             }
@@ -51942,31 +51942,31 @@
               "musste"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Fill in the modal verb in the past tense (Präteritum).",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "As a child I had to practise the piano for an hour every day. That was no fun."
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в прошедшем времени (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "В детстве мне приходилось каждый день по часу заниматься на пианино. Это было совсем не весело."
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в минулому часі (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "У дитинстві мені доводилося щодня по годині займатися на піаніно. Це було зовсім не весело."
               },
               "tr": {
                 "instruction": "Kip fiilini geçmiş zamanda (Präteritum) yazın.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Çocukken her gün bir saat piyano çalışmak zorundaydım. Hiç eğlenceli değildi."
               }
             }
@@ -52418,31 +52418,31 @@
               "mussten"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "In the past children often had to work at the age of 14."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Раньше детям часто приходилось работать уже в 14 лет."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Раніше дітям часто доводилося працювати вже в 14 років."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Eskiden çocuklar çoğu zaman daha 14 yaşında çalışmak zorundaydı."
               }
             }
@@ -52472,31 +52472,31 @@
               "konnte"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Choose the correct answer.",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "I could not call yesterday. My mobile was broken."
               },
               "ru": {
                 "instruction": "Выберите правильный ответ.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Вчера я не мог позвонить. Мой телефон был сломан."
               },
               "uk": {
                 "instruction": "Виберіть правильну відповідь.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Учора я не міг зателефонувати. Мій телефон був зламаний."
               },
               "tr": {
                 "instruction": "Doğru cevabı seçin.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Dün arayamadım. Telefonum bozuktu."
               }
             }
@@ -53242,31 +53242,31 @@
               "konnte"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Fill in the modal verb in the past tense (Präteritum).",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "At the age of four my son could already ride a bike."
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в прошедшем времени (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "В четыре года мой сын уже умел кататься на велосипеде."
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в минулому часі (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "У чотири роки мій син уже вмів кататися на велосипеді."
               },
               "tr": {
                 "instruction": "Kip fiilini geçmiş zamanda (Präteritum) yazın.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Oğlum dört yaşındayken bisiklete binebiliyordu."
               }
             }
@@ -53298,31 +53298,31 @@
               "mussten"
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Fill in the modal verb in the past tense (Präteritum).",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Yesterday we had to wait a long time for the bus."
               },
               "ru": {
                 "instruction": "Вставьте модальный глагол в прошедшем времени (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Вчера нам пришлось долго ждать автобус."
               },
               "uk": {
                 "instruction": "Вставте модальне дієслово в минулому часі (Präteritum).",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Учора нам довелося довго чекати на автобус."
               },
               "tr": {
                 "instruction": "Kip fiilini geçmiş zamanda (Präteritum) yazın.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Dün otobüsü uzun süre beklemek zorunda kaldık."
               }
             }
@@ -53930,31 +53930,31 @@
               "Jeden Tag mussten wir Hausaufgaben machen."
             ],
             "hint": "Präteritum: Stamm ohne Umlaut + te: muss-te, konn-te. ich und er/sie/es haben dieselbe Form.",
-            "explanation": "Modalverben im Präteritum: Für die Vergangenheit benutzt man bei Modalverben das Präteritum, nicht das Perfekt. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+            "explanation": "Modalverben im Präteritum: Für die Vergangenheit verwendet man bei Modalverben häufig das Präteritum. Es gibt keinen Umlaut. müssen: ich musste, du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte, du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Der Infinitiv steht am Ende: Ich musste früh aufstehen. Wir konnten nicht kommen.",
             "explanation_card": "p6_modal_prt",
             "translations": {
               "en": {
                 "instruction": "Put the words in the correct order.",
                 "hint": "Präteritum: stem without umlaut + te: muss-te, konn-te. ich and er/sie/es have the same form.",
-                "explanation": "Modal verbs in the simple past (Präteritum): for the past you use the Präteritum of modal verbs, not the perfect tense. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Modal verbs in the simple past (Präteritum): for the past, modal verbs often use the Präteritum. There is no umlaut. müssen: ich musste (I had to), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (I could), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. The infinitive goes to the end: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "We had to do homework every day."
               },
               "ru": {
                 "instruction": "Расставьте слова в правильном порядке.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. У ich и er/sie/es одна и та же форма.",
-                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов используют Präteritum, а не Perfekt. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальные глаголы в Präteritum: в прошедшем времени у модальных глаголов часто используют Präteritum. Умлаута нет. müssen: ich musste (я должен был), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я мог, умел), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Инфинитив стоит в конце: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Нам приходилось каждый день делать домашние задания."
               },
               "uk": {
                 "instruction": "Розставте слова в правильному порядку.",
                 "hint": "Präteritum: основа без умлаута + te: muss-te, konn-te. В ich та er/sie/es однакова форма.",
-                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів використовують Präteritum, а не Perfekt. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Модальні дієслова в Präteritum: у минулому часі для модальних дієслів часто використовують Präteritum. Умлаута немає. müssen: ich musste (я мусив), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (я міг, умів), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Інфінітив стоїть у кінці: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Нам доводилося щодня робити домашні завдання."
               },
               "tr": {
                 "instruction": "Kelimeleri doğru sıraya koyun.",
                 "hint": "Präteritum: umlautsuz kök + te: muss-te, konn-te. ich ile er/sie/es aynı biçimdedir.",
-                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde Perfekt değil, Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
+                "explanation": "Präteritum’da kip fiilleri: Geçmiş için kip fiillerinde sıklıkla Präteritum kullanılır. Umlaut yoktur. müssen: ich musste (zorundaydım), du musstest, er/sie/es musste, wir mussten, ihr musstet, sie/Sie mussten. können: ich konnte (-ebiliyordum), du konntest, er/sie/es konnte, wir konnten, ihr konntet, sie/Sie konnten. Mastar sonda durur: Ich musste früh aufstehen. Wir konnten nicht kommen.",
                 "task": "Her gün ödev yapmak zorundaydık."
               }
             }
