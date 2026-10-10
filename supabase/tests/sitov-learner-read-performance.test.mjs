@@ -10,9 +10,12 @@ const [migration, canonical, rollback, runner] = await Promise.all([
 
 // Equal results for every account are measured on a production copy (see the Obsidian note of
 // 2026-10-10); this test keeps the deployed text, its registration and its way back together.
-test('122 is deployed as authored and registered after 121', () => {
+test('122 and 123 are deployed as authored and registered in order', async () => {
   assert.equal(migration, canonical)
-  assert.match(runner, /121_sitov_pretest_publication_marks\.sql'\)\nORDER\.append\('122_sitov_learner_read_performance\.sql'\)/)
+  assert.equal(await read('../vps/123_sitov_access_catalog_performance.sql'), await read('../migrations/20261010230000_sitov_access_catalog_performance.sql'))
+  assert.match(runner, /121_sitov_pretest_publication_marks\.sql'\)\nORDER\.append\('122_sitov_learner_read_performance\.sql'\)\nORDER\.append\('123_sitov_access_catalog_performance\.sql'\)/)
+  const back = await read('../vps/rollback/123_sitov_access_catalog_performance.sql')
+  assert.ok(back.includes('CREATE OR REPLACE FUNCTION public.get_sitov_access_catalog(') && back.includes("pg_get_functiondef('learning_private.sitov_recommendation_sources(text,uuid[])'::regprocedure)"))
 })
 
 test('122 replaces per-item rules by sets without leaving a per-row verb check in its reports', () => {
