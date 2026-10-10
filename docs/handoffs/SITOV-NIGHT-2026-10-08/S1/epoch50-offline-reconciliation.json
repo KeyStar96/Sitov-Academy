@@ -1,0 +1,182 @@
+{
+  "epoch": 50,
+  "school": "Sitov Academy",
+  "sourceCommit": "381c2995723b16cc40974a29cc2a7f0872da1b90",
+  "inventorySHA256": "08694f652cfb3d42ba045675b789551bda8c6c8f7160eb7137b796cfd2c598fb",
+  "createdAt": "2026-10-10T06:49:22.918375+00:00",
+  "counts": {
+    "tasks": 538,
+    "parents": 59,
+    "unobservedDBUnitGoalPaths": 66,
+    "existingWholeTaskAcceptCandidates": 426,
+    "taskHolds": 112,
+    "existingWholeParentAcceptCandidates": 40,
+    "parentHolds": 19,
+    "existingCompleteObjectiveSetCandidates": 20,
+    "objectiveSetHolds": 46,
+    "sourceDocuments": 91,
+    "newOriginalDocuments": 12,
+    "S7e32Included": true,
+    "newSemanticApprovals": 0
+  },
+  "sourceObjectiveChangesSinceEpoch47": [
+    {
+      "pathKey": "A1.2/P1",
+      "id": "P1-G2",
+      "priorSourceWholeObjective": {
+        "id": "P1-G2",
+        "area": "grammar",
+        "description": "„als“ + Beruf und „bei“ + Firma: Ich arbeite als Köchin bei einer Firma."
+      },
+      "currentSourceWholeObjective": {
+        "id": "P1-G2",
+        "area": "grammar",
+        "description": "„als“ + Beruf und „bei“ + Firma: Ich arbeite als Koch bei einer Firma."
+      },
+      "currentSHA256": "99e47a4cce8488e3b45bf8aa6b17a29c483c9d2fbe0030fa75197baff627efc0",
+      "DBBefore": "UNOBSERVED",
+      "wholeSetSHA256": {
+        "pythonSortedUTF8Compact": "83b571542b557c8e7906a907c23de9df6c2acf2ef10b68f4c67f60f5654c49d0",
+        "jsInsertionJSON": "91650f240377f30cc18d20cd883b466f698d8e10a0e553e4a3636f6ee4b1908b"
+      }
+    },
+    {
+      "pathKey": "A2.1/P1",
+      "id": "P1-G5",
+      "priorSourceWholeObjective": {
+        "id": "P1-G5",
+        "area": "grammar",
+        "description": "Zugehörigkeit bei Namen: Pauls Mutter – und mit von + Dativ: die Mutter von Paul."
+      },
+      "currentSourceWholeObjective": {
+        "id": "P1-G5",
+        "area": "grammar",
+        "description": "Zugehörigkeit bei Namen: Pauls Vater – und mit von + Dativ: der Vater von Paul."
+      },
+      "currentSHA256": "52473e9b57a40e249b5e6f8c4ce87be66ce771caebded8b348b0fb373aab908a",
+      "DBBefore": "UNOBSERVED",
+      "wholeSetSHA256": {
+        "pythonSortedUTF8Compact": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+        "jsInsertionJSON": "f3e80d79ad0ec2c338b47a6a64f0e1ac7b6ce6da7f870cce14fa62785071edbe"
+      }
+    },
+    {
+      "pathKey": "A2.1/P1",
+      "id": "P1-K3",
+      "priorSourceWholeObjective": {
+        "id": "P1-K3",
+        "area": "communication",
+        "description": "Sagen, wie jemand etwas findet: Das findet sie toll. Das gefällt ihm nicht."
+      },
+      "currentSourceWholeObjective": {
+        "id": "P1-K3",
+        "area": "communication",
+        "description": "Sagen, wie jemand etwas findet: Das findet er toll. Das gefällt ihm nicht."
+      },
+      "currentSHA256": "3cb953d84535eb855b54d3d38591ea163821432969678b110e0d76ed414cbd1a",
+      "DBBefore": "UNOBSERVED",
+      "wholeSetSHA256": {
+        "pythonSortedUTF8Compact": "f1539c30da670a80ec0903abe884b1baf803259e886bea4ca462c79b1443a57c",
+        "jsInsertionJSON": "f3e80d79ad0ec2c338b47a6a64f0e1ac7b6ce6da7f870cce14fa62785071edbe"
+      }
+    },
+    {
+      "pathKey": "A2.2/P1",
+      "id": "P1-G3",
+      "priorSourceWholeObjective": {
+        "id": "P1-G3",
+        "area": "grammar",
+        "description": "Wünsche ausdrücken: Ich wäre gern am Meer. Sie hätte gern mehr Freizeit. Wir würden gern tanzen."
+      },
+      "currentSourceWholeObjective": {
+        "id": "P1-G3",
+        "area": "grammar",
+        "description": "Wünsche ausdrücken: Ich wäre gern am Meer. Er hätte gern mehr Freizeit. Wir würden gern tanzen."
+      },
+      "currentSHA256": "0fdaae4ca4a5cb029b987436e41015cb0e1bac4a41eaf12b6d7d2e89c5d87944",
+      "DBBefore": "UNOBSERVED",
+      "wholeSetSHA256": {
+        "pythonSortedUTF8Compact": "dcf8979bd6e5fbf53dbf044ec29e25b7c4e3946adb93012fd14f0ed232eebc0f",
+        "jsInsertionJSON": "57662e1f834ffbc1b8c5163c7e0188279e922428906eabb0b9d5675228ef4933"
+      }
+    },
+    {
+      "pathKey": "A2.2/P2",
+      "id": "P2-K4",
+      "priorSourceWholeObjective": {
+        "id": "P2-K4",
+        "area": "communication",
+        "description": "Von einem Gegenstand erzählen: Diese Kette habe ich von meiner Oma bekommen. Sie ist mir besonders wichtig, weil …"
+      },
+      "currentSourceWholeObjective": {
+        "id": "P2-K4",
+        "area": "communication",
+        "description": "Von einem Gegenstand erzählen: Diese Kette habe ich von meinem Opa bekommen. Sie ist mir besonders wichtig, weil …"
+      },
+      "currentSHA256": "9ab82217679a2c5f684b79412f5a66230f0359a1bc4c38b6c2c5e41f9fe2691e",
+      "DBBefore": "UNOBSERVED",
+      "wholeSetSHA256": {
+        "pythonSortedUTF8Compact": "e0d1f27c9279c23f148818d1d4f1c4ac3a4f59d460eb30ad1ba9d3c7808cfd40",
+        "jsInsertionJSON": "eafedd98045afa90b4f5f849ef8f11310a3fab26d95a056b86d27892e42fe51c"
+      }
+    },
+    {
+      "pathKey": "A2.2/P6",
+      "id": "P6-G4",
+      "priorSourceWholeObjective": {
+        "id": "P6-G4",
+        "area": "grammar",
+        "description": "lassen + Infinitiv am Satzende: Sie lässt ihr Konto prüfen. Sie sollten die Reifen wechseln lassen."
+      },
+      "currentSourceWholeObjective": {
+        "id": "P6-G4",
+        "area": "grammar",
+        "description": "lassen + Infinitiv am Satzende: Er lässt sein Konto prüfen. Sie sollten die Reifen wechseln lassen."
+      },
+      "currentSHA256": "f680efe84d6add3f208151158a3d026f576d7d975d8ca0c24ee601f77c8ae68c",
+      "DBBefore": "UNOBSERVED",
+      "wholeSetSHA256": {
+        "pythonSortedUTF8Compact": "d698a01701158139134875913a5a0ef0b2a476a2c3e89a25e7b1478c29b32f0e",
+        "jsInsertionJSON": "683b92a3ad55c239961857e604767f22636a03b4728b26e161438351a96790c2"
+      }
+    }
+  ],
+  "publicationApproved": false,
+  "databaseAdoptionApproved": false,
+  "newSemanticApproval": false,
+  "limits": [
+    "Independent explicit ACCEPT plus exact whole current task/parent/all-goal source binding only. Unsupported or stale evidence remains HOLD.",
+    "Parent approval does not approve unassigned children. Goal compatibility verdict is restricted to assigned reviewed contexts.",
+    "66 current source goal sets have no observed full DB translation/objective before rows; source equality cannot authorize their DB adoption.",
+    "No SSH, database, QA, runtime, audio, production, reset, CAS execution or model run."
+  ],
+  "reconciliationDelta": {
+    "retainedEpoch47Candidates": 224,
+    "epoch47CandidatesNoLongerCurrent": [
+      "0d6870b5-9763-5eb5-a526-b69d4aec65c3",
+      "2ca07843-9514-548c-a9ab-5039e54f2b2c",
+      "328a976e-0f94-5718-a49c-0cd89401eaa2",
+      "38f0bf79-03fc-53fb-a3a3-8fd6236caf8d",
+      "50234931-131f-5d43-abdd-12d5f11434b2",
+      "5103d86a-1d75-5eb0-a327-3dd25e312dad",
+      "5ad6ab57-3700-5af1-a3cb-46202ed8b83e",
+      "6cd866de-f49e-52dc-a647-4c376165a243",
+      "7118d842-bba9-5b3d-a23b-ead85f63b377",
+      "894a9472-a4e7-5d41-a62a-de07dcf56cc0",
+      "95531a50-2eec-52c8-ab16-8e229333270e",
+      "a0c18961-85d2-5d26-a6f3-da43f136a72b",
+      "b19c26ba-95e9-57d1-aeb6-56b014d795a4",
+      "b224006c-a0bd-5534-af96-0a3a71e7a049",
+      "b8ed7cf8-cbb3-5b4d-a635-e16fe176f7bd",
+      "d777df1a-c2ab-50e5-a6a9-11bd1f3dc9a7",
+      "deff0ba9-9c0d-503c-ac49-6875aeb3d5d6",
+      "e61ffd86-5971-50c6-a2ba-a9ce739673ed",
+      "e6cd7bdb-266e-5f8a-a4a1-cc0efdca6e85",
+      "e970a08f-0557-5f4c-a5e4-aae2c36b745f",
+      "f62f9599-037c-59f7-adcf-8571aae75ce8",
+      "f8d11112-613b-5e4a-a2c4-8dec6deca5b7",
+      "fdec6923-6b1d-5b33-a595-5890d6a7d4e4"
+    ],
+    "additionalCurrentCandidates": 202
+  }
+}
