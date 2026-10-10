@@ -153,3 +153,17 @@ it('prevents German cache misses from starting inference through any shared call
   expect(synthesizeNeuralSpeech).not.toHaveBeenCalled()
   expect(storage.upload).not.toHaveBeenCalled()
 })
+
+it('serves clock speech without false display highlights and still rejects profile drift', async () => {
+  const { SITOV_QWEN_PROFILE_FINGERPRINT } = await import('@/lib/audio/neural-identity')
+  const { storage } = storageClient()
+  const text = '8:59', wordTimings = [0, 1, 2].map(start => ({ start, end: start + .5 }))
+  const spokenAlignment = { version: 1, displayText: text, spokenText: 'acht Uhr neunundfünfzig', groups: [{ display: [0, 1], spoken: [0, 3] }] }
+  const metadata = { wordTimings, spokenAlignment, engine: 'qwen3-tts', voice: 'sitov-qwen-male-de-v1', revision: 'sitov-qwen-base-bf16-v1', textSha256: createHash('sha256').update(text).digest('hex'), profileFingerprint: SITOV_QWEN_PROFILE_FINGERPRINT }
+  storage.info.mockResolvedValue({ data: { id: 'object', metadata }, error: null })
+  const asset = await findCachedAudio(neuralAudioPath(text, 'de'), text)
+  expect(asset).toEqual({ audioUrl: privateReference(neuralAudioPath(text, 'de')), spokenAlignment, spokenWordTimings: wordTimings })
+  expect(asset).not.toHaveProperty('wordTimings')
+  storage.info.mockResolvedValue({ data: { id: 'object', metadata: { ...metadata, profileFingerprint: 'drift' } }, error: null })
+  expect(await findCachedAudio(neuralAudioPath(text, 'de'), text)).toBeNull()
+})

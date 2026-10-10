@@ -1,0 +1,74 @@
+{
+  "epoch": 57,
+  "baseCommit": "0de4f64a45bf66b660a901287fb28177685a2f2f",
+  "at": "2026-10-10T09:41:35.323368+00:00",
+  "status": "CODE_TESTED_SQL_PROPOSAL_UNEXECUTED_DEPENDENCY_OPEN",
+  "tests": {
+    "jest": "43/43 PASS,3 focused suites",
+    "python": "15/15 PASS,offline importer/clock tests",
+    "focusedTypecheck": "PASS",
+    "eslint": "PASS"
+  },
+  "metadataChanged": false,
+  "audioBundleWrites": false,
+  "databaseWrites": false,
+  "profileFingerprintChanged": false,
+  "contract": {
+    "version": 1,
+    "groups": "display:[start,end),spoken:[start,end); ordered exact full coverage",
+    "wordTimings": "metadata timings index SPOKEN tokens",
+    "serverAsset": "spokenAlignment + spokenWordTimings; no legacy wordTimings",
+    "allowedTextChanges": "canonical German H:MM / H:MM Uhr expansion only; punctuation preserved",
+    "legacy": "unchanged validators and return shape"
+  },
+  "remaining": [
+    "SQL proposal requires M review, isolated SQL tests and a new numbered migration. No migration applied.",
+    "No actual asset metadata rewrite/import/selection/publication. Human audio verdicts untouched."
+  ],
+  "files": {
+    "lib/types/audio.ts": {
+      "bytes": 1397,
+      "sha256": "ad64370ba01d5611f2b7c5bd04f8557092ddf48b5e7229decd70c874595ee61d"
+    },
+    "lib/audio/spoken-alignment.ts": {
+      "bytes": 3493,
+      "sha256": "a4f4fd7ce6717bf7942f22f9d8ecd940babda7998dc21a6c78786cf2657941f0"
+    },
+    "lib/audio/neural-cache.ts": {
+      "bytes": 3589,
+      "sha256": "3812ddc2f72beb1a152e64868362b902039aa095acc43ee5c29d1ca031ae5b40"
+    },
+    "lib/audio/prepared-content.ts": {
+      "bytes": 3601,
+      "sha256": "90dc278f45505ebf268eb59bf57ab08b1d972c526f58ccb1c24cba7fea9c5a72"
+    },
+    "deploy/vps/import-sitov-qwen-audio.py": {
+      "bytes": 16509,
+      "sha256": "724bb02948a1ff3d13b3f38a9a8fc426d44e02e60b20578496a40c040dbaec36"
+    },
+    "__tests__/spoken-alignment.test.ts": {
+      "bytes": 2131,
+      "sha256": "5e4a30e8b272095e50e3095d1aeb2f34ed66faad565db9e4e6b8cc0ede6e5a21"
+    },
+    "__tests__/neural-audio-cache.test.ts": {
+      "bytes": 11339,
+      "sha256": "d0c17fcffed8702d639c926b3f370ccac4ec7e2c486d7a7050fddbbb2b042639"
+    },
+    "__tests__/prepared-content.test.ts": {
+      "bytes": 7934,
+      "sha256": "41d4b6c21ab6106c7839cbebe003804631d34b61020ae59b7fdcaebc9ce668bb"
+    },
+    "deploy/vps/tests/test_spoken_alignment.py": {
+      "bytes": 1245,
+      "sha256": "3a695a7777b087b12bbebd9ba29588f713170d3d41bb17b8de2c046d482d5b03"
+    },
+    "deploy/vps/tests/test_import_sitov_qwen_audio.py": {
+      "bytes": 16546,
+      "sha256": "d6240cc907e0333d321becf3c1da199fa816cca9c1c54a8f603e78c99f755634"
+    },
+    "docs/handoffs/SITOV-NIGHT-2026-10-08/S4/epoch57-spoken-alignment-proposal.sql": {
+      "bytes": 6760,
+      "sha256": "40e84c33184c081785e2bae9dab23b2e435ae024e3ba6b8fd354b0e3d691f004"
+    }
+  }
+}

@@ -72,6 +72,51 @@ def valid_timings(value, text):
     return True
 
 
+def valid_spoken_alignment(value, timings, text):
+    if not isinstance(value, dict) or type(value.get('version')) is not int or value['version'] != 1 or value.get('displayText') != normalize_text(text):
+        return False
+    spoken = value.get('spokenText')
+    groups = value.get('groups')
+    if not isinstance(spoken, str) or not spoken or spoken != normalize_text(spoken) or not isinstance(groups, list) or not 0 < len(groups) <= 1500 or not valid_timings(timings, spoken):
+        return False
+    words, actual = text.split(), spoken.split()
+    if any(any(c.isalnum() for c in token) and t['end'] <= t['start'] for token, t in zip(actual, timings)):
+        return False
+    small = ['null', 'eins', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun', 'zehn', 'elf', 'zwölf', 'dreizehn', 'vierzehn', 'fünfzehn', 'sechzehn', 'siebzehn', 'achtzehn', 'neunzehn']
+    tens = ['', '', 'zwanzig', 'dreißig', 'vierzig', 'fünfzig']
+    def number(n):
+        return small[n] if n < 20 else (('ein' if n % 10 == 1 else small[n % 10]) + 'und' if n % 10 else '') + tens[n // 10]
+    d = a = 0
+    changed = False
+    for group in groups:
+        if not isinstance(group, dict):
+            return False
+        dr, sr = group.get('display'), group.get('spoken')
+        if not isinstance(dr, list) or not isinstance(sr, list) or len(dr) != 2 or len(sr) != 2 or any(type(i) is not int for i in dr + sr):
+            return False
+        ds, de = dr
+        ss, se = sr
+        if ds != d or ss != a or not ds < de <= len(words) or not ss < se <= len(actual):
+            return False
+        before, after = words[ds:de], actual[ss:se]
+        if before != after:
+            m = re.fullmatch(r'([01]?[0-9]|2[0-3]):([0-5][0-9])([.,!?;:]?)', before[0])
+            if not m or len(before) > 2 or len(before) == 2 and (m[3] or not re.fullmatch(r'Uhr[.,!?;:]?', before[1])):
+                return False
+            hour, minute = int(m[1]), int(m[2])
+            expected = ['ein' if hour == 1 else number(hour), 'Uhr'] + ([number(minute)] if minute else [])
+            expected[-1] += before[1][3:] if len(before) == 2 else m[3]
+            if expected != after:
+                return False
+            changed = True
+        d, a = de, se
+    return changed and d == len(words) and a == len(actual)
+
+
+def valid_metadata_alignment(metadata, text):
+    return valid_spoken_alignment(metadata['spokenAlignment'], metadata.get('wordTimings'), text) if 'spokenAlignment' in metadata else valid_timings(metadata.get('wordTimings'), text)
+
+
 def validate_bundle(root, profile):
     if (profile.get('schemaVersion') != 1 or profile.get('engine') != 'qwen3-tts'
             or profile.get('language') != 'German' or profile.get('profile') != 'male'
@@ -119,7 +164,7 @@ def validate_bundle(root, profile):
             raise ValueError('Invalid MP3')
         if row.get('audioSha256') != digest(audio) or metadata.get('audioSha256') != digest(audio) or metadata.get('textSha256') != digest(text.encode()):
             raise ValueError('Audio/text checksum mismatch')
-        if metadata.get('engine') != profile['engine'] or metadata.get('voice') != profile['voice'] or metadata.get('revision') != profile['revision'] or metadata.get('profileFingerprint') != fingerprint or not valid_timings(metadata.get('wordTimings'), text):
+        if metadata.get('engine') != profile['engine'] or metadata.get('voice') != profile['voice'] or metadata.get('revision') != profile['revision'] or metadata.get('profileFingerprint') != fingerprint or not valid_metadata_alignment(metadata, text):
             raise ValueError('Invalid provider/alignment metadata')
         planned.append((row, audio, metadata))
     return planned
@@ -169,6 +214,7 @@ def verified_remote(storage, row, metadata, verify_bytes=False):
     info = storage.info(row['cachePath'])
     remote = info_metadata(info)
     matched = all(remote.get(key) == metadata[key] for key in ['engine', 'voice', 'revision', 'profileFingerprint', 'textSha256', 'audioSha256', 'wordTimings'])
+    matched = matched and remote.get('spokenAlignment') == metadata.get('spokenAlignment')
     if matched and verify_bytes:
         audio = storage.request('/object/authenticated/audio_cache/' + row['cachePath'])
         matched = bool(audio) and digest(audio) == row['audioSha256']

@@ -2,7 +2,7 @@ import type { Json } from '@/supabase/database.types'
 import type { Trainer } from '@/lib/access/levels'
 import type { NeuralSpeechAsset } from '@/lib/types/audio'
 import { normalizeAudioText, vocabularyAudioText } from './neural-config'
-import { validWordTimings } from './playback-settings'
+import { validPreparedAlignment } from './spoken-alignment'
 
 export const SITOV_PREPARED_AUDIO_REQUIRED = 'prepared_audio_required'
 
@@ -55,7 +55,7 @@ export async function requirePreparedGermanAudio(texts: readonly string[]): Prom
   for (let offset = 0; offset < unique.length; offset += 8) {
     const batch = await Promise.all(unique.slice(offset, offset + 8).map(async text => {
       const asset = await findCachedAudio(neuralAudioPath(text, 'de'), text)
-      if (!asset || !validWordTimings(asset.wordTimings, text)) {
+      if (!asset || !validPreparedAlignment(asset, text)) {
         missing.push(text)
         return null
       }

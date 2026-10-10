@@ -5,7 +5,19 @@ export type GermanAudioVoice = 'male'
 
 /** Seconds on the media timeline, one entry per whitespace-delimited token. */
 export interface AudioWordTiming { start: number; end: number }
-export interface NeuralSpeechAsset { audioUrl: string; wordTimings?: AudioWordTiming[] }
+export interface SitovSpokenAlignment {
+  version: 1
+  displayText: string
+  spokenText: string
+  groups: { display: [number, number]; spoken: [number, number] }[]
+}
+export interface NeuralSpeechAsset {
+  audioUrl: string
+  wordTimings?: AudioWordTiming[]
+  /** Server validation only: never pass spoken indices to display highlighting. */
+  spokenAlignment?: SitovSpokenAlignment
+  spokenWordTimings?: AudioWordTiming[]
+}
 
 export interface GenerateAudioInput {
   text: string

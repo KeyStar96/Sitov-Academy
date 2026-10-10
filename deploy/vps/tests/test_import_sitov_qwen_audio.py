@@ -83,6 +83,24 @@ class ImportSitovQwenAudioTests(unittest.TestCase):
         self.write_manifest(manifest)
         return manifest
 
+    def test_grouped_clock_bundle_and_remote_alignment_are_bound(self):
+        manifest = self.bundle(texts=('5:30 Uhr',))
+        path = manifest['rows'][0]['cachePath']
+        metadata = json.loads(self.metadata_path(path).read_text())
+        metadata['spokenAlignment'] = {'version': 1, 'displayText': '5:30 Uhr', 'spokenText': 'fünf Uhr dreißig', 'groups': [{'display': [0, 2], 'spoken': [0, 3]}]}
+        metadata['wordTimings'] = [{'start': i, 'end': i + .5} for i in range(3)]
+        self.metadata_path(path).write_text(json.dumps(metadata))
+        self.assertEqual(len(MODULE.validate_bundle(self.root, PROFILE)), 1)
+        storage = FakeStorage()
+        storage.objects[path] = ((self.root / path).read_bytes(), metadata)
+        self.assertTrue(MODULE.verified_remote(storage, manifest['rows'][0], metadata))
+        bad = copy.deepcopy(metadata); bad['spokenAlignment']['spokenText'] = 'fünf Uhr vierzig'
+        storage.objects[path] = ((self.root / path).read_bytes(), bad)
+        self.assertFalse(MODULE.verified_remote(storage, manifest['rows'][0], metadata))
+        self.metadata_path(path).write_text(json.dumps(bad))
+        with self.assertRaises(ValueError):
+            MODULE.validate_bundle(self.root, PROFILE)
+
     def metadata_path(self, path):
         return self.root / (path + '.json')
 

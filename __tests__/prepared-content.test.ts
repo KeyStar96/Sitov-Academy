@@ -103,3 +103,9 @@ test('the database assigns prepared references and explicit teacher references r
   await expect(saveLearningContent(typed, 'vocabulary', { ...vocabulary, audio_url: recording }, id)).rejects.toThrow()
   expect(value.rpc.mock.calls[1][1].p_payload.fields.audio_url).toBe(recording)
 })
+
+test('accepts validated spoken clock groups without display timings', async () => {
+  jest.mocked(findCachedAudio).mockResolvedValue({ audioUrl: '/clock', spokenAlignment: { version: 1, displayText: '5:30 Uhr', spokenText: 'fünf Uhr dreißig', groups: [{ display: [0, 2], spoken: [0, 3] }] }, spokenWordTimings: [0, 1, 2].map(start => ({ start, end: start + .5 })) })
+  expect((await requirePreparedGermanAudio(['5:30 Uhr'])).size).toBe(1)
+  expect(requestGermanAudioPreparation).not.toHaveBeenCalled()
+})

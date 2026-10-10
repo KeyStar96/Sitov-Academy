@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 
 import { createAdminClient } from '@/utils/supabase/admin'
 import { validWordTimings } from './playback-settings'
+import { validSpokenAlignment } from './spoken-alignment'
 import type { GermanAudioVoice, NeuralSpeechAsset, NeuralAudioLanguage } from '@/lib/types/audio'
 import { AUDIO_CACHE_BUCKET, AUDIO_CACHE_VERSION, SITOV_QWEN_PROFILE, normalizeAudioText } from './neural-config'
 import { SITOV_QWEN_PROFILE_FINGERPRINT } from './neural-identity'
@@ -19,14 +20,17 @@ export async function findCachedAudio(path: string, text?: string): Promise<Neur
     throw error
   }
   if (!data) return null
+  const grouped = data.metadata?.spokenAlignment !== undefined
+  const spokenAlignment = grouped && text ? validSpokenAlignment(data.metadata.spokenAlignment, data.metadata?.wordTimings, text) : undefined
+  if (grouped && !spokenAlignment) return null
   const wordTimings = validWordTimings(data.metadata?.wordTimings, text ? normalizeAudioText(text) : undefined)
-  if (path.startsWith(`${AUDIO_CACHE_VERSION}/de/`) && (!wordTimings
+  if (path.startsWith(`${AUDIO_CACHE_VERSION}/de/`) && (!(spokenAlignment || wordTimings)
     || data.metadata?.engine !== SITOV_QWEN_PROFILE.engine
     || data.metadata?.voice !== SITOV_QWEN_PROFILE.voice
     || data.metadata?.revision !== SITOV_QWEN_PROFILE.revision
     || data.metadata?.profileFingerprint !== SITOV_QWEN_PROFILE_FINGERPRINT
     || (text && data.metadata?.textSha256 !== createHash('sha256').update(normalizeAudioText(text)).digest('hex')))) return null
-  return { audioUrl: `storage://${AUDIO_CACHE_BUCKET}/${path}`, ...(wordTimings ? { wordTimings } : {}) }
+  return { audioUrl: `storage://${AUDIO_CACHE_BUCKET}/${path}`, ...(spokenAlignment ? { spokenAlignment, spokenWordTimings: validWordTimings(data.metadata?.wordTimings, spokenAlignment.spokenText) } : wordTimings ? { wordTimings } : {}) }
 }
 
 // Deduplicate simultaneous requests in one worker; immutable paths handle cross-worker races.
