@@ -1,0 +1,291 @@
+{
+  "epoch": 74,
+  "status": "TWO_FULL_NATIVE_DIAGNOSTIC_CANDIDATES_CANONICAL_MAPPING_HOLD",
+  "outputDir": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1",
+  "inputSha256": "2857060724cfb216933bac4f117cf6174ae3d7d8144c282b50d564ac331e0f8a",
+  "humanEvidenceSha256": "adc21071dfbe810524829a73d614fec39b40517178863cba19c90604badc2bee",
+  "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+  "newNativeTakes": 2,
+  "results": [
+    {
+      "id": "sitov.s3epoch74.clock.1",
+      "displayText": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Am Nachmittag kauft er ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Wann steht Oleh auf? um 5:30 Uhr",
+      "spokenText": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Am Nachmittag kauft er ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Wann steht Oleh auf? um fünf Uhr dreißig",
+      "displayTextSha256": "2303e16ac1675bf468929973f92ccc39f213a209716e5579b4af530154eb4a52",
+      "spokenTextSha256": "e5cd982b05c277a32057743e8859e30a0cd045ae3b25fb4e98ca23ed37906331",
+      "aliases": [
+        "239aa0d4-a9f7-5055-aaee-5a81c236027d:0"
+      ],
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/d76991741af85a186c01aeb4a5f652bf5abd8b4381923845f1fee6099dba2cd1.mp3",
+      "audioSha256": "caf14129793ed358af8bfd1b616c2ac7450b1984d13ec0dbdfff3ddbeb4ac0ff",
+      "originalNativeMetadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/d76991741af85a186c01aeb4a5f652bf5abd8b4381923845f1fee6099dba2cd1.json",
+      "originalNativeMetadataSha256": "dd40de116144171b60e1079abe32acfe400b386bf756c23b78466d34c39045c1",
+      "diagnosticSpokenMetadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/d76991741af85a186c01aeb4a5f652bf5abd8b4381923845f1fee6099dba2cd1.diagnostic-spoken-metadata.json",
+      "diagnosticSpokenMetadataSha256": "7273be7ff32aec690d853d2f7ea5bf89db6a1dcb171675a3981da1154847a42b",
+      "rawWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/raw/e5cd982b05c277a32057743e8859e30a0cd045ae3b25fb4e98ca23ed37906331.wav",
+      "rawWavSha256": "6959f54aebc68ca7b16b9711c90aa70e6e740cddfa3d3dff49d0efd063636728",
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/d76991741af85a186c01aeb4a5f652bf5abd8b4381923845f1fee6099dba2cd1.full-decode.wav",
+      "fullDecodedWavSha256": "5b69880699a25cade864516f4ea333ee897d1e97dff6156867a4cac677d7b1d0",
+      "actualDecodedDuration": 14.19,
+      "rawReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/raw-classifier-receipts/7105dcb294d91fe2d3751624d01fdf9ee835b799cf01b631fc5de7eeacc88827.json",
+      "rawReceiptSha256": "35181814c35c482e545df19ca4a4678e05313b4776221eb357b388038f339c56",
+      "rawArraysSha256": "91569dced311a9c33a4c46bb7dfa9bd8b66f7e43dff3c76646d2f00750b272ca",
+      "rawDecisionAccepted": true,
+      "rawDecisionRecomputed": true,
+      "smallASR": {
+        "id": "sitov.s3epoch74.clock.1",
+        "textExpected": "Oleh ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Am Nachmittag kauft er ein und kocht. Am Abend ruft er seinen Vater in Lwiw an. Um zehn Uhr geht er ins Bett. Wann steht Oleh auf? um fünf Uhr dreißig",
+        "textObserved": "Ole ist Pfleger im Krankenhaus. Er steht um halb sechs auf und frühstückt. Von sieben bis fünfzehn Uhr arbeitet er. Am Nachmittag kauft er ein und kocht. Am Abend ruft er seinen Vater in Livia an. Um zehn Uhr geht er ins Bett. Wann steht Ole auf? Um fünf Uhr dreißig.",
+        "audioSha256": "caf14129793ed358af8bfd1b616c2ac7450b1984d13ec0dbdfff3ddbeb4ac0ff"
+      },
+      "clockRendering": {
+        "sourceGroup": "5:30 Uhr",
+        "spokenGroup": "fünf Uhr dreißig",
+        "displayCharacterSpan": [
+          251,
+          259
+        ],
+        "spokenCharacterSpan": [
+          251,
+          267
+        ],
+        "value": {
+          "hour": 5,
+          "minute": 30
+        },
+        "displayWhitespaceTokens": 50,
+        "spokenWhitespaceTokens": 51,
+        "outsideClockGroupByteExact": true,
+        "spokenOnlyWordTimings": true,
+        "canonicalDisplayWordTimingsCreated": false,
+        "oneToOneMapping": false,
+        "tokenOrderWithinGroupChanges": true,
+        "canonicalMappingStatus": "HOLD_EXPLICIT_MULTIWORD_GROUP_REQUIRES_SEPARATE_PRODUCT_CONTRACT",
+        "publicationApproved": false
+      },
+      "humanListening": false,
+      "publicationApproved": false,
+      "completeSmallASRWordDifferences": [
+        {
+          "op": "replace",
+          "expected": [
+            "oleh"
+          ],
+          "observed": [
+            "ole"
+          ]
+        },
+        {
+          "op": "replace",
+          "expected": [
+            "lwiw"
+          ],
+          "observed": [
+            "livia"
+          ]
+        },
+        {
+          "op": "replace",
+          "expected": [
+            "oleh"
+          ],
+          "observed": [
+            "ole"
+          ]
+        }
+      ],
+      "spokenWordTimingsCount": 51,
+      "expectedClockPhrasePresentInSmallASR": true,
+      "humanRehearingRequired": true
+    },
+    {
+      "id": "sitov.s3epoch74.clock.0",
+      "displayText": "Es ist 8:59. Oleh sagt: „Es ist gleich neun.“",
+      "spokenText": "Es ist acht Uhr neunundfünfzig. Oleh sagt: „Es ist gleich neun.“",
+      "displayTextSha256": "2fe4a566139111140da3250281c30c2590aa2b5ba9b80474aeadb20322383c0d",
+      "spokenTextSha256": "b15326ede00f1855371c32e75fa09b1ad9b34ea2ff003edf980571fe24d20da8",
+      "aliases": [
+        "e42167d3-36c4-5270-a696-406897292843:0"
+      ],
+      "mp3": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/1899cffda5ae6afa93c6c4031ad048219066affdbbbe9938ae5a7d669179d2e5.mp3",
+      "audioSha256": "2bb1f7a7d7cb64253f7f89b51865ae8370f9406a6da841dfddba2cae57820d41",
+      "originalNativeMetadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/1899cffda5ae6afa93c6c4031ad048219066affdbbbe9938ae5a7d669179d2e5.json",
+      "originalNativeMetadataSha256": "c9f851fa86a9be4f5a63c69d006a352515ada82cf1de9d3fe2d4c9b46bace09e",
+      "diagnosticSpokenMetadata": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/1899cffda5ae6afa93c6c4031ad048219066affdbbbe9938ae5a7d669179d2e5.diagnostic-spoken-metadata.json",
+      "diagnosticSpokenMetadataSha256": "876cc604085f25708d85fd2b2c93919df537a1cbf1d132848f3300912242a8cd",
+      "rawWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/raw/b15326ede00f1855371c32e75fa09b1ad9b34ea2ff003edf980571fe24d20da8.wav",
+      "rawWavSha256": "f44e8a6376a3124112b3cc0d6e9d66ed6f101573cc09d5aed66c57c710f08e8c",
+      "fullDecodedWav": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/1899cffda5ae6afa93c6c4031ad048219066affdbbbe9938ae5a7d669179d2e5.full-decode.wav",
+      "fullDecodedWavSha256": "bf4c66eced762a38391ebfef9afc4fb466ff88566827b97c1c40322d491cd135",
+      "actualDecodedDuration": 4.43,
+      "rawReceipt": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/raw-classifier-receipts/34688d7aa35376aed895149faa6af2e7b62276a61c3e852e72e8a9d1673128de.json",
+      "rawReceiptSha256": "5049d95164eeb66c9e75891240012253dc3488e2d54eb67b73b1e2ea44ebb654",
+      "rawArraysSha256": "e402060e9bc33bdc49a461f806f230158598773367c97675d2769c211b05d713",
+      "rawDecisionAccepted": true,
+      "rawDecisionRecomputed": true,
+      "smallASR": {
+        "id": "sitov.s3epoch74.clock.0",
+        "textExpected": "Es ist acht Uhr neunundfünfzig. Oleh sagt: „Es ist gleich neun.“",
+        "textObserved": "Es ist acht Uhr neunundfünfzig. Oleg sagt: Es ist gleich neun.",
+        "audioSha256": "2bb1f7a7d7cb64253f7f89b51865ae8370f9406a6da841dfddba2cae57820d41"
+      },
+      "clockRendering": {
+        "sourceGroup": "8:59",
+        "spokenGroup": "acht Uhr neunundfünfzig",
+        "displayCharacterSpan": [
+          7,
+          11
+        ],
+        "spokenCharacterSpan": [
+          7,
+          30
+        ],
+        "value": {
+          "hour": 8,
+          "minute": 59
+        },
+        "displayWhitespaceTokens": 9,
+        "spokenWhitespaceTokens": 11,
+        "outsideClockGroupByteExact": true,
+        "spokenOnlyWordTimings": true,
+        "canonicalDisplayWordTimingsCreated": false,
+        "oneToOneMapping": false,
+        "tokenOrderWithinGroupChanges": false,
+        "canonicalMappingStatus": "HOLD_EXPLICIT_MULTIWORD_GROUP_REQUIRES_SEPARATE_PRODUCT_CONTRACT",
+        "publicationApproved": false
+      },
+      "humanListening": false,
+      "publicationApproved": false,
+      "completeSmallASRWordDifferences": [
+        {
+          "op": "replace",
+          "expected": [
+            "oleh"
+          ],
+          "observed": [
+            "oleg"
+          ]
+        }
+      ],
+      "spokenWordTimingsCount": 11,
+      "expectedClockPhrasePresentInSmallASR": true,
+      "humanRehearingRequired": true
+    }
+  ],
+  "wordTimingsApplyOnlyToSpokenInputs": true,
+  "canonicalDisplayWordTimingsCreated": false,
+  "noSourceIdsOrAnswerEdits": true,
+  "noImport": true,
+  "publicationApproved": false,
+  "originalRejectedMetadataBindings": [
+    {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-source-gap2-v1/7ad227edafb3dc4420b4496a2cb97c39e83132465a1dee9b4af2a7429dc50bdb.json",
+      "actualSHA256": "17ef88889292cad3dcb499c294e16b47bc025db7dd5c3e51ef4a3f0ba7eea988",
+      "inputSHA256": "17ef88889292cad3dcb499c294e16b47bc025db7dd5c3e51ef4a3f0ba7eea988",
+      "exact": true
+    },
+    {
+      "path": "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-source-frozen-retakes-v1/f69517aa08257514f68dc466a35850413154226d8bc8b53153415f38a013559c.json",
+      "actualSHA256": "394ff0d1b8b8df2994ccd08a474f1c3d39e3d7cde1a4b4f605501229e28c9588",
+      "inputSHA256": "394ff0d1b8b8df2994ccd08a474f1c3d39e3d7cde1a4b4f605501229e28c9588",
+      "exact": true
+    }
+  ],
+  "ownedJobsRemaining": 0,
+  "technicalVerification": {
+    "nativeFullTakes": 2,
+    "croppingSplicingStretching": false,
+    "fullMP3DecodeCount": 2,
+    "realFinalRawAlignmentReceipts": 2,
+    "actualRawLogitsInputArraysVerified": 2,
+    "rawMonotoneDecisionsIndependentlyRecomputed": 2,
+    "positiveSpokenWordTimings": {
+      "sitov.s3epoch74.clock.1": 51,
+      "sitov.s3epoch74.clock.0": 11
+    },
+    "onlyClockRenderingTextDiff": true,
+    "noCanonicalDisplayTimingsInvented": true,
+    "sourceAliasesByteExact": 2,
+    "rate": 1,
+    "ttsRevision": "a6eb4f68e4b056f1215157bb696209bc82a6db48",
+    "alignerRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+    "humanPass": false,
+    "productionMetadataPass": false,
+    "thresholdsEmpiricallyCalibrated": false
+  },
+  "sourceBindings": {
+    "sourceFilesSha256": {
+      "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-a1.1.json": "19e0c14637f69ad1bb738cb88595fea2eec5455c932461f84b710b866a543efa",
+      "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-a1.2.json": "51c74e840fc0905722822f7c6b24b3842dc54c4fb7e628d90e2b4df794939429",
+      "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-a2.1.json": "3a5b3336c286a26cd4aed66b0858aa3eeda2b83e557d4b9f0f0f099ec731557e",
+      "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-a2.2.json": "10b0224657b85f92f3acfee3f4455983b5edaf3c11b01a45280edb26d769fe1f",
+      "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-b1.1.json": "91eef07260950fe8901a20b9b783ad7b15586f6fd43e2e7037830fa54990444d",
+      "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-b1.2.json": "793e7a322d320229ac71adcf96da33a87a5f51222ae4ec90c7328dc423932cb5",
+      "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-b2.1.json": "bd5e4494053b53f6b63ed485ec40bc1cd0fa520a45da87a05fd9c18b44337665",
+      "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-b2.2.json": "87d0c8b3eb012e0c76be18370cb4325ed5c70fb01c89fa6058ba7af86be0126a",
+      "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-c1.1.json": "b86031af3af56c11967480e2d3b8648f79d5cdf1a5082b4b2cec81f124ee965c",
+      "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/supabase/seeds/path-c1.2.json": "d6509817ad181b8e634739711a73c8e7671eda13aac1bb5002d366b0ec50f0b5"
+    },
+    "checks": [
+      {
+        "alias": "e42167d3-36c4-5270-a696-406897292843:0",
+        "sourceTextByteExact": true,
+        "textSha256": "2fe4a566139111140da3250281c30c2590aa2b5ba9b80474aeadb20322383c0d"
+      },
+      {
+        "alias": "239aa0d4-a9f7-5055-aaee-5a81c236027d:0",
+        "sourceTextByteExact": true,
+        "textSha256": "2303e16ac1675bf468929973f92ccc39f213a209716e5579b4af530154eb4a52"
+      }
+    ],
+    "contentCommit": "6c26022d91d9d00bf1b112f9efb11e481d9e361c"
+  },
+  "codeAndConfigSha256": {
+    "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/scripts/sitov_qwen_runtime.py": "ec1f299bed570181b383ef89be48174ca0ca1b14082edd8d997f2aa23309d1e9",
+    "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/scripts/sitov_qwen_alignment.py": "3f4fb466f234c552608e9f5f799f631759c3f8788c938a6a3c594e8ce4746dae",
+    "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/scripts/sitov-qwen-generate.py": "f3ff8bdd80643ffd41b55fe091f2eb3db8c2aeaff620d18d97bf405c32e60d4f",
+    "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/scripts/sitov-qwen-align-prepared.py": "2202765b1964542a4b6f166dda64aea18e75647cc8d3fd2c7d32edbfc61eb65f",
+    "/Users/denniskostjuk/.codex/worktrees/sitov-night-s3/SmartGerman/lib/audio/models/sitov-qwen-male-de/config.json": "a0ec8738c48bf228fed95ca8f8f34344e0e596b3eaea29a47b5c6d53bdb887df"
+  },
+  "privateNativeArtifactSha256": {
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/1899cffda5ae6afa93c6c4031ad048219066affdbbbe9938ae5a7d669179d2e5.diagnostic-spoken-metadata.json": "876cc604085f25708d85fd2b2c93919df537a1cbf1d132848f3300912242a8cd",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/1899cffda5ae6afa93c6c4031ad048219066affdbbbe9938ae5a7d669179d2e5.full-decode.wav": "bf4c66eced762a38391ebfef9afc4fb466ff88566827b97c1c40322d491cd135",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/1899cffda5ae6afa93c6c4031ad048219066affdbbbe9938ae5a7d669179d2e5.json": "c9f851fa86a9be4f5a63c69d006a352515ada82cf1de9d3fe2d4c9b46bace09e",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/1899cffda5ae6afa93c6c4031ad048219066affdbbbe9938ae5a7d669179d2e5.mp3": "2bb1f7a7d7cb64253f7f89b51865ae8370f9406a6da841dfddba2cae57820d41",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/asr-diagnostic-private.json": "0fc4c8659e0d4c3c931057a1a769fdd963f93a8a2f01a2e10e72eb8a0c062e1a",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/catalog.json": "c3e17e0fffe4741e55ea34e11ae16a089d5db5d6a7d555a265869ec724a32460",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/d76991741af85a186c01aeb4a5f652bf5abd8b4381923845f1fee6099dba2cd1.diagnostic-spoken-metadata.json": "7273be7ff32aec690d853d2f7ea5bf89db6a1dcb171675a3981da1154847a42b",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/d76991741af85a186c01aeb4a5f652bf5abd8b4381923845f1fee6099dba2cd1.full-decode.wav": "5b69880699a25cade864516f4ea333ee897d1e97dff6156867a4cac677d7b1d0",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/d76991741af85a186c01aeb4a5f652bf5abd8b4381923845f1fee6099dba2cd1.json": "dd40de116144171b60e1079abe32acfe400b386bf756c23b78466d34c39045c1",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/d76991741af85a186c01aeb4a5f652bf5abd8b4381923845f1fee6099dba2cd1.mp3": "caf14129793ed358af8bfd1b616c2ac7450b1984d13ec0dbdfff3ddbeb4ac0ff",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/original-and-spoken-bindings-private.json": "3259c7cbec2d776bab3789ed637fb632a1b35e516d621f588d826c7c2615e1f8",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/raw/b15326ede00f1855371c32e75fa09b1ad9b34ea2ff003edf980571fe24d20da8.wav": "f44e8a6376a3124112b3cc0d6e9d66ed6f101573cc09d5aed66c57c710f08e8c",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/raw/e5cd982b05c277a32057743e8859e30a0cd045ae3b25fb4e98ca23ed37906331.wav": "6959f54aebc68ca7b16b9711c90aa70e6e740cddfa3d3dff49d0efd063636728",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/raw-classifier-receipts/34688d7aa35376aed895149faa6af2e7b62276a61c3e852e72e8a9d1673128de.json": "5049d95164eeb66c9e75891240012253dc3488e2d54eb67b73b1e2ea44ebb654",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/raw-classifier-receipts/34688d7aa35376aed895149faa6af2e7b62276a61c3e852e72e8a9d1673128de.npz": "e402060e9bc33bdc49a461f806f230158598773367c97675d2769c211b05d713",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/raw-classifier-receipts/7105dcb294d91fe2d3751624d01fdf9ee835b799cf01b631fc5de7eeacc88827.json": "35181814c35c482e545df19ca4a4678e05313b4776221eb357b388038f339c56",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/raw-classifier-receipts/7105dcb294d91fe2d3751624d01fdf9ee835b799cf01b631fc5de7eeacc88827.npz": "91569dced311a9c33a4c46bb7dfa9bd8b66f7e43dff3c76646d2f00750b272ca",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/sitov-qwen-manifest.json": "3c0d1df7895ad9fff64b32d1634aa14d72c881c13bdf84f73214467a5caae1c9",
+    "/Users/denniskostjuk/Documents/SitovAcademy/sitov-audio-authoring/sitov-night-20261010-s3epoch74-full-clock2-v1/sitov-qwen-progress.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "privateEvidenceSha256": {
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch74-decode-0.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch74-decode-1.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch74-phase-ledger.json": "f4058155c1f86bc1aeb6155e8eb9b1f5e9a69bce2337c43ba73396b7efa95044",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch74-pipeline.py": "d78413065f512473c15f0270dbd149694f6e639cca7a078a4482e9c8d6779c81",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch74-raw-final-full-clock2.log": "aca51d7e59d934c74e32333ed35c9fb4b2fd28c629b04061cadb7aec6ecd9ec3",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch74-review-package.json": "6ddb600b24527ae05da569e57673254093a657bcf06fd03ba623b51d0bbf5ca7",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch74-save.py": "ce731fa11da6765a384bdae2e26595c698121325d1ccf7b203e74b8635c0a661",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch74-small-final-full-clock2.log": "49a6e373d4c167dd17bec5b1b6cb8586380110d16f366514afb4996feedd72c6",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch74-source-bindings.json": "e6f649436c7462181abd6cf2ff3505e0fcef0194c6e974a1831e6b3f16c09169",
+    "/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/.git/sitov-orchestration/SITOV-NIGHT-2026-10-08/S3/epoch74-tts-full-clock2.log": "be06436c952d9b20aecfdf2ad4022f7ec64f22f2b986acb0cb53ee6ce1bc04c0"
+  },
+  "limits": [
+    "Two new complete diagnostic MP3s only; no other queue work",
+    "ASR phrase match does not establish audible correctness or naturalness; complete reported name differences retained",
+    "Display8:59->spoken3words and display5:30Uhr->spoken3words/reorderedUhr remain canonical mapping HOLD",
+    "All timestamps apply exclusively to exact spoken text; no display timestamp projection, registry/cache or production metadata pass",
+    "No task/source/answer/ID/profile/parameter changes; no SSH/DB/storage/QA/production/import",
+    "No new human approval; exact full-recording hearing required"
+  ]
+}
