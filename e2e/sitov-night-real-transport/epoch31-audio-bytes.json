@@ -1,0 +1,11 @@
+{
+  "bytes": 83756,
+  "sha256": "9b092de30df8673721a37f0e2d03fe76f641d6bec6b76aaece3212aaa6e24a0b",
+  "actualBrowserMediaDownload": true,
+  "productionFinalBytesClaim": false,
+  "retainedQAExactByteMatches": [
+    "sitov-qwen-v1/de/4be453b468b73a8d95e99c2fc02b788b05dc746a59f6951cbaed267a19e78d75.mp3"
+  ],
+  "retainedFullTextSha256": "9b092de30df8673721a37f0e2d03fe76f641d6bec6b76aaece3212aaa6e24a0b",
+  "differentShortSentenceAudioBoundary": "QA Ich lerne Deutsch retained239b47; distinct productioncandidate7b4c not tested"
+}

@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-10T03:27:36.572200+00:00",
+  "normalLogout": true,
+  "cleanupMutationStatementsCompleted": true,
+  "authDeletePeopleAuditOutboxOwnAccountKeyCompleted": true,
+  "finalSnapshotCountsQueryCompletedButNotPersisted": true,
+  "full188FinalHashes": "UNVERIFIED SQL failed then health assertion failed",
+  "runtimeRepairAttempted": false,
+  "sharedRateCounterReset": false,
+  "cleanupFullyConfirmed": false,
+  "privateRemoteLedgerRetained": true
+}

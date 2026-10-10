@@ -1,0 +1,19 @@
+{
+  "attempts": 2,
+  "statuses": [
+    "passed",
+    "failed"
+  ],
+  "definitions": [
+    "33a26b75-e3f3-4fab-8766-1104800a4aab",
+    "33a26b75-e3f3-4fab-8766-1104800a4aab"
+  ],
+  "texts": [
+    "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+    "6d2f8e95-6f87-510b-b244-0631733f8ff9"
+  ],
+  "passes": 1,
+  "passDefinitions": [
+    "33a26b75-e3f3-4fab-8766-1104800a4aab"
+  ]
+}

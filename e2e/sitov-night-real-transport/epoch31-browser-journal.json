@@ -1,0 +1,194 @@
+[
+  {
+    "phase": "FAIL",
+    "question": 1,
+    "taskId": "sitov.pretest.a11-01.nominal.q6",
+    "prompt": "Wessen Mann ist Paul in »Mein Mann heißt Paul«?",
+    "choice": "Der Mann des Zuhörers.",
+    "at": "2026-10-10T03:20:33.032Z"
+  },
+  {
+    "phase": "FAIL",
+    "question": 2,
+    "taskId": "sitov.pretest.a11-01.nominal.q2",
+    "prompt": "Ergänze: ___ Mann heißt Paul.",
+    "choice": "Meine",
+    "at": "2026-10-10T03:20:46.021Z"
+  },
+  {
+    "phase": "FAIL",
+    "question": 3,
+    "taskId": "sitov.pretest.a11-01.nominal.q1",
+    "prompt": "Ergänze: ___ Familie ist klein.",
+    "choice": "Mein",
+    "at": "2026-10-10T03:20:46.938Z"
+  },
+  {
+    "phase": "FAIL",
+    "question": 4,
+    "taskId": "sitov.pretest.a11-01.syntax.q3",
+    "prompt": "Welcher Satz nennt ein Alter in korrekter deutscher Wortstellung?",
+    "choice": "Ich lerne Deutsch.",
+    "at": "2026-10-10T03:20:48.053Z"
+  },
+  {
+    "phase": "FAIL",
+    "question": 5,
+    "taskId": "sitov.pretest.a11-01.syntax.q1",
+    "prompt": "Welcher Satz hat die normale Aussagesatzstellung?",
+    "choice": "Ich Leon heiße.",
+    "at": "2026-10-10T03:20:48.853Z"
+  },
+  {
+    "phase": "FAIL",
+    "question": 6,
+    "taskId": "sitov.pretest.a11-01.syntax.q6",
+    "prompt": "Was beschreibt »klein« in »Meine Familie ist klein«?",
+    "choice": "Die Stadt.",
+    "at": "2026-10-10T03:20:49.553Z"
+  },
+  {
+    "phase": "FAIL",
+    "question": 7,
+    "taskId": "sitov.pretest.a11-01.verbs.q5",
+    "prompt": "Ergänze: Wir ___ zusammen Deutsch.",
+    "choice": "lernt",
+    "at": "2026-10-10T03:20:50.254Z"
+  },
+  {
+    "phase": "FAIL",
+    "question": 8,
+    "taskId": "sitov.pretest.a11-01.verbs.q6",
+    "prompt": "Welche zwei Grundformen gehören zu »Wir trinken Tee und lesen ein Buch«?",
+    "choice": "trinken und lernen",
+    "at": "2026-10-10T03:20:58.966Z"
+  },
+  {
+    "phase": "FAIL",
+    "question": 9,
+    "taskId": "sitov.pretest.a11-01.verbs.q1",
+    "prompt": "Welche Grundform gehört zu »heiße« in »Ich heiße Leon«?",
+    "choice": "heizen",
+    "at": "2026-10-10T03:20:59.667Z"
+  },
+  {
+    "phase": "FAIL",
+    "question": 10,
+    "taskId": "sitov.pretest.a11-01.words.q6",
+    "prompt": "Welcher Tagesabschnitt ist »der Abend«?",
+    "choice": "Die Mittagszeit.",
+    "at": "2026-10-10T03:21:00.599Z"
+  },
+  {
+    "phase": "FAIL",
+    "question": 11,
+    "taskId": "sitov.pretest.a11-01.words.q4",
+    "prompt": "Was bedeutet »dreißig Jahre alt«?",
+    "choice": "Das Alter ist 13 Jahre.",
+    "at": "2026-10-10T03:21:01.385Z"
+  },
+  {
+    "phase": "FAIL",
+    "question": 12,
+    "taskId": "sitov.pretest.a11-01.words.q1",
+    "prompt": "Was bedeutet »ich heiße Leon«?",
+    "choice": "Ich wohne bei Leon.",
+    "at": "2026-10-10T03:21:02.286Z"
+  },
+  {
+    "phase": "PASS_RETAKE",
+    "question": 1,
+    "taskId": "sitov.pretest.a11-01.nominal.q5",
+    "prompt": "Wer spricht in »Ich komme aus Polen« über sich selbst?",
+    "choice": "Die sprechende Person.",
+    "at": "2026-10-10T03:23:34.397Z"
+  },
+  {
+    "phase": "PASS_RETAKE",
+    "question": 2,
+    "taskId": "sitov.pretest.a11-01.nominal.q3",
+    "prompt": "Welche Form passt zwischen »Wir lesen« und »Buch«?",
+    "choice": "ein",
+    "at": "2026-10-10T03:23:35.136Z"
+  },
+  {
+    "phase": "PASS_RETAKE",
+    "question": 3,
+    "taskId": "sitov.pretest.a11-01.nominal.q4",
+    "prompt": "Wen umfasst das Wort »wir«?",
+    "choice": "Die sprechende Person und mindestens eine weitere Person.",
+    "at": "2026-10-10T03:23:35.850Z"
+  },
+  {
+    "phase": "PASS_RETAKE",
+    "question": 4,
+    "taskId": "sitov.pretest.a11-01.syntax.q5",
+    "prompt": "Übung: »Wir trinken Tee und kaufen Milch.« Was trinken wir?",
+    "choice": "Tee.",
+    "at": "2026-10-10T03:23:36.550Z"
+  },
+  {
+    "phase": "PASS_RETAKE",
+    "question": 5,
+    "taskId": "sitov.pretest.a11-01.syntax.q4",
+    "prompt": "Welche Wortfolge vervollständigt den Aussagesatz nach »Am Abend«?",
+    "choice": "trinken wir Tee",
+    "at": "2026-10-10T03:23:37.249Z"
+  },
+  {
+    "phase": "PASS_RETAKE",
+    "question": 6,
+    "taskId": "sitov.pretest.a11-01.syntax.q2",
+    "prompt": "Was verbindet »und« in »Ich komme aus Polen und wohne in Hannover«?",
+    "choice": "Zwei Aussagen über dieselbe Person.",
+    "at": "2026-10-10T03:23:37.950Z"
+  },
+  {
+    "phase": "PASS_RETAKE",
+    "question": 7,
+    "taskId": "sitov.pretest.a11-01.verbs.q2",
+    "prompt": "Ergänze: Ich ___ aus Polen.",
+    "choice": "komme",
+    "at": "2026-10-10T03:23:47.882Z"
+  },
+  {
+    "phase": "PASS_RETAKE",
+    "question": 8,
+    "taskId": "sitov.pretest.a11-01.verbs.q4",
+    "prompt": "Ergänze: Ich ___ dreißig Jahre alt.",
+    "choice": "bin",
+    "at": "2026-10-10T03:23:48.584Z"
+  },
+  {
+    "phase": "PASS_RETAKE",
+    "question": 9,
+    "taskId": "sitov.pretest.a11-01.verbs.q3",
+    "prompt": "Welches Wort ist das gebeugte Verb in »Ich wohne jetzt in Hannover«?",
+    "choice": "wohne",
+    "at": "2026-10-10T03:23:49.283Z"
+  },
+  {
+    "phase": "PASS_RETAKE",
+    "question": 10,
+    "taskId": "sitov.pretest.a11-01.words.q3",
+    "prompt": "Was bedeutet »in Hannover wohnen«?",
+    "choice": "In Hannover leben.",
+    "at": "2026-10-10T03:23:49.984Z"
+  },
+  {
+    "phase": "PASS_RETAKE",
+    "question": 11,
+    "taskId": "sitov.pretest.a11-01.words.q2",
+    "prompt": "Was sagt »aus Polen kommen« aus?",
+    "choice": "Polen ist das Herkunftsland.",
+    "at": "2026-10-10T03:23:50.732Z"
+  },
+  {
+    "phase": "PASS_RETAKE",
+    "question": 12,
+    "taskId": "sitov.pretest.a11-01.words.q5",
+    "prompt": "Was bedeutet »zusammen lernen«?",
+    "choice": "Gemeinsam lernen.",
+    "at": "2026-10-10T03:23:51.433Z"
+  }
+]
